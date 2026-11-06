@@ -12,8 +12,8 @@ SITE = 'https://example.ru'
 NAV = [('method.html','Method'),('council.html',PLAT),('cases.html','Cases'),('industries.html','Industries'),
        ('formats.html','Formats'),('bureau.html','Bureau'),('insights.html','Insights')]
 
-def photo(name, alt, cls=''):
-    return f'<figure class="photo gen {cls}"><img src="{{a}}assets/img/{name}" alt="{alt}" loading="lazy" decoding="async"></figure>'
+def photo(name, alt, cls='', gen=True):
+    return f'<figure class="photo{" gen" if gen else ""} {cls}"><img src="{{a}}assets/img/{name}" alt="{alt}" loading="lazy" decoding="async"></figure>'
 
 def chip(z):
     m={'AI':'green','Hybrid':'amber','No AI':'red','Defer':'grey'}
@@ -311,7 +311,7 @@ deliver = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li
  ('Decision matrix','recommendation and deployment status for every process, with rationale'),
  ('Business case','effect, total cost of ownership, assumptions'),
  ('Risk register','scenario, likelihood, impact, controls, residual risk, accountable role'),
- ('Roadmap','actions for every gap and risk, completion criteria, the deployment stage they unlock'),('Dissenting views','where experts disagreed and why'),('Signature','who is accountable for the assessment')]) + '</ul>'
+ ('Roadmap','actions for every gap and risk, completion criteria, the deployment stage they unlock'),('Dissenting views','where experts disagreed and why'),('Signature','who signed the findings and stands behind them')]) + '</ul>'
 method = hero('Method','Method · decision before deployment','First decide whether AI is needed. Then work.','We do not sell implementation. We issue a comprehensive expert assessment of every process — technological, economic, legal and industry-specific. And the bureau has the right to say “AI is not needed here”.') + \
  sec('verdicts','Four verdicts','A verdict for every process', ZONES) + \
  sec('criteria','Eight factors','Eight readiness factors — for each process separately', crit_html, muted=True) + \
@@ -395,9 +395,9 @@ principles = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}<
  ('Verifiable numbers','every metric has a method and assumptions'),
  ('Design supervision','we stay accountable for the result even when your contractors implement')]) + '</ul>'
 pubs = '<ul class="pubs"><li class="pub reveal"><span class="pub-year">2020</span><span class="pub-title">A method for ice reconnaissance using drones</span><span class="pub-meta">NGN journal, No. 9/2020, pp. 21–26 · sole author</span></li><li class="pub reveal"><span class="pub-year">2025</span><span class="pub-title">Nature-based solutions in the Russian Arctic</span><span class="pub-meta">Sustainability (MDPI), 17, 10409 · consulting contribution</span></li></ul>'
-bureau = hero('Bureau','Bureau','Like a design bureau: a chief designer, calculations, execution','A compact senior team with its own method. We are not intermediaries between you and contractors — we are accountable for the assessment.') + \
+bureau = hero('Bureau','Bureau','Like a design bureau: a chief designer, calculations, execution','A compact senior team with its own method. We are not intermediaries between you and contractors — we sign our findings and stand behind them.') + \
  f'''<section class="section" id="founder"><div class="container split-rev split">
-  {photo('founder.jpg','Sergey Zubkov, founder of the bureau','photo-34 reveal')}
+  {photo('founder.jpg','Sergey Zubkov, founder of the bureau','photo-34 reveal', gen=False)}
   <div class="prose reveal"><p class="eyebrow">Founder · chief designer</p><h2 class="section-title">Sergey Zubkov</h2>
   <p>Personally leads diagnostics, architecture and governance and signs every assessment. 20+ years in IT and data, 8+ years in AI projects, 3 AI products on the market.</p>
   <p>Keeps hands-on skills: designs and writes code himself with Cursor + Devin + GitHub.</p>
