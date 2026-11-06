@@ -7,3 +7,6 @@ desktop.ini
 .DS_Store
 ~$*
 *.tmp
+
+# Python build cache
+__pycache__/

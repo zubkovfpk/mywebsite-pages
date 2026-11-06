@@ -2,6 +2,7 @@
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lang_detect import lang_script
+from radar import radar_svg
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BRAND = 'Zubkov Bureau'
 ROLE = 'Evidence-based AI bureau'
@@ -111,12 +112,12 @@ ZONES = '''<div class="zones">
 </div>'''
 
 MATRIX = '''<div class="matrix-wrap reveal"><table class="matrix">
-  <thead><tr><th scope="col">Process</th><th scope="col">Verdict</th><th scope="col">Why</th><th scope="col">Effect / timeline</th></tr></thead>
+  <thead><tr><th scope="col">Process</th><th scope="col">Verdict</th><th scope="col">Status</th><th scope="col">Why</th><th scope="col">Effect / timeline</th></tr></thead>
   <tbody>
-  <tr><td>Triage of incoming hull insurance applications</td><td>%s</td><td>Unstructured documents, high volume, errors are correctable by a person</td><td>−40–60%% manual review · 3 mo.</td></tr>
-  <tr><td>Premium calculation under underwriting rules</td><td>%s</td><td>Rules are stable and regulated; full explainability required</td><td>Rules in code · 1 mo.</td></tr>
-  <tr><td>Reconciling completion certificates with ERP</td><td>%s</td><td>LLM extracts fields, logic reconciles, disputed items go to a person</td><td>−30%% closing cycle · 2 mo.</td></tr>
-  <tr><td>Seasonal fleet utilisation forecast</td><td>%s</td><td>Less than two years of history; collect data first</td><td>Revisit in 12 mo.</td></tr>
+  <tr><td>Triage of incoming hull insurance applications</td><td>%s</td><td><span class="status status-ok">Pilot eligible</span></td><td>Unstructured documents, high volume, errors are correctable by a person</td><td>−40–60%% manual review · 3 mo.</td></tr>
+  <tr><td>Premium calculation under underwriting rules</td><td>%s</td><td><span class="status status-ok">Pilot eligible</span></td><td>Rules are stable and regulated; full explainability required</td><td>Rules in code · 1 mo.</td></tr>
+  <tr><td>Reconciling completion certificates with ERP</td><td>%s</td><td><span class="status status-wait">Eligible after prerequisites</span></td><td>LLM extracts fields, logic reconciles, disputed items go to a person</td><td>−30%% closing cycle · 2 mo.</td></tr>
+  <tr><td>Seasonal fleet utilisation forecast</td><td>%s</td><td><span class="status status-gap">Insufficient evidence</span></td><td>Less than two years of history; collect data first</td><td>Revisit in 12 mo.</td></tr>
   </tbody></table></div>
 <p class="section-note reveal">Demonstration example, not client data. Figures are illustrative: in a real assessment every estimate comes with a method and assumptions.</p>''' % (chip('AI'),chip('No AI'),chip('Hybrid'),chip('Defer'))
 
@@ -273,33 +274,54 @@ RESP = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' 
  ('Numbers','the method and assumptions behind every effect estimate'),
  ('Design supervision','conformity of the implementation with the assessment — whether by our team or by external developers and contractors'),
  ('Governance','monitoring, KRIs and a human in the loop on critical decisions')]) + '</ul>'
-crit = [('Data','Is there history, labelling and access to data','No data — “defer”'),
-        ('Variability','Do rules repeat, or do patterns change','Stable rules — “no AI”'),
-        ('Cost of error','What happens if the model is wrong','Unacceptable error — rules and a person'),
-        ('Explainability','Must every decision be justified to a regulator','Full explainability — “no AI” or hybrid'),
-        ('Scale','How many operations per day and what manual work costs','Low volume — conventional automation'),
-        ('Payback','Total cost of ownership versus effect','No payback — “do not do it”'),
-        ('Regulation','Personal data law, sector rules, closed environment','Defines architecture and hosting'),
-        ('Owner','Is there a person accountable for the result','No owner — “defer”')]
-crit_html = '<div class="matrix-wrap reveal"><table class="matrix criteria"><thead><tr><th>Criterion</th><th>What we check</th><th>How it affects the verdict</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{b}</td><td>{c}</td></tr>' for a,b,c in crit) + '</tbody></table></div>'
+crit = [('Strategic value','Goals and KPIs, expected benefits, total cost of ownership, funding, non-AI alternatives','Finance'),
+        ('Process suitability','Variability, unstructured inputs, volume, exceptions, cost of error, process stability: AI or rules','Process'),
+        ('Data readiness','Availability, quality, representativeness, provenance, rights and access, evaluation datasets','Technology'),
+        ('Technology and integration','APIs, infrastructure, identity integration, hosting constraints, vendor dependencies','Technology'),
+        ('People and change','Sponsor, process owner, acceptance, skills and training, workflow redesign, incentives','Process'),
+        ('Governance, legal and compliance','Permitted purpose, data-use rights, privacy, sector rules, contracts and IP, accountability, auditability','Compliance + Legal'),
+        ('Security and resilience','Threat model, sensitive-data exposure, injection, tool permissions, supply chain, incident response','AI security'),
+        ('Operational assurance','Acceptance tests, evaluations, monitoring, escalation, rollback, ownership, change control, running costs','Technology')]
+crit_html = '<div class="matrix-wrap reveal"><table class="matrix criteria"><thead><tr><th>Factor</th><th>What we assess</th><th>Analytical lead</th></tr></thead><tbody>' + ''.join(f'<tr><td>{i}. {a}</td><td>{b}</td><td><span class="factor-lead">{c}</span></td></tr>' for i,(a,b,c) in enumerate(crit,1)) + '</tbody></table></div><p class="section-note reveal">The factors describe your process, not how the platform is built: each factor has a lead role, and other roles contribute. The industry expert takes part in all eight. Legal, financial and industry findings are reviewed by human experts.</p>'
+RADAR = radar_svg(['Value','Process','Data','Technology','People','Governance','Security','Operations'],
+    [3,2,1,3,2,None,2,1], [3,3,3,2,2,3,3,2], 'not assessed', 'Demonstration readiness radar across eight factors')
+SCORING = '<div class="split"><figure class="radar-fig reveal">' + RADAR + '<div class="radar-legend"><span class="lg-cur">current profile</span><span class="lg-req">required for a supervised pilot</span></div><figcaption>Demonstration example. Status: “insufficient evidence” — governance is not assessed; data and operations are below the required level.</figcaption></figure><div class="reveal"><ol class="scale">' + ''.join(f'<li><span class="scale-num">{n}</span><span>{t}</span></li>' for n,t in [
+ ('0','Absent or unsuitable — and demonstrably so'),('1','Ad hoc, substantial gaps'),('2','Partially established, material gaps'),('3','Adequate for the stated deployment stage'),('4','Established, tested, monitored')]) + '</ol><ul class="tick-list">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
+ ('“Not assessed” is not zero','an evidence gap shows as a break in the radar line, not a dip to the centre'),
+ ('No average score','a weak factor cannot be offset by a strong one; we do not compute radar area'),
+ ('Targets depend on the stage','a human-supervised pilot and production use need different profiles'),
+ ('Every score has evidence','sources, assumptions, confidence and evidence coverage — kept separate from the score'),
+ ('A working rubric','the scale is calibrated on reference cases and versioned')]) + '</ul></div></div>'
+def st(k):
+    m={'ok':'Pilot eligible','wait':'Eligible after prerequisites','block':'Blocked','gap':'Insufficient evidence'}
+    return f'<span class="status status-{k}">{m[k]}</span>'
+DECISION = '<div class="split decision"><div class="reveal"><h3>Recommendation — what to use</h3><ul class="decision-list">' + ''.join(f'<li>{chip(c)}{t}</li>' for c,t in [
+ ('AI','a model where rules cannot describe the task'),('Hybrid','AI for some subtasks; rules and people for critical decisions'),('No AI','deterministic automation: rules, integrations, reporting'),('Defer','data, procedures or a process owner come first')]) + '</ul></div><div class="reveal"><h3>Deployment status — can it go ahead now</h3><ul class="decision-list">' + ''.join(f'<li>{st(k)}{t}</li>' for k,t in [
+ ('ok','sufficient evidence, no binding block, all prerequisites met — a human-supervised pilot can start'),('wait','close the prerequisites in the roadmap first'),('block','a verified legal, compliance or security block'),('gap','critical evidence gaps — more information is needed')]) + '</ul></div></div><div class="precedence reveal"><p><b>Order of checks.</b> A legal, compliance or security block means “blocked” regardless of scores. Otherwise, critical gaps mean “insufficient evidence”. Otherwise, unmet prerequisites mean “eligible after prerequisites”.</p><p>An “AI” recommendation is not permission to deploy. Pilot eligibility is not production approval: production needs its own required profile and sign-off.</p></div>'
 steps = '<ol class="steps steps-5">' + ''.join(f'<li class="step reveal"><span class="step-num">{n}</span><h3 class="step-title">{t}</h3><p class="step-meta">{m}</p><p class="step-text">{d}</p></li>' for n,t,m,d in [
  ('01','Diagnostics','2–4 weeks','Processes, data, systems, maturity. Analysis from seven angles.'),
- ('02','Decision','Matrix by process','Four verdicts with metrics, risks, assumptions and confidence level.'),
+ ('02','Decision','Matrix by process','A verdict and deployment status for every process, with risks, assumptions, confidence and evidence coverage.'),
  ('03','Roadmap','≈1 week','Priorities by value and feasibility. First results in 6–8 weeks.'),
  ('04','Implementation','Production standard','Monitoring, KRIs, autonomy limits, a human in the loop on critical decisions.'),
  ('05','Design supervision','Throughout implementation','If your developers or contractors implement: we check conformity with the assessment, accept phases and track metrics.')]) + '</ol>'
 deliver = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
- ('Executive summary','the decision on one page for the CEO'),('Decision matrix','a verdict for every process with rationale'),
- ('Business case','effect, total cost of ownership, assumptions'),('Risk register','technical, legal, AI security'),
- ('Roadmap','phases, timelines, resources'),('Dissenting views','where experts disagreed and why'),('Signature','who is accountable for the assessment')]) + '</ul>'
+ ('Executive summary','the decision on one page for the CEO'),
+ ('Readiness radar','current and required profile across eight factors; for broad audits, a process × factor heatmap'),
+ ('Evidence table','score, sources, assumptions, confidence and coverage for every factor'),
+ ('Decision matrix','recommendation and deployment status for every process, with rationale'),
+ ('Business case','effect, total cost of ownership, assumptions'),
+ ('Risk register','scenario, likelihood, impact, controls, residual risk, accountable role'),
+ ('Roadmap','actions for every gap and risk, completion criteria, the deployment stage they unlock'),('Dissenting views','where experts disagreed and why'),('Signature','who is accountable for the assessment')]) + '</ul>'
 method = hero('Method','Method · decision before deployment','First decide whether AI is needed. Then work.','We do not sell implementation. We issue a comprehensive expert assessment of every process — technological, economic, legal and industry-specific. And the bureau has the right to say “AI is not needed here”.') + \
  sec('verdicts','Four verdicts','A verdict for every process', ZONES) + \
- sec('criteria','Criteria','Eight questions every decision answers', crit_html, muted=True) + \
+ sec('criteria','Eight factors','Eight readiness factors — for each process separately', crit_html, muted=True) + \
+ sec('scoring','Scoring','A 0–4 scale and a radar: current profile against the required one', SCORING) + \
+ sec('decision','Decision','Recommendation and deployment status are two separate decisions', DECISION, muted=True) + \
  sec('process','Process','Diagnostics before deployment', steps) + \
  sec('sample','What you get','An assessment, not a presentation on AI possibilities', MATRIX + '<h3 class="section-title" style="font-size:1.4rem;margin-top:48px">What the assessment contains</h3>' + deliver, muted=True) + \
  sec('responsibility','Accountability','What the bureau is accountable for', RESP) + \
  sec('faq','FAQ','The method in brief', faq_html(FAQ[1:3]+FAQ[4:])) + CTA
-page('method.html', f'Method — {BRAND}', 'Four verdicts, eight criteria and the contents of the assessment: how the bureau decides where AI is needed and where conventional automation is enough.', method, 'method.html')
+page('method.html', f'Method — {BRAND}', 'Eight readiness factors, four verdicts, deployment status and the contents of the assessment: how the bureau decides where AI is needed and where conventional automation is enough.', method, 'method.html')
 
 # ================= COUNCIL =================
 flow = '<ol class="steps steps-5">' + ''.join(f'<li class="step reveal"><span class="step-num">{n}</span><h3 class="step-title">{t}</h3><p class="step-text">{d}</p></li>' for n,t,d in [
@@ -389,7 +411,7 @@ page('bureau.html', f'About the bureau — {BRAND}', 'Founder Sergey Zubkov, eng
 
 # ================= INSIGHTS =================
 notes = [('Case study','Why the core of ice warnings works without a neural network','Where the cost of error decides the technology.'),
-         ('Method','Eight questions to ask before implementing AI','A checklist for the CEO.'),
+         ('Method','Eight factors of AI readiness','A checklist for the CEO.'),
          ('Industry','AI in marine insurance: what to automate and what not to','Application triage, premiums, claims.'),
          ('Case study','“3 of 8”: how we dropped LLM in five subtasks','A developer case.'),
          ('Architecture','A deterministic orchestrator instead of yet another agent','How '+PLAT+' is built.'),
