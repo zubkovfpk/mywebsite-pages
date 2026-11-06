@@ -9,6 +9,7 @@
   <url><loc>https://example.ru/bureau.html</loc></url>
   <url><loc>https://example.ru/insights.html</loc></url>
   <url><loc>https://example.ru/contact.html</loc></url>
+  <url><loc>https://example.ru/sample.html</loc></url>
   <url><loc>https://example.ru/cases/vizard.html</loc></url>
   <url><loc>https://example.ru/cases/morspas.html</loc></url>
   <url><loc>https://example.ru/cases/geodesy.html</loc></url>
@@ -26,6 +27,7 @@
   <url><loc>https://example.ru/en/bureau.html</loc></url>
   <url><loc>https://example.ru/en/insights.html</loc></url>
   <url><loc>https://example.ru/en/contact.html</loc></url>
+  <url><loc>https://example.ru/en/sample.html</loc></url>
   <url><loc>https://example.ru/en/cases/vizard.html</loc></url>
   <url><loc>https://example.ru/en/cases/morspas.html</loc></url>
   <url><loc>https://example.ru/en/cases/geodesy.html</loc></url>

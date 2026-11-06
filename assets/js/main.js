@@ -62,3 +62,19 @@ document.querySelectorAll('a[hreflang]').forEach(function (a) {
     try { localStorage.setItem('site-lang', a.getAttribute('hreflang')); } catch (e) {}
   });
 });
+
+// Sample report gate (prototype: unlocks locally, nothing is sent)
+(function () {
+  var f = document.getElementById('gate-form');
+  if (!f) return;
+  var root = document.documentElement;
+  try { if (localStorage.getItem('report-unlocked')) root.classList.add('report-unlocked'); } catch (e) {}
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    try { localStorage.setItem('report-unlocked', '1'); } catch (e2) {}
+    root.classList.add('report-unlocked');
+    var t = document.getElementById('report-thanks');
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
