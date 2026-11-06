@@ -1,0 +1,9 @@
+# Source photos: originals, not used by the site; kept on disk only
+foto/
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+*.tmp
