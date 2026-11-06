@@ -1,0 +1,424 @@
+# -*- coding: utf-8 -*-
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lang_detect import lang_script
+OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BRAND = 'Zubkov Bureau'
+ROLE = 'Evidence-based AI bureau'
+PLAT = 'Council 7+1'
+SITE = 'https://example.ru'
+
+NAV = [('method.html','Method'),('council.html',PLAT),('cases.html','Cases'),('industries.html','Industries'),
+       ('formats.html','Formats'),('bureau.html','Bureau'),('insights.html','Insights')]
+
+def photo(name, alt, cls=''):
+    return f'<figure class="photo gen {cls}"><img src="{{a}}assets/img/{name}" alt="{alt}" loading="lazy" decoding="async"></figure>'
+
+def chip(z):
+    m={'AI':'green','Hybrid':'amber','No AI':'red','Defer':'grey'}
+    return f'<span class="chip chip-{m[z]}">{z}</span>'
+
+def page(sub, title, desc, body, active=None):
+    path = 'en/' + sub
+    depth = path.count('/')
+    a = '../'*depth
+    r = '../'*(depth-1)
+    cur = ' aria-current="page"'
+    nav = ''.join(f'<a href="{r}{h}"{cur if h==active else ""}>{t}</a>' for h,t in NAV)
+    fnav = ''.join(f'<a href="{r}{h}">{t}</a>' for h,t in NAV) + f'<a href="{r}contact.html">Contact</a><a href="{a}{sub}" hreflang="ru">RU</a>'
+    canon = sub.replace('index.html','')
+    html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content="{desc}">
+  <link rel="canonical" href="{SITE}/en/{canon}">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{SITE}/assets/img/team.jpg">
+  <link rel="alternate" hreflang="ru" href="{SITE}/{canon}">
+  <link rel="alternate" hreflang="en" href="{SITE}/en/{canon}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231C1B18'/%3E%3Crect x='14' y='20' width='10' height='24' fill='%232E7D4F'/%3E%3Crect x='27' y='20' width='10' height='24' fill='%23A9740F'/%3E%3Crect x='40' y='20' width='10' height='24' fill='%23B3402E'/%3E%3C/svg%3E">
+  {lang_script('en', f'{a}{sub}')}
+  <link rel="stylesheet" href="{a}assets/css/style.css">
+  <script type="application/ld+json">
+  {{"@context":"https://schema.org","@type":"ProfessionalService","name":"{BRAND} — {ROLE.lower()}","url":"{SITE}/en/",
+   "description":"Process diagnostics that decide where AI is justified, profitable and safe, and where conventional automation is enough.",
+   "founder":{{"@type":"Person","name":"Sergey Zubkov","jobTitle":"Founder, chief designer","sameAs":["https://www.linkedin.com/in/sergey-a-zubkov"]}},
+   "areaServed":"RU","knowsAbout":["AI strategy","Process diagnostics","MLOps","Maritime logistics","Mining","ESG"]}}
+  </script>
+</head>
+<body>
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="wordmark" href="{r}index.html" aria-label="{BRAND} — home">
+      <span class="wordmark-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><span class="wordmark-name">{BRAND}</span><span class="wordmark-role">{ROLE}</span></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      {nav}
+      <a class="nav-lang" href="{a}{sub}" hreflang="ru">RU</a>
+      <a class="nav-cta" href="{r}contact.html">45-minute call</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+<main>
+{body.replace('{a}', a).replace('{r}', r)}
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year">2026</span> {BRAND} · {ROLE.lower()} · Sergey Zubkov</p>
+    <nav class="footer-nav" aria-label="Sitemap">{fnav}</nav>
+    <p class="footer-note">Prototype: working names; photos are AI-generated and will be replaced. Nothing on this site constitutes a public offer.</p>
+  </div>
+</footer>
+<a class="to-top" href="#top" aria-label="Back to top">↑</a>
+<script src="{a}assets/js/main.js"></script>
+</body>
+</html>
+'''
+    html = html.replace('AI-фото · заглушка', 'AI image · placeholder')
+    p = os.path.join(OUT, path); os.makedirs(os.path.dirname(p), exist_ok=True)
+    open(p, 'w', encoding='utf-8').write(html)
+
+def hero(crumb, eyebrow, title, sub, extra=''):
+    c = f'<p class="crumbs"><a href="{{r}}index.html">Home</a> / {crumb}</p>' if crumb else ''
+    return f'''<section class="page-hero"><div class="container">{c}
+  <p class="eyebrow reveal">{eyebrow}</p><h1 class="hero-title reveal">{title}</h1>
+  <p class="hero-sub reveal">{sub}</p>{extra}</div></section>'''
+
+def sec(id_, eyebrow, title, inner, muted=False, lead=''):
+    l = f'<p class="section-lead reveal">{lead}</p>' if lead else ''
+    return f'''<section class="section{' section-muted' if muted else ''}" id="{id_}"><div class="container">
+  <p class="eyebrow reveal">{eyebrow}</p><h2 class="section-title reveal">{title}</h2>{l}
+  {inner}</div></section>'''
+
+CTA = '''<section class="cta-band"><div class="container">
+  <h2 class="section-title">Start with a conversation, not a budget</h2>
+  <p>45 minutes on your context and questions. You leave knowing how much diagnostics you actually need.</p>
+  <div class="hero-cta"><a class="btn btn-primary" href="{r}contact.html">45-minute call</a>
+  <a class="btn btn-ghost" href="{r}formats.html">Formats and pricing</a></div></div></section>'''
+
+ZONES = '''<div class="zones">
+  <article class="zone zone-green reveal"><p class="zone-tag">AI is justified</p><p class="zone-text">Unstructured data, variable patterns, scale, predictive value.</p><p class="zone-example">Oil-slick detection from drone imagery: 91% accuracy where the sea area used to be patrolled by vessel.</p></article>
+  <article class="zone zone-amber reveal"><p class="zone-tag">Hybrid</p><p class="zone-text">AI for some subtasks; rules and people for critical decisions.</p><p class="zone-example">A developer's document flow: LLM in 3 of 8 subtasks, only where accuracy exceeds 95%.</p></article>
+  <article class="zone zone-red reveal"><p class="zone-tag">No AI</p><p class="zone-text">Stable rules, low volume, zero tolerance for error, not enough data.</p><p class="zone-example">Warning a vessel approaching an ice zone is deterministic logic: route geometry and time thresholds.</p></article>
+  <article class="zone zone-grey reveal"><p class="zone-tag">Defer</p><p class="zone-text">A sound idea, but too early: little data, processes not ready, or no owner.</p><p class="zone-example">First put data and procedures in order; return to AI when there is something to learn from and someone accountable.</p></article>
+</div>'''
+
+MATRIX = '''<div class="matrix-wrap reveal"><table class="matrix">
+  <thead><tr><th scope="col">Process</th><th scope="col">Verdict</th><th scope="col">Why</th><th scope="col">Effect / timeline</th></tr></thead>
+  <tbody>
+  <tr><td>Triage of incoming hull insurance applications</td><td>%s</td><td>Unstructured documents, high volume, errors are correctable by a person</td><td>−40–60%% manual review · 3 mo.</td></tr>
+  <tr><td>Premium calculation under underwriting rules</td><td>%s</td><td>Rules are stable and regulated; full explainability required</td><td>Rules in code · 1 mo.</td></tr>
+  <tr><td>Reconciling completion certificates with ERP</td><td>%s</td><td>LLM extracts fields, logic reconciles, disputed items go to a person</td><td>−30%% closing cycle · 2 mo.</td></tr>
+  <tr><td>Seasonal fleet utilisation forecast</td><td>%s</td><td>Less than two years of history; collect data first</td><td>Revisit in 12 mo.</td></tr>
+  </tbody></table></div>
+<p class="section-note reveal">Demonstration example, not client data. Figures are illustrative: in a real assessment every estimate comes with a method and assumptions.</p>''' % (chip('AI'),chip('No AI'),chip('Hybrid'),chip('Defer'))
+
+COUNCIL = '''<div class="council">
+  <div class="council-lead reveal"><span class="council-num">+1</span><h3>Lead agent</h3><p>Clarifies the context until there is enough of it, briefs the expert roles, consolidates findings and dissenting views.</p></div>
+  <div class="council-grid"><ol class="council-experts">
+    <li class="reveal"><span class="council-num">1</span><h3>Process</h3><p>Where the real losses and bottlenecks are</p></li>
+    <li class="reveal"><span class="council-num">2</span><h3>Technology</h3><p>What to use: AI, rules, integration</p></li>
+    <li class="reveal"><span class="council-num">3</span><h3>Industry</h3><p>Practice and constraints of your sector</p><p class="council-human">+ human expert</p></li>
+    <li class="reveal"><span class="council-num">4</span><h3>Finance</h3><p>Payback and total cost of ownership</p><p class="council-human">+ human expert</p></li>
+    <li class="reveal"><span class="council-num">5</span><h3>Legal</h3><p>Contracts, data, liability</p><p class="council-human">+ human expert</p></li>
+    <li class="reveal"><span class="council-num">6</span><h3>Compliance</h3><p>Data protection law, sector rules, closed environments</p></li>
+    <li class="reveal"><span class="council-num">7</span><h3>AI security</h3><p>MLSecOps: attacks, leaks, autonomy limits</p></li>
+  </ol><div class="council-sign reveal"><span class="council-num">= 1 decision</span><h3>Human signature</h3><p>The bureau's chief designer reviews the findings and signs the assessment.</p></div></div>
+</div>'''
+
+CASES = [
+ dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic · VIZARD product',
+      title='+13% Northern Sea Route voyages and +14.5% speed in ice',
+      short='7 AI modules on a single safety runtime for oil and gas groups and a shipping operator. Under 1% of agent actions outside permitted bounds.',
+      facts=[('Industry','Maritime logistics, oil and gas'),('Role','Architecture, product'),('Team','grew from 2 to 17'),('Core','Safety runtime')],
+      task='Make ice navigation safer and more efficient for several clients without losing control: every agent decision must stay within permitted bounds.',
+      verdict=[('Ice conditions from satellite data','AI','Variable patterns, high image volume'),('Warning of approach to an ice zone','No AI','Errors are unacceptable: route geometry and time thresholds'),('Route recommendations','Hybrid','The model suggests, the captain decides')],
+      result='+14.5% speed in ice, +13% Northern Sea Route voyages, −65% fishing gear losses. Hard prohibitions live in the runtime; critical decisions keep a human in the loop.'),
+ dict(slug='morspas', img='uav.jpg', tags='Federal maritime rescue service · sea area monitoring',
+      title='−38% vessel-days for sea area monitoring',
+      short='From continuous visual patrolling to targeted drone monitoring. Oil-slick detection: 91% accuracy, no more than 10% false positives.',
+      facts=[('Industry','Maritime safety, environment'),('Phases','ice 2020–21, oil 2022–23'),('Metric','accuracy 91%'),('False positives','≤10%')],
+      task='Cut expensive vessel patrols without losing completeness in detecting ice and oil pollution.',
+      verdict=[('Slick detection from drone imagery','AI','Unstructured images, scale'),('Flight planning','No AI','Procedures and weather thresholds are rules'),('Incident confirmation','Hybrid','The model flags, the operator confirms')],
+      result='−38% vessel-days for sea area monitoring. Metrics verified on an independent sample.'),
+ dict(slug='geodesy', img='team.jpg', tags='Geodesy and cadastre · closed government environment',
+      title='+18% branch workload with 30% fewer staff',
+      short='An AI agent for branch work planning in a closed environment: on-prem, sovereign LLM stack and a governance standard on top of the agent.',
+      facts=[('Industry','Geodesy, mapping, cadastre'),('Environment','On-prem, no external SaaS'),('Stack','Sovereign LLMs'),('Governance','Evaluation Framework, KRI')],
+      task='Keep branch output while headcount shrinks, under closed-environment requirements.',
+      verdict=[('Branch workload planning','AI','Many non-formalised factors'),('Accounting and reporting','No AI','Rules and integration are enough'),('Allocating urgent requests','Hybrid','The agent proposes, the manager approves')],
+      result='+18% workload with 30% fewer staff. On top of the agent: Evaluation Framework, autonomy limits and KRI monitoring.'),
+ dict(slug='developer', img='construction.jpg', tags='Real estate development · Moscow top-3',
+      title='LLM in 3 of 8 subtasks — and that is the right call',
+      short='15 AI initiatives across the life cycle of a capital construction project. A hybrid Excel → 1C:ERP agent with targeted use of LLM.',
+      facts=[('Industry','Construction and development'),('Initiatives','15'),('LLM','3 of 8 subtasks'),('Threshold','accuracy >95%')],
+      task='Sort a portfolio of AI ideas across the project life cycle without spending budget on what conventional automation solves.',
+      verdict=[('Extracting fields from primary documents','AI','Unstructured documents'),('Reconciliation with ERP','No AI','Deterministic rules'),('Disputed discrepancies','Hybrid','A person decides')],
+      result='LLM works only in 3 of 8 subtasks, where it delivers a measurable accuracy gain (>95%). The rest is conventional logic and human-in-the-loop.'),
+ dict(slug='egip', img='city.jpg', tags='Moscow unified geo-information space · urban policy · 2012–2016',
+      title='37 systems, 60+ agencies, ~RUB 1 bn programme',
+      short='Moscow unified geo-information space: integration of 37 city systems and 100+ spatial data sets.',
+      facts=[('Industry','Urban infrastructure'),('Timeline','3 years of rollout'),('Scale','60+ agencies'),('Recognition','GIS-Forum, Mayor\'s commendation')],
+      task='Connect data from dozens of agencies into one manageable space.',
+      verdict=[('System integration','No AI','Standards and data buses are needed, not models'),('Spatial data quality','Hybrid','Automated checks plus an expert'),('City analytics','Defer','Unified data first')],
+      result='37 systems and 100+ data sets in a single space. Best work of the 3rd International GIS-Forum.'),
+ dict(slug='agro', img='agro.jpg', tags='Agriculture · geo-ML on aerial imagery',
+      title='mAP@0.5 > 80% in weed detection',
+      short='ML weed detection on aerial field imagery: results for the inspector in 2 hours instead of 3 days.',
+      facts=[('Industry','Agriculture'),('Data','Aerial imagery, drones'),('Metric','mAP@0.5 > 80%'),('Speed','2 hours instead of 3 days')],
+      task='Speed up field surveys and give the inspector a ready result instead of manual image review.',
+      verdict=[('Weed detection on imagery','AI','Variable patterns, large imagery volume'),('Survey routes and reporting','No AI','Rules and templates are enough'),('Field treatment decision','Hybrid','The model labels, the agronomist decides')],
+      result='Detection with mAP@0.5 above 80%. The inspector gets results in 2 hours instead of 3 days.'),
+ dict(slug='esg-nsr', img='esg.jpg', tags='Environment and ESG · Northern Sea Route',
+      title='ESG emissions monitoring on the Northern Sea Route',
+      short='Estimating CO₂ and CH₄ emissions on Northern Sea Route lanes from AIS and Earth observation data.',
+      facts=[('Industry','ESG, maritime logistics'),('Data','AIS, Earth observation'),('Indicators','CO₂, CH₄'),('Approach','Model + methodology')],
+      task='Obtain a verifiable emissions estimate on Arctic routes where direct measurement is unavailable.',
+      verdict=[('Methane detection from satellite data','AI','Weak signal, large image volume'),('Emissions calculation under the approved methodology','No AI','Full reproducibility required'),('Estimation from AIS tracks','Hybrid','The model reconstructs operating modes, the methodology calculates')],
+      result='Emissions monitoring on Northern Sea Route lanes using AIS and Earth observation data. Metrics being refined.'),
+ dict(slug='edtech', img='edtech.jpg', tags='EdTech · pilot in Colombia',
+      title='EdTech pilot in Colombia',
+      short='An AI-in-education pilot outside Russia: testing hypotheses in real classrooms before scaling.',
+      facts=[('Industry','Education'),('Country','Colombia'),('Format','Pilot'),('Language','Spanish')],
+      task='Find out where AI genuinely helps teachers and students before investing in scale.',
+      verdict=[('Personal recommendations for students','Hybrid','The model suggests, the teacher decides'),('Timetabling and records','No AI','Conventional automation'),('Regional rollout','Defer','Pilot results first')],
+      result='Pilot completed; findings informed the scaling decision. Details being refined.'),
+]
+
+def case_card(c):
+    return f'''<a class="card reveal" href="{{r}}cases/{c['slug']}.html">{photo(c['img'], c['tags'])}
+  <p class="card-tags">{c['tags']}</p><h3>{c['title']}</h3><p>{c['short']}</p><span class="more">Read the case →</span></a>'''
+
+INDUSTRIES = [
+ ('mining.jpg','Mining and hydrocarbons','Oil, gas and ores. Safety and logistics in harsh environments: offshore, ice, remoteness.','Typical: AI in video analytics and failure prediction; no AI in safety permits and procedures.'),
+ ('city.jpg','Urban infrastructure','Inter-agency integration and city data: 60+ agencies, closed environments, public procurement rules.','Typical: unified data and integration first; AI in citizen requests and Earth observation analysis.'),
+ ('construction.jpg','Construction and development','The whole project life cycle: surveys, design, construction, operation, sales.','Typical: hybrid in document flow; no AI in cost estimates and reconciliations.'),
+ ('arctic.jpg','Maritime logistics and insurance','Fleet and risk: weather support, insurance coverage control, economics of rare but large events.','Typical: AI in ice conditions and application triage; no AI in premiums and warnings.'),
+ ('agro.jpg','Agriculture','Geo-ML field monitoring: from aerial imagery to results for the inspector in 2 hours instead of 3 days.','Typical: AI in image detection (mAP@0.5 > 80%); defer where there is no yield history.'),
+ ('esg.jpg','Environment and ESG','CO₂/CH₄ emissions monitoring, climate risks, nature-based solutions on Earth observation and AIS data.','Typical: hybrid — the model estimates, the methodology and auditor confirm.'),
+]
+
+FORMATS = [
+ ('Step 1','Express screening','A short questionnaire and an initial map: where AI is worth considering and where it is definitely not. Online via '+PLAT+'.','free · coming soon'),
+ ('Step 2','Diagnostics','Fixed scope: process audit, decision matrix, business case, roadmap. 2–4 weeks.','from RUB 500,000 per phase · revenue share possible'),
+ ('Step 3','Fractional CAIO','A part-time external Chief AI Officer: strategy, governance, oversight of implementations. From 3 months.','from RUB 200,000/mo · one day a week from RUB 350,000/mo'),
+ ('Step 4','Implementation','The bureau team builds what passed diagnostics. Production standard, on-prem where needed.','estimated after diagnostics'),
+ ('Step 4 · or','Design supervision','Your developers or contractors implement; the bureau checks conformity with the assessment and architecture and accepts each phase.','based on implementation scope'),
+]
+def formats_html():
+    return '<div class="formats formats-4 formats-5">' + ''.join(f'<div class="format reveal"><p class="format-step">{a}</p><h3 class="format-name">{b}</h3><p class="format-text">{c}</p><p class="format-price">{d}</p></div>' for a,b,c,d in FORMATS) + '</div>'
+
+FAQ = [
+ ('How much does it cost?','Diagnostics is a fixed price per scope. Implementation is estimated once the truly necessary scope is clear. If you do not need AI, you learn it during diagnostics, not at the end of the budget.'),
+ ('What if you decide we do not need AI?','That is a normal and frequent outcome. You get a decision matrix and a roadmap for conventional automation and save budget on what you do not need. For the bureau it is as successful a project as an implementation.'),
+ ('Do you work with closed environments?','Yes: on-prem MLOps, sovereign LLM stacks, personal data law compliance, isolated environments without external SaaS. Our key implementations are exactly there.'),
+ ('Who does the work?',PLAT+' prepares the analysis. Legal, financial and industry findings are reviewed by invited experts: a lawyer, a finance specialist/economist and an industry specialist. Sergey Zubkov leads diagnostics and architecture and signs the assessment. The bureau\'s DS/ML engineers implement, with no anonymous subcontractors.'),
+ ('Can we implement in-house or with another contractor?','Yes. Then the bureau provides design supervision: it checks that the solution matches the assessment and architecture, accepts phases and tracks metrics.'),
+ ('How are you different from a systems integrator?','An integrator earns on implementation, so it is interested in implementing. The bureau earns on the assessment and is accountable for it, so it can honestly say “not needed”.'),
+]
+def faq_html(items):
+    return '<div class="container-narrow" style="margin:0">' + ''.join(f'<details class="faq-item reveal"{" open" if i==0 else ""}><summary>{q}</summary><div class="faq-body"><p>{a}</p></div></details>' for i,(q,a) in enumerate(items)) + '</div>'
+
+# ================= INDEX =================
+index = f'''<section class="hero"><div class="container hero-grid">
+  <div class="hero-copy">
+    <p class="eyebrow reveal">{ROLE} · Diagnostics before deployment</p>
+    <h1 class="hero-title reveal">We make businesses more resilient and&nbsp;manageable.<br><em>AI only where it truly belongs.</em></h1>
+    <p class="hero-sub reveal">Every process gets one of four verdicts: AI, hybrid, conventional automation or “not yet”. Diagnostics and a signed assessment first, then work.</p>
+    <div class="hero-cta reveal"><a class="btn btn-primary" href="{{r}}contact.html">45-minute call</a><a class="btn btn-ghost" href="{{r}}method.html#sample">Sample assessment</a></div>
+    <p class="hero-meta reveal">Led by Sergey Zubkov, founder and chief designer · 20+ years in IT and data · RU / EN</p>
+  </div>
+  <figure class="verdict-card reveal" aria-label="Assessment excerpt: verdicts by process">
+    <figcaption class="verdict-head"><span>Assessment · excerpt</span><span>7 / 7 checks</span></figcaption>
+    <ul class="verdict-list">
+      <li><span class="v-proc">Pollution detection from drone imagery</span>{chip('AI')}</li>
+      <li><span class="v-proc">Primary documents Excel → ERP</span>{chip('Hybrid')}</li>
+      <li><span class="v-proc">Ice zone warning</span>{chip('No AI')}</li>
+      <li><span class="v-proc">Branch service demand forecast</span>{chip('Defer')}</li>
+    </ul>
+    <p class="verdict-foot">A person signs the decision · expert dissenting views are kept</p>
+  </figure>
+</div></section>
+<section class="numbers" aria-label="Client results"><div class="container numbers-grid">
+  <div class="number-item reveal"><div class="number-value">−38%</div><div class="number-caption">vessel-days for sea area monitoring: drones instead of patrols</div></div>
+  <div class="number-item reveal"><div class="number-value">+18%</div><div class="number-caption">branch workload with 30% fewer staff, closed environment</div></div>
+  <div class="number-item reveal"><div class="number-value">+13%</div><div class="number-caption">Northern Sea Route voyages with VIZARD AI modules</div></div>
+  <div class="number-item reveal"><div class="number-value accent">3&nbsp;of&nbsp;8</div><div class="number-caption">document-flow subtasks got an LLM. The rest do not need AI</div></div>
+</div></section>
+{sec('verdicts','Method · four verdicts','Everyone sells AI implementation.<br>We sell the decision on whether you need it.', ZONES + '<p class="section-note reveal"><a href="{r}method.html">How we decide →</a></p>')}
+{sec('council', PLAT, 'The platform analyses. Experts review. The chief designer signs.', COUNCIL + '<p class="section-note reveal"><a href="{r}council.html">How the platform works →</a></p>', muted=True, lead='A lead agent gathers context and briefs seven expert AI roles. Legal, financial and industry findings are reviewed by invited human experts; Sergey Zubkov signs the assessment.')}
+{sec('cases','Cases','Results backed by numbers, not promises', '<div class="card-grid">'+''.join(case_card(c) for c in CASES[:3])+'</div><p class="section-note reveal"><a href="{r}cases.html">All cases →</a></p>')}
+{sec('industries','Industries','We work where we know the context from the inside', '<div class="card-grid">'+''.join(f'<a class="card reveal" href="{{r}}industries.html">{photo(i,n)}<h3>{n}</h3><p>{t}</p></a>' for i,n,t,_ in INDUSTRIES)+'</div>', muted=True)}
+{sec('formats','Formats','From free screening to implementation, step by step', formats_html() + '<p class="section-note reveal"><a href="{r}formats.html">More on formats and pricing →</a></p>')}
+<section class="section section-muted" id="bureau"><div class="container split">
+  <div><p class="eyebrow reveal">Bureau</p><h2 class="section-title reveal">Like a design bureau: a chief designer, calculations, execution</h2>
+  <div class="prose reveal"><p>Sergey Zubkov personally leads diagnostics and architecture and signs every assessment. {PLAT} prepares the analysis; legal, financial and industry findings are reviewed by invited experts. The bureau's engineering team implements — or your contractors do, under our design supervision.</p></div>
+  <p class="reveal"><a class="btn btn-ghost" href="{{r}}bureau.html">About the bureau and team</a></p></div>
+  {photo('team.jpg','The bureau team reviewing a decision matrix','photo-32 reveal')}
+</div></section>
+{CTA}'''
+page('index.html', f'{BRAND} — {ROLE.lower()} · Sergey Zubkov', 'Process diagnostics before AI deployment: where AI is justified, where a hybrid fits, and where conventional automation is enough. Mining, maritime, cities, agriculture, ESG.', index)
+
+# ================= METHOD =================
+RESP = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
+ ('Assessment','the soundness of every verdict: technology, economics, law, industry'),
+ ('Architecture','the target solution design and the limits of AI autonomy'),
+ ('Numbers','the method and assumptions behind every effect estimate'),
+ ('Design supervision','conformity of the implementation with the assessment — whether by our team or by external developers and contractors'),
+ ('Governance','monitoring, KRIs and a human in the loop on critical decisions')]) + '</ul>'
+crit = [('Data','Is there history, labelling and access to data','No data — “defer”'),
+        ('Variability','Do rules repeat, or do patterns change','Stable rules — “no AI”'),
+        ('Cost of error','What happens if the model is wrong','Unacceptable error — rules and a person'),
+        ('Explainability','Must every decision be justified to a regulator','Full explainability — “no AI” or hybrid'),
+        ('Scale','How many operations per day and what manual work costs','Low volume — conventional automation'),
+        ('Payback','Total cost of ownership versus effect','No payback — “do not do it”'),
+        ('Regulation','Personal data law, sector rules, closed environment','Defines architecture and hosting'),
+        ('Owner','Is there a person accountable for the result','No owner — “defer”')]
+crit_html = '<div class="matrix-wrap reveal"><table class="matrix criteria"><thead><tr><th>Criterion</th><th>What we check</th><th>How it affects the verdict</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{b}</td><td>{c}</td></tr>' for a,b,c in crit) + '</tbody></table></div>'
+steps = '<ol class="steps steps-5">' + ''.join(f'<li class="step reveal"><span class="step-num">{n}</span><h3 class="step-title">{t}</h3><p class="step-meta">{m}</p><p class="step-text">{d}</p></li>' for n,t,m,d in [
+ ('01','Diagnostics','2–4 weeks','Processes, data, systems, maturity. Analysis from seven angles.'),
+ ('02','Decision','Matrix by process','Four verdicts with metrics, risks, assumptions and confidence level.'),
+ ('03','Roadmap','≈1 week','Priorities by value and feasibility. First results in 6–8 weeks.'),
+ ('04','Implementation','Production standard','Monitoring, KRIs, autonomy limits, a human in the loop on critical decisions.'),
+ ('05','Design supervision','Throughout implementation','If your developers or contractors implement: we check conformity with the assessment, accept phases and track metrics.')]) + '</ol>'
+deliver = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
+ ('Executive summary','the decision on one page for the CEO'),('Decision matrix','a verdict for every process with rationale'),
+ ('Business case','effect, total cost of ownership, assumptions'),('Risk register','technical, legal, AI security'),
+ ('Roadmap','phases, timelines, resources'),('Dissenting views','where experts disagreed and why'),('Signature','who is accountable for the assessment')]) + '</ul>'
+method = hero('Method','Method · decision before deployment','First decide whether AI is needed. Then work.','We do not sell implementation. We issue a comprehensive expert assessment of every process — technological, economic, legal and industry-specific. And the bureau has the right to say “AI is not needed here”.') + \
+ sec('verdicts','Four verdicts','A verdict for every process', ZONES) + \
+ sec('criteria','Criteria','Eight questions every decision answers', crit_html, muted=True) + \
+ sec('process','Process','Diagnostics before deployment', steps) + \
+ sec('sample','What you get','An assessment, not a presentation on AI possibilities', MATRIX + '<h3 class="section-title" style="font-size:1.4rem;margin-top:48px">What the assessment contains</h3>' + deliver, muted=True) + \
+ sec('responsibility','Accountability','What the bureau is accountable for', RESP) + \
+ sec('faq','FAQ','The method in brief', faq_html(FAQ[1:3]+FAQ[4:])) + CTA
+page('method.html', f'Method — {BRAND}', 'Four verdicts, eight criteria and the contents of the assessment: how the bureau decides where AI is needed and where conventional automation is enough.', method, 'method.html')
+
+# ================= COUNCIL =================
+flow = '<ol class="steps steps-5">' + ''.join(f'<li class="step reveal"><span class="step-num">{n}</span><h3 class="step-title">{t}</h3><p class="step-text">{d}</p></li>' for n,t,d in [
+ ('01','Clarification','The lead agent asks questions until context completeness reaches the sufficiency threshold.'),
+ ('02','Briefs','A deterministic orchestrator sends briefs to the seven expert roles. It is code, not another model.'),
+ ('03','Cross-check','Findings of the AI roles are compared; contradictions are not smoothed over but recorded as dissenting views.'),
+ ('04','Expert review','A lawyer, a finance specialist/economist and an industry expert review and complement the findings in their fields.'),
+ ('05','Signature','The bureau\'s chief designer consolidates the assessment, signs it and is accountable for it.')]) + '</ol>'
+security = '<div class="card-grid">' + ''.join(f'<div class="card reveal"><p class="card-tags">{a}</p><h3>{b}</h3><p>{c}</p></div>' for a,b,c in [
+ ('Data','Your data stays yours','On-prem or a domestic cloud; client data is not used to train models.'),
+ ('Limits','Agents do not make decisions','Each role works within its limits; the outcome requires a human signature.'),
+ ('Audit','Every finding is traceable','Briefs, answers and sources are stored: you can see where each finding came from.')]) + '</div>'
+inds = ''.join(f'<option>{n}</option>' for _,n,_,_ in INDUSTRIES)
+screen = f'''<div class="split"><div class="prose reveal"><p>Express screening via {PLAT}: 15 minutes for the questionnaire, and you get an initial process map with verdicts. It is not an assessment but a reason to talk.</p>
+<p class="draft-note">Form prototype · platform in development</p></div>
+<form class="form reveal" action="#" onsubmit="return false">
+ <label>Industry<select>{inds}</select></label>
+ <label>Process you want checked<textarea placeholder="For example: triage of incoming hull insurance applications"></textarea></label>
+ <button class="btn btn-primary" type="button" disabled>Coming soon: take the screening</button></form></div>'''
+council = hero(PLAT, f'{PLAT} · AI diagnostics platform','The platform analyses. Experts review. The chief designer signs.','The platform makes analysis fast and thorough. Legal, financial and industry specifics are additionally reviewed by invited experts: a lawyer, a finance specialist/economist and an industry specialist. The bureau\'s chief designer signs the assessment.', photo('team.jpg','The bureau working on an assessment','photo-wide reveal')) + \
+ sec('roles','Composition','A lead agent, seven expert roles and humans in the loop', COUNCIL + '<p class="section-note reveal">Why humans: the platform is evolving, and the market needs time to trust AI-native assessments. That is why in three roles the agents\' findings are reviewed by invited experts. As verified assessments accumulate, the agents\' share of the work grows, but the signature and accountability remain with the bureau.</p>') + \
+ sec('flow','How it works','From the first question to the signature', flow, muted=True) + \
+ sec('security','Security','Control built into the architecture', security) + \
+ sec('screening','Coming soon','Free express screening', screen, muted=True) + CTA
+page('council.html', f'{PLAT} — diagnostics platform · {BRAND}', 'AI diagnostics platform: a lead agent, seven expert roles, a deterministic orchestrator and a human signature.', council, 'council.html')
+
+# ================= CASES =================
+cases = hero('Cases','Cases','Where AI was needed — and where we did not use it','Every case follows the same structure: task → verdicts by process → result.') + \
+ sec('list','All cases','Verified results', '<div class="card-grid card-grid-2">'+''.join(case_card(c) for c in CASES[:2])+'</div><div class="card-grid" style="margin-top:48px">'+''.join(case_card(c) for c in CASES[2:])+'</div>') + CTA
+page('cases.html', f'Cases — {BRAND}', 'Bureau cases: maritime safety, sea area monitoring, closed government environment, development, Moscow geo-information space, agriculture, ESG, EdTech.', cases, 'cases.html')
+for i,c in enumerate(CASES):
+    nxt = CASES[(i+1)%len(CASES)]
+    facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in c['facts']) + '</dl>'
+    vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Process</th><th>Verdict</th><th>Why</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
+    body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Home</a> / <a href="{{r}}cases.html">Cases</a></p>
+  <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{c['title']}</h1><p class="hero-sub reveal">{c['short']}</p>
+  {photo(c['img'],c['tags'],'photo-wide reveal')}{facts}</div></section>
+<section class="section"><div class="container split">
+  <div class="prose reveal"><p class="eyebrow">Task</p><p>{c['task']}</p><p class="eyebrow" style="margin-top:32px">Result</p><p>{c['result']}</p>
+  <p class="draft-note">Draft case write-up: details to be confirmed with the founder, NDA limits to be checked</p></div>
+  <div><p class="eyebrow reveal">Verdicts by process</p>{vt}</div>
+</div></section>
+<section class="section section-muted"><div class="container"><p class="eyebrow">Next case</p><div class="card-grid card-grid-2">{case_card(nxt)}</div></div></section>
+{CTA}'''
+    page(f"cases/{c['slug']}.html", f"{c['title']} — {BRAND} case", c['short'], body, 'cases.html')
+
+# ================= INDUSTRIES =================
+ind = '<div class="card-grid">' + ''.join(f'<article class="card reveal">{photo(i,n)}<h3>{n}</h3><p>{t}</p><p class="card-tags" style="text-transform:none">{v}</p></article>' for i,n,t,v in INDUSTRIES) + '</div>'
+nogo = '<aside class="no-go reveal"><p class="no-go-title">Where we do not go</p><p class="no-go-text">FinTech, iGaming and industries where we lack years of practice. Advising where you do not know the ground is dishonest: those industries have their own specialists.</p></aside>'
+industries = hero('Industries','Industries','Six industries where we know the context from the inside','The industry expert is one of the seven diagnostic roles. So we only take industries where the bureau has its own practice.') + \
+ sec('list','Industries','Where we work and which verdicts are most common', ind) + \
+ sec('nogo','Boundaries','Honestly about what we do not do', nogo, muted=True) + CTA
+page('industries.html', f'Industries — {BRAND}', 'Mining, urban infrastructure, development, maritime logistics and insurance, agriculture, environment and ESG.', industries, 'industries.html')
+
+# ================= FORMATS =================
+cmp_rows = [('Outcome','Initial map','Signed assessment','AI portfolio management','Working system','Implementation per assessment'),
+            ('Timeline','15 minutes','2–4 weeks','from 3 months','per roadmap','throughout implementation'),
+            ('Led by',PLAT,'Sergey Zubkov, platform, experts','Sergey Zubkov','Bureau team','Sergey Zubkov'),
+            ('Price','free','from RUB 500,000','from RUB 200,000/mo','after diagnostics','based on implementation scope')]
+cmp = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th></th>' + ''.join(f'<th>{f[1]}</th>' for f in FORMATS) + '</tr></thead><tbody>' + ''.join('<tr>'+''.join(f'<td>{x}</td>' for x in row)+'</tr>' for row in cmp_rows) + '</tbody></table></div>'
+formats = hero('Formats','Formats and pricing','Open pricing. Every step is a separate decision.','You can stop after any step. If diagnostics shows AI is not needed, there will be no implementation.') + \
+ sec('ladder','Ladder','Four steps and design supervision', formats_html()) + \
+ sec('compare','Comparison','What each format includes', cmp, muted=True) + \
+ sec('faq','FAQ','On money and boundaries', faq_html([FAQ[0],FAQ[1],FAQ[3],FAQ[4]])) + CTA
+page('formats.html', f'Formats and pricing — {BRAND}', 'Express screening, diagnostics from RUB 500,000, Fractional CAIO from RUB 200,000/mo, implementation after diagnostics, design supervision.', formats, 'formats.html')
+
+# ================= BUREAU =================
+principles = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
+ ('The right to say “no”','a “no AI” verdict is as valid an outcome as an implementation'),('Signature','every assessment has an accountable person'),
+ ('No subcontracting','our own team implements, no anonymous contractors'),('Only familiar industries','we do not advise where we have no practice'),
+ ('Verifiable numbers','every metric has a method and assumptions'),
+ ('Design supervision','we stay accountable for the result even when your contractors implement')]) + '</ul>'
+pubs = '<ul class="pubs"><li class="pub reveal"><span class="pub-year">2020</span><span class="pub-title">A method for ice reconnaissance using drones</span><span class="pub-meta">NGN journal, No. 9/2020, pp. 21–26 · sole author</span></li><li class="pub reveal"><span class="pub-year">2025</span><span class="pub-title">Nature-based solutions in the Russian Arctic</span><span class="pub-meta">Sustainability (MDPI), 17, 10409 · consulting contribution</span></li></ul>'
+bureau = hero('Bureau','Bureau','Like a design bureau: a chief designer, calculations, execution','A compact senior team with its own method. We are not intermediaries between you and contractors — we are accountable for the assessment.') + \
+ f'''<section class="section" id="founder"><div class="container split-rev split">
+  {photo('founder.jpg','Sergey Zubkov, founder of the bureau','photo-34 reveal')}
+  <div class="prose reveal"><p class="eyebrow">Founder · chief designer</p><h2 class="section-title">Sergey Zubkov</h2>
+  <p>Personally leads diagnostics, architecture and governance and signs every assessment. 20+ years in IT and data, 8+ years in AI projects, 3 AI products on the market.</p>
+  <p>Keeps hands-on skills: designs and writes code himself with Cursor + Devin + GitHub.</p>
+  <p><a href="https://www.linkedin.com/in/sergey-a-zubkov" target="_blank" rel="noopener">LinkedIn →</a></p></div>
+ </div></section>''' + \
+ sec('team','Team','Engineers who implement what passed diagnostics', f'<div class="split"><div class="prose reveal"><p>4–5 DS/ML engineers and developers: ML and computer vision, geo-ML, sovereign LLM environments, on-prem MLOps.</p><p>{PLAT}, the bureau\'s platform with a lead agent and seven expert roles, prepares the analysis.</p><p><b>Invited experts.</b> A lawyer, a finance specialist/economist and industry specialists review the platform\'s findings in their fields.</p></div>{photo("team.jpg","The bureau team","photo-32 reveal")}</div>', muted=True) + \
+ sec('principles','Principles','Six rules of the bureau', principles) + \
+ sec('responsibility','Accountability','What we are accountable for', RESP, muted=True) + \
+ sec('pubs','Publications','Peer-reviewed means verifiable', pubs) + CTA
+page('bureau.html', f'About the bureau — {BRAND}', 'Founder Sergey Zubkov, engineering team, invited experts, the Council 7+1 platform and the bureau\'s principles.', bureau, 'bureau.html')
+
+# ================= INSIGHTS =================
+notes = [('Case study','Why the core of ice warnings works without a neural network','Where the cost of error decides the technology.'),
+         ('Method','Eight questions to ask before implementing AI','A checklist for the CEO.'),
+         ('Industry','AI in marine insurance: what to automate and what not to','Application triage, premiums, claims.'),
+         ('Case study','“3 of 8”: how we dropped LLM in five subtasks','A developer case.'),
+         ('Architecture','A deterministic orchestrator instead of yet another agent','How '+PLAT+' is built.'),
+         ('Governance','Agent autonomy limits in production','Evaluation Framework and KRIs.')]
+notes_html = '<div class="card-grid">' + ''.join(f'<article class="card reveal"><p class="card-tags">{a} · coming soon</p><h3>{b}</h3><p>{c}</p></article>' for a,b,c in notes) + '</div>'
+lead = '<div class="split"><div class="prose reveal"><p>An annual review: where AI paid off in our industries, where it did not, and why. No marketing, with the method.</p><p class="draft-note">Lead magnet · in preparation</p></div><form class="form reveal" action="#" onsubmit="return false"><label>Email<input type="email" placeholder="you@company.com"></label><button class="btn btn-primary" type="button" disabled>Coming soon: get the report</button></form></div>'
+insights = hero('Insights','Insights','Decision breakdowns: where AI is needed and where it is not','The same columns appear on the founder\'s and the bureau\'s LinkedIn.') + \
+ sec('notes','Columns','Upcoming publications', notes_html) + \
+ sec('report','Report','“Evidence-based AI” — annual review', lead, muted=True) + \
+ sec('pubs','Publications','Peer-reviewed papers', pubs) + CTA
+page('insights.html', f'Insights — {BRAND}', 'Decision breakdowns: where AI is needed and where it is not. Columns, annual review and peer-reviewed publications.', insights, 'insights.html')
+
+# ================= CONTACT =================
+contact = hero('Contact','Contact','Start with a conversation, not a budget','45 minutes: your context, your questions, and a clear view of how much diagnostics you actually need. No presentations “about the possibilities of AI”.') + \
+ f'''<section class="section"><div class="container split">
+ <div><div class="contact-links reveal">
+  <a class="contact-link" href="mailto:zubkovfpk@gmail.com"><span class="contact-label">Email</span><span class="contact-value">zubkovfpk@gmail.com</span></a>
+  <a class="contact-link" href="https://t.me/SergeyAZubkov" target="_blank" rel="noopener"><span class="contact-label">Telegram</span><span class="contact-value">@SergeyAZubkov</span></a>
+  <a class="contact-link" href="https://www.linkedin.com/in/sergey-a-zubkov" target="_blank" rel="noopener"><span class="contact-label">LinkedIn</span><span class="contact-value">sergey-a-zubkov</span></a></div>
+  <p class="contact-note reveal">Sergey replies personally. Correspondence is not shared with third parties or used for mailings.</p></div>
+ <form class="form reveal" action="mailto:zubkovfpk@gmail.com" method="post" enctype="text/plain">
+  <label>Name<input name="name" required></label>
+  <label>Company and role<input name="company"></label>
+  <label>Industry<select name="industry">{inds}<option>Other</option></select></label>
+  <label>What would you like to discuss<textarea name="message"></textarea></label>
+  <button class="btn btn-primary" type="submit">Send</button>
+  <p class="contact-note">Prototype: the form opens your email client. In production it will submit to a server.</p>
+ </form></div></section>'''
+page('contact.html', f'Contact — {BRAND}', 'A 45-minute call with Sergey Zubkov: context, questions and the scope of diagnostics you need.', contact, 'contact.html')
+
+page('404.html', f'Page not found — {BRAND}', 'Page not found.', hero('','404','No such page. Verdict: “defer”.','<a href="{r}index.html">Back to home →</a>'))
+print('built EN', 11 + len(CASES), 'pages')
