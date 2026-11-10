@@ -63,6 +63,13 @@ the set must cover all 5 keys (caio, caito, impl, bsm, ops).
 No `Отрасль`/`Industry` item — the industry is already in `tags`. The remaining
 3 items are case-specific (Команда, Контур, Метрика, Этапы, …).
 
+- RU money notation: no `₽` symbol — write «тыс. руб.», «млн. руб.», «млрд. руб.»,
+  «руб./мес». EN uses RUB/$ plainly.
+- `task` in a case = the CLIENT's request/voice («Заказчику нужно…»,
+  «Требуется…»), never the bureau's internal to-do. `result` = client outcomes;
+  internal achievements (CI/CD, code ownership) stay out or live in the
+  implementation narrative.
+
 ## Case review workflow (user convention)
 
 Each case dict in `CASES` supports `draft=False`. The "Черновик разбора / Draft
