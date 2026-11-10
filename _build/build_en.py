@@ -355,7 +355,7 @@ for i,c in enumerate(CASES):
   {photo(c['img'],c['tags'],'photo-wide reveal')}{facts}</div></section>
 <section class="section"><div class="container split">
   <div class="prose reveal"><p class="eyebrow">Task</p><p>{c['task']}</p><p class="eyebrow" style="margin-top:32px">Result</p><p>{c['result']}</p>
-  <p class="draft-note">Draft case write-up: details to be confirmed with the founder, NDA limits to be checked</p></div>
+  {'<p class="draft-note">Draft case write-up: details to be confirmed with the founder, NDA limits to be checked</p>' if c.get('draft', True) else ''}</div>
   <div><p class="eyebrow reveal">Verdicts by process</p>{vt}</div>
 </div></section>
 <section class="section section-muted"><div class="container"><p class="eyebrow">Next case</p><div class="card-grid card-grid-2">{case_card(nxt)}</div></div></section>

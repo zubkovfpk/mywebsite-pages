@@ -52,6 +52,15 @@ python -m http.server 8123
 - `SITE` placeholder in builders is `https://example.ru` — update when the real
   domain on reg.ru is known.
 
+## Case review workflow (user convention)
+
+Each case dict in `CASES` supports `draft=False`. The "Черновик разбора / Draft
+case write-up" note is shown while `draft` is unset/true.
+
+When the user finishes reviewing a case and writes **«Чисто»** — set
+`draft=False` in that case's dict in BOTH `build_v3.py` and `build_en.py`,
+rebuild, and commit.
+
 ## Git
 
 - Working branch: `v3` (remote: github.com/zubkovfpk/mywebsite).
