@@ -136,7 +136,7 @@ COUNCIL = '''<div class="council">
 </div>'''
 
 FUNCS = {'caio':'AI strategy and portfolio','caito':'Transformation toward AI',
-         'impl':'Architecture and implementation','bsm':'Business case and economics','ops':'Operations and governance'}
+         'impl':'Architecture and implementation','bsm':'Diagnostics and business case','ops':'Operations and autonomy-boundary control'}
 def funcs(*ks): return ' · '.join(FUNCS[k] for k in ks)
 
 CASES = [
@@ -148,12 +148,12 @@ CASES = [
       verdict=[('Ice conditions from satellite data','AI','Variable patterns, high image volume'),('Warning of approach to an ice zone','No AI','Errors are unacceptable: route geometry and time thresholds'),('Route recommendations','Hybrid','The model suggests, the captain decides')],
       result='−65% fishing-gear losses over 5+ years. Hard prohibitions live in the runtime; critical decisions keep a human in the loop.'),
  dict(slug='shipping', img='shipping.jpg', tags='Marine insurance and shipowners · international track', draft=True,
-      title='>RUB 1 bn in effect for Arctic shipowners and operators over 5+ years',
+      title='RUB 2.1 bn in effect for shipowners and operators · 2025–2029',
       short='Meteo bulletins and insurance-cover control for insurers; fleet-anomaly detection for fishing shipowners. In-house development and deployment of the service in seven countries.',
-      facts=[('Functions', funcs('bsm','ops')),('Markets & languages','Russia · China · UAE · UK · Chile · Brazil · Turkey · Japan — Russian, English, Chinese, Spanish'),('Data','AIS tracks + satellite imagery + anonymized telecom data'),('Metric','≈$9.7–16.6M/yr of prevented losses (estimate, La Pérouse case)')],
+      facts=[('Functions', funcs('bsm','ops')),('Markets & languages','Russia · China · UAE · UK · Chile · Brazil · Turkey · Japan — Russian, English, Chinese, Spanish'),('Data','AIS tracks + satellite imagery + anonymized telecom data'),('Metric','1,968 of 9,031 voyages covered by the service')],
       task='Insurers needed control of fleet risk and insurance cover; fishing shipowners needed fleet control and prevention of illegal catch unloading. The solution had to work under sanctions and blocked external services.',
       verdict=[('Meteo and situational bulletins','AI','Multi-source data assembly, personalised per vessel and voyage'),('Insurance-cover control','No AI','Deterministic rules and thresholds — errors are unacceptable'),('Fleet-anomaly detection','Hybrid','The model flags AIS-vs-activity mismatches; conclusions go to the client after human review')],
-      result='Clients received a working commercial module in production; for a Chinese shipowner, hidden catch overloading by part of the fleet was uncovered.'),
+      result='Clients received a working commercial module in production; for a Chinese shipowner, hidden catch overloading by part of the fleet was uncovered (estimated up to $9.7–16.6M/yr in prevented losses — La Pérouse Strait).'),
  dict(slug='morspas', img='uav.jpg', tags='Federal maritime rescue service · sea area monitoring',
       title='−38% vessel-days for sea area monitoring',
       short='From continuous visual patrolling to targeted drone monitoring: ice 2020–21, pollution 2022–23.',
