@@ -144,7 +144,7 @@ CASES = [
       task='Заказчикам — нефтегазовым группам и морскому перевозчику — нужно повысить безопасность и экономику ледового плавания без потери управляемости: каждое решение агента должно оставаться в разрешённых границах.',
       verdict=[('Ледовая обстановка по спутниковым данным','ИИ','Изменчивые образы, большой поток снимков'),('Предупреждение о подходе к ледовой зоне','Без ИИ','Ошибка недопустима: геометрия маршрута и пороги времени'),('Рекомендации по маршруту','Гибрид','Модель предлагает, капитан решает')],
       result='−65% потерь снастей за 5+ лет. Жёсткие запреты — на уровне среды исполнения, критические решения — с человеком в контуре.'),
- dict(slug='shipping', img='shipping.jpg', tags='Морское страхование и судовладельцы · международный трек', draft=False,
+ dict(slug='shipping', img='shipping.jpg', gen=False, tags='Морское страхование и судовладельцы · международный трек', draft=False,
       title='>2 млрд. руб. экономии для судовладельцев и операторов · 2025–2029',
       short='Метео-бюллетени и контроль страхового покрытия для страховщиков; детекция аномалий флота для судовладельцев. Собственная разработка и внедрение сервиса в семи странах.',
       facts=[('Функции', funcs('bsm','ops')),('География и языки','Россия · Китай · Ближний Восток · Южная Америка · Япония — русский, английский, китайский, испанский'),('Данные','Треки AIS + спутниковые снимки + обезличенные телеком-данные'),('Метрика','≈22% рейсов под защитой услуги · до $9,7–16,6 млн в год предотвращённых потерь (оценка)')],
@@ -363,7 +363,7 @@ for i,c in enumerate(CASES):
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Процесс</th><th>Решение</th><th>Обоснование</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Главная</a> / <a href="{{r}}cases.html">Кейсы</a></p>
   <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{c['title']}</h1><p class="hero-sub reveal">{c['short']}</p>
-  {photo('{r}',c['img'],c['tags'],'photo-wide reveal')}{facts}</div></section>
+  {photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
   <div class="prose reveal"><div><p class="eyebrow">Задача</p><p>{c['task']}</p></div>
   <div><p class="eyebrow">Результат</p><p>{c['result']}</p>
