@@ -930,6 +930,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 
 .page-hero { padding: 72px 0 48px; border-bottom: 1px solid var(--line); }
 .page-hero .hero-title { font-size: clamp(1.6rem, 3.6vw, 2.8rem); }
+.page-hero .hero-sub { max-width: none; }
 .crumbs { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); margin-bottom: 18px; }
 .crumbs a { color: var(--ink-faint); }
 
