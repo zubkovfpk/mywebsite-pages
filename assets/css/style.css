@@ -937,11 +937,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .photo { position: relative; margin: 0; overflow: hidden; background: var(--paper-deep); }
 .photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .photo.gen::after {
-  content: "AI-фото · заглушка"; position: absolute; right: 8px; bottom: 8px;
+  content: "Изображение обработано ИИ"; position: absolute; right: 8px; bottom: 8px;
   font-family: var(--mono); font-size: 10px; letter-spacing: .04em; text-transform: uppercase;
   background: rgba(28,27,24,.72); color: #FAF7F2; padding: 3px 7px;
 }
-html[lang="en"] .photo.gen::after { content: "AI image · placeholder"; }
+html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
 .photo-wide { aspect-ratio: 21 / 9; margin-top: 40px; }
 .photo-34 { aspect-ratio: 3 / 4; }
 .photo-32 { aspect-ratio: 3 / 2; }

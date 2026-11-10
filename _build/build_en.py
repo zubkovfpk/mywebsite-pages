@@ -83,7 +83,7 @@ def page(sub, title, desc, body, active=None):
 </body>
 </html>
 '''
-    html = html.replace('AI-фото · заглушка', 'AI image · placeholder')
+    html = html.replace('Изображение обработано ИИ', 'AI-processed image')
     p = os.path.join(OUT, path); os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, 'w', encoding='utf-8').write(html)
 
@@ -139,7 +139,7 @@ CASES = [
  dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic · VIZARD product',
       title='+13% Northern Sea Route voyages and +14.5% speed in ice',
       short='7 AI modules on a single safety runtime for oil and gas groups and a shipping operator. Under 1% of agent actions outside permitted bounds.',
-      facts=[('Industry','Maritime logistics, oil and gas'),('Role','Architecture, product'),('Team','grew from 2 to 17'),('Core','Safety runtime')],
+      facts=[('Industry','Maritime logistics, oil and gas'),('Role','Chief AI Officer · AI Operations Strategist'),('Team','grew from 2 to 17'),('Core','Safety runtime')],
       task='Make ice navigation safer and more efficient for several clients without losing control: every agent decision must stay within permitted bounds.',
       verdict=[('Ice conditions from satellite data','AI','Variable patterns, high image volume'),('Warning of approach to an ice zone','No AI','Errors are unacceptable: route geometry and time thresholds'),('Route recommendations','Hybrid','The model suggests, the captain decides')],
       result='+14.5% speed in ice, +13% Northern Sea Route voyages, −65% fishing gear losses. Hard prohibitions live in the runtime; critical decisions keep a human in the loop.'),
