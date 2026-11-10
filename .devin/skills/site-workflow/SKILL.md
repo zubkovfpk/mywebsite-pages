@@ -54,9 +54,12 @@ python -m http.server 8123
 
 ## Case facts convention (user-approved)
 
-`facts` in each case dict: **first item is always `('Роль', role(...))`** — roles
-from the AI roles matrix (see `master_profile_global_cases.md`, «Роли по
-матрице»), rendered via the `role()` helper and `ROLES` dict in each builder.
+`facts` in each case dict: **first item is always `('Функции', funcs(...))`** —
+bureau functions vocabulary (the `funcs()` helper + `FUNCS` dict in each
+builder), NOT corporate role titles — the AI roles matrix was designed for
+personal LinkedIn positioning and doesn't fit the bureau model; egip has a
+free-form actual function instead. Max 2 functions per case; across all cases
+the set must cover all 5 keys (caio, caito, impl, bsm, ops).
 No `Отрасль`/`Industry` item — the industry is already in `tags`. The remaining
 3 items are case-specific (Команда, Контур, Метрика, Этапы, …).
 
