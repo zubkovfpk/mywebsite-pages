@@ -136,7 +136,7 @@ COUNCIL = '''<div class="council">
 </div>'''
 
 CASES = [
- dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic · VIZARD product',
+ dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic · VIZARD product', draft=False,
       title='+13% Northern Sea Route voyages and +14.5% speed in ice',
       short='7 AI modules on a single safety runtime for oil and gas groups and a shipping operator. Under 1% of agent actions outside permitted bounds.',
       facts=[('Industry','Maritime logistics, oil and gas'),('Role','Chief AI Officer · AI Operations Strategist'),('Team','grew from 2 to 17'),('Core','Safety runtime')],
