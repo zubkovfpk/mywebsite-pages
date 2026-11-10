@@ -147,7 +147,7 @@ CASES = [
       task='The clients — oil and gas groups and the shipping operator — needed safer, more efficient ice navigation without losing control: every agent decision must stay within permitted bounds.',
       verdict=[('Ice conditions from satellite data','AI','Variable patterns, high image volume'),('Warning of approach to an ice zone','No AI','Errors are unacceptable: route geometry and time thresholds'),('Route recommendations','Hybrid','The model suggests, the captain decides')],
       result='−65% fishing-gear losses over 5+ years. Hard prohibitions live in the runtime; critical decisions keep a human in the loop.'),
- dict(slug='shipping', img='shipping.jpg', tags='Marine insurance and shipowners · international track', draft=True,
+ dict(slug='shipping', img='shipping.jpg', tags='Marine insurance and shipowners · international track', draft=False,
       title='>RUB 2 bn saved for shipowners and operators · 2025–2029',
       short='Meteo bulletins and insurance-cover control for insurers; fleet-anomaly detection for fishing shipowners. In-house development and deployment of the service in seven countries.',
       facts=[('Functions', funcs('bsm','ops')),('Markets & languages','Russia · China · MENA · Latin America · Japan — Russian, English, Chinese, Spanish'),('Data','AIS tracks + satellite imagery + anonymized telecom data'),('Metric','≈22% of voyages covered by the service · up to $9.7–16.6M/yr of prevented losses (estimate)')],
