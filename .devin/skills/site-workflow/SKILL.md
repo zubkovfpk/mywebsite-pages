@@ -37,6 +37,11 @@ python -m http.server 8123
 
 - To change page content/structure → edit `build_v3.py` (RU) and `build_en.py` (EN).
   Keep both languages in sync.
+- Language rule (user-approved): RU text uses Russian terms, or Russian gloss +
+  English term in parentheses — e.g. «Директор по ИИ (Chief AI Officer)»,
+  «безопасная среда исполнения (safety runtime)», «на площадке заказчика (on-prem)».
+  EN text uses English terms directly. Brand/product names (VIZARD, Council 7+1,
+  Fractional CAIO) and standard abbreviations (LLM, ESG, ДЗЗ, AIS) stay as-is.
 - Shared styles → `assets/css/style.css`; shared JS → `assets/js/main.js`.
 - Verdict chips: `ИИ/green`, `Гибрид/amber`, `Без ИИ/red`, `Отложить/grey`
   (EN: `AI`, `Hybrid`, `No AI`, `Defer`).
