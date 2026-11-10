@@ -943,6 +943,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 }
 html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
 .photo-wide { aspect-ratio: 21 / 9; margin-top: 40px; }
+.award { border-left: 3px solid var(--accent); padding: 14px 18px; background: var(--paper-deep); margin-top: 32px; color: var(--ink); }
 .photo-34 { aspect-ratio: 3 / 4; }
 .photo-32 { aspect-ratio: 3 / 2; }
 
