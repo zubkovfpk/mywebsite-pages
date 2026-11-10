@@ -171,7 +171,7 @@ CASES = [
  dict(slug='egip', img='city.jpg', tags='Moscow unified geo-information space · urban policy · 2012–2016',
       title='37 systems, 60+ agencies, ~RUB 1 bn programme',
       short='Moscow unified geo-information space: integration of 37 city systems and 100+ spatial data sets.',
-      award='Best work at the 3rd International GIS-Forum · Moscow Mayor\'s commendation',
+      award='Best work at the 3rd International GIS-Forum',
       facts=[('Functions','Programme architecture and inter-agency integration'),('Scale','60+ agencies · 37 systems'),('Budget','~RUB 900M programme'),('Data','100+ spatial data sets')],
       task='Connect data from dozens of agencies into one manageable space.',
       verdict=[('System integration','No AI','Standards and data buses are needed, not models'),('Spatial data quality','Hybrid','Automated checks plus an expert'),('City analytics','Defer','Unified data first')],
@@ -401,6 +401,7 @@ bureau = hero('Bureau','Bureau','Like a design bureau: a chief designer, calcula
   <div class="prose reveal"><p class="eyebrow">Founder · chief designer</p><h2 class="section-title">Sergey Zubkov</h2>
   <p>Personally leads diagnostics, architecture and governance and signs every assessment. 20+ years in IT and data, 8+ years in AI projects, 3 AI products on the market.</p>
   <p>Keeps hands-on skills: designs and writes code himself with Cursor + Devin + GitHub.</p>
+  <p><b>Recognition:</b> Moscow Mayor's commendation — the city's unified geo-information space programme.</p>
   <p><a href="https://www.linkedin.com/in/sergey-a-zubkov" target="_blank" rel="noopener">LinkedIn →</a></p></div>
  </div></section>''' + \
  sec('team','Team','Engineers who implement what passed diagnostics', f'<div class="split"><div class="prose reveal"><p>4–5 DS/ML engineers and developers: ML and computer vision, geo-ML, sovereign LLM environments, on-prem MLOps.</p><p>{PLAT}, the bureau\'s platform with a lead agent and seven expert roles, prepares the analysis.</p><p><b>Invited experts.</b> A lawyer, a finance specialist/economist and industry specialists review the platform\'s findings in their fields.</p></div>{photo("team.jpg","The bureau team","photo-32 reveal")}</div>', muted=True) + \
