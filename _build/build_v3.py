@@ -110,7 +110,7 @@ ZONES = '''<div class="zones">
 </div>'''
 
 MATRIX = '''<div class="matrix-wrap reveal"><table class="matrix">
-  <thead><tr><th scope="col">Процесс</th><th scope="col">Решение</th><th scope="col">Допуск</th><th scope="col">Почему</th><th scope="col">Эффект / срок</th></tr></thead>
+  <thead><tr><th scope="col">Процесс</th><th scope="col">Решение</th><th scope="col">Допуск</th><th scope="col">Обоснование</th><th scope="col">Эффект / срок</th></tr></thead>
   <tbody>
   <tr><td>Разбор входящих заявок на страхование судов</td><td>%s</td><td><span class="status status-ok">Пилот допустим</span></td><td>Неструктурированные документы, высокий поток, ошибка исправима человеком</td><td>−40–60%% ручного разбора · 3 мес.</td></tr>
   <tr><td>Расчёт тарифа по правилам андеррайтинга</td><td>%s</td><td><span class="status status-ok">Пилот допустим</span></td><td>Правила стабильны и регулируются; нужна полная объяснимость</td><td>Правила в коде · 1 мес.</td></tr>
@@ -360,14 +360,15 @@ page('cases.html', f'Кейсы — {BRAND}', 'Кейсы бюро: морска
 for i,c in enumerate(CASES):
     nxt = CASES[(i+1)%len(CASES)]
     facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in c['facts']) + '</dl>'
-    vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Процесс</th><th>Решение</th><th>Почему</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
+    vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Процесс</th><th>Решение</th><th>Обоснование</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Главная</a> / <a href="{{r}}cases.html">Кейсы</a></p>
   <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{c['title']}</h1><p class="hero-sub reveal">{c['short']}</p>
   {photo('{r}',c['img'],c['tags'],'photo-wide reveal')}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
-  <div class="prose reveal"><p class="eyebrow">Задача</p><p>{c['task']}</p><p class="eyebrow" style="margin-top:32px">Результат</p><p>{c['result']}</p>
+  <div class="prose reveal"><div><p class="eyebrow">Задача</p><p>{c['task']}</p></div>
+  <div><p class="eyebrow">Результат</p><p>{c['result']}</p>
   {f'<p class="award">{c["award"]}</p>' if c.get('award') else ''}
-  {'<p class="draft-note">Черновик разбора: детали уточнить с основателем, NDA-ограничения проверить</p>' if c.get('draft', True) else ''}</div>
+  {'<p class="draft-note">Черновик разбора: детали уточнить с основателем, NDA-ограничения проверить</p>' if c.get('draft', True) else ''}</div></div>
   <div><p class="eyebrow reveal">Вердикты по процессам</p>{vt}</div>
 </div></section>
 <section class="section section-muted"><div class="container"><p class="eyebrow">Следующий кейс</p><div class="card-grid card-grid-2">{case_card(nxt)}</div></div></section>

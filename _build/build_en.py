@@ -113,7 +113,7 @@ ZONES = '''<div class="zones">
 </div>'''
 
 MATRIX = '''<div class="matrix-wrap reveal"><table class="matrix">
-  <thead><tr><th scope="col">Process</th><th scope="col">Verdict</th><th scope="col">Status</th><th scope="col">Why</th><th scope="col">Effect / timeline</th></tr></thead>
+  <thead><tr><th scope="col">Process</th><th scope="col">Verdict</th><th scope="col">Status</th><th scope="col">Rationale</th><th scope="col">Effect / timeline</th></tr></thead>
   <tbody>
   <tr><td>Triage of incoming hull insurance applications</td><td>%s</td><td><span class="status status-ok">Pilot eligible</span></td><td>Unstructured documents, high volume, errors are correctable by a person</td><td>−40–60%% manual review · 3 mo.</td></tr>
   <tr><td>Premium calculation under underwriting rules</td><td>%s</td><td><span class="status status-ok">Pilot eligible</span></td><td>Rules are stable and regulated; full explainability required</td><td>Rules in code · 1 mo.</td></tr>
@@ -361,14 +361,15 @@ page('cases.html', f'Cases — {BRAND}', 'Bureau cases: maritime safety, sea are
 for i,c in enumerate(CASES):
     nxt = CASES[(i+1)%len(CASES)]
     facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in c['facts']) + '</dl>'
-    vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Process</th><th>Verdict</th><th>Why</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
+    vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Process</th><th>Verdict</th><th>Rationale</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Home</a> / <a href="{{r}}cases.html">Cases</a></p>
   <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{c['title']}</h1><p class="hero-sub reveal">{c['short']}</p>
   {photo(c['img'],c['tags'],'photo-wide reveal')}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
-  <div class="prose reveal"><p class="eyebrow">Task</p><p>{c['task']}</p><p class="eyebrow" style="margin-top:32px">Result</p><p>{c['result']}</p>
+  <div class="prose reveal"><div><p class="eyebrow">Task</p><p>{c['task']}</p></div>
+  <div><p class="eyebrow">Result</p><p>{c['result']}</p>
   {f'<p class="award">{c["award"]}</p>' if c.get('award') else ''}
-  {'<p class="draft-note">Draft case write-up: details to be confirmed with the founder, NDA limits to be checked</p>' if c.get('draft', True) else ''}</div>
+  {'<p class="draft-note">Draft case write-up: details to be confirmed with the founder, NDA limits to be checked</p>' if c.get('draft', True) else ''}</div></div>
   <div><p class="eyebrow reveal">Verdicts by process</p>{vt}</div>
 </div></section>
 <section class="section section-muted"><div class="container"><p class="eyebrow">Next case</p><div class="card-grid card-grid-2">{case_card(nxt)}</div></div></section>

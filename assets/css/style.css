@@ -950,7 +950,8 @@ html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
 .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start; }
 .split-fill { align-items: stretch; }
 .split-fill > * { display: flex; flex-direction: column; }
-.split-fill .prose .award, .split-fill .prose .draft-note { margin-top: auto; }
+.split-fill .prose { justify-content: space-between; }
+.split-fill .prose > div > *:last-child { margin-bottom: 0; }
 .split-rev { grid-template-columns: 1fr 1.1fr; }
 .prose p { margin-bottom: 1em; color: var(--ink-soft); }
 .prose h3 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; margin: 1.4em 0 .5em; color: var(--ink); }
