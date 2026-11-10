@@ -140,10 +140,10 @@ FUNCS = {'caio':'AI strategy and portfolio','caito':'Transformation toward AI',
 def funcs(*ks): return ' · '.join(FUNCS[k] for k in ks)
 
 CASES = [
- dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic · VIZARD product', draft=False,
+ dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic', draft=False,
       title='+13% Northern Sea Route voyages and +14.5% speed in ice',
       short='A navigational-safety platform for oil and gas groups and the national shipping operator: ice conditions, routing, autonomy bounds.',
-      facts=[('Functions', funcs('caio','ops')),('Deployment & stack','Safety runtime, 7 modules in production'),('Metric','<1% of agent actions outside permitted bounds'),('Markets & languages','Russia · China · Norway · Japan (until 2022) — Russian, Chinese, English')],
+      facts=[('Functions', funcs('caio','ops')),('Deployment & stack','Safety runtime, 7 modules in production'),('Metric','<1% of agent actions outside permitted bounds'),('Markets & languages','Russia · China · Norway · Japan — Russian, Chinese, English')],
       task='Make ice navigation safer and more efficient for several clients without losing control: every agent decision must stay within permitted bounds.',
       verdict=[('Ice conditions from satellite data','AI','Variable patterns, high image volume'),('Warning of approach to an ice zone','No AI','Errors are unacceptable: route geometry and time thresholds'),('Route recommendations','Hybrid','The model suggests, the captain decides')],
       result='−65% fishing-gear losses over 5+ years. Hard prohibitions live in the runtime; critical decisions keep a human in the loop.'),
@@ -263,7 +263,7 @@ index = f'''<section class="hero"><div class="container hero-grid">
 <section class="numbers" aria-label="Client results"><div class="container numbers-grid">
   <div class="number-item reveal"><div class="number-value">−38%</div><div class="number-caption">vessel-days for sea area monitoring: drones instead of patrols</div></div>
   <div class="number-item reveal"><div class="number-value">+18%</div><div class="number-caption">branch workload with 30% fewer staff, closed environment</div></div>
-  <div class="number-item reveal"><div class="number-value">+13%</div><div class="number-caption">Northern Sea Route voyages with VIZARD AI modules</div></div>
+  <div class="number-item reveal"><div class="number-value">+13%</div><div class="number-caption">Northern Sea Route voyages with the platform's AI modules</div></div>
   <div class="number-item reveal"><div class="number-value accent">3&nbsp;of&nbsp;8</div><div class="number-caption">document-flow subtasks got an LLM. The rest do not need AI</div></div>
 </div></section>
 {sec('verdicts','Method · four verdicts','Everyone sells AI implementation.<br>We sell the decision on whether you need it.', ZONES + '<p class="section-note reveal"><a href="{r}method.html">How we decide →</a></p>')}
