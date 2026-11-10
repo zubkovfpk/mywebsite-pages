@@ -52,6 +52,14 @@ python -m http.server 8123
 - `SITE` placeholder in builders is `https://example.ru` — update when the real
   domain on reg.ru is known.
 
+## Case facts convention (user-approved)
+
+`facts` in each case dict: **first item is always `('Роль', role(...))`** — roles
+from the AI roles matrix (see `master_profile_global_cases.md`, «Роли по
+матрице»), rendered via the `role()` helper and `ROLES` dict in each builder.
+No `Отрасль`/`Industry` item — the industry is already in `tags`. The remaining
+3 items are case-specific (Команда, Контур, Метрика, Этапы, …).
+
 ## Case review workflow (user convention)
 
 Each case dict in `CASES` supports `draft=False`. The "Черновик разбора / Draft
