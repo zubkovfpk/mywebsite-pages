@@ -140,7 +140,7 @@ FUNCS = {'caio':'AI strategy and portfolio','caito':'Transformation toward AI',
 def funcs(*ks): return ' · '.join(FUNCS[k] for k in ks)
 
 CASES = [
- dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic', draft=False,
+ dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic and the Far East', draft=False,
       title='+13% Northern Sea Route voyages and +14.5% speed in ice',
       short='A navigational-safety platform for oil and gas groups and the national shipping operator: ice conditions, routing, autonomy bounds.',
       facts=[('Functions', funcs('caio','ops')),('Deployment & stack','Safety runtime, 7 modules in production'),('Metric','<1% of agent actions outside permitted bounds'),('Markets & languages','Russia · China · Norway · Japan — Russian, Chinese, English')],
