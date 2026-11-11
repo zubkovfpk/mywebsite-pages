@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os, sys
+import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lang_detect import lang_script
 from radar import radar_svg
@@ -12,6 +12,9 @@ SITE = 'https://example.ru'
 
 NAV = [('method.html','Метод'),('council.html',PLAT),('cases.html','Кейсы'),('industries.html','Отрасли'),
        ('formats.html','Форматы'),('bureau.html','Бюро'),('insights.html','Заметки')]
+
+def nb(s):
+    return re.sub(r'([0-9+]) ', '\\1\u00a0', s)
 
 def photo(r, name, alt, cls='', gen=True):
     return f'<figure class="photo{" gen" if gen else ""} {cls}"><img src="{r}assets/img/{name}" alt="{alt}" loading="lazy" decoding="async"></figure>'
@@ -154,7 +157,7 @@ CASES = [
  dict(slug='morspas', img='arctic_trawler_ice_oil_leak_21x9.jpg', tags='ФГБУ «Морспасслужба» · мониторинг акваторий',
       title='−38% судо-суток на мониторинг акваторий',
       short='От сплошного визуального патрулирования к точечному мониторингу с БПЛА: ледовая обстановка и нефтяные загрязнения.',
-      facts=[('Функции', funcs('impl','ops')),('Метрика','точность 91% · ложных ≤10%'),('Эффект','расходы на мониторинг ниже ~1,7× · судо-сутки ≈9 млн. руб.'),('Данные','Аэрофотосъёмка БПЛА: мультиспектр и ИК, задержка ≤5 с')],
+      facts=[('Функции', funcs('impl','ops')),('Метрика','точность 91% · ложных ≤10%'),('Эффект','расходы на мониторинг ниже ~1,7× · стоимость судо-суток ≈9 млн. руб.'),('Данные','Аэрофотосъёмка БПЛА: мультиспектр и ИК, задержка ≤5 с')],
       task='Заказчику нужно сократить дорогое судовое патрулирование акваторий, не теряя полноту обнаружения льда и нефтяных загрязнений.',
       verdict=[('Детекция плёнок по съёмке БПЛА','ИИ','Неструктурированные изображения, масштаб'),('Планирование полётов','Без ИИ','Регламенты и погодные пороги — правила'),('Подтверждение инцидента','Гибрид','Модель отмечает, оператор подтверждает')],
       result='Метрики верифицированы на независимой выборке. В постоянный состав средств МФАСС добавлены БПЛА.'),
@@ -359,14 +362,14 @@ cases = hero('Кейсы','Кейсы','Где ИИ был нужен — и г�
 page('cases.html', f'Кейсы — {BRAND}', 'Кейсы бюро: морская безопасность, мониторинг акваторий, закрытый госконтур, девелопмент, ЕГИП Москвы.', cases, 'cases.html')
 for i,c in enumerate(CASES):
     nxt = CASES[(i+1)%len(CASES)]
-    facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in c['facts']) + '</dl>'
+    facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{nb(b)}</dd></div>' for a,b in c['facts']) + '</dl>'
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Процесс</th><th>Решение</th><th>Обоснование</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Главная</a> / <a href="{{r}}cases.html">Кейсы</a></p>
-  <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{c['title']}</h1><p class="hero-sub reveal">{c['short']}</p>
+  <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
   {photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
-  <div class="prose reveal"><div><p class="eyebrow">Задача</p><p>{c['task']}</p></div>
-  <div><p class="eyebrow">Результат</p><p>{c['result']}</p>
+  <div class="prose reveal"><div><p class="eyebrow">Задача</p><p>{nb(c['task'])}</p></div>
+  <div><p class="eyebrow">Результат</p><p>{nb(c['result'])}</p>
   {f'<p class="award">{c["award"]}</p>' if c.get('award') else ''}
   {'<p class="draft-note">Черновик разбора: детали уточнить с основателем, NDA-ограничения проверить</p>' if c.get('draft', True) else ''}</div></div>
   <div><p class="eyebrow reveal">Вердикты по процессам</p>{vt}</div>

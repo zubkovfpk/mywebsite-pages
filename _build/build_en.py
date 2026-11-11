@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os, sys
+import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lang_detect import lang_script
 from radar import radar_svg
@@ -12,6 +12,9 @@ SITE = 'https://example.ru'
 
 NAV = [('method.html','Method'),('council.html',PLAT),('cases.html','Cases'),('industries.html','Industries'),
        ('formats.html','Formats'),('bureau.html','Bureau'),('insights.html','Insights')]
+
+def nb(s):
+    return re.sub(r'([0-9+]) ', '\\1\u00a0', s)
 
 def photo(name, alt, cls='', gen=True):
     return f'<figure class="photo{" gen" if gen else ""} {cls}"><img src="{{a}}assets/img/{name}" alt="{alt}" loading="lazy" decoding="async"></figure>'
@@ -157,7 +160,7 @@ CASES = [
  dict(slug='morspas', img='arctic_trawler_ice_oil_leak_21x9.jpg', tags='Federal maritime rescue service · sea area monitoring',
       title='−38% vessel-days for sea area monitoring',
       short='From continuous visual patrolling to targeted drone monitoring: ice conditions and oil pollution.',
-      facts=[('Functions', funcs('impl','ops')),('Metric','91% accuracy · ≤10% false positives'),('Effect','monitoring costs down ~1.7× · vessel-day ≈$100k'),('Data','Drone aerial imagery: multispectral + IR, ≤5 s latency')],
+      facts=[('Functions', funcs('impl','ops')),('Metric','91% accuracy · ≤10% false positives'),('Effect','monitoring costs down ~1.7× · vessel-day cost ≈$100k'),('Data','Drone aerial imagery: multispectral + IR, ≤5 s latency')],
       task='The client needed to cut expensive vessel patrols without losing completeness in detecting ice and oil pollution.',
       verdict=[('Slick detection from drone imagery','AI','Unstructured images, scale'),('Flight planning','No AI','Procedures and weather thresholds are rules'),('Incident confirmation','Hybrid','The model flags, the operator confirms')],
       result='Metrics verified on an independent sample. Drones added to the permanent MFACC toolset.'),
@@ -360,14 +363,14 @@ cases = hero('Cases','Cases','Where AI was needed — and where we did not use i
 page('cases.html', f'Cases — {BRAND}', 'Bureau cases: maritime safety, sea area monitoring, closed government environment, development, Moscow geo-information space, agriculture, ESG, EdTech.', cases, 'cases.html')
 for i,c in enumerate(CASES):
     nxt = CASES[(i+1)%len(CASES)]
-    facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in c['facts']) + '</dl>'
+    facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{nb(b)}</dd></div>' for a,b in c['facts']) + '</dl>'
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Process</th><th>Verdict</th><th>Rationale</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Home</a> / <a href="{{r}}cases.html">Cases</a></p>
-  <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{c['title']}</h1><p class="hero-sub reveal">{c['short']}</p>
+  <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
   {photo(c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
-  <div class="prose reveal"><div><p class="eyebrow">Task</p><p>{c['task']}</p></div>
-  <div><p class="eyebrow">Result</p><p>{c['result']}</p>
+  <div class="prose reveal"><div><p class="eyebrow">Task</p><p>{nb(c['task'])}</p></div>
+  <div><p class="eyebrow">Result</p><p>{nb(c['result'])}</p>
   {f'<p class="award">{c["award"]}</p>' if c.get('award') else ''}
   {'<p class="draft-note">Draft case write-up: details to be confirmed with the founder, NDA limits to be checked</p>' if c.get('draft', True) else ''}</div></div>
   <div><p class="eyebrow reveal">Verdicts by process</p>{vt}</div>
