@@ -14,7 +14,8 @@ NAV = [('method.html','Метод'),('council.html',PLAT),('cases.html','Кей�
        ('formats.html','Форматы'),('bureau.html','Бюро'),('insights.html','Заметки')]
 
 def nb(s):
-    return re.sub(r'([0-9+]) ', '\\1\u00a0', s)
+    s = re.sub(r'([0-9+]) ', '\\1\u00a0', s)
+    return re.sub(r'(млн|млрд|тыс)\.? ', lambda m: m.group(0)[:-1] + '\u00a0', s)
 
 def photo(r, name, alt, cls='', gen=True):
     return f'<figure class="photo{" gen" if gen else ""} {cls}"><img src="{r}assets/img/{name}" alt="{alt}" loading="lazy" decoding="async"></figure>'
