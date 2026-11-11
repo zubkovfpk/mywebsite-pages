@@ -161,7 +161,7 @@ CASES = [
  dict(slug='morspas', img='arctic_trawler_ice_oil_leak_21x9.jpg', tags='Federal maritime rescue service · sea area monitoring',
       title='−38% vessel-days for sea area monitoring',
       short='From continuous visual patrolling to targeted drone monitoring: ice conditions and oil pollution.',
-      facts=[('Functions', funcs('impl','ops')),('Metric','91% accuracy · ≤10% false positives'),('Effect','monitoring costs down ~1.7× · each patrol vessel-day used to cost ≈$100k'),('Data','Drone aerial imagery: multispectral + IR, ≤5 s latency')],
+      facts=[('Functions', funcs('impl','ops')),('Metric','91% accuracy · ≤10% false positives · natural look-alikes — 86%'),('Effect','monitoring costs down ~1.7×'),('Data','Drone aerial imagery: multispectral + IR, ≤5 s latency')],
       task='The client needed to cut expensive vessel patrols without losing completeness in detecting ice and oil pollution.',
       verdict=[('Slick detection from drone imagery','AI','Unstructured images, scale'),('Flight planning','No AI','Procedures and weather thresholds are rules'),('Incident confirmation','Hybrid','The model flags, the operator confirms')],
       result='Metrics verified on an independent sample. Drones added to the permanent MFACC toolset.'),
