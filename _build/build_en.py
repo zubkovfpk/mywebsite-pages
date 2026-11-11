@@ -158,7 +158,7 @@ CASES = [
       task='Insurers needed control of fleet risk and insurance cover; fishing shipowners needed fleet control and prevention of illegal catch unloading.',
       verdict=[('Meteo and situational bulletins','AI','Multi-source data assembly, personalised per vessel and voyage'),('Insurance-cover control','No AI','Deterministic rules and thresholds — errors are unacceptable'),('Fleet-anomaly detection','Hybrid','The model flags AIS-vs-activity mismatches; conclusions go to the client after human review')],
       result='Clients received a working commercial module in production; for a Chinese shipowner, hidden catch overloading by individual vessels was uncovered in La Pérouse Strait.'),
- dict(slug='morspas', img='arctic_trawler_ice_oil_leak_21x9.jpg', tags='Federal maritime rescue service · sea area monitoring',
+ dict(slug='morspas', img='arctic_trawler_ice_oil_leak_21x9.jpg', tags='Federal maritime rescue service · sea area monitoring', draft=False,
       title='−38% vessel-days for sea area monitoring',
       short='From continuous visual patrolling to targeted drone monitoring: ice conditions and oil pollution.',
       facts=[('Functions', funcs('impl','ops')),('Metric','91% accuracy · ≤10% false positives · natural look-alikes — 86%'),('Effect','monitoring costs down ~1.7×'),('Data','Drone aerial imagery: multispectral + IR, ≤5 s latency')],
