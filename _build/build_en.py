@@ -190,7 +190,7 @@ CASES = [
  dict(slug='agro', img='agro.jpg', tags='Agriculture · geo-ML on aerial imagery',
       title='From drone image to inspector case in 2 hours',
       short='ML detection of weed and quarantine plants for state oversight: from image to a ready case for the inspector.',
-      facts=[('Functions', funcs('impl','ops')),('Metric','accuracy ≥85% at mAP ≥0.70 · MVP: 65 weed classes, 43.6 images/min'),('Data','Drones (RGB + multispectral) · tractor cameras · satellite · agronomist tablets'),('Effect','empty site visits down 40% · coverage ≥80% of target areas per season · detection classes ~3× · accuracy +9%')],
+      facts=[('Functions', funcs('impl','ops')),('Metric','accuracy ≥85% at mAP ≥0.70 · MVP: 65 weed classes, 43.6 images/min'),('Data','Drones (RGB + multispectral) · tractor cameras · satellite · agronomist tablets'),('Effect','empty site visits down 40% · coverage ≥80% of target areas per season · detection classes ×3 · accuracy +9%')],
       task='The oversight authority required a verifiable picture of field conditions at industrial scale: replacing selective walkthroughs and manual image review with an auditable evidence base for enforcement orders.',
       verdict=[('Weed detection on imagery','AI','Variable patterns, large imagery volume'),('Survey routes and reporting','No AI','Rules and templates are enough'),('Field treatment decision','Hybrid','The model labels, the agronomist decides')],
       result='A computer-vision platform hands the inspector a ready case with a geo-referenced evidence base for enforcement orders.'),
