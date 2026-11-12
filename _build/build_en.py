@@ -168,7 +168,7 @@ CASES = [
  dict(slug='geodesy', img='land_cadastre_remote.jpg', tags='Geodesy and cadastre · closed government environment', draft=False, nda=True,
       title='+18% branch workload with reduced headcount',
       short='An agent that allocates and prioritises branch work in a closed government environment, with a governance standard on top.',
-      facts=[('Functions', funcs('caio','impl')),('Deployment & stack','On-prem, no external SaaS · sovereign and national LLMs · Evaluation Framework, KRI'),('Roadmap','25 measures · 6 directions — from methodology and data through GeoAI to production adoption, ethics and staffing'),('Effect','30% fewer staff with higher efficiency')],
+      facts=[('Functions', funcs('caio','impl')),('Deployment & stack','On-prem, no external SaaS · sovereign and national LLMs · Evaluation Framework, KRI'),('Roadmap','25 measures · 6 directions — from methodology and data through GeoAI to production adoption'),('Effect','30% fewer staff with higher efficiency')],
       task='Branch output had to be preserved while headcount shrank, under closed-environment requirements.',
       verdict=[('Branch workload planning','AI','Many non-formalised factors'),('Accounting and reporting','No AI','Rules and integration are enough'),('Allocating urgent requests','Hybrid','The agent proposes, the manager approves')],
       result='The agent was handed to the project team; on top of it — an autonomy boundary matrix, key risk indicators and an evaluation framework.'),
