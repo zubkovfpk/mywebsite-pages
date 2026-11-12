@@ -201,7 +201,7 @@ CASES = [
       task='A verifiable emissions estimate was needed on Arctic routes where direct measurement is unavailable.',
       verdict=[('Methane detection from satellite data','AI','Weak signal, large image volume'),('Emissions calculation under the approved methodology','No AI','Full reproducibility required'),('Estimation from AIS tracks','Hybrid','The model reconstructs operating modes, the methodology calculates')],
       result='An estimation methodology where direct measurement is unavailable. Metrics being refined.'),
- dict(slug='edtech', img='edtech.jpg', tags='EdTech · pilot in Colombia', card_tags='EdTech', intl='badge',
+ dict(slug='edtech', img='edtech.jpg', tags='EdTech · pilot in Colombia', card_tags='Educational technologies', intl='badge',
       title='EdTech pilot in Colombia',
       short='An AI-in-education pilot outside Russia: testing hypotheses in real classrooms before scaling.',
       facts=[('Functions', funcs('impl','bsm')),('Scale','~50 students · 6-month pilot'),('Model','LLM tutoring + geospatial content (RAG)'),('Status','Alpha release July 2026 · $0 for the university')],
