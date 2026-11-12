@@ -360,7 +360,7 @@ page('council.html', f'{PLAT} — diagnostics platform · {BRAND}', 'AI diagnost
 
 # ================= CASES =================
 cases = hero('Cases','Cases','Where AI was needed — and where we did not use it','Every case follows the same structure: task → verdicts by process → result.') + \
- sec('list','All cases','Verified results', '<div class="card-grid card-grid-2">'+''.join(case_card(c) for c in CASES[:2])+'</div><div class="card-grid" style="margin-top:48px">'+''.join(case_card(c) for c in CASES[2:])+'</div>') + CTA
+ sec('list','All cases','Verified results', '<div class="card-grid">'+''.join(case_card(c) for c in CASES)+'</div>') + CTA
 page('cases.html', f'Cases — {BRAND}', 'Bureau cases: maritime safety, sea area monitoring, closed government environment, development, Moscow geo-information space, agriculture, ESG, EdTech.', cases, 'cases.html')
 for i,c in enumerate(CASES):
     nxt = CASES[(i+1)%len(CASES)]

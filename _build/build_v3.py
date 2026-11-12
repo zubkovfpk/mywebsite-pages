@@ -359,7 +359,7 @@ page('council.html', f'{PLAT} — платформа диагностики · {
 
 # ================= CASES =================
 cases = hero('Кейсы','Кейсы','Где ИИ был нужен — и где мы его не поставили','Каждый кейс разобран по схеме: задача → вердикты по процессам → результат.') + \
- sec('list','Все кейсы','Подтверждённые результаты', '<div class="card-grid card-grid-2">'+''.join(case_card(c) for c in CASES[:2])+'</div><div class="card-grid" style="margin-top:48px">'+''.join(case_card(c) for c in CASES[2:])+'</div>') + CTA
+ sec('list','Все кейсы','Подтверждённые результаты', '<div class="card-grid">'+''.join(case_card(c) for c in CASES)+'</div>') + CTA
 page('cases.html', f'Кейсы — {BRAND}', 'Кейсы бюро: морская безопасность, мониторинг акваторий, закрытый госконтур, девелопмент, ЕГИП Москвы.', cases, 'cases.html')
 for i,c in enumerate(CASES):
     nxt = CASES[(i+1)%len(CASES)]
