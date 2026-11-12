@@ -187,7 +187,7 @@ CASES = [
       task='Fragmented data from dozens of agencies had to be consolidated into a single geo-information space for the city.',
       verdict=[('System integration','No AI','Standards and data buses are required, not models'),('Spatial data quality','Hybrid','Automated checks plus an expert'),('City analytics','Defer','Unified data first')],
       result='A unified space operating as a manageable system: standards, inter-agency integration, ML analysis of laser-scanning data.'),
- dict(slug='agro', img='agro.jpg', tags='Agriculture · geo-ML on aerial imagery',
+ dict(slug='agro', img='agro.jpg', tags='Agriculture · geo-ML on aerial imagery', draft=False,
       title='From drone image to inspector case in 2 hours',
       short='ML detection of weed and quarantine plants for state oversight: from image to a ready case for the inspector.',
       facts=[('Functions', funcs('impl','ops')),('Metric','accuracy ≥85% at mAP ≥0.70 · MVP: 65 weed classes, 43.6 images/min'),('Data','Drones (RGB + multispectral) · tractor cameras · satellite · agronomist tablets'),('Effect','empty site visits down 40% · coverage ≥80% of target areas per season · detection classes ×3 · accuracy +9%')],
