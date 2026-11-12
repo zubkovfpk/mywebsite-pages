@@ -194,7 +194,7 @@ CASES = [
       task='Field surveys needed speeding up, with a ready result for the inspector instead of manual image review.',
       verdict=[('Weed detection on imagery','AI','Variable patterns, large imagery volume'),('Survey routes and reporting','No AI','Rules and templates are enough'),('Field treatment decision','Hybrid','The model labels, the agronomist decides')],
       result='Inspectors\' empty site visits down ~40%; seasonal coverage at 80%+ of target areas.'),
- dict(slug='esg-nsr', img='esg.jpg', tags='Environment and ESG · Northern Sea Route', card_tags='Environment and ESG · NSR', intl='tag',
+ dict(slug='esg-nsr', img='esg.jpg', tags='Environment and ESG · Northern Sea Route', card_tags='Environment and ESG · NSR',
       title='ESG emissions monitoring on the Northern Sea Route',
       short='Estimating climate risks and emissions on Arctic routes: a product line designed with AI from day one.',
       facts=[('Functions', funcs('bsm','caito')),('Data','AIS tracks online · SAR/multispectral EO · meteo sources'),('Status','Deployed at IEPM and HSE · Sustainability (MDPI, 2025)'),('Market','CustDev with BRICS+ oil and gas companies')],
