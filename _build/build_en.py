@@ -201,7 +201,7 @@ CASES = [
       task='A verifiable emissions estimate was needed on Arctic routes where direct measurement is unavailable.',
       verdict=[('Methane detection from satellite data','AI','Weak signal, large image volume'),('Emissions calculation under the approved methodology','No AI','Full reproducibility required'),('Estimation from AIS tracks','Hybrid','The model reconstructs operating modes, the methodology calculates')],
       result='An estimation methodology where direct measurement is unavailable. Metrics being refined.'),
- dict(slug='edtech', img='edtech.jpg', tags='EdTech · pilot in Colombia', card_tags='EdTech', intl=True,
+ dict(slug='edtech', img='edtech.jpg', tags='EdTech · pilot in Colombia', card_tags='EdTech', intl='pill',
       title='EdTech pilot in Colombia',
       short='An AI-in-education pilot outside Russia: testing hypotheses in real classrooms before scaling.',
       facts=[('Functions', funcs('impl','bsm')),('Scale','~50 students · 6-month pilot'),('Model','LLM tutoring + geospatial content (RAG)'),('Status','Alpha release July 2026 · $0 for the university')],
@@ -212,7 +212,9 @@ CASES = [
 
 def case_card(c):
     ph = photo(c['img'], c['tags'])
-    if c.get('intl'):
+    if c.get('intl') == 'pill':
+        ph = ph.replace('</figure>', '<span class="intl-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.6 3 14.4 0 18M12 3c-3 3.6-3 14.4 0 18"/></svg>International</span></figure>')
+    elif c.get('intl'):
         ph = ph.replace('</figure>', '<span class="ribbon-intl">International</span></figure>')
     return f'''<a class="card reveal" href="{{r}}cases/{c['slug']}.html">{ph}
   <p class="card-tags">{c.get('card_tags', c['tags'])}</p><h3>{c['title']}</h3><p>{c['short']}</p><span class="more">Read the case →</span></a>'''

@@ -944,11 +944,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
 .card .photo.gen::after { font-size: 8px; padding: 2px 5px; right: 6px; bottom: 6px; }
 .ribbon-intl {
-  position: absolute; top: 16px; left: -38px; transform: rotate(-45deg);
+  position: absolute; top: 20px; left: -46px; transform: rotate(-45deg);
   background: var(--accent); color: #FAF7F2; font-family: var(--mono);
   font-size: 9px; letter-spacing: .08em; text-transform: uppercase;
-  padding: 3px 42px; white-space: nowrap;
+  padding: 3px 52px; white-space: nowrap;
 }
+.intl-pill {
+  position: absolute; top: 10px; left: 10px; display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(28,27,24,.72); color: #FAF7F2; font-family: var(--mono);
+  font-size: 8px; letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+}
+.intl-pill svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 1.4; }
 .photo-wide { aspect-ratio: 21 / 9; margin-top: 40px; }
 .award { border-left: 3px solid var(--accent); padding: 14px 18px; background: var(--paper-deep); margin-top: 32px; color: var(--ink); }
 .photo-34 { aspect-ratio: 3 / 4; }
