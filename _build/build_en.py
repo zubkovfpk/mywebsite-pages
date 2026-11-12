@@ -179,7 +179,7 @@ CASES = [
       task='The portfolio of initiatives across the project life cycle required sorting — without spending budget on what conventional automation solves.',
       verdict=[('Extracting fields from primary documents','AI','Unstructured documents'),('Reconciliation with ERP','No AI','Deterministic rules'),('Disputed discrepancies','Hybrid','A person decides')],
       result='A hybrid Excel → 1C:ERP agent: LLM only where it delivers measurable accuracy gains; the rest is deterministic logic and a human in the loop.'),
- dict(slug='egip', img='city.jpg', tags='Moscow unified geo-information space · urban policy', card_tags='Moscow UGIS · urban policy',
+ dict(slug='egip', img='city.jpg', tags='Moscow unified geo-information space · urban policy', draft=False, card_tags='Moscow UGIS · urban policy',
       title='37 systems, 60+ agencies, ~RUB 1 bn programme',
       short='Moscow unified geo-information space: from fragmented agency data to a manageable system.',
       award='Best work at the 3rd International GIS-Forum',
