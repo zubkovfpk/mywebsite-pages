@@ -180,7 +180,7 @@ CASES = [
       title='37 систем, 60+ ведомств, ~1 млрд. руб. программы',
       short='Единое геоинформационное пространство Москвы: от разрозненных ведомственных данных к управляемой системе.',
       award='Лучшая работа III Международного GIS-Forum',
-      facts=[('Функции','Архитектура программы и межведомственная интеграция'),('Данные','1000+ наборов данных · 3D, LiDAR, стереофото, онлайн-телеметрия'),('Процессы','B2G · B2B · B2C: отраслевая аналитика, мобильные инспекции, обратная связь жителей'),('Эффект','поддержка ГИС дешевле в 6,3× · 800+ тыс. жителей в обратной связи')],
+      facts=[('Функции','Архитектура программы и межведомственная интеграция'),('Данные','1000+ наборов данных · 3D, LiDAR, стереофото, онлайн-телеметрия'),('Процессы','B2G · B2B · B2C: отраслевая аналитика, мобильные инспекции, обратная связь жителей'),('Эффект','поддержка ГИС дешевле в 6,3× · 800+ тыс. жителей в обратной связи'),('Награда','Лучшая работа III Международного GIS-Forum')],
       task='Требуется объединить разрозненные данные десятков ведомств в единое геоинформационное пространство города.',
       verdict=[('Интеграция систем','Без ИИ','Требуются стандарты и шины данных, а не модели'),('Качество пространственных данных','Гибрид','Автопроверки и эксперт'),('Аналитика по городу','Отложить','Сначала единые данные')],
       result='Единое пространство как управляемая система: стандарты, межведомственная интеграция, ML-анализ данных лазерного сканирования.'),
@@ -374,11 +374,10 @@ for i,c in enumerate(CASES):
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Процесс</th><th>Решение</th><th>Обоснование</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Главная</a> / <a href="{{r}}cases.html">Кейсы</a></p>
   <p class="eyebrow reveal">{c['tags']}{' <span class="nda-tag">детали под NDA</span>' if c.get('nda') else ''}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
-  {photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
+  {photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True)).replace('</figure>', f'<span class="award-tag">{c["award"]}</span></figure>') if c.get('award') else photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
   <div class="prose reveal"><div><p class="eyebrow">Задача</p><p>{nb(c['task'])}</p></div>
   <div><p class="eyebrow">Результат</p><p>{nb(c['result'])}</p>
-  {f'<p class="award">{c["award"]}</p>' if c.get('award') else ''}
   {'<p class="draft-note">Черновик разбора: детали уточнить с основателем, NDA-ограничения проверить</p>' if c.get('draft', True) else ''}</div></div>
   <div><p class="eyebrow reveal">Вердикты по процессам</p>{vt}</div>
 </div></section>

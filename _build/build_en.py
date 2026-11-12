@@ -183,7 +183,7 @@ CASES = [
       title='37 systems, 60+ agencies, ~RUB 1 bn programme',
       short='Moscow unified geo-information space: from fragmented agency data to a manageable system.',
       award='Best work at the 3rd International GIS-Forum',
-      facts=[('Functions','Programme architecture and inter-agency integration'),('Data','1000+ data sets · 3D, LiDAR, stereo imagery, online telemetry'),('Processes','B2G · B2B · B2C: sector analytics, mobile inspections, citizen feedback'),('Effect','GIS support cost down 6.3× · 800k+ residents in the feedback loop')],
+      facts=[('Functions','Programme architecture and inter-agency integration'),('Data','1000+ data sets · 3D, LiDAR, stereo imagery, online telemetry'),('Processes','B2G · B2B · B2C: sector analytics, mobile inspections, citizen feedback'),('Effect','GIS support cost down 6.3× · 800k+ residents in the feedback loop'),('Award','Best work at the 3rd International GIS-Forum')],
       task='Fragmented data from dozens of agencies had to be consolidated into a single geo-information space for the city.',
       verdict=[('System integration','No AI','Standards and data buses are required, not models'),('Spatial data quality','Hybrid','Automated checks plus an expert'),('City analytics','Defer','Unified data first')],
       result='A unified space operating as a manageable system: standards, inter-agency integration, ML analysis of laser-scanning data.'),
@@ -375,11 +375,10 @@ for i,c in enumerate(CASES):
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Process</th><th>Verdict</th><th>Rationale</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Home</a> / <a href="{{r}}cases.html">Cases</a></p>
   <p class="eyebrow reveal">{c['tags']}{' <span class="nda-tag">details under NDA</span>' if c.get('nda') else ''}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
-  {photo(c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
+  {photo(c['img'],c['tags'],'photo-wide reveal',c.get('gen',True)).replace('</figure>', f'<span class="award-tag">{c["award"]}</span></figure>') if c.get('award') else photo(c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
   <div class="prose reveal"><div><p class="eyebrow">Task</p><p>{nb(c['task'])}</p></div>
   <div><p class="eyebrow">Result</p><p>{nb(c['result'])}</p>
-  {f'<p class="award">{c["award"]}</p>' if c.get('award') else ''}
   {'<p class="draft-note">Draft case write-up: details to be confirmed with the founder, NDA limits to be checked</p>' if c.get('draft', True) else ''}</div></div>
   <div><p class="eyebrow reveal">Verdicts by process</p>{vt}</div>
 </div></section>
