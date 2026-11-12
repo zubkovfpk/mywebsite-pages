@@ -165,18 +165,18 @@ CASES = [
       task='The client needed to cut expensive vessel patrols without losing completeness in detecting ice and oil pollution.',
       verdict=[('Slick detection from drone imagery','AI','Unstructured images, scale'),('Flight planning','No AI','Procedures and weather thresholds are rules'),('Incident confirmation','Hybrid','The model flags, the operator confirms')],
       result='Metrics verified on an independent sample. Drones added to the permanent MFACC toolset.'),
- dict(slug='geodesy', img='team.jpg', tags='Geodesy and cadastre · closed government environment',
+ dict(slug='geodesy', img='team.jpg', tags='Geodesy and cadastre · closed government environment', nda=True,
       title='+18% branch workload with reduced headcount',
       short='An agent that allocates and prioritises branch work in a closed government environment, with a governance standard on top.',
       facts=[('Functions', funcs('caio','impl')),('Deployment & stack','On-prem, no external SaaS · sovereign and national LLMs · Evaluation Framework, KRI'),('Roadmap','25 measures · 6 directions'),('Effect','30% fewer staff with higher efficiency')],
       task='Branch output had to be preserved while headcount shrank, under closed-environment requirements.',
       verdict=[('Branch workload planning','AI','Many non-formalised factors'),('Accounting and reporting','No AI','Rules and integration are enough'),('Allocating urgent requests','Hybrid','The agent proposes, the manager approves')],
       result='The agent was handed to the project team; on top of it — an autonomy boundary matrix, key risk indicators and an evaluation framework. The roadmap spans 6 directions: regulatory and methodological framework, data and infrastructure, GeoAI and risk-model R&D, AI adoption in risk assessment and map updates, AI quality, ethics and safety, staffing and organisational change.'),
- dict(slug='developer', img='construction.jpg', tags='Real estate development · Moscow top-3',
+ dict(slug='developer', img='construction.jpg', tags='Real estate development · Moscow top-3', nda=True,
       title='LLM in 3 of 8 subtasks — and that is the right call',
       short='An initiatives portfolio for a Moscow top-3 developer: where AI is justified and where plain rules suffice.',
-      facts=[('Functions', funcs('caio','bsm')),('Roadmap','15 initiatives across the asset life cycle'),('Metric','LLM accuracy >95%'),('Effect','≈RUB 3.6–14.4M/yr of manual work (estimate)')],
-      task='The portfolio of initiatives across the project life cycle needed sorting — without spending budget on what conventional automation solves.',
+      facts=[('Functions', funcs('caio','bsm')),('Roadmap','15 measures across the asset life cycle'),('Metric','LLM accuracy >95%'),('Effect','RUB 14M+/yr of manual work')],
+      task='The portfolio of initiatives across the project life cycle required sorting — without spending budget on what conventional automation solves.',
       verdict=[('Extracting fields from primary documents','AI','Unstructured documents'),('Reconciliation with ERP','No AI','Deterministic rules'),('Disputed discrepancies','Hybrid','A person decides')],
       result='A hybrid Excel → 1C:ERP agent: LLM only where it delivers measurable accuracy gains; the rest is deterministic logic and a human in the loop.'),
  dict(slug='egip', img='city.jpg', tags='Moscow unified geo-information space · urban policy · 2012–2016',
@@ -367,7 +367,7 @@ for i,c in enumerate(CASES):
     facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{nb(b)}</dd></div>' for a,b in c['facts']) + '</dl>'
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Process</th><th>Verdict</th><th>Rationale</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Home</a> / <a href="{{r}}cases.html">Cases</a></p>
-  <p class="eyebrow reveal">{c['tags']}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
+  <p class="eyebrow reveal">{c['tags']}{' <span class="nda-tag">details under NDA</span>' if c.get('nda') else ''}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
   {photo(c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
   <div class="prose reveal"><div><p class="eyebrow">Task</p><p>{nb(c['task'])}</p></div>
