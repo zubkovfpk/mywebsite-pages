@@ -213,9 +213,9 @@ CASES = [
 def case_card(c):
     ph = photo(c['img'], c['tags'])
     if c.get('award'):
-        ph = ph.replace('</figure>', '<span class="award-star"><svg viewBox="0 0 24 24"><path d="M8 13l-2.5 8L12 18l6.5 3L16 13"/><circle cx="12" cy="9" r="6"/><path d="M12 6l1.1 2.2 2.4.3-1.8 1.7.5 2.4L12 11.5 9.8 12.6l.5-2.4-1.8-1.7 2.4-.3z"/></svg></span></figure>')
+        ph = ph.replace('</figure>', '<span class="award-star" data-tip="Award-winning case"><svg viewBox="0 0 24 24"><path d="M8 13l-2.5 8L12 18l6.5 3L16 13"/><circle cx="12" cy="9" r="6"/><path d="M12 6l1.1 2.2 2.4.3-1.8 1.7.5 2.4L12 11.5 9.8 12.6l.5-2.4-1.8-1.7 2.4-.3z"/></svg></span></figure>')
     if c.get('intl') == 'badge':
-        ph = ph.replace('</figure>', '<span class="intl-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.6 3 14.4 0 18M12 3c-3 3.6-3 14.4 0 18"/></svg></span></figure>')
+        ph = ph.replace('</figure>', '<span class="intl-badge" data-tip="International case"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.6 3 14.4 0 18M12 3c-3 3.6-3 14.4 0 18"/></svg></span></figure>')
     elif c.get('intl') == 'tag':
         ph = ph.replace('</figure>', '<span class="intl-tag">INTL</span></figure>')
     elif c.get('intl'):
