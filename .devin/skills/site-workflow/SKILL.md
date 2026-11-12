@@ -63,6 +63,9 @@ the set must cover all 5 keys (caio, caito, impl, bsm, ops).
 No `Отрасль`/`Industry` item — the industry is already in `tags`. The remaining
 3 items are case-specific (Команда, Контур, Метрика, Этапы, …).
 
+- Exactly **4 facts** per case (Функции + 3 case-specific). A metric/number
+  must appear only once per case page — never repeat the same figure across
+  title, facts, task and result.
 - RU money notation: no `₽` symbol — write «тыс. руб.», «млн. руб.», «млрд. руб.»,
   «руб./мес». EN uses RUB/$ plainly.
 - `task` in a case = the CLIENT's request/voice («Заказчику нужно…»,
