@@ -175,7 +175,7 @@ CASES = [
  dict(slug='developer', img='construction.jpg', tags='Real estate development · Moscow top-3', nda=True,
       title='LLM in 3 of 8 subtasks — and that is the right call',
       short='An initiatives portfolio for a Moscow top-3 developer: where AI is justified and where plain rules suffice.',
-      facts=[('Functions', funcs('caio','bsm')),('Roadmap','15 measures across the asset life cycle'),('Metric','LLM accuracy >95%'),('Effect','RUB 14M+/yr of manual work')],
+      facts=[('Functions', funcs('caio','bsm')),('Roadmap','15 measures across the asset life cycle'),('Metric','LLM accuracy >95%'),('Effect','RUB 14M+/yr of manual work freed up — savings on routine operations')],
       task='The portfolio of initiatives across the project life cycle required sorting — without spending budget on what conventional automation solves.',
       verdict=[('Extracting fields from primary documents','AI','Unstructured documents'),('Reconciliation with ERP','No AI','Deterministic rules'),('Disputed discrepancies','Hybrid','A person decides')],
       result='A hybrid Excel → 1C:ERP agent: LLM only where it delivers measurable accuracy gains; the rest is deterministic logic and a human in the loop.'),
