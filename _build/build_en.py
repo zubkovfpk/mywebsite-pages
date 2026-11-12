@@ -211,7 +211,10 @@ CASES = [
 ]
 
 def case_card(c):
-    return f'''<a class="card reveal" href="{{r}}cases/{c['slug']}.html">{photo(c['img'], c['tags'])}
+    ph = photo(c['img'], c['tags'])
+    if c.get('intl'):
+        ph = ph.replace('</figure>', '<span class="ribbon-intl">International</span></figure>')
+    return f'''<a class="card reveal" href="{{r}}cases/{c['slug']}.html">{ph}
   <p class="card-tags">{c.get('card_tags', c['tags'])}</p><h3>{c['title']}</h3><p>{c['short']}</p><span class="more">Read the case →</span></a>'''
 
 INDUSTRIES = [

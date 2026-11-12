@@ -943,6 +943,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 }
 html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
 .card .photo.gen::after { font-size: 8px; padding: 2px 5px; right: 6px; bottom: 6px; }
+.ribbon-intl {
+  position: absolute; top: 16px; left: -38px; transform: rotate(-45deg);
+  background: var(--accent); color: #FAF7F2; font-family: var(--mono);
+  font-size: 9px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 42px; white-space: nowrap;
+}
 .photo-wide { aspect-ratio: 21 / 9; margin-top: 40px; }
 .award { border-left: 3px solid var(--accent); padding: 14px 18px; background: var(--paper-deep); margin-top: 32px; color: var(--ink); }
 .photo-34 { aspect-ratio: 3 / 4; }
