@@ -942,7 +942,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   background: rgba(28,27,24,.72); color: #FAF7F2; padding: 3px 7px;
 }
 html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
-.card .photo.gen::after { font-size: 7.5px; padding: 2px 5px; right: 6px; bottom: 6px; }
+.card .photo.gen::after { font-size: 8px; padding: 2px 5px; right: 6px; bottom: 6px; }
 .photo-wide { aspect-ratio: 21 / 9; margin-top: 40px; }
 .award { border-left: 3px solid var(--accent); padding: 14px 18px; background: var(--paper-deep); margin-top: 32px; color: var(--ink); }
 .photo-34 { aspect-ratio: 3 / 4; }

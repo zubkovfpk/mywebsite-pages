@@ -171,7 +171,7 @@ CASES = [
       facts=[('Functions', funcs('caio','impl')),('Deployment & stack','On-prem, no external SaaS · sovereign and national LLMs · Evaluation Framework, KRI'),('Roadmap','25 measures · 6 directions'),('Effect','30% fewer staff with higher efficiency')],
       task='Branch output had to be preserved while headcount shrank, under closed-environment requirements.',
       verdict=[('Branch workload planning','AI','Many non-formalised factors'),('Accounting and reporting','No AI','Rules and integration are enough'),('Allocating urgent requests','Hybrid','The agent proposes, the manager approves')],
-      result='The agent was handed to the project team; on top of it — an autonomy boundary matrix, key risk indicators and an evaluation framework. The roadmap spans 6 directions: regulatory and methodological framework, data and infrastructure, GeoAI and risk-model R&D, AI adoption in risk assessment and map updates, AI quality, ethics and safety, staffing and organisational change.'),
+      result='The agent was handed to the project team; on top of it — an autonomy boundary matrix, key risk indicators and an evaluation framework. The roadmap spans 6 directions — from methodology and data through GeoAI R&D to map-update adoption, ethics and staffing.'),
  dict(slug='developer', img='construction.jpg', tags='Real estate development · Moscow top-3', draft=False, nda=True,
       title='LLM in 3 of 8 subtasks — and that is the right call',
       short='An initiatives portfolio for a Moscow top-3 developer: where AI is justified and where plain rules suffice.',
