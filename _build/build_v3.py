@@ -210,6 +210,8 @@ CASES = [
 
 def case_card(c, r='{r}'):
     ph = photo(r, c['img'], c['tags'])
+    if c.get('award'):
+        ph = ph.replace('</figure>', '<span class="ribbon-intl" style="background:var(--ink)">Награда</span><span class="award-star">★</span></figure>')
     if c.get('intl') == 'badge':
         ph = ph.replace('</figure>', '<span class="intl-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.6 3 14.4 0 18M12 3c-3 3.6-3 14.4 0 18"/></svg></span></figure>')
     elif c.get('intl') == 'tag':
@@ -373,8 +375,8 @@ for i,c in enumerate(CASES):
     facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{nb(b)}</dd></div>' for a,b in c['facts']) + '</dl>'
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Процесс</th><th>Решение</th><th>Обоснование</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Главная</a> / <a href="{{r}}cases.html">Кейсы</a></p>
-  <p class="eyebrow reveal">{c['tags']}{' <span class="nda-tag">детали под NDA</span>' if c.get('nda') else ''}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
-  {photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True)).replace('</figure>', f'<span class="award-tag">{c["award"]}</span></figure>') if c.get('award') else photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
+  <p class="eyebrow reveal">{c['tags']}{' <span class="nda-tag">детали под NDA</span>' if c.get('nda') else ''}{' <span class="nda-tag award-chip">' + c['award'] + '</span>' if c.get('award') else ''}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
+  {photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True)).replace('</figure>', f'<span class="award-tag">{c["award"]}</span><span class="award-pill">GIS-Forum III</span></figure>') + f'<p class="award-cap">{c["award"]}</p>' if c.get('award') else photo('{r}',c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
   <div class="prose reveal"><div><p class="eyebrow">Задача</p><p>{nb(c['task'])}</p></div>
   <div><p class="eyebrow">Результат</p><p>{nb(c['result'])}</p>

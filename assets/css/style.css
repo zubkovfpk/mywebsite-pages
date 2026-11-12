@@ -960,6 +960,20 @@ html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
   font-family: var(--mono); font-size: 10px; letter-spacing: .04em; text-transform: uppercase;
   background: var(--accent); color: #FAF7F2; padding: 3px 7px;
 }
+.award-pill {
+  position: absolute; top: 10px; right: 10px;
+  background: var(--paper); border: 1px solid var(--accent); color: var(--accent);
+  border-radius: 999px; font-family: var(--mono); font-size: 9px; letter-spacing: .06em;
+  text-transform: uppercase; padding: 3px 9px; white-space: nowrap;
+}
+.award-cap {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--accent); margin-top: 10px;
+}
+.award-star {
+  position: absolute; top: 10px; right: 10px; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--accent); color: #FAF7F2; font-size: 12px; line-height: 24px; text-align: center;
+}
 .award { border-left: 3px solid var(--accent); padding: 14px 18px; background: var(--paper-deep); margin-top: 32px; color: var(--ink); }
 .photo-34 { aspect-ratio: 3 / 4; }
 .photo-32 { aspect-ratio: 3 / 2; }
