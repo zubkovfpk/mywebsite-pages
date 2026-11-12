@@ -144,28 +144,28 @@ FUNCS = {'caio':'AI strategy and portfolio','caito':'Transformation toward AI',
 def funcs(*ks): return ' · '.join(FUNCS[k] for k in ks)
 
 CASES = [
- dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic and the Far East', draft=False,
+ dict(slug='vizard', img='arctic.jpg', tags='Maritime safety · Arctic and the Far East', card_tags='Maritime safety · Arctic & Far East', draft=False,
       title='+13% Northern Sea Route voyages and +14.5% speed in ice',
       short='A navigational-safety platform for oil and gas groups and the national shipping operator: ice conditions, routing, autonomy bounds.',
       facts=[('Functions', funcs('caio','ops')),('Deployment & stack','Safety runtime, 7 modules in production'),('Metric','<1% of agent actions outside permitted bounds'),('Markets & languages','Russia · China · Norway · Japan — Russian, Chinese, English')],
       task='The clients — oil and gas groups and the shipping operator — needed safer, more efficient ice navigation without losing control: every agent decision must stay within permitted bounds.',
       verdict=[('Ice conditions from satellite data','AI','Variable patterns, high image volume'),('Warning of approach to an ice zone','No AI','Errors are unacceptable: route geometry and time thresholds'),('Route recommendations','Hybrid','The model suggests, the captain decides')],
       result='−65% fishing-gear losses over 5+ years. Hard prohibitions live in the runtime; critical decisions keep a human in the loop.'),
- dict(slug='shipping', img='shipping.png', tags='Marine insurance and shipowners · international track', draft=False,
+ dict(slug='shipping', img='shipping.png', tags='Marine insurance and shipowners · international track', card_tags='Marine insurance and shipowners', draft=False, intl=True,
       title='>RUB 2 bn saved for shipowners and operators · 2025–2029',
       short='Meteo bulletins and insurance-cover control for insurers; fleet-anomaly detection for fishing shipowners. In-house development and deployment of the service in seven countries.',
       facts=[('Functions', funcs('bsm','ops')),('Markets & languages','Russia · China · MENA · Latin America · Japan — Russian, English, Chinese, Spanish'),('Data','AIS tracks + satellite imagery + anonymized telecom data'),('Metric','≈22% of voyages covered by the service · up to $9.7–16.6M/yr of prevented losses (estimate)')],
       task='Insurers needed control of fleet risk and insurance cover; fishing shipowners needed fleet control and prevention of illegal catch unloading.',
       verdict=[('Meteo and situational bulletins','AI','Multi-source data assembly, personalised per vessel and voyage'),('Insurance-cover control','No AI','Deterministic rules and thresholds — errors are unacceptable'),('Fleet-anomaly detection','Hybrid','The model flags AIS-vs-activity mismatches; conclusions go to the client after human review')],
       result='Clients received a working commercial module in production; for a Chinese shipowner, hidden catch overloading by individual vessels was uncovered in La Pérouse Strait.'),
- dict(slug='morspas', img='oil_spills.png', tags='Federal maritime rescue service · sea area monitoring', draft=False,
+ dict(slug='morspas', img='oil_spills.png', tags='Federal maritime rescue service · sea area monitoring', card_tags='Sea area monitoring', draft=False,
       title='−38% vessel-days for sea area monitoring',
       short='From continuous visual patrolling to targeted drone monitoring: ice conditions and oil pollution.',
       facts=[('Functions', funcs('impl','ops')),('Metric','91% accuracy · ≤10% false positives · natural look-alikes — 86%'),('Effect','monitoring costs down ~1.7×'),('Data','Drone aerial imagery: multispectral + IR, ≤5 s latency')],
       task='The client needed to cut expensive vessel patrols without losing completeness in detecting ice and oil pollution.',
       verdict=[('Slick detection from drone imagery','AI','Unstructured images, scale'),('Flight planning','No AI','Procedures and weather thresholds are rules'),('Incident confirmation','Hybrid','The model flags, the operator confirms')],
       result='Metrics verified on an independent sample. Drones added to the permanent MFACC toolset.'),
- dict(slug='geodesy', img='land_cadastre_remote.jpg', tags='Geodesy and cadastre · closed government environment', draft=False, nda=True,
+ dict(slug='geodesy', img='land_cadastre_remote.jpg', tags='Geodesy and cadastre · closed government environment', card_tags='Geodesy and cadastre · closed env.', draft=False, nda=True,
       title='+18% branch workload with reduced headcount',
       short='An agent that allocates and prioritises branch work in a closed government environment, with a governance standard on top.',
       facts=[('Functions', funcs('caio','impl')),('Deployment & stack','On-prem, no external SaaS · sovereign and national LLMs · Evaluation Framework'),('Roadmap','25 measures · 6 directions — from methodology and data through GeoAI to production adoption'),('Effect','30% fewer staff with higher efficiency')],
@@ -179,7 +179,7 @@ CASES = [
       task='The portfolio of initiatives across the project life cycle required sorting — without spending budget on what conventional automation solves.',
       verdict=[('Extracting fields from primary documents','AI','Unstructured documents'),('Reconciliation with ERP','No AI','Deterministic rules'),('Disputed discrepancies','Hybrid','A person decides')],
       result='A hybrid Excel → 1C:ERP agent: LLM only where it delivers measurable accuracy gains; the rest is deterministic logic and a human in the loop.'),
- dict(slug='egip', img='city.jpg', tags='Moscow unified geo-information space · urban policy · 2012–2016',
+ dict(slug='egip', img='city.jpg', tags='Moscow unified geo-information space · urban policy · 2012–2016', card_tags='Moscow UGIS · urban policy',
       title='37 systems, 60+ agencies, ~RUB 1 bn programme',
       short='Moscow unified geo-information space: from fragmented agency data to a manageable system.',
       award='Best work at the 3rd International GIS-Forum',
@@ -194,14 +194,14 @@ CASES = [
       task='Field surveys needed speeding up, with a ready result for the inspector instead of manual image review.',
       verdict=[('Weed detection on imagery','AI','Variable patterns, large imagery volume'),('Survey routes and reporting','No AI','Rules and templates are enough'),('Field treatment decision','Hybrid','The model labels, the agronomist decides')],
       result='Inspectors\' empty site visits down ~40%; seasonal coverage at 80%+ of target areas.'),
- dict(slug='esg-nsr', img='esg.jpg', tags='Environment and ESG · Northern Sea Route',
+ dict(slug='esg-nsr', img='esg.jpg', tags='Environment and ESG · Northern Sea Route', card_tags='Environment and ESG · NSR',
       title='ESG emissions monitoring on the Northern Sea Route',
       short='Estimating climate risks and emissions on Arctic routes: a product line designed with AI from day one.',
       facts=[('Functions', funcs('bsm','caito')),('Data','AIS tracks online · SAR/multispectral EO · meteo sources'),('Status','Deployed at IEPM and HSE · Sustainability (MDPI, 2025)'),('Market','CustDev with BRICS+ oil and gas companies')],
       task='A verifiable emissions estimate was needed on Arctic routes where direct measurement is unavailable.',
       verdict=[('Methane detection from satellite data','AI','Weak signal, large image volume'),('Emissions calculation under the approved methodology','No AI','Full reproducibility required'),('Estimation from AIS tracks','Hybrid','The model reconstructs operating modes, the methodology calculates')],
       result='An estimation methodology where direct measurement is unavailable. Metrics being refined.'),
- dict(slug='edtech', img='edtech.jpg', tags='EdTech · pilot in Colombia',
+ dict(slug='edtech', img='edtech.jpg', tags='EdTech · pilot in Colombia', card_tags='EdTech', intl=True,
       title='EdTech pilot in Colombia',
       short='An AI-in-education pilot outside Russia: testing hypotheses in real classrooms before scaling.',
       facts=[('Functions', funcs('impl','bsm')),('Scale','~50 students · 6-month pilot'),('Model','LLM tutoring + geospatial content (RAG)'),('Status','Alpha release July 2026 · $0 for the university')],
@@ -212,7 +212,7 @@ CASES = [
 
 def case_card(c):
     return f'''<a class="card reveal" href="{{r}}cases/{c['slug']}.html">{photo(c['img'], c['tags'])}
-  <p class="card-tags">{c['tags']}</p><h3>{c['title']}</h3><p>{c['short']}</p><span class="more">Read the case →</span></a>'''
+  <p class="card-tags">{c.get('card_tags', c['tags'])}</p><h3>{c['title']}</h3><p>{c['short']}</p><span class="more">Read the case →</span></a>'''
 
 INDUSTRIES = [
  ('mining.jpg','Mining and hydrocarbons','Oil, gas and ores. Safety and logistics in harsh environments: offshore, ice, remoteness.','Typical: AI in video analytics and failure prediction; no AI in safety permits and procedures.'),
