@@ -58,7 +58,7 @@ def page(path, title, desc, body, active=None):
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="wordmark" href="{r}index.html" aria-label="{BRAND} — на главную">
-      <span class="wordmark-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="wordmark-mark" aria-hidden="true"><b>?</b><i></i><i></i><i></i><i></i></span>
       <span class="wordmark-text"><span class="wordmark-name">{BRAND}</span><span class="wordmark-role">{ROLE}</span></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Основная навигация">

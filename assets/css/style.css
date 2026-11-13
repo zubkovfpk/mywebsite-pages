@@ -778,11 +778,13 @@ html, body { overflow-x: clip; }
 
 .wordmark { flex-direction: row; align-items: center; gap: 12px; }
 .wordmark-text { display: flex; flex-direction: column; }
-.wordmark-mark { display: inline-flex; gap: 3px; }
+.wordmark-mark { display: inline-flex; align-items: flex-end; gap: 3px; }
+.wordmark-mark b { font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1; color: var(--accent); margin-right: 3px; }
 .wordmark-mark i { display: block; width: 7px; height: 22px; }
-.wordmark-mark i:nth-child(1) { background: var(--zone-green); }
-.wordmark-mark i:nth-child(2) { background: var(--zone-amber); }
-.wordmark-mark i:nth-child(3) { background: var(--zone-red); }
+.wordmark-mark i:nth-of-type(1) { background: var(--zone-green); }
+.wordmark-mark i:nth-of-type(2) { background: var(--zone-amber); }
+.wordmark-mark i:nth-of-type(3) { background: var(--zone-red); }
+.wordmark-mark i:nth-of-type(4) { background: var(--zone-grey); }
 
 .hero-grid {
   display: grid;
