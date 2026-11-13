@@ -201,13 +201,13 @@ CASES = [
       task='A shelf drilling operator needs to determine where AI delivers measurable value on the rigs and where it is barred by industrial safety and critical-infrastructure rules.',
       verdict=[('Predictive maintenance: mud pumps, drawworks, top drive','Hybrid','ML flags early degradation signs; OEM thresholds and the decision stay with the mechanic'),('Video analytics for hazardous zones, PPE control','AI','Impossible without computer vision; the response runs through certified systems, not directly from the model'),('ESD, BOP control, fire & gas, alerting','No AI','Compliance and security veto: provable, certifiable behaviour; AI acts only as a parallel adviser')],
       result='The launch order is set: the first maintenance pilot goes to semi-submersibles, where returns are positive already in the first season; jack-ups join at rollout. The verdict matrix contains a risk register under security and compliance vetoes.'),
- dict(slug='medtech', img='dental.jpg', tags='MedTech · dental visualisation', card_tags='MedTech · dentistry', chip='Open niche',
+ dict(slug='medtech', img='dental.jpg', tags='MedTech · dental visualisation', card_tags='MedTech · dentistry', chip='New niche · export strategy',
       title='Patient treatment acceptance +30% — AI microscope',
       short='A three-wave program bringing AI into a digital dental microscope: from quick wins to the world’s first endodontic AI assistant.', card_short='An AI adoption program for a dental microscope: three feature waves toward an endodontic AI assistant.',
       facts=[('Functions', funcs('caio','ops')),('Architecture','AI on a separate module by the microscope; device software unchanged'),('Metric','canal orifice detection ~91% · MB2 sens 80–100% · cracks up to 97.8%'),('Effect','patient treatment acceptance +15–37% · clinic revenue grows')],
       task='A digital dental microscope manufacturer needs an AI adoption program that raises device value and sales — without changing the optics.',
       verdict=[('Image enhancement, voice control, auto-protocols','AI','Unstructured video and speech input; outside diagnostic claims — no medical-device registration needed'),('Real-time detection of canal orifices and cracks','Hybrid','The model highlights on a separate module beside the microscope, the doctor confirms; the device software stays unchanged'),('Autonomous diagnosis','Defer','The cost of error demands clinical validation first — the decision stays with the doctor')],
-      result='A rollout sequence is defined: non-diagnostic features in 6–12 months, the clinical assistant after dataset collection and validation, then AR overlay and telementoring. The client receives a go-to-market strategy for the AI modules.'),
+      result='A rollout sequence is defined: non-diagnostic features in 6–12 months, the clinical assistant after dataset collection and validation, then AR overlay and telementoring. The client receives a strategy for taking a new niche, including an export track.'),
 ]
 
 def case_card(c):
