@@ -201,8 +201,8 @@ CASES = [
       task='A shelf drilling operator needs to determine where AI delivers measurable value on the rigs and where it is barred by industrial safety and critical-infrastructure rules.',
       verdict=[('Predictive maintenance: mud pumps, drawworks, top drive','Hybrid','ML flags early degradation signs; OEM thresholds and the decision stay with the mechanic'),('Video analytics for hazardous zones, PPE control','AI','Impossible without computer vision; the response runs through certified systems, not directly from the model'),('ESD, BOP control, fire & gas, alerting','No AI','Compliance and security veto: provable, certifiable behaviour; AI acts only as a parallel adviser')],
       result='The launch order is set: the first maintenance pilot goes to semi-submersibles, where returns are positive already in the first season; jack-ups join at rollout. The verdict matrix contains a risk register under security and compliance vetoes.'),
- dict(slug='medtech', img='dental.jpg', tags='MedTech · dental visualisation · open niche', card_tags='MedTech · dentistry',
-      title='First AI microscope for dentistry in 12–24 months',
+ dict(slug='medtech', img='dental.jpg', tags='MedTech · dental visualisation', card_tags='MedTech · dentistry', chip='Open niche',
+      title='Patient treatment acceptance +15–37% — AI microscope',
       short='A three-wave program bringing AI into a digital dental microscope: from quick wins to the world’s first endodontic AI assistant.', card_short='An AI adoption program for a dental microscope: three feature waves toward an endodontic AI assistant.',
       facts=[('Functions', funcs('caio','ops')),('Architecture','AI on a separate module by the microscope; device software unchanged'),('Metric','canal orifice detection ~91% · MB2 sens 80–100% · cracks up to 97.8%'),('Effect','patient treatment acceptance +15–37% · clinic revenue grows')],
       task='A digital dental microscope manufacturer needs an AI adoption program that raises device value and sales — without changing the optics.',
@@ -376,7 +376,7 @@ for i,c in enumerate(CASES):
     facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{nb(b)}</dd></div>' for a,b in c['facts']) + '</dl>'
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Process</th><th>Verdict</th><th>Rationale</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Home</a> / <a href="{{r}}cases.html">Cases</a></p>
-  <p class="eyebrow reveal">{c['tags']}{' <span class="nda-tag">details under NDA</span>' if c.get('nda') else ''}{' <span class="nda-tag award-chip">' + c['award'] + '</span>' if c.get('award') else ''}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
+  <p class="eyebrow reveal">{c['tags']}{' <span class="nda-tag">details under NDA</span>' if c.get('nda') else ''}{' <span class="nda-tag award-chip">' + c['award'] + '</span>' if c.get('award') else ''}{' <span class="nda-tag award-chip">' + c['chip'] + '</span>' if c.get('chip') else ''}</p><h1 class="hero-title reveal">{nb(c['title'])}</h1><p class="hero-sub reveal">{nb(c['short'])}</p>
   {photo(c['img'],c['tags'],'photo-wide reveal',c.get('gen',True)).replace('</figure>', f'<span class="award-tag">{c["award"]}</span></figure>') + f'<p class="award-cap">{c["award"]}</p>' if c.get('award') else photo(c['img'],c['tags'],'photo-wide reveal',c.get('gen',True))}{facts}</div></section>
 <section class="section"><div class="container split split-fill">
   <div class="prose reveal"><div><p class="eyebrow">Task</p><p>{nb(c['task'])}</p></div>
