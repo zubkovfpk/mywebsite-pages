@@ -18,7 +18,7 @@
   <url><loc>https://example.ru/cases/egip.html</loc></url>
   <url><loc>https://example.ru/cases/agro.html</loc></url>
   <url><loc>https://example.ru/cases/shelf.html</loc></url>
-  <url><loc>https://example.ru/cases/edtech.html</loc></url>
+  <url><loc>https://example.ru/cases/medtech.html</loc></url>
   <url><loc>https://example.ru/en/</loc></url>
   <url><loc>https://example.ru/en/method.html</loc></url>
   <url><loc>https://example.ru/en/council.html</loc></url>
@@ -37,5 +37,5 @@
   <url><loc>https://example.ru/en/cases/egip.html</loc></url>
   <url><loc>https://example.ru/en/cases/agro.html</loc></url>
   <url><loc>https://example.ru/en/cases/shelf.html</loc></url>
-  <url><loc>https://example.ru/en/cases/edtech.html</loc></url>
+  <url><loc>https://example.ru/en/cases/medtech.html</loc></url>
 </urlset>

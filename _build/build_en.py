@@ -201,13 +201,13 @@ CASES = [
       task='A shelf drilling operator needs to determine where AI delivers measurable value on the rigs and where it is barred by industrial safety and critical-infrastructure rules.',
       verdict=[('Predictive maintenance: mud pumps, drawworks, top drive','Hybrid','ML flags early degradation signs; OEM thresholds and the decision stay with the mechanic'),('Video analytics for hazardous zones, PPE control','AI','Impossible without computer vision; the response runs through certified systems, not directly from the model'),('ESD, BOP control, fire & gas, alerting','No AI','Compliance and security veto: provable, certifiable behaviour; AI acts only as a parallel adviser')],
       result='The launch order is set: the first maintenance pilot goes to semi-submersibles, where returns are positive already in the first season; jack-ups join at rollout. The verdict matrix contains a risk register under security and compliance vetoes.'),
- dict(slug='edtech', img='edtech.jpg', tags='EdTech · pilot in Colombia', card_tags='Educational technologies', intl='badge',
-      title='EdTech pilot in Colombia',
-      short='An AI-in-education pilot outside Russia: testing hypotheses in real classrooms before scaling.',
-      facts=[('Functions', funcs('impl','bsm')),('Scale','~50 students · 6-month pilot'),('Model','LLM tutoring + geospatial content (RAG)'),('Status','Alpha release July 2026 · $0 for the university')],
-      task='It had to be tested where AI genuinely helps teachers and students — before investing in scale.',
-      verdict=[('Personal recommendations for students','Hybrid','The model suggests, the teacher decides'),('Timetabling and records','No AI','Conventional automation'),('Regional rollout','Defer','Pilot results first')],
-      result='Pilot completed; findings informed the scaling decision. Details being refined.'),
+ dict(slug='medtech', img='edtech.jpg', tags='MedTech · dental visualisation', card_tags='MedTech · dentistry',
+      title='First AI assistant in a dental microscope — a program to take an open niche',
+      short='A three-wave program bringing AI into a digital dental microscope: from quick wins to the world’s first endodontic AI assistant.',
+      facts=[('Functions', funcs('caio','ops')),('Dataset','Annotated microscope video collected with partner clinics — a defensible barrier to competitors'),('Metric','canal orifice detection ~91% · MB2 sens 80–100% · cracks up to 97.8%'),('Effect','AI visualisation lifts patient treatment acceptance by 15–37% — revenue growth for clinics')],
+      task='A digital dental microscope manufacturer needs an AI adoption program that raises device value and sales — without changing the optics.',
+      verdict=[('Image enhancement, voice control, auto-protocols','AI','Unstructured video and speech input; outside diagnostic claims — no medical-device registration needed'),('Real-time detection of canal orifices and cracks','Hybrid','The model highlights, the doctor confirms; a dataset and AI medical-device registration are required'),('Autonomous diagnosis','Defer','Cost of error and regulation: the decision stays with the doctor; dataset and clinical validation first')],
+      result='A three-wave program: quick features (image enhancement, voice control, auto-protocols, patient reports) within 6–12 months; the dataset collected with partner clinics in parallel; the first endodontic AI assistant in 12–24 months.'),
 ]
 
 def case_card(c):
