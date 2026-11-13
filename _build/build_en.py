@@ -202,12 +202,12 @@ CASES = [
       verdict=[('Predictive maintenance: mud pumps, drawworks, top drive','Hybrid','ML flags early degradation signs; OEM thresholds and the decision stay with the mechanic'),('Video analytics for hazardous zones, PPE control','AI','Impossible without computer vision; the response runs through certified systems, not directly from the model'),('ESD, BOP control, fire & gas, alerting','No AI','Compliance and security veto: provable, certifiable behaviour; AI acts only as a parallel adviser')],
       result='The launch order is set: the first maintenance pilot goes to semi-submersibles, where returns are positive already in the first season; jack-ups join at rollout. The verdict matrix contains a risk register under security and compliance vetoes.'),
  dict(slug='medtech', img='dental.jpg', tags='MedTech · dental visualisation', card_tags='MedTech · dentistry',
-      title='First AI assistant in a dental microscope — a program to take an open niche',
-      short='A three-wave program bringing AI into a digital dental microscope: from quick wins to the world’s first endodontic AI assistant.',
-      facts=[('Functions', funcs('caio','ops')),('Dataset','Annotated microscope video collected with partner clinics — a defensible barrier to competitors'),('Metric','canal orifice detection ~91% · MB2 sens 80–100% · cracks up to 97.8%'),('Effect','AI visualisation lifts patient treatment acceptance by 15–37% — revenue growth for clinics')],
+      title='First AI assistant in a dental microscope — an open niche',
+      short='A three-wave program bringing AI into a digital dental microscope: from quick wins to the world’s first endodontic AI assistant.', card_short='An AI adoption program for a dental microscope: three feature waves toward an endodontic AI assistant.',
+      facts=[('Functions', funcs('caio','ops')),('Architecture','AI runs on a separate compute module beside the microscope; the device’s optics and software stay unchanged'),('Metric','canal orifice detection ~91% · MB2 sens 80–100% · cracks up to 97.8%'),('Effect','patient treatment acceptance +15–37% · clinic revenue grows')],
       task='A digital dental microscope manufacturer needs an AI adoption program that raises device value and sales — without changing the optics.',
-      verdict=[('Image enhancement, voice control, auto-protocols','AI','Unstructured video and speech input; outside diagnostic claims — no medical-device registration needed'),('Real-time detection of canal orifices and cracks','Hybrid','The model highlights, the doctor confirms; a dataset and AI medical-device registration are required'),('Autonomous diagnosis','Defer','Cost of error and regulation: the decision stays with the doctor; dataset and clinical validation first')],
-      result='A three-wave program: quick features (image enhancement, voice control, auto-protocols, patient reports) within 6–12 months; the dataset collected with partner clinics in parallel; the first endodontic AI assistant in 12–24 months.'),
+      verdict=[('Image enhancement, voice control, auto-protocols','AI','Unstructured video and speech input; outside diagnostic claims — no medical-device registration needed'),('Real-time detection of canal orifices and cracks','Hybrid','The model highlights on a separate module beside the microscope, the doctor confirms; the device software stays unchanged'),('Autonomous diagnosis','Defer','The cost of error demands clinical validation first — the decision stays with the doctor')],
+      result='A rollout sequence is defined: non-diagnostic features in 6–12 months, the clinical assistant after dataset collection and validation, then AR overlay and telementoring. The client receives a go-to-market strategy for the AI modules.'),
 ]
 
 def case_card(c):
@@ -221,7 +221,7 @@ def case_card(c):
     elif c.get('intl'):
         ph = ph.replace('</figure>', '<span class="ribbon-intl">International</span></figure>')
     return f'''<a class="card reveal" href="{{r}}cases/{c['slug']}.html">{ph}
-  <p class="card-tags">{c.get('card_tags', c['tags'])}</p><h3>{c['title']}</h3><p>{c['short']}</p><span class="more">Read the case →</span></a>'''
+  <p class="card-tags">{c.get('card_tags', c['tags'])}</p><h3>{c['title']}</h3><p>{c.get('card_short', c['short'])}</p><span class="more">Read the case →</span></a>'''
 
 INDUSTRIES = [
  ('mining.jpg','Mining and hydrocarbons','Oil, gas and ores. Safety and logistics in harsh environments: offshore, ice, remoteness.','Typical: AI in video analytics and failure prediction; no AI in safety permits and procedures.'),
