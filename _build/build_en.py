@@ -194,7 +194,7 @@ CASES = [
       task='The oversight authority required a verifiable picture of field conditions at industrial scale: replacing selective walkthroughs and manual image review with an auditable evidence base for enforcement orders.',
       verdict=[('Weed detection on imagery','AI','Variable patterns, large imagery volume'),('Survey routes and reporting','No AI','Rules and templates are enough'),('Field treatment decision','Hybrid','The model labels, the agronomist decides')],
       result='A computer-vision platform hands the inspector a ready case with a geo-referenced evidence base for enforcement orders.'),
- dict(slug='shelf', img='shelf.jpg', tags='Drilling and pumping equipment · reliability', card_tags='Drilling equipment · reliability',
+ dict(slug='shelf', img='shelf.jpg', tags='Drilling and pumping equipment · reliability', card_tags='Drilling equipment · reliability', draft=False,
       title='+RUB 17.8 mln per semi-sub season · payback from ~13 h',
       short='An assessment of drilling rig processes: where AI is justified and where only deterministic automation belongs.',
       facts=[('Functions', funcs('caio','ops')),('Processes','15 drilling-work scenarios — from maintenance and supply to alerting and reporting'),('Roadmap','budget spread across seasons and technologies, payback from year one'),('Boundary','AI outside the critical-infrastructure perimeter · models on board · to shore — events only')],
