@@ -2,6 +2,16 @@
 
 Newest at top. All timestamps UTC.
 
+## 2026-11-13 ~15:00 UTC — Naming shortlist + shelf/medtech cases
+
+- **Naming: user shortlist = Quaero, Ratio, Eligo.** Probatio dropped («доказываем» inverts meaning — we prove groundedness, not AI necessity; law-firm vibe). Delibero, Consilium (conflict w/ Council 7+1), Examen (school connotation) rejected by user. Digit names still out.
+  - Quaero: leader contender; RU form «Квэро» fixes pronunciation; pair w/ descriptor «обоснованный ИИ».
+  - Ratio: «основание+расчёт+разум» in one root; risk — crowded in fintech, slightly cold.
+  - Eligo: «выбор вердикта»; weaker semantic load.
+  - Pending: domain + Роспатент availability check; final pick; then BRAND/ROLE cascade in builders.
+- **Cases:** esg-nsr replaced by **shelf** (offshore drilling assessment, ГШП заключение) — finalized (draft=False). Direction «Буровое и насосное оборудование · надёжность» — hook for Profitreid/Симфония_Про prospects. edtech replaced by **medtech** (FreeVision 3D AI program) — under review; **image is temporary edtech.jpg, needs real photo/generation**.
+- Learned rule: assistant must verify layout balance after content changes (measure column text volume vs sibling cases) instead of pushing that job to the user.
+
 ## 2026-11-13 12:30 UTC — Bureau naming analysis + case reviews
 
 - Reviewed/finalized cases: agro marked clean (draft=False). 7 of 9 cases done; remaining drafts: esg-nsr, edtech.

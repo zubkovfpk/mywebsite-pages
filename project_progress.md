@@ -3,7 +3,7 @@
 ## Done
 
 - Static site v3 live structurally: 20 RU + 20 EN generated pages; RU/EN generators, sitemap, robots, auto language choice.
-- Cases finalized (draft removed): vizard (морская безопасность), shipping, morspas, geodesy, developer, egip, agro — 7 of 9.
+- Cases finalized (draft removed): vizard (морская безопасность), shipping, morspas, geodesy, developer, egip, agro, shelf — 8 of 9.
 - Cases page: uniform 3×3 grid, one-line `card_tags`, intl badges (globe on edtech, ribbon on shipping — both kept for audience test), award medal badge on egip, hover tooltips.
 - Case content rules enforced: 4 facts (first = Функции), no duplicate metrics per page, client-voice tasks, ×N multiplier notation, «руб.» money units, direction-explicit effects.
 - Method page aligned with ARCHITECTURE (8 readiness factors, 0–4 scale + radar, recommendation vs deployment status).
@@ -13,7 +13,8 @@
 ## In progress
 
 - Case review: **esg-nsr**, **edtech** still drafts — next up.
-- **Bureau naming** (user will return): interim ranking Quaero > Probatio > status quo «Бюро Зубкова»; digit names rejected (method will evolve). Needs domain + Роспатент check, then pick structure «name + дескриптор».
+- **Bureau naming**: user shortlist **Quaero / Ratio / Eligo** (Probatio, Delibero, Consilium, Examen, digit names rejected). Next: domain + Роспатент check → final pick → BRAND/ROLE cascade.
+- **MedTech case** (FreeVision 3D, replaces edtech): content in place, under review; **needs real image** (currently edtech.jpg placeholder) — prompt for generator supplied to user.
 - Intl card marker final style: globe vs ribbon — awaiting audience testing.
 - Domain choice/registration (reg.ru); `SITE` placeholder still `example.ru`.
 
