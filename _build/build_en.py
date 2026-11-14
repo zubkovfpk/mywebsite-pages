@@ -54,7 +54,7 @@ def page(sub, title, desc, body, active=None):
   {{"@context":"https://schema.org","@type":"ProfessionalService","name":"{BRAND} — {ROLE.lower()}","url":"{SITE}/en/",
    "description":"Process diagnostics that decide where AI is justified, profitable and safe, and where conventional automation is enough.",
    "founder":{{"@type":"Person","name":"Sergey Zubkov","jobTitle":"Founder, chief designer","sameAs":["https://www.linkedin.com/in/sergey-a-zubkov"]}},
-   "areaServed":"RU","knowsAbout":["AI strategy","Process diagnostics","MLOps","Maritime logistics","Mining","ESG"]}}
+   "areaServed":"RU","knowsAbout":["AI strategy","Process diagnostics","MLOps","Maritime logistics","Mining","MedTech"]}}
   </script>
 </head>
 <body>
@@ -229,7 +229,7 @@ INDUSTRIES = [
  ('construction.jpg','Construction and development','The whole project life cycle: surveys, design, construction, operation, sales.','Typical: hybrid in document flow; no AI in cost estimates and reconciliations.'),
  ('arctic.jpg','Maritime logistics and insurance','Fleet and risk: weather support, insurance coverage control, economics of rare but large events.','Typical: AI in ice conditions and application triage; no AI in premiums and warnings.'),
  ('agro.jpg','Agriculture','Geo-ML field monitoring: from aerial imagery to results for the inspector in 2 hours instead of 3 days.','Typical: AI in image detection (mAP@0.5 > 80%); defer where there is no yield history.'),
- ('esg.jpg','Environment and ESG','CO₂/CH₄ emissions monitoring, climate risks, nature-based solutions on Earth observation and AIS data.','Typical: hybrid — the model estimates, the methodology and auditor confirm.'),
+ ('dental.jpg','MedTech and healthcare','Medical devices and diagnostics: AI features, software-as-medical-device registration, clinical validation.','Typical: AI in visualisation and documentation; autonomous diagnosis only after dataset and validation.'),
 ]
 
 FORMATS = [
@@ -291,7 +291,7 @@ index = f'''<section class="hero"><div class="container hero-grid">
   {photo('team.jpg','The bureau team reviewing a decision matrix','photo-32 reveal')}
 </div></section>
 {CTA}'''
-page('index.html', f'{BRAND} — {ROLE.lower()} · Sergey Zubkov', 'Process diagnostics before AI deployment: where AI is justified, where a hybrid fits, and where conventional automation is enough. Mining, maritime, cities, agriculture, ESG.', index)
+page('index.html', f'{BRAND} — {ROLE.lower()} · Sergey Zubkov', 'Process diagnostics before AI deployment: where AI is justified, where a hybrid fits, and where conventional automation is enough. Mining, maritime, cities, agriculture, MedTech.', index)
 
 # ================= METHOD =================
 RESP = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
@@ -370,7 +370,7 @@ page('council.html', f'{PLAT} — diagnostics platform · {BRAND}', 'AI diagnost
 # ================= CASES =================
 cases = hero('Cases','Cases','Where AI was needed — and where we did not use it','Every case follows the same structure: task → verdicts by process → result.') + \
  sec('list','All cases','Verified results', '<div class="card-grid">'+''.join(case_card(c) for c in CASES)+'</div>') + CTA
-page('cases.html', f'Cases — {BRAND}', 'Bureau cases: maritime safety, sea area monitoring, closed government environment, development, Moscow geo-information space, agriculture, ESG, EdTech.', cases, 'cases.html')
+page('cases.html', f'Cases — {BRAND}', 'Bureau cases: maritime safety, sea area monitoring, closed government environment, development, Moscow geo-information space, agriculture, offshore drilling, MedTech.', cases, 'cases.html')
 for i,c in enumerate(CASES):
     nxt = CASES[(i+1)%len(CASES)]
     facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{nb(b)}</dd></div>' for a,b in c['facts']) + '</dl>'
@@ -394,7 +394,7 @@ nogo = '<aside class="no-go reveal"><p class="no-go-title">Where we do not go</p
 industries = hero('Industries','Industries','Six industries where we know the context from the inside','The industry expert is one of the seven diagnostic roles. So we only take industries where the bureau has its own practice.') + \
  sec('list','Industries','Where we work and which verdicts are most common', ind) + \
  sec('nogo','Boundaries','Honestly about what we do not do', nogo, muted=True) + CTA
-page('industries.html', f'Industries — {BRAND}', 'Mining, urban infrastructure, development, maritime logistics and insurance, agriculture, environment and ESG.', industries, 'industries.html')
+page('industries.html', f'Industries — {BRAND}', 'Mining, urban infrastructure, development, maritime logistics and insurance, agriculture, MedTech and healthcare.', industries, 'industries.html')
 
 # ================= FORMATS =================
 cmp_rows = [('Outcome','Initial map','Signed assessment','AI portfolio management','Working system','Implementation per assessment'),

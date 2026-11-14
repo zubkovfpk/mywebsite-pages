@@ -51,7 +51,7 @@ def page(path, title, desc, body, active=None):
   {{"@context":"https://schema.org","@type":"ProfessionalService","name":"{BRAND} — {ROLE.lower()}","url":"{SITE}/",
    "description":"Диагностика процессов и решение, где ИИ оправдан, выгоден и безопасен, а где нужна обычная автоматизация.",
    "founder":{{"@type":"Person","name":"Сергей Зубков","jobTitle":"Основатель, главный конструктор","sameAs":["https://www.linkedin.com/in/sergey-a-zubkov"]}},
-   "areaServed":"RU","knowsAbout":["AI strategy","Process diagnostics","MLOps","Maritime logistics","Mining","ESG"]}}
+   "areaServed":"RU","knowsAbout":["AI strategy","Process diagnostics","MLOps","Maritime logistics","Mining","MedTech"]}}
   </script>
 </head>
 <body>
@@ -227,7 +227,7 @@ INDUSTRIES = [
  ('construction.jpg','Строительство и девелопмент','Весь жизненный цикл объекта: изыскания, проектирование, строительство, эксплуатация, продажи.','Типично: гибрид в документообороте; без ИИ — в сметах и сверках.'),
  ('arctic.jpg','Морская логистика и страхование','Флот и риски: метеообеспечение, контроль страхового покрытия, экономика редких, но крупных событий.','Типично: ИИ — в ледовой обстановке и разборе заявок; без ИИ — в тарифах и предупреждениях.'),
  ('agro.jpg','Сельское хозяйство','Гео-ML мониторинг полей: от аэрофотосъёмки до результата для инспектора за 2 часа вместо 3 дней.','Типично: ИИ — в детекции по снимкам (mAP@0.5 > 80%); отложить — где нет истории урожаев.'),
- ('esg.jpg','Экология и ESG','Мониторинг выбросов CO₂/CH₄, климатические риски, природные решения на данных ДЗЗ и AIS.','Типично: гибрид — модель оценивает, методика и аудитор подтверждают.'),
+ ('dental.jpg','Медтехника и здравоохранение','Медицинские изделия и диагностика: ИИ-функции, регистрация ПО как медизделия, ЭПР, клиническая валидация.','Типично: ИИ — в визуализации и документации; автодиагноз — после датасета и валидации.'),
 ]
 
 FORMATS = [
@@ -289,7 +289,7 @@ index = f'''<section class="hero"><div class="container hero-grid">
   {photo('{r}','team.jpg','Команда бюро разбирает матрицу решений','photo-32 reveal')}
 </div></section>
 {CTA}'''
-page('index.html', f'{BRAND} — {ROLE.lower()} · Сергей Зубков', 'Диагностика процессов до внедрения ИИ: где ИИ оправдан, где нужен гибрид, где достаточно обычной автоматизации. Добыча, морская логистика, город, АПК, ESG.', index)
+page('index.html', f'{BRAND} — {ROLE.lower()} · Сергей Зубков', 'Диагностика процессов до внедрения ИИ: где ИИ оправдан, где нужен гибрид, где достаточно обычной автоматизации. Добыча, морская логистика, город, АПК, медтехника.', index)
 
 # ================= METHOD =================
 RESP = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
@@ -356,7 +356,7 @@ security = '<div class="card-grid">' + ''.join(f'<div class="card reveal"><p cla
 screen = f'''<div class="split"><div class="prose reveal"><p>Экспресс-скрининг через {PLAT}: 15 минут на анкету — и первичная карта процессов с вердиктами. Это не заключение, а повод для разговора.</p>
 <p class="draft-note">Прототип формы · платформа в разработке</p></div>
 <form class="form reveal" action="#" onsubmit="return false">
- <label>Отрасль<select><option>Добыча</option><option>Морская логистика и страхование</option><option>Город и инфраструктура</option><option>Строительство</option><option>Сельское хозяйство</option><option>Экология и ESG</option></select></label>
+ <label>Отрасль<select><option>Добыча</option><option>Морская логистика и страхование</option><option>Город и инфраструктура</option><option>Строительство</option><option>Сельское хозяйство</option><option>Медтехника</option></select></label>
  <label>Процесс, который хотите проверить<textarea placeholder="Например: разбор входящих заявок на страхование судов"></textarea></label>
  <button class="btn btn-primary" type="button" disabled>Скоро: пройти скрининг</button></form></div>'''
 council = hero(PLAT, f'{PLAT} · ИИ-платформа диагностики','Платформа анализирует. Эксперты проверяют. Главный конструктор подписывает.','Платформа делает анализ быстрым и полным. Право, финансы и отраслевую специфику дополнительно проверяют приглашённые эксперты: юрист, финансист-экономист и отраслевой специалист. Заключение подписывает главный конструктор бюро.', photo('{r}','team.jpg','Работа бюро над заключением','photo-wide reveal')) + \
@@ -393,7 +393,7 @@ nogo = '<aside class="no-go reveal"><p class="no-go-title">Куда мы не и
 industries = hero('Отрасли','Отрасли','Шесть отраслей, где мы знаем контекст изнутри','Отраслевой эксперт — одна из семи ролей диагностики. Поэтому берём только отрасли, где у бюро есть собственная практика.') + \
  sec('list','Отрасли','Где работаем и какие вердикты встречаются чаще', ind) + \
  sec('nogo','Границы','Честно о том, чего не делаем', nogo, muted=True) + CTA
-page('industries.html', f'Отрасли — {BRAND}', 'Добыча, городская инфраструктура, девелопмент, морская логистика и страхование, сельское хозяйство, экология и ESG.', industries, 'industries.html')
+page('industries.html', f'Отрасли — {BRAND}', 'Добыча, городская инфраструктура, девелопмент, морская логистика и страхование, сельское хозяйство, медтехника.', industries, 'industries.html')
 
 # ================= FORMATS =================
 cmp_rows = [('Результат','Первичная карта','Подписанное заключение','Управление ИИ-портфелем','Работающая система','Внедрение по заключению'),
@@ -458,7 +458,7 @@ contact = hero('Контакт','Контакт','Начнём с разгово
  <form class="form reveal" action="mailto:zubkovfpk@gmail.com" method="post" enctype="text/plain">
   <label>Имя<input name="name" required></label>
   <label>Компания и роль<input name="company"></label>
-  <label>Отрасль<select name="industry"><option>Добыча</option><option>Морская логистика и страхование</option><option>Город и инфраструктура</option><option>Строительство</option><option>Сельское хозяйство</option><option>Экология и ESG</option><option>Другое</option></select></label>
+  <label>Отрасль<select name="industry"><option>Добыча</option><option>Морская логистика и страхование</option><option>Город и инфраструктура</option><option>Строительство</option><option>Сельское хозяйство</option><option>Медтехника</option><option>Другое</option></select></label>
   <label>Что хотите обсудить<textarea name="message"></textarea></label>
   <button class="btn btn-primary" type="submit">Отправить</button>
   <p class="contact-note">Прототип: форма открывает почтовый клиент. В продакшене — отправка на сервер.</p>
