@@ -2,6 +2,16 @@
 
 Newest at top. All timestamps UTC.
 
+## 2026-11-13 ~16:00 UTC — All 9 cases finalized
+
+- **medtech finalized** (draft=False) — case review complete for all 9 cases.
+- medtech final form: title «ИИ-микроскоп: согласие пациентов растёт на 30%», chip «Новая ниша · экспортная стратегия», facts Функции/Архитектура/Метрика/Эффект («выручка +$30 тыс./год на врача · КП быстрее ×7»), dental.jpg image.
+- New mechanism: `card_short` field — shorter lead text for cards while page keeps full `short` (like `card_tags`).
+- New field `chip` — tag-row chip styled like award chip («Новая ниша · экспортная стратегия»).
+- **Wordmark updated for Quaero variant**: «?» + four verdict bars (green/amber/red/**grey** added — 4th verdict now represented).
+- Domain check done: bare quaero/ratio/eligo taken in .ru/.com/.ai; `buroX` free in all three zones (quaero.com held since 1998, ratio.com 1994, eligo.com 1998). Recommendation: `buroX.ru + buroX.ai`.
+- Naming shortlist remains: **Quaero / Ratio / Eligo** — awaiting user's final pick.
+
 ## 2026-11-13 ~15:00 UTC — Naming shortlist + shelf/medtech cases
 
 - **Naming: user shortlist = Quaero, Ratio, Eligo.** Probatio dropped («доказываем» inverts meaning — we prove groundedness, not AI necessity; law-firm vibe). Delibero, Consilium (conflict w/ Council 7+1), Examen (school connotation) rejected by user. Digit names still out.

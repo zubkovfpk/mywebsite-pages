@@ -3,7 +3,7 @@
 ## Done
 
 - Static site v3 live structurally: 20 RU + 20 EN generated pages; RU/EN generators, sitemap, robots, auto language choice.
-- Cases finalized (draft removed): vizard (морская безопасность), shipping, morspas, geodesy, developer, egip, agro, shelf — 8 of 9.
+- Cases finalized: ALL 9 — vizard, shipping, morspas, geodesy, developer, egip, agro, shelf, medtech (esg-nsr → shelf, edtech → medtech replacements done).
 - Cases page: uniform 3×3 grid, one-line `card_tags`, intl badges (globe on edtech, ribbon on shipping — both kept for audience test), award medal badge on egip, hover tooltips.
 - Case content rules enforced: 4 facts (first = Функции), no duplicate metrics per page, client-voice tasks, ×N multiplier notation, «руб.» money units, direction-explicit effects.
 - Method page aligned with ARCHITECTURE (8 readiness factors, 0–4 scale + radar, recommendation vs deployment status).
