@@ -279,7 +279,7 @@ index = f'''<section class="hero"><div class="container hero-grid">
 </div></section>
 {sec('verdicts','Метод · четыре вердикта','Все продают внедрение ИИ.<br>Мы продаём решение — нужен ли он вам.', ZONES + '<p class="section-note reveal"><a href="{r}method.html">Как мы принимаем решение →</a></p>')}
 {sec('council', PLAT, 'Платформа анализирует. Эксперты проверяют. Главный конструктор подписывает.', COUNCIL + '<p class="section-note reveal"><a href="{r}council.html">Как устроена платформа →</a></p>', muted=True, lead='Ведущий агент собирает контекст и раздаёт брифы семи экспертным ИИ-ролям. Выводы по праву, финансам и отрасли проверяют приглашённые эксперты-люди, заключение подписывает Сергей Зубков.')}
-{sec('cases','Кейсы','Результаты подтверждены цифрами, а не обещаниями', '<div class="card-grid">'+''.join(case_card(c) for c in CASES[:3])+'</div><p class="section-note reveal"><a href="{r}cases.html">Все кейсы →</a></p>')}
+{sec('cases','Кейсы','Результаты подтверждены цифрами, а не обещаниями', '<div class="card-grid">'+''.join('<div class="card-rand">'+''.join(case_card(c) for c in CASES[r:r+3])+'</div>' for r in (0,3,6))+'</div><p class="section-note reveal"><a href="{r}cases.html">Все кейсы →</a></p>')}
 {sec('industries','Отрасли','Работаем там, где знаем контекст изнутри', '<div class="card-grid">'+''.join(f'<a class="card reveal" href="{{r}}industries.html">{photo("{r}",i,n)}<h3>{n}</h3><p>{t}</p></a>' for i,n,t,_ in INDUSTRIES)+'</div>', muted=True)}
 {sec('formats','Форматы','От бесплатного скрининга до внедрения — шаг за шагом', formats_html() + '<p class="section-note reveal"><a href="{r}formats.html">Подробнее о форматах и ценах →</a></p>')}
 <section class="section section-muted" id="bureau"><div class="container split">

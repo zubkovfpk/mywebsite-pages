@@ -78,3 +78,13 @@ document.querySelectorAll('a[hreflang]').forEach(function (a) {
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 })();
+
+// Random one-per-row case trio on the index page (no-JS shows the first of each group)
+(function () {
+  document.querySelectorAll('.card-rand').forEach(function (g) {
+    var cards = g.querySelectorAll('.card');
+    if (cards.length < 2) return;
+    var pick = Math.floor(Math.random() * cards.length);
+    cards.forEach(function (c, i) { c.style.display = (i === pick) ? 'flex' : 'none'; });
+  });
+})();

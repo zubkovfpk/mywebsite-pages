@@ -1139,3 +1139,8 @@ a.card:hover h3 { color: var(--accent); }
 .report-unlocked .gate { display: none; }
 .report-unlocked .gate-thanks { display: block; }
 @media (max-width: 720px) { .report { padding: 28px 20px; } .gate { padding: 24px 20px; margin-top: -40px; } .deliver-levels { gap: 24px; } }
+
+/* Random case trio on index: one card per row group; no-JS fallback shows first */
+.card-rand { display: contents; }
+.card-rand > .card { display: none; }
+.card-rand > .card:first-child { display: flex; }

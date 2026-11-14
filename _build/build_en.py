@@ -281,7 +281,7 @@ index = f'''<section class="hero"><div class="container hero-grid">
 </div></section>
 {sec('verdicts','Method · four verdicts','Everyone sells AI implementation.<br>We sell the decision on whether you need it.', ZONES + '<p class="section-note reveal"><a href="{r}method.html">How we decide →</a></p>')}
 {sec('council', PLAT, 'The platform analyses. Experts review. The chief designer signs.', COUNCIL + '<p class="section-note reveal"><a href="{r}council.html">How the platform works →</a></p>', muted=True, lead='A lead agent gathers context and briefs seven expert AI roles. Legal, financial and industry findings are reviewed by invited human experts; Sergey Zubkov signs the assessment.')}
-{sec('cases','Cases','Results backed by numbers, not promises', '<div class="card-grid">'+''.join(case_card(c) for c in CASES[:3])+'</div><p class="section-note reveal"><a href="{r}cases.html">All cases →</a></p>')}
+{sec('cases','Cases','Results backed by numbers, not promises', '<div class="card-grid">'+''.join('<div class="card-rand">'+''.join(case_card(c) for c in CASES[r:r+3])+'</div>' for r in (0,3,6))+'</div><p class="section-note reveal"><a href="{r}cases.html">All cases →</a></p>')}
 {sec('industries','Industries','We work where we know the context from the inside', '<div class="card-grid">'+''.join(f'<a class="card reveal" href="{{r}}industries.html">{photo(i,n)}<h3>{n}</h3><p>{t}</p></a>' for i,n,t,_ in INDUSTRIES)+'</div>', muted=True)}
 {sec('formats','Formats','From free screening to implementation, step by step', formats_html() + '<p class="section-note reveal"><a href="{r}formats.html">More on formats and pricing →</a></p>')}
 <section class="section section-muted" id="bureau"><div class="container split">
