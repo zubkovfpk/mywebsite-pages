@@ -10,8 +10,8 @@ ROLE = 'Evidence-based AI bureau'
 PLAT = 'Council 7+1'
 SITE = 'https://example.ru'
 
-NAV = [('method.html','Method'),('council.html',PLAT),('cases.html','Cases'),('industries.html','Industries'),
-       ('formats.html','Formats'),('bureau.html','Bureau'),('insights.html','Insights')]
+NAV = [('index.html#pains','Problems'),('index.html#how','How we work'),('index.html#experience','Experience'),
+       ('cases.html','Cases'),('index.html#formats','Formats'),('contact.html','Contact')]
 
 def nb(s):
     s = re.sub(r'([0-9+]) ', '\\1\u00a0', s)
@@ -104,10 +104,10 @@ def sec(id_, eyebrow, title, inner, muted=False, lead=''):
   {inner}</div></section>'''
 
 CTA = '''<section class="cta-band"><div class="container">
-  <h2 class="section-title">Start with a conversation, not a budget</h2>
+  <h2 class="section-title">Start with a conversation</h2>
   <p>45 minutes on your context and questions. You leave knowing how much diagnostics you actually need.</p>
   <div class="hero-cta"><a class="btn btn-primary" href="{r}contact.html">45-minute call</a>
-  <a class="btn btn-ghost" href="{r}formats.html">Formats and pricing</a></div></div></section>'''
+  <a class="btn btn-ghost" href="{r}index.html#formats">Formats and pricing</a></div></div></section>'''
 
 ZONES = '''<div class="zones">
   <article class="zone zone-green reveal"><p class="zone-tag">AI is justified</p><p class="zone-text">Unstructured data, variable patterns, scale, predictive value.</p><p class="zone-example">Oil-slick detection from drone imagery: 91% accuracy where the sea area used to be patrolled by vessel.</p></article>
@@ -254,12 +254,35 @@ def faq_html(items):
     return '<div class="container-narrow" style="margin:0">' + ''.join(f'<details class="faq-item reveal"{" open" if i==0 else ""}><summary>{q}</summary><div class="faq-body"><p>{a}</p></div></details>' for i,(q,a) in enumerate(items)) + '</div>'
 
 # ================= INDEX =================
+PAINS = [
+ ('AI implemented — no effect','We find what went wrong: the metric, the process, or the task choice.'),
+ ('Unclear whether AI is needed at all','Every process gets a reasoned verdict — including “no AI needed”.'),
+ ('The integrator sells implementation','We earn on assessments, not on implementation hours — we can honestly say “no”.'),
+ ('Regulation and security block it','Closed environments, data-protection law, sector bans — the assessment carries a clearance status and vetoes.'),
+ ('No metric before the project','A business case with formula and assumptions before the first rouble of implementation spend.'),
+ ('More initiatives than resources','Launch order and budget by waves — what goes first, what waits for scaling.')]
+pains = '<div class="card-grid">' + ''.join(f'<article class="card reveal"><h3>{h}</h3><p>{p}</p></article>' for h,p in PAINS) + '</div>'
+
+STEPS3 = '''<ol class="steps steps-3">
+ <li class="step reveal"><span class="step-num">01</span><h3 class="step-title">Conversation</h3><p class="step-meta">45 minutes</p><p class="step-text">Your context and questions. You leave with an initial map: what is worth examining, what is definitely not.</p></li>
+ <li class="step reveal"><span class="step-num">02</span><h3 class="step-title">Diagnostics</h3><p class="step-meta">2–4 weeks</p><p class="step-text">A verdict and clearance status for every process, a business case and a roadmap — in a signed assessment. The assessment is a standalone product, not an invitation to implement.</p></li>
+ <li class="step reveal"><span class="step-num">03</span><h3 class="step-title">Implementation</h3><p class="step-meta">by roadmap</p><p class="step-text">The bureau builds what passed diagnostics — or supervises your contractors as design authority.</p></li>
+</ol>'''
+
+IND_SLUGS = [['shelf'],['egip','geodesy'],['developer'],['vizard','shipping','morspas'],['agro'],['medtech']]
+BY_SLUG = {c['slug']: c for c in CASES}
+def exp_card(ind, slugs):
+    i,n,t,v = ind
+    links = ''.join(f'<a class="ind-case" href="{{r}}cases/{s}.html">{BY_SLUG[s]["title"]}</a>' for s in slugs)
+    return f'<article class="card reveal"><h3>{n}</h3><p>{t}</p><p class="card-tags" style="text-transform:none">{v}</p><div class="ind-cases">{links}</div></article>'
+experience = '<div class="card-grid">' + ''.join(exp_card(ind, IND_SLUGS[k]) for k,ind in enumerate(INDUSTRIES)) + '</div>'
+
 index = f'''<section class="hero"><div class="container hero-grid">
   <div class="hero-copy">
     <p class="eyebrow reveal">{ROLE} · Diagnostics before deployment</p>
-    <h1 class="hero-title reveal">We make businesses more resilient and&nbsp;manageable.<br><em>AI only where it truly belongs.</em></h1>
-    <p class="hero-sub reveal">Every process gets one of four verdicts: AI, hybrid, conventional automation or “not yet”. Diagnostics and a signed assessment first, then work.</p>
-    <div class="hero-cta reveal"><a class="btn btn-primary" href="{{r}}contact.html">45-minute call</a><a class="btn btn-ghost" href="{{r}}sample.html">Sample assessment</a></div>
+    <h1 class="hero-title reveal">They sell you AI implementation.<br><em>We sell the answer on whether you need it.</em></h1>
+    <p class="hero-sub reveal">Every process gets a verdict: AI, hybrid, conventional automation or “not yet”. Diagnostics and a signed assessment with economics and risks first — then work.</p>
+    <div class="hero-cta reveal"><a class="btn btn-primary" href="{{r}}contact.html">45-minute call</a><a class="btn btn-ghost" href="{{r}}cases.html">Cases with numbers</a></div>
     <p class="hero-meta reveal">Led by Sergey Zubkov, founder and chief designer · 20+ years in IT and data · RU / EN</p>
   </div>
   <figure class="verdict-card reveal" aria-label="Assessment excerpt: verdicts by process">
@@ -279,93 +302,18 @@ index = f'''<section class="hero"><div class="container hero-grid">
   <div class="number-item reveal"><div class="number-value">+13%</div><div class="number-caption">Northern Sea Route voyages with the platform's AI modules</div></div>
   <div class="number-item reveal"><div class="number-value accent">3&nbsp;of&nbsp;8</div><div class="number-caption">document-flow subtasks got an LLM. The rest do not need AI</div></div>
 </div></section>
-{sec('verdicts','Method · four verdicts','Everyone sells AI implementation.<br>We sell the decision on whether you need it.', ZONES + '<p class="section-note reveal"><a href="{r}method.html">How we decide →</a></p>')}
-{sec('council', PLAT, 'The platform analyses. Experts review. The chief designer signs.', COUNCIL + '<p class="section-note reveal"><a href="{r}council.html">How the platform works →</a></p>', muted=True, lead='A lead agent gathers context and briefs seven expert AI roles. Legal, financial and industry findings are reviewed by invited human experts; Sergey Zubkov signs the assessment.')}
-{sec('cases','Cases','Results backed by numbers, not promises', '<div class="card-grid">'+''.join('<div class="card-rand">'+''.join(case_card(c) for c in CASES[r:r+3])+'</div>' for r in (0,3,6))+'</div><p class="section-note reveal"><a href="{r}cases.html">All cases →</a></p>')}
-{sec('industries','Industries','We work where we know the context from the inside', '<div class="card-grid">'+''.join(f'<a class="card reveal" href="{{r}}industries.html">{photo(i,n)}<h3>{n}</h3><p>{t}</p></a>' for i,n,t,_ in INDUSTRIES)+'</div>', muted=True)}
-{sec('formats','Formats','From free screening to implementation, step by step', formats_html() + '<p class="section-note reveal"><a href="{r}formats.html">More on formats and pricing →</a></p>')}
-<section class="section section-muted" id="bureau"><div class="container split">
+{sec('pains','Problems','What brings clients to us', pains)}
+{sec('how','How we work','Conversation → assessment → implementation', STEPS3, muted=True)}
+{sec('experience','Experience','Industries and proven results', experience)}
+{sec('formats','Formats','From free screening to implementation, step by step', formats_html(), muted=True)}
+<section class="section" id="bureau"><div class="container split">
   <div><p class="eyebrow reveal">Bureau</p><h2 class="section-title reveal">Like a design bureau: a chief designer, calculations, execution</h2>
-  <div class="prose reveal"><p>Sergey Zubkov personally leads diagnostics and architecture and signs every assessment. {PLAT} prepares the analysis; legal, financial and industry findings are reviewed by invited experts. The bureau's engineering team implements — or your contractors do, under our design supervision.</p></div>
-  <p class="reveal"><a class="btn btn-ghost" href="{{r}}bureau.html">About the bureau and team</a></p></div>
-  {photo('team.jpg','The bureau team reviewing a decision matrix','photo-32 reveal')}
+  <div class="prose reveal"><p>Sergey Zubkov personally leads diagnostics and architecture and signs every assessment. Legal, financial and industry findings are reviewed by invited experts. The bureau's engineering team implements — or your contractors do, under our design supervision.</p>
+  <p>20+ years in IT and data, 8+ years in AI projects, 3 shipped AI products. Hands-on: designs and writes code himself.</p></div></div>
+  {photo('founder.jpg','Sergey Zubkov, bureau founder','photo-34 reveal', gen=False)}
 </div></section>
 {CTA}'''
 page('index.html', f'{BRAND} — {ROLE.lower()} · Sergey Zubkov', 'Process diagnostics before AI deployment: where AI is justified, where a hybrid fits, and where conventional automation is enough. Mining, maritime, cities, agriculture, MedTech.', index)
-
-# ================= METHOD =================
-RESP = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
- ('Assessment','the soundness of every verdict: technology, economics, law, industry'),
- ('Architecture','the target solution design and the limits of AI autonomy'),
- ('Numbers','the method and assumptions behind every effect estimate'),
- ('Design supervision','conformity of the implementation with the assessment — whether by our team or by external developers and contractors'),
- ('Governance','monitoring, KRIs and a human in the loop on critical decisions')]) + '</ul>'
-crit = [('Strategic value','Goals and KPIs, expected benefits, total cost of ownership, funding, non-AI alternatives','Finance'),
-        ('Process suitability','Variability, unstructured inputs, volume, exceptions, cost of error, process stability: AI or rules','Process'),
-        ('Data readiness','Availability, quality, representativeness, provenance, rights and access, evaluation datasets','Technology'),
-        ('Technology and integration','APIs, infrastructure, identity integration, hosting constraints, vendor dependencies','Technology'),
-        ('People and change','Sponsor, process owner, acceptance, skills and training, workflow redesign, incentives','Process'),
-        ('Governance, legal and compliance','Permitted purpose, data-use rights, privacy, sector rules, contracts and IP, accountability, auditability','Compliance + Legal'),
-        ('Security and resilience','Threat model, sensitive-data exposure, injection, tool permissions, supply chain, incident response','AI security'),
-        ('Operational assurance','Acceptance tests, evaluations, monitoring, escalation, rollback, ownership, change control, running costs','Technology')]
-crit_html = '<div class="matrix-wrap reveal"><table class="matrix criteria"><thead><tr><th>Factor</th><th>What we assess</th><th>Analytical lead</th></tr></thead><tbody>' + ''.join(f'<tr><td>{i}. {a}</td><td>{b}</td><td><span class="factor-lead">{c}</span></td></tr>' for i,(a,b,c) in enumerate(crit,1)) + '</tbody></table></div><p class="section-note reveal">The factors describe your process, not how the platform is built: each factor has a lead role, and other roles contribute. The industry expert takes part in all eight. Legal, financial and industry findings are reviewed by human experts.</p>'
-RADAR = radar_svg(['Value','Process','Data','Technology','People','Governance','Security','Operations'],
-    [3,2,1,3,2,None,2,1], [3,3,3,2,2,3,3,2], 'not assessed', 'Demonstration readiness radar across eight factors')
-SCORING = '<div class="split"><figure class="radar-fig reveal">' + RADAR + '<div class="radar-legend"><span class="lg-cur">current profile</span><span class="lg-req">required for a supervised pilot</span></div><figcaption>Demonstration example. Status: “insufficient evidence” — governance is not assessed; data and operations are below the required level.</figcaption></figure><div class="reveal"><ol class="scale">' + ''.join(f'<li><span class="scale-num">{n}</span><span>{t}</span></li>' for n,t in [
- ('0','Absent or unsuitable — and demonstrably so'),('1','Ad hoc, substantial gaps'),('2','Partially established, material gaps'),('3','Adequate for the stated deployment stage'),('4','Established, tested, monitored')]) + '</ol><ul class="tick-list">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
- ('“Not assessed” is not zero','an evidence gap shows as a break in the radar line, not a dip to the centre'),
- ('No average score','a weak factor cannot be offset by a strong one; we do not compute radar area'),
- ('Targets depend on the stage','a human-supervised pilot and production use need different profiles'),
- ('Every score has evidence','sources, assumptions, confidence and evidence coverage — kept separate from the score'),
- ('A working rubric','the scale is calibrated on reference cases and versioned')]) + '</ul></div></div>'
-def st(k):
-    m={'ok':'Pilot eligible','wait':'Eligible after prerequisites','block':'Blocked','gap':'Insufficient evidence'}
-    return f'<span class="status status-{k}">{m[k]}</span>'
-DECISION = '<div class="split decision"><div class="reveal"><h3>Recommendation — what to use</h3><ul class="decision-list">' + ''.join(f'<li>{chip(c)}{t}</li>' for c,t in [
- ('AI','a model where rules cannot describe the task'),('Hybrid','AI for some subtasks; rules and people for critical decisions'),('No AI','deterministic automation: rules, integrations, reporting'),('Defer','data, procedures or a process owner come first')]) + '</ul></div><div class="reveal"><h3>Deployment status — can it go ahead now</h3><ul class="decision-list">' + ''.join(f'<li>{st(k)}{t}</li>' for k,t in [
- ('ok','sufficient evidence, no binding block, all prerequisites met — a human-supervised pilot can start'),('wait','close the prerequisites in the roadmap first'),('block','a verified legal, compliance or security block'),('gap','critical evidence gaps — more information is needed')]) + '</ul></div></div><div class="precedence reveal"><p><b>Order of checks.</b> A legal, compliance or security block means “blocked” regardless of scores. Otherwise, critical gaps mean “insufficient evidence”. Otherwise, unmet prerequisites mean “eligible after prerequisites”.</p><p>An “AI” recommendation is not permission to deploy. Pilot eligibility is not production approval: production needs its own required profile and sign-off.</p></div>'
-steps = '<ol class="steps steps-5">' + ''.join(f'<li class="step reveal"><span class="step-num">{n}</span><h3 class="step-title">{t}</h3><p class="step-meta">{m}</p><p class="step-text">{d}</p></li>' for n,t,m,d in [
- ('01','Diagnostics','2–4 weeks','Processes, data, systems, maturity. Analysis from seven angles.'),
- ('02','Decision','Matrix by process','A verdict and deployment status for every process, with risks, assumptions, confidence and evidence coverage.'),
- ('03','Roadmap','≈1 week','Priorities by value and feasibility. First results in 6–8 weeks.'),
- ('04','Implementation','Production standard','Monitoring, KRIs, autonomy limits, a human in the loop on critical decisions.'),
- ('05','Design supervision','Throughout implementation','If your developers or contractors implement: we check conformity with the assessment, accept phases and track metrics.')]) + '</ol>'
-deliver = '<h3 class="section-title" style="font-size:1.4rem;margin-top:48px">What the assessment contains</h3><div class="split deliver-levels"><div class="reveal"><h4 class="level-title">Baseline diagnostics</h4><p class="level-sub">From open data and your materials, without access to internal systems</p>' + '<ul class="tick-list">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [('Key findings', 'the decision on one page and urgent measures'), ('Scope and inputs', 'what the findings rest on; all figures are hypotheses'), ('Profile and maturity', 'what you already have, so nothing is rebuilt'), ('Information sufficiency', 'for every process: sufficient, partial, insufficient'), ('Decision matrix', 'recommendation, conditions and rationale for every subtask'), ('Key trade-offs', 'why the contested choices were made'), ('Target process', 'where AI works, where rules do, where a person decides'), ('Risk register', 'security, legal and compliance: basis, consequence, mitigation'), ('Roadmap options', 'A/B/C and when to choose each'), ('Effect model', 'formula and assumptions as a range'), ('Questions and dissent', 'what to clarify and where experts disagreed')]) + '</ul>' + '</div><div class="reveal"><h4 class="level-title">Extended diagnostics</h4><p class="level-sub">With access to data and people. Everything in the baseline, plus:</p>' + '<ul class="tick-list">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [('Readiness radar', 'eight factors: current and required profile; for broad audits, a heatmap'), ('Evidence table', 'score, sources, confidence and coverage for every factor'), ('Deployment status', 'for every process: pilot, prerequisites, blocked or insufficient evidence'), ('Environment architecture', 'data categorisation and infrastructure options with 3-year TCO'), ('Business case', 'on a measured baseline'), ('Implementation phases', 'transition criteria and continue / stop points'), ('Signature', 'the chief designer and the experts who reviewed the findings')]) + '</ul>' + '</div></div><p class="section-note reveal"><a class="btn btn-primary" href="{r}sample.html">Open a sample assessment →</a></p>'
-method = hero('Method','Method · decision before deployment','First decide whether AI is needed. Then work.','We do not sell implementation. We issue a comprehensive expert assessment of every process — technological, economic, legal and industry-specific. And the bureau has the right to say “AI is not needed here”.') + \
- sec('verdicts','Four verdicts','A verdict for every process', ZONES) + \
- sec('criteria','Eight factors','Eight readiness factors — for each process separately', crit_html, muted=True) + \
- sec('scoring','Scoring','A 0–4 scale and a radar: current profile against the required one', SCORING) + \
- sec('decision','Decision','Recommendation and deployment status are two separate decisions', DECISION, muted=True) + \
- sec('process','Process','Diagnostics before deployment', steps) + \
- sec('sample','What you get','An assessment, not a presentation on AI possibilities', MATRIX + deliver, muted=True) + \
- sec('responsibility','Accountability','What the bureau is accountable for', RESP) + \
- sec('faq','FAQ','The method in brief', faq_html(FAQ[1:3]+FAQ[4:])) + CTA
-page('method.html', f'Method — {BRAND}', 'Eight readiness factors, four verdicts, deployment status and the contents of the assessment: how the bureau decides where AI is needed and where conventional automation is enough.', method, 'method.html')
-
-# ================= COUNCIL =================
-flow = '<ol class="steps steps-5">' + ''.join(f'<li class="step reveal"><span class="step-num">{n}</span><h3 class="step-title">{t}</h3><p class="step-text">{d}</p></li>' for n,t,d in [
- ('01','Clarification','The lead agent asks questions until context completeness reaches the sufficiency threshold.'),
- ('02','Briefs','A deterministic orchestrator sends briefs to the seven expert roles. It is code, not another model.'),
- ('03','Cross-check','Findings of the AI roles are compared; contradictions are not smoothed over but recorded as dissenting views.'),
- ('04','Expert review','A lawyer, a finance specialist/economist and an industry expert review and complement the findings in their fields.'),
- ('05','Signature','The bureau\'s chief designer consolidates the assessment, signs it and is accountable for it.')]) + '</ol>'
-security = '<div class="card-grid">' + ''.join(f'<div class="card reveal"><p class="card-tags">{a}</p><h3>{b}</h3><p>{c}</p></div>' for a,b,c in [
- ('Data','Your data stays yours','On-prem or a domestic cloud; client data is not used to train models.'),
- ('Limits','Agents do not make decisions','Each role works within its limits; the outcome requires a human signature.'),
- ('Audit','Every finding is traceable','Briefs, answers and sources are stored: you can see where each finding came from.')]) + '</div>'
-inds = ''.join(f'<option>{n}</option>' for _,n,_,_ in INDUSTRIES)
-screen = f'''<div class="split"><div class="prose reveal"><p>Express screening via {PLAT}: 15 minutes for the questionnaire, and you get an initial process map with verdicts. It is not an assessment but a reason to talk.</p>
-<p class="draft-note">Form prototype · platform in development</p></div>
-<form class="form reveal" action="#" onsubmit="return false">
- <label>Industry<select>{inds}</select></label>
- <label>Process you want checked<textarea placeholder="For example: triage of incoming hull insurance applications"></textarea></label>
- <button class="btn btn-primary" type="button" disabled>Coming soon: take the screening</button></form></div>'''
-council = hero(PLAT, f'{PLAT} · AI diagnostics platform','The platform analyses. Experts review. The chief designer signs.','The platform makes analysis fast and thorough. Legal, financial and industry specifics are additionally reviewed by invited experts: a lawyer, a finance specialist/economist and an industry specialist. The bureau\'s chief designer signs the assessment.', photo('team.jpg','The bureau working on an assessment','photo-wide reveal')) + \
- sec('roles','Composition','A lead agent, seven expert roles and humans in the loop', COUNCIL + '<p class="section-note reveal">Why humans: the platform is evolving, and the market needs time to trust AI-native assessments. That is why in three roles the agents\' findings are reviewed by invited experts. As verified assessments accumulate, the agents\' share of the work grows, but the signature and accountability remain with the bureau.</p>') + \
- sec('flow','How it works','From the first question to the signature', flow, muted=True) + \
- sec('security','Security','Control built into the architecture', security) + \
- sec('screening','Coming soon','Free express screening', screen, muted=True) + CTA
-page('council.html', f'{PLAT} — diagnostics platform · {BRAND}', 'AI diagnostics platform: a lead agent, seven expert roles, a deterministic orchestrator and a human signature.', council, 'council.html')
 
 # ================= CASES =================
 cases = hero('Cases','Cases','Where AI was needed — and where we did not use it','Every case follows the same structure: task → verdicts by process → result.') + \
@@ -388,62 +336,6 @@ for i,c in enumerate(CASES):
 {CTA}'''
     page(f"cases/{c['slug']}.html", f"{c['title']} — {BRAND} case", c['short'], body, 'cases.html')
 
-# ================= INDUSTRIES =================
-ind = '<div class="card-grid">' + ''.join(f'<article class="card reveal">{photo(i,n)}<h3>{n}</h3><p>{t}</p><p class="card-tags" style="text-transform:none">{v}</p></article>' for i,n,t,v in INDUSTRIES) + '</div>'
-nogo = '<aside class="no-go reveal"><p class="no-go-title">Where we do not go</p><p class="no-go-text">FinTech, iGaming and industries where we lack years of practice. Advising where you do not know the ground is dishonest: those industries have their own specialists.</p></aside>'
-industries = hero('Industries','Industries','Six industries where we know the context from the inside','The industry expert is one of the seven diagnostic roles. So we only take industries where the bureau has its own practice.') + \
- sec('list','Industries','Where we work and which verdicts are most common', ind) + \
- sec('nogo','Boundaries','Honestly about what we do not do', nogo, muted=True) + CTA
-page('industries.html', f'Industries — {BRAND}', 'Mining, urban infrastructure, development, maritime logistics and insurance, agriculture, MedTech and healthcare.', industries, 'industries.html')
-
-# ================= FORMATS =================
-cmp_rows = [('Outcome','Initial map','Signed assessment','AI portfolio management','Working system','Implementation per assessment'),
-            ('Timeline','15 minutes','2–4 weeks','from 3 months','per roadmap','throughout implementation'),
-            ('Led by',PLAT,'Sergey Zubkov, platform, experts','Sergey Zubkov','Bureau team','Sergey Zubkov'),
-            ('Price','free','from RUB 500,000','from RUB 200,000/mo','after diagnostics','based on implementation scope')]
-cmp = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th></th>' + ''.join(f'<th>{f[1]}</th>' for f in FORMATS) + '</tr></thead><tbody>' + ''.join('<tr>'+''.join(f'<td>{x}</td>' for x in row)+'</tr>' for row in cmp_rows) + '</tbody></table></div>'
-formats = hero('Formats','Formats and pricing','Open pricing. Every step is a separate decision.','You can stop after any step. If diagnostics shows AI is not needed, there will be no implementation.') + \
- sec('ladder','Ladder','Four steps and design supervision', formats_html()) + \
- sec('compare','Comparison','What each format includes', cmp, muted=True) + \
- sec('faq','FAQ','On money and boundaries', faq_html([FAQ[0],FAQ[1],FAQ[3],FAQ[4]])) + CTA
-page('formats.html', f'Formats and pricing — {BRAND}', 'Express screening, diagnostics from RUB 500,000, Fractional CAIO from RUB 200,000/mo, implementation after diagnostics, design supervision.', formats, 'formats.html')
-
-# ================= BUREAU =================
-principles = '<ul class="tick-list reveal">' + ''.join(f'<li><b>{a}</b> — {b}</li>' for a,b in [
- ('The right to say “no”','a “no AI” verdict is as valid an outcome as an implementation'),('Signature','every assessment has an accountable person'),
- ('No subcontracting','our own team implements, no anonymous contractors'),('Only familiar industries','we do not advise where we have no practice'),
- ('Verifiable numbers','every metric has a method and assumptions'),
- ('Design supervision','we stay accountable for the result even when your contractors implement')]) + '</ul>'
-pubs = '<ul class="pubs"><li class="pub reveal"><span class="pub-year">2020</span><span class="pub-title">A method for ice reconnaissance using drones</span><span class="pub-meta">NGN journal, No. 9/2020, pp. 21–26 · sole author</span></li><li class="pub reveal"><span class="pub-year">2025</span><span class="pub-title">Nature-based solutions in the Russian Arctic</span><span class="pub-meta">Sustainability (MDPI), 17, 10409 · consulting contribution</span></li></ul>'
-bureau = hero('Bureau','Bureau','Like a design bureau: a chief designer, calculations, execution','A compact senior team with its own method. We are not intermediaries between you and contractors: we diagnose the processes ourselves, design the solution and are accountable for the outcome — from the assessment to acceptance of the implementation.') + \
- f'''<section class="section" id="founder"><div class="container split-rev split">
-  {photo('founder.jpg','Sergey Zubkov, founder of the bureau','photo-34 reveal', gen=False)}
-  <div class="prose reveal"><p class="eyebrow">Founder · chief designer</p><h2 class="section-title">Sergey Zubkov</h2>
-  <p>Personally leads diagnostics, architecture and governance and signs every assessment. 20+ years in IT and data, 8+ years in AI projects, 3 AI products on the market.</p>
-  <p>Keeps hands-on skills: designs and writes code himself with Cursor + Devin + GitHub.</p>
-  <p><a href="https://www.linkedin.com/in/sergey-a-zubkov" target="_blank" rel="noopener">LinkedIn →</a></p></div>
- </div></section>''' + \
- sec('team','Team','Engineers who implement what passed diagnostics', f'<div class="split"><div class="prose reveal"><p>4–5 DS/ML engineers and developers: ML and computer vision, geo-ML, sovereign LLM environments, on-prem MLOps.</p><p>{PLAT}, the bureau\'s platform with a lead agent and seven expert roles, prepares the analysis.</p><p><b>Invited experts.</b> A lawyer, a finance specialist/economist and industry specialists review the platform\'s findings in their fields.</p></div>{photo("team.jpg","The bureau team","photo-32 reveal")}</div>', muted=True) + \
- sec('principles','Principles','Six rules of the bureau', principles) + \
- sec('responsibility','Accountability','What we are accountable for', RESP, muted=True) + \
- sec('pubs','Publications','Peer-reviewed means verifiable', pubs) + CTA
-page('bureau.html', f'About the bureau — {BRAND}', 'Founder Sergey Zubkov, engineering team, invited experts, the Council 7+1 platform and the bureau\'s principles.', bureau, 'bureau.html')
-
-# ================= INSIGHTS =================
-notes = [('Case study','Why the core of ice warnings works without a neural network','Where the cost of error decides the technology.'),
-         ('Method','Eight factors of AI readiness','A checklist for the CEO.'),
-         ('Industry','AI in marine insurance: what to automate and what not to','Application triage, premiums, claims.'),
-         ('Case study','“3 of 8”: how we dropped LLM in five subtasks','A developer case.'),
-         ('Architecture','A deterministic orchestrator instead of yet another agent','How '+PLAT+' is built.'),
-         ('Governance','Agent autonomy limits in production','Evaluation Framework and KRIs.')]
-notes_html = '<div class="card-grid">' + ''.join(f'<article class="card reveal"><p class="card-tags">{a} · coming soon</p><h3>{b}</h3><p>{c}</p></article>' for a,b,c in notes) + '</div>'
-lead = '<div class="split"><div class="prose reveal"><p>An annual review: where AI paid off in our industries, where it did not, and why. No marketing, with the method.</p><p class="draft-note">Lead magnet · in preparation</p></div><form class="form reveal" action="#" onsubmit="return false"><label>Email<input type="email" placeholder="you@company.com"></label><button class="btn btn-primary" type="button" disabled>Coming soon: get the report</button></form></div>'
-insights = hero('Insights','Insights','Decision breakdowns: where AI is needed and where it is not','The same columns appear on the founder\'s and the bureau\'s LinkedIn.') + \
- sec('notes','Columns','Upcoming publications', notes_html) + \
- sec('report','Report','“Evidence-based AI” — annual review', lead, muted=True) + \
- sec('pubs','Publications','Peer-reviewed papers', pubs) + CTA
-page('insights.html', f'Insights — {BRAND}', 'Decision breakdowns: where AI is needed and where it is not. Columns, annual review and peer-reviewed publications.', insights, 'insights.html')
-
 # ================= SAMPLE =================
 page('sample.html', f'Sample assessment — {BRAND}', 'A baseline diagnostic on synthetic data: findings, information sufficiency, a decision matrix with conditions. The full version in exchange for a work email.', hero('Sample assessment','Sample assessment','What a bureau assessment looks like','Baseline diagnostics on synthetic data: a fictional energy-sector design institute. The first four sections are open; the full report is yours in exchange for a work email.') + sample_report('en', chip) + CTA)
 
@@ -458,7 +350,7 @@ contact = hero('Contact','Contact','Start with a conversation, not a budget','45
  <form class="form reveal" action="mailto:zubkovfpk@gmail.com" method="post" enctype="text/plain">
   <label>Name<input name="name" required></label>
   <label>Company and role<input name="company"></label>
-  <label>Industry<select name="industry">{inds}<option>Other</option></select></label>
+  <label>Industry<select name="industry">{''.join(f'<option>{n}</option>' for _,n,_,_ in INDUSTRIES)}<option>Other</option></select></label>
   <label>What would you like to discuss<textarea name="message"></textarea></label>
   <button class="btn btn-primary" type="submit">Send</button>
   <p class="contact-note">Prototype: the form opens your email client. In production it will submit to a server.</p>
@@ -466,4 +358,4 @@ contact = hero('Contact','Contact','Start with a conversation, not a budget','45
 page('contact.html', f'Contact — {BRAND}', 'A 45-minute call with Sergey Zubkov: context, questions and the scope of diagnostics you need.', contact, 'contact.html')
 
 page('404.html', f'Page not found — {BRAND}', 'Page not found.', hero('','404','No such page. Verdict: “defer”.','<a href="{r}index.html">Back to home →</a>'))
-print('built EN', 11 + len(CASES), 'pages')
+print('built EN', 5 + len(CASES), 'pages')

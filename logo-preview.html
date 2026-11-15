@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Варианты марка — превью</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .logo-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding: 48px 0; }
+  .logo-cell { border: 1px solid var(--line); border-radius: 12px; padding: 40px 24px; text-align: left; }
+  .logo-cell .wordmark { display: inline-flex; }
+  .logo-name { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .1em; margin-top: 20px; }
+  .sect-label { grid-column: 1 / -1; font-family: var(--mono); font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .14em; border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-top: 24px; }
+
+  /* Ratio: descending histogram bars */
+  .mk-ratio i:nth-of-type(1) { height: 22px; }
+  .mk-ratio i:nth-of-type(2) { height: 16px; }
+  .mk-ratio i:nth-of-type(3) { height: 11px; }
+  .mk-ratio i:nth-of-type(4) { height: 7px; }
+
+  /* Eligo: chosen bar raised above the rest */
+  .mk-eligo i:nth-of-type(1) { height: 30px; }
+
+  /* Radar marks: inline SVG sized to match bars */
+  .wordmark-mark svg { display: block; width: 30px; height: 30px; }
+</style>
+</head>
+<body>
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark" aria-hidden="true"><b>?</b><i></i><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Зубкова</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+  </div>
+</header>
+<main>
+<div class="container logo-row">
+
+  <p class="sect-label">Полное имя с «Бюро»</p>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark"><b>?</b><i></i><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Квэро</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Quaero — ? + 4 вердикта</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark mk-ratio"><i></i><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Рацио</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Ratio — гистограмма</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark mk-eligo"><i></i><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Элиго</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Eligo — выбранный выше</p>
+  </div>
+
+  <p class="sect-label">Имя без «Бюро» (оно в дескрипторе)</p>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark"><b>?</b><i></i><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><span class="wordmark-name">Квэро</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Quaero</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark mk-ratio"><i></i><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><span class="wordmark-name">Рацио</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Ratio</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark mk-eligo"><i></i><i></i><i></i><i></i></span>
+      <span class="wordmark-text"><span class="wordmark-name">Элиго</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Eligo</p>
+  </div>
+
+  <p class="sect-label">Радар как марк</p>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark"><svg viewBox="0 0 30 30" aria-hidden="true">
+        <polygon points="15,3 23.5,6.5 27,15 23.5,23.5 15,27 6.5,23.5 3,15 6.5,6.5" fill="none" stroke="#1C1B18" stroke-width="1"/>
+        <line x1="15" y1="15" x2="15" y2="3" stroke="#ddd"/><line x1="15" y1="15" x2="23.5" y2="6.5" stroke="#ddd"/>
+        <line x1="15" y1="15" x2="27" y2="15" stroke="#ddd"/><line x1="15" y1="15" x2="23.5" y2="23.5" stroke="#ddd"/>
+        <line x1="15" y1="15" x2="15" y2="27" stroke="#ddd"/><line x1="15" y1="15" x2="6.5" y2="23.5" stroke="#ddd"/>
+        <line x1="15" y1="15" x2="3" y2="15" stroke="#ddd"/><line x1="15" y1="15" x2="6.5" y2="6.5" stroke="#ddd"/>
+        <polygon points="15,15 23.5,6.5 27,15" fill="#0F5A46" opacity=".85"/>
+      </svg></span>
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Квэро</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Радар 1 — сектор измерения</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark"><svg viewBox="0 0 30 30" aria-hidden="true">
+        <polygon points="15,3 23.5,6.5 27,15 23.5,23.5 15,27 6.5,23.5 3,15 6.5,6.5" fill="none" stroke="#1C1B18" stroke-width="1.2"/>
+        <polygon points="15,8 20,10 22,15 19,20 15,22 10,20 8,15 11,11" fill="#0F5A46" opacity=".35" stroke="#0F5A46" stroke-width="1"/>
+      </svg></span>
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Рацио</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Радар 2 — профиль внутри требований</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-mark"><svg viewBox="0 0 30 30" aria-hidden="true">
+        <polygon points="15,3 23.5,6.5 27,15 23.5,23.5 15,27 6.5,23.5 3,15 6.5,6.5" fill="none" stroke="#1C1B18" stroke-width="1"/>
+        <circle cx="15" cy="3" r="2.2" fill="#2E7D4F"/>
+        <circle cx="27" cy="15" r="2.2" fill="#A9740F"/>
+        <circle cx="15" cy="27" r="2.2" fill="#B3402E"/>
+        <circle cx="3" cy="15" r="2.2" fill="#6F6A60"/>
+      </svg></span>
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Элиго</span><span class="wordmark-role">Бюро обоснованного ИИ</span></span>
+    </a>
+    <p class="logo-name">Радар 3 — 4 вердикта на осях</p>
+  </div>
+
+</div>
+</main>
+</body>
+</html>

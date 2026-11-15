@@ -1144,3 +1144,11 @@ a.card:hover h3 { color: var(--accent); }
 .card-rand { display: contents; }
 .card-rand > .card { display: none; }
 .card-rand > .card:first-child { display: flex; }
+
+/* v4: steps-3 and experience case links */
+.steps-3 { grid-template-columns: repeat(3, 1fr); }
+.ind-cases { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+.ind-case { display: block; font-size: 14px; color: var(--accent); text-decoration: none; padding: 4px 0; }
+.ind-case::before { content: "> "; }
+a.ind-case:hover { text-decoration: underline; }
+@media (max-width: 900px) { .steps-3 { grid-template-columns: 1fr; } }
