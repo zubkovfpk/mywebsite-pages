@@ -10,7 +10,7 @@ ROLE = 'Evidence-based AI bureau'
 PLAT = 'Council 7+1'
 SITE = 'https://example.ru'
 
-NAV = [('index.html#pains','Problems'),('index.html#how','How we work'),('index.html#experience','Experience'),
+NAV = [('index.html#pains','Problems'),('index.html#experience','Experience'),
        ('cases.html','Cases'),('index.html#formats','Formats'),('contact.html','Contact')]
 
 def nb(s):
@@ -255,12 +255,12 @@ def faq_html(items):
 
 # ================= INDEX =================
 PAINS = [
- ('AI implemented — no effect','We find what went wrong: the metric, the process, or the task choice.'),
- ('Unclear whether AI is needed at all','Every process gets a reasoned verdict — including “no AI needed”.'),
- ('The integrator sells implementation','We earn on assessments, not on implementation hours — we can honestly say “no”.'),
- ('Regulation and security block it','Closed environments, data-protection law, sector bans — the assessment carries a clearance status and vetoes.'),
- ('No metric before the project','A business case with formula and assumptions before the first rouble of implementation spend.'),
- ('More initiatives than resources','Launch order and budget by waves — what goes first, what waits for scaling.')]
+ ('Money spent on AI — no effect visible','We find where it leaks: the metric, the process, or the task choice.'),
+ ('“AI is needed everywhere” — but where really?','Every process gets a reasoned verdict — including “no AI needed”.'),
+ ('We cannot hand our data and perimeter to anyone','We work on your premises, inside closed environments, without external cloud services.'),
+ ('Three vendors — three different answers','An independent assessment: we earn on it, not on implementation.'),
+ ('Pilots exist — scale does not','Launch order and budget by waves: what goes first, what waits for scaling.'),
+ ('The board needs a number','A business case with formula and assumptions before the first rouble of implementation spend.')]
 pains = '<div class="card-grid">' + ''.join(f'<article class="card reveal"><h3>{h}</h3><p>{p}</p></article>' for h,p in PAINS) + '</div>'
 
 STEPS3 = '''<ol class="steps steps-3">
@@ -296,18 +296,11 @@ index = f'''<section class="hero"><div class="container hero-grid">
     <p class="verdict-foot">A person signs the decision · expert dissenting views are kept</p>
   </figure>
 </div></section>
-<section class="numbers" aria-label="Client results"><div class="container numbers-grid">
-  <div class="number-item reveal"><div class="number-value">−38%</div><div class="number-caption">vessel-days for sea area monitoring: drones instead of patrols</div></div>
-  <div class="number-item reveal"><div class="number-value">+18%</div><div class="number-caption">branch workload with 30% fewer staff, closed environment</div></div>
-  <div class="number-item reveal"><div class="number-value">+13%</div><div class="number-caption">Northern Sea Route voyages with the platform's AI modules</div></div>
-  <div class="number-item reveal"><div class="number-value accent">3&nbsp;of&nbsp;8</div><div class="number-caption">document-flow subtasks got an LLM. The rest do not need AI</div></div>
-</div></section>
 {sec('pains','Problems','What brings clients to us', pains)}
-{sec('how','How we work','Conversation → assessment → implementation', STEPS3, muted=True)}
-{sec('experience','Experience','Industries and proven results', experience)}
-{sec('formats','Formats','From free screening to implementation, step by step', formats_html(), muted=True)}
-<section class="section" id="bureau"><div class="container split">
-  <div><p class="eyebrow reveal">Bureau</p><h2 class="section-title reveal">Like a design bureau: a chief designer, calculations, execution</h2>
+{sec('experience','Experience','Industries and proven results', experience, muted=True)}
+{sec('formats','Formats','From free screening to implementation, step by step', formats_html(), lead='The assessment is a standalone product, not an invitation to implement.')}
+<section class="section section-muted" id="bureau"><div class="container split">
+  <div><p class="eyebrow reveal">Bureau</p><h2 class="section-title reveal">Every assessment is signed by the person who built it</h2>
   <div class="prose reveal"><p>Sergey Zubkov personally leads diagnostics and architecture and signs every assessment. Legal, financial and industry findings are reviewed by invited experts. The bureau's engineering team implements — or your contractors do, under our design supervision.</p>
   <p>20+ years in IT and data, 8+ years in AI projects, 3 shipped AI products. Hands-on: designs and writes code himself.</p></div></div>
   {photo('founder.jpg','Sergey Zubkov, bureau founder','photo-34 reveal', gen=False)}
@@ -340,7 +333,7 @@ for i,c in enumerate(CASES):
 page('sample.html', f'Sample assessment — {BRAND}', 'A baseline diagnostic on synthetic data: findings, information sufficiency, a decision matrix with conditions. The full version in exchange for a work email.', hero('Sample assessment','Sample assessment','What a bureau assessment looks like','Baseline diagnostics on synthetic data: a fictional energy-sector design institute. The first four sections are open; the full report is yours in exchange for a work email.') + sample_report('en', chip) + CTA)
 
 # ================= CONTACT =================
-contact = hero('Contact','Contact','Start with a conversation, not a budget','45 minutes: your context, your questions, and a clear view of how much diagnostics you actually need. No presentations “about the possibilities of AI”.') + \
+contact = hero('Contact','Contact','Start with a conversation','45 minutes: your context, your questions, and a clear view of how much diagnostics you actually need. No presentations “about the possibilities of AI”.') + \
  f'''<section class="section"><div class="container split">
  <div><div class="contact-links reveal">
   <a class="contact-link" href="mailto:zubkovfpk@gmail.com"><span class="contact-label">Email</span><span class="contact-value">zubkovfpk@gmail.com</span></a>
