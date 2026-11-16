@@ -1152,3 +1152,5 @@ a.card:hover h3 { color: var(--accent); }
 .ind-case::before { content: "> "; }
 a.ind-case:hover { text-decoration: underline; }
 @media (max-width: 900px) { .steps-3 { grid-template-columns: 1fr; } }
+
+.pain-alt { font-size: 13px; color: var(--muted); border-top: 1px dashed var(--line); margin-top: 10px; padding-top: 8px; }
