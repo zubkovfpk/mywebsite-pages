@@ -28,6 +28,13 @@ Static bilingual (RU/EN) site for Sergey Zubkov — Fractional CAIO / evidence-b
 - Card markers: international = globe badge (accent-green) or ribbon — both kept pending audience test; award = amber medal badge; all upper-left, `data-tip` tooltips (no JS).
 - Red lines: formal entity names (ИЭПИ, ВИЗАРД) not published; client names only whitelisted (Морспасслужба, Россельхознадзор, ЕГИП/Москва); Роскадастр → «геодезия/кадастр», Capital Group → «девелопер топ-3».
 
+## Search-demand data (research basis for copy/SEO)
+
+- RU: `research_wordstat_ru.md` — Yandex Wordstat API (service account `bureau`), raw data + collectors in `D:\WORK\AIprojects\wordstat_*`.
+- Intl: `research_keywords_intl.md` — Google Keyword Planner, CSVs in `D:\WORK\AIprojects\Keywords_ideas\` (`<cc>_<lang>.csv`, UTF-16 TSV), readers `kp_read*.py`. Google Ads account exists (billing Tajikistan, no campaigns); RU returns no KP data.
+- Geo priority from data: US > DE (native German only) > IN > UK/SG > FR/NL; IT/RS ≈ no demand. Rising themes: ai governance, workflow automation, pilot-to-production, agents.
+- Copy implications: RU site = «директор по ИИ на аутсорсе» (fractional = 7 queries); EN = explain fractional CAIO as part-time AI leadership; use «audit», «governance», «pilot to production» phrasing in EN blocks.
+
 ## Environment
 
 - Windows + PowerShell: no `&&`, no bash heredocs; `;` to chain.

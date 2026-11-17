@@ -2,6 +2,15 @@
 
 Newest at top. All timestamps UTC.
 
+## 2026-11-18 ~02:20 UTC — International search-demand layer (Google Keyword Planner)
+
+- **Google Ads account created** (billing country Tajikistan — RU restrictions; no campaigns, no spend). KP API deferred: developer-token + OAuth2 flow too heavy for a one-time snapshot; UI CSV exports used instead.
+- **Russia returns no data** in Keyword Planner (ads suspended since 2022) — Wordstat remains the only RU source.
+- **12 country/language runs collected** into `D:\WORK\AIprojects\Keywords_ideas\` (`<cc>_<lang>.csv`, UTF-16 TSV): US×2 (en+ru), UK, DE-en, UAE, IL, IN, SG + native runs DE-de, FR-fr, IT-it, NE-du (Dutch), SE-se/se_mix (Serbian latin+cyrillic — both zero).
+- Full report: **`research_keywords_intl.md`**. Reader scripts: `kp_read*.py`, `kp_compare.py` → `kp_compare.md` (outside repo).
+- Key findings: US = top market (5k buckets across services; governance +900% YoY). **Germany on German is 100× its English demand** (`ki beratung` 5000 vs 50) — DACH needs native content. IN = US-level volume but price-competitive. FR/NL niche, IT/RS ≈ zero. `pilot to production` + `ai governance` = new queries with near-empty competition. `fractional chief AI officer` = 50 everywhere but present in all countries — term entering the language.
+- RU-diaspora demand (us_ru) ≈ nil (~50) — no separate intl-RU track needed.
+
 ## 2026-11-17 ~19:30 UTC — v4 structure + Wordstat research
 
 - **Branch `v4` created** — site restructured to a single-page model (user decision: hide methodology internals, merge industries+cases, shorten to 3–4 blocks).
