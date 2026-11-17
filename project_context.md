@@ -7,7 +7,7 @@ Static bilingual (RU/EN) site for Sergey Zubkov — Fractional CAIO / evidence-b
 - `BRAND` = «Бюро Зубкова» / "Zubkov Bureau" — wordmark in header.
 - `ROLE` = «Бюро обоснованного ИИ» / "Evidence-based AI bureau" — descriptor.
 - `PLAT` = Council 7+1 — diagnostics platform name, untranslated.
-- Naming candidates under review (see conversation_history.md 2026-11-13): Quaero (leader), Probatio, digit names rejected. Final structure: name + category descriptor; personal brand stays as fallback. Domain not chosen — needs reg.ru + trademark check.
+- Naming candidates under review: **Контекст/Context, ARC, GRID, Ratio, Quaero**. Final structure: name + category descriptor («ИИ-бюро» / «AI Bureau»). Domain not chosen — needs reg.ru + trademark check.
 
 ## Architecture
 

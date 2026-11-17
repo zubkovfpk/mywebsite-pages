@@ -2,6 +2,18 @@
 
 Newest at top. All timestamps UTC.
 
+## 2026-11-17 ~19:30 UTC — v4 structure + Wordstat research
+
+- **Branch `v4` created** — site restructured to a single-page model (user decision: hide methodology internals, merge industries+cases, shorten to 3–4 blocks).
+- v4 index: pain-led hero («Вам продают внедрение ИИ. Мы — ответ, нужен ли он») → Задачи (6 client-voice pains) → Опыт (6 industries merged with case-metric links) → Форматы ladder (all paid; «как работаем» merged in) → Бюро → CTA «Начнём с разговора».
+- Removed pages: method, council, industries, formats, insights, bureau (14 pages total now). NAV = Задачи/Опыт/Кейсы/Форматы/Контакт. Numbers strip removed from index (outside users couldn't judge «много или мало»). Numbers remain in cases only.
+- Two pains show alternative formulations (`pain-alt` muted line) pending user's pick.
+- **`logo-preview.html`** — temp page with 9 logo variants (Quaero/Ratio/Eligo ± «Бюро», 3 radar-based marks), left-aligned wordmark. Awaiting user choice; delete after.
+- **Naming brainstorms added:** «-AI» endings (ReshAI/DumAI etc. — parked), «Контекст» (strong candidate), Alice's ARC/GRID/AIM (ARC and GRID kept as directions). Shortlist to compare: **Контекст/Context, ARC, GRID, Ratio, Quaero**.
+- **Wordstat research (real data)** via Yandex Search API v2 `topRequests` — key in `D:\WORK\AIprojects\wordstat.txt` (service account `bureau`, folder `b1gegkqs4sj99ic3ohm8`), collectors `wordstat_*.py`, raw JSON + digest. Full report: **`research_wordstat_ru.md`**.
+- Key findings: «ИИ не работает» (9,3k) and «ИИ диагностика» (5k) are consumer/medical traps; client-fit clusters = ИИ-агенты на заказ (~2,6k), корпоративный контур (~3k), теневой-ИИ cluster (~1,4k), аудит процессов (~740), директор по ИИ (~1,1k — while «фракционный директор» = 7). Closed-contour niche ≈300, almost no competition. «Внедрение» is dead territory for differentiation.
+- No public stats exist for queries inside AI chats (Alice etc.) — planned GEO-monitoring instead (monthly manual check of AI answers to commercial queries).
+
 ## 2026-11-13 ~16:00 UTC — All 9 cases finalized
 
 - **medtech finalized** (draft=False) — case review complete for all 9 cases.

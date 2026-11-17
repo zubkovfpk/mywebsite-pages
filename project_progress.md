@@ -12,11 +12,11 @@
 
 ## In progress
 
-- Case review: **esg-nsr**, **edtech** still drafts — next up.
-- **Bureau naming**: user shortlist **Quaero / Ratio / Eligo** (Probatio, Delibero, Consilium, Examen, digit names rejected). Next: domain + Роспатент check → final pick → BRAND/ROLE cascade.
-- **MedTech case** (FreeVision 3D, replaces edtech): content in place, under review; **needs real image** (currently edtech.jpg placeholder) — prompt for generator supplied to user.
-- Intl card marker final style: globe vs ribbon — awaiting audience testing.
+- **v4 branch**: single-page structure live (pains→experience→formats→bureau→CTA); awaiting user review of pains alt-formulations (`pain-alt` on 2 cards) and logo variants in `logo-preview.html` (9 options, delete after choice).
+- **Bureau naming**: candidates to compare — **Контекст/Context, ARC, GRID, Ratio, Quaero** (Alice's AIM/FAB/MAP dropped; «-AI» endings parked). Next: pick → domain + Роспатент → BRAND/ROLE cascade.
+- **Search demand research**: RU done (report `research_wordstat_ru.md`, 75 seed phrases via Wordstat API). Next: international layer via Google Keyword Planner (US, UK, DE, UAE/IL, IN, SG first).
 - Domain choice/registration (reg.ru); `SITE` placeholder still `example.ru`.
+- GEO-monitoring (AI-chat answers visibility) — to set up after launch.
 
 ## Backlog
 
