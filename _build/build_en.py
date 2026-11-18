@@ -5,7 +5,7 @@ from lang_detect import lang_script
 from radar import radar_svg
 from sample_page import sample_report
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BRAND = 'Zubkov Bureau'
+BRAND = 'Context'
 ROLE = 'Evidence-based AI bureau'
 PLAT = 'Council 7+1'
 SITE = 'https://example.ru'
@@ -61,8 +61,7 @@ def page(sub, title, desc, body, active=None):
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="wordmark" href="{r}index.html" aria-label="{BRAND} — home">
-      <span class="wordmark-mark" aria-hidden="true"><b>?</b><i></i><i></i><i></i><i></i></span>
-      <span class="wordmark-text"><span class="wordmark-name">{BRAND}</span><span class="wordmark-role">{ROLE}</span></span>
+      <span class="wordmark-text"><span class="wordmark-name">[CON]<i>TEXT</i></span><span class="wordmark-role">{ROLE}</span></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       {nav}
@@ -280,7 +279,7 @@ experience = '<div class="card-grid">' + ''.join(exp_card(ind, IND_SLUGS[k]) for
 index = f'''<section class="hero"><div class="container hero-grid">
   <div class="hero-copy">
     <p class="eyebrow reveal">{ROLE} · Diagnostics before deployment</p>
-    <h1 class="hero-title reveal">They sell you AI implementation.<br><em>We sell the answer on whether you need it.</em></h1>
+    <h1 class="hero-title reveal">AI does not pay back everywhere.<br><em>We show exactly where — in your context.</em></h1>
     <p class="hero-sub reveal">Every process gets a verdict: AI, hybrid, conventional automation or “not yet”. Diagnostics and a signed assessment with economics and risks first — then work.</p>
     <div class="hero-cta reveal"><a class="btn btn-primary" href="{{r}}contact.html">45-minute call</a><a class="btn btn-ghost" href="{{r}}cases.html">Cases with numbers</a></div>
     <p class="hero-meta reveal">Led by Sergey Zubkov, founder and chief designer · 20+ years in IT and data · RU / EN</p>

@@ -5,7 +5,7 @@ from lang_detect import lang_script
 from radar import radar_svg
 from sample_page import sample_report
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BRAND = 'Бюро Зубкова'
+BRAND = 'Контекст'
 ROLE = 'Бюро обоснованного ИИ'
 PLAT = 'Council 7+1'
 SITE = 'https://example.ru'
@@ -58,8 +58,7 @@ def page(path, title, desc, body, active=None):
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a class="wordmark" href="{r}index.html" aria-label="{BRAND} — на главную">
-      <span class="wordmark-mark" aria-hidden="true"><b>?</b><i></i><i></i><i></i><i></i></span>
-      <span class="wordmark-text"><span class="wordmark-name">{BRAND}</span><span class="wordmark-role">{ROLE}</span></span>
+      <span class="wordmark-text"><span class="wordmark-name">[КОН]<i>ТЕКСТ</i></span><span class="wordmark-role">{ROLE}</span></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
       {nav}
@@ -278,7 +277,7 @@ experience = '<div class="card-grid">' + ''.join(exp_card(ind, IND_SLUGS[k]) for
 index = f'''<section class="hero"><div class="container hero-grid">
   <div class="hero-copy">
     <p class="eyebrow reveal">{ROLE} · Диагностика до внедрения</p>
-    <h1 class="hero-title reveal">Вам продают внедрение ИИ.<br><em>Мы — ответ, нужен ли он.</em></h1>
+    <h1 class="hero-title reveal">ИИ окупается не везде.<br><em>Покажем, где именно — в вашем контексте.</em></h1>
     <p class="hero-sub reveal">По каждому процессу — вердикт: ИИ, гибрид, обычная автоматизация или «пока не нужно». Сначала диагностика и подписанное заключение с экономикой и рисками — потом работа.</p>
     <div class="hero-cta reveal"><a class="btn btn-primary" href="{{r}}contact.html">Разговор на 45 минут</a><a class="btn btn-ghost" href="{{r}}cases.html">Кейсы с цифрами</a></div>
     <p class="hero-meta reveal">Ведёт Сергей Зубков, основатель и главный конструктор · 20+ лет в IT и данных · RU / EN</p>

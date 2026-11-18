@@ -110,8 +110,10 @@ a { color: inherit; }
   font-family: var(--serif);
   font-size: 19px;
   font-weight: 700;
-  letter-spacing: .01em;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
+.wordmark-name i { font-style: normal; color: var(--accent); }
 
 .wordmark-role {
   font-family: var(--mono);
