@@ -234,7 +234,7 @@ INDUSTRIES = [
 
 FORMATS = [
  ('Step 1','Express screening','A short questionnaire and an initial map: where AI is worth considering and where it is definitely not. Online via '+PLAT+'.','coming soon'),
- ('Step 2','Diagnostics','Fixed scope: process audit, decision matrix, business case, roadmap. 2–4 weeks.','from RUB 500,000 per phase · revenue share possible'),
+ ('Step 2','Diagnostics','Fixed scope: process audit, decision matrix, business case, pilot-to-production roadmap. 2–4 weeks.','from RUB 500,000 per phase · revenue share possible'),
  ('Step 3','Fractional CAIO','A part-time external Chief AI Officer: strategy, governance, oversight of implementations. From 3 months.','from RUB 200,000/mo · one day a week from RUB 350,000/mo'),
  ('Step 4','Implementation','The bureau team builds what passed diagnostics. Production standard, on-prem where needed.','estimated after diagnostics'),
  ('Step 4 · or','Design supervision','Your developers or contractors implement; the bureau checks conformity with the assessment and architecture and accepts each phase.','based on implementation scope'),
@@ -257,17 +257,15 @@ def faq_html(items):
 PAINS = [
  ('Money spent on AI — no effect visible','We find where it leaks: the metric, the process, or the task choice.'),
  ('“AI is needed everywhere” — but where really?','Every process gets a reasoned verdict — including “no AI needed”.'),
- ('We cannot hand our data and perimeter to anyone','We work on your premises, inside closed environments, without external cloud services.'),
+ ('Employees already feed data to outside services','Shadow AI inside the company is a fact, not a hypothesis. We map where it lives and propose rules plus a perimeter that keeps data in-house.'),
  ('Three vendors — three different answers','An independent assessment: we earn on it, not on implementation.'),
  ('Pilots exist — scale does not','Launch order and budget by waves: what goes first, what waits for scaling.'),
  ('The board needs a number','A business case with formula and assumptions before the first rouble of implementation spend.')]
-PAINS_ALT = {'We cannot hand our data and perimeter to anyone':'variant: “Regulation and security block it” — closed environments, data-protection law, sector bans; the assessment carries a clearance status and vetoes',
-             'Pilots exist — scale does not':'variant: “More initiatives than resources” — launch order and budget by waves: what goes first, what waits for scaling'}
-pains = '<div class="card-grid">' + ''.join(f'<article class="card reveal"><h3>{h}</h3><p>{p}</p>{f"<p class=\"pain-alt\">{PAINS_ALT[h]}</p>" if h in PAINS_ALT else ""}</article>' for h,p in PAINS) + '</div>'
+pains = '<div class="card-grid">' + ''.join(f'<article class="card reveal"><h3>{h}</h3><p>{p}</p></article>' for h,p in PAINS) + '</div>'
 
 STEPS3 = '''<ol class="steps steps-3">
  <li class="step reveal"><span class="step-num">01</span><h3 class="step-title">Conversation</h3><p class="step-meta">45 minutes</p><p class="step-text">Your context and questions. You leave with an initial map: what is worth examining, what is definitely not.</p></li>
- <li class="step reveal"><span class="step-num">02</span><h3 class="step-title">Diagnostics</h3><p class="step-meta">2–4 weeks</p><p class="step-text">A verdict and clearance status for every process, a business case and a roadmap — in a signed assessment. The assessment is a standalone product, not an invitation to implement.</p></li>
+ <li class="step reveal"><span class="step-num">02</span><h3 class="step-title">Diagnostics</h3><p class="step-meta">2–4 weeks</p><p class="step-text">A verdict and clearance status for every process, a business case and a pilot-to-production roadmap — in a signed assessment. The assessment is a standalone product, not an invitation to implement.</p></li>
  <li class="step reveal"><span class="step-num">03</span><h3 class="step-title">Implementation</h3><p class="step-meta">by roadmap</p><p class="step-text">The bureau builds what passed diagnostics — or supervises your contractors as design authority.</p></li>
 </ol>'''
 
@@ -308,7 +306,7 @@ index = f'''<section class="hero"><div class="container hero-grid">
   {photo('founder.jpg','Sergey Zubkov, bureau founder','photo-34 reveal', gen=False)}
 </div></section>
 {CTA}'''
-page('index.html', f'{BRAND} — {ROLE.lower()} · Sergey Zubkov', 'Process diagnostics before AI deployment: where AI is justified, where a hybrid fits, and where conventional automation is enough. Mining, maritime, cities, agriculture, MedTech.', index)
+page('index.html', f'{BRAND} — {ROLE.lower()} · Sergey Zubkov', 'Independent AI readiness assessment before deployment: where AI is justified, where a hybrid fits, and where conventional automation is enough. From pilot to production — with economics and risks signed off. Mining, maritime, cities, agriculture, MedTech.', index)
 
 # ================= CASES =================
 cases = hero('Cases','Cases','Where AI was needed — and where we did not use it','Every case follows the same structure: task → verdicts by process → result.') + \
