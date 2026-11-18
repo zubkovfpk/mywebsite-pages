@@ -2,12 +2,16 @@
 
 Static bilingual (RU/EN) site for Sergey Zubkov — Fractional CAIO / evidence-based AI bureau. Concept B «Экспертный кабинет» → later A «Вердикт» (widget) → C «Прозрачная фабрика». Hosting target: reg.ru. `SITE` placeholder = `https://example.ru` until the real domain is chosen/registered.
 
-## Brand (current, naming under review)
+## Brand (current, name may still change)
 
-- `BRAND` = «Бюро Зубкова» / "Zubkov Bureau" — wordmark in header.
+- `BRAND` = «Контекст» / "Context" — live on site since b844b13 (visual test; name not final).
 - `ROLE` = «Бюро обоснованного ИИ» / "Evidence-based AI bureau" — descriptor.
 - `PLAT` = Council 7+1 — diagnostics platform name, untranslated.
-- Naming candidates under review: **Контекст/Context, ARC, GRID, Ratio, Quaero**. Final structure: name + category descriptor («ИИ-бюро» / «AI Bureau»). Domain not chosen — needs reg.ru + trademark check.
+- **Logo approach FIXED**: all-in-one wordmark, no separate logomark — `[КОН]ТЕКСТ` RU / `[CON]TEXT` EN (variant C1; `[КОН]` ink, `ТЕКСТ` accent-green). Old «?+4 bars» markup removed from header (dead CSS rules remain in style.css).
+- Logo semantics rules: no central dot/focus (context = beyond boundaries); 4 colors = 4 verdicts only, never the 8 Council agents (agents stay neutral ink).
+- Naming: **Контекст** chosen over Ratio (ambiguous RU pronunciation) and ARC (no clean domain set). Free domains: `burokontekst`, `kontekstburo`, `kontekst-ai` — all .ru/.com/.ai at check time. Domain not registered — needs reg.ru + trademark check.
+- Hero (v4): «ИИ окупается не везде. *Покажем, где именно — в вашем контексте.*» — covers both pre-adoption and already-have-AI clients.
+- `logo-preview.html` — archived concept sheet (K1–K28, C1–C5); v7 = full-lockup cells (SVG needs explicit width/height or it collapses).
 
 ## Architecture
 

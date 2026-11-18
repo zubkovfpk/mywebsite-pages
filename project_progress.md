@@ -12,8 +12,8 @@
 
 ## In progress
 
-- **v4 branch**: single-page structure live (pains→experience→formats→bureau→CTA); awaiting user review of pains alt-formulations (`pain-alt` on 2 cards) and logo variants in `logo-preview.html` (9 options, delete after choice).
-- **Bureau naming**: candidates to compare — **Контекст/Context, ARC, GRID, Ratio, Quaero** (Alice's AIM/FAB/MAP dropped; «-AI» endings parked). Next: pick → domain + Роспатент → BRAND/ROLE cascade.
+- **v4 branch**: single-page structure live (pains→experience→formats→bureau→CTA). Rebranded to «Контекст»/Context (b844b13): wordmark C1 `[КОН]ТЕКСТ`, hero «ИИ окупается не везде — покажем, где именно, в вашем контексте». `logo-preview.html` kept as concept archive.
+- **Bureau naming**: «Контекст» live as working name (may still change; logo approach fixed regardless). Next: confirm name → domain registration (reg.ru) + Роспатент check.
 - **Search demand research**: RU + international DONE. RU: `research_wordstat_ru.md` (75 phrases, Wordstat API). Intl: `research_keywords_intl.md` (Google Keyword Planner, 7 EN countries + 5 native-language runs; raw CSVs in `D:\WORK\AIprojects\Keywords_ideas\`). Next: merge into semantic map for site copy/naming.
 - Domain choice/registration (reg.ru); `SITE` placeholder still `example.ru`.
 - GEO-monitoring (AI-chat answers visibility) — to set up after launch.
