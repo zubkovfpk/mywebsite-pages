@@ -2,6 +2,14 @@
 
 Newest at top. All timestamps UTC.
 
+## 2026-11-18 ~03:10 UTC — Seasonality + Trends + PDF report
+
+- **`semantic_map.md`** — RU+intl semantic territories → site copy formulations + naming resonance check.
+- **`search_demand_report.pdf`** — 6-page infographic report (matplotlib, site palette). Generator `D:\WORK\AIprojects\make_pdf_report.py`.
+- **Google Trends (pytrends, 5y):** category inflection 2025–26 — AI governance 0.7→56, AI consulting 1→34, shadow AI 1→13. Fractional CAIO below measurement floor. CSVs `gtrends_5y_*.csv`.
+- **Wordstat UI «Динамика» (user, 14 phrases, 23 months):** seasonality confirmed — Jan bottom, Jul–Aug second dip, Sep–Nov/Mar–May peaks; Sept–Oct slice is +20–35% above annual mean. YoY: agents +318%, shadow AI +359% (from zero), audit +164%, corporate +157%, CAIO role +109%; only classic phrasings decline (аудит бизнес-процессов −13%). «ИИ в закрытом контуре» = brand-new term (0→69/yr). «ИИ сопровождение» below history threshold — unformed term, free service name.
+- Caveat documented everywhere: RU = ~30-day rolling window vs intl = 12-mo monthly average; no direct absolute comparison.
+
 ## 2026-11-18 ~02:20 UTC — International search-demand layer (Google Keyword Planner)
 
 - **Google Ads account created** (billing country Tajikistan — RU restrictions; no campaigns, no spend). KP API deferred: developer-token + OAuth2 flow too heavy for a one-time snapshot; UI CSV exports used instead.
