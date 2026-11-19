@@ -5,24 +5,8 @@
    финальные шрифты (self-hosted woff2) подключаются на этапе продакшена.
    ============================================================ */
 
-@font-face {
-  font-family: 'GOST B';
-  src: url('../fonts/gost-type-b.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pilatus';
-  src: url('../fonts/pilatus-web-patched.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  --gost: 'Pilatus', 'GOST B', 'Segoe UI', Arial, sans-serif;
+  --gost: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --paper: #FAF7F2;
   --paper-deep: #F1ECE2;
   --ink: #1C1B18;
@@ -36,8 +20,8 @@
   --zone-amber: #A9740F;
   --zone-red: #B3402E;
 
-  --serif: 'Pilatus', 'GOST B', Georgia, 'Charter', 'Bitstream Charter', 'Times New Roman', serif;
-  --sans: 'Pilatus', 'GOST B', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
   --container: 1140px;
   --container-narrow: 760px;
@@ -1177,13 +1161,6 @@ a.ind-case:hover { text-decoration: underline; }
 @media (max-width: 900px) { .steps-3 { grid-template-columns: 1fr; } }
 
 .pain-alt { font-size: 13px; color: var(--muted); border-top: 1px dashed var(--line); margin-top: 10px; padding-top: 8px; }
-
-/* Возврат к sans для сравнения (весь поддерев) */
-.font-std {
-  --serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-family: var(--sans);
-}
 
 /* Чертёжный шрифт ГОСТ 2.304-81 тип Б — служебные метки и подписи */
 .eyebrow, .wordmark-role, .card-tags, .format-step, .format-price,
