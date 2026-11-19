@@ -66,7 +66,6 @@ def page(sub, title, desc, body, active=None):
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       {nav}
       <a class="nav-lang" href="{a}{sub}" hreflang="ru">RU</a>
-      <a class="nav-cta" href="{r}contact.html">45-minute call</a>
     </nav>
     <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span></button>
   </div>
@@ -82,6 +81,7 @@ def page(sub, title, desc, body, active=None):
   </div>
 </footer>
 <a class="to-top" href="#top" aria-label="Back to top">↑</a>
+<a class="float-cta" href="{r}contact.html">45-minute call</a>
 <script src="{a}assets/js/main.js"></script>
 </body>
 </html>
@@ -150,7 +150,7 @@ CASES = [
       task='The clients — oil and gas groups and the shipping operator — needed safer, more efficient ice navigation without losing control: every agent decision must stay within permitted bounds.',
       verdict=[('Ice conditions from satellite data','AI','Variable patterns, high image volume'),('Warning of approach to an ice zone','No AI','Errors are unacceptable: route geometry and time thresholds'),('Route recommendations','Hybrid','The model suggests, the captain decides')],
       result='−65% fishing-gear losses over 5+ years. Hard prohibitions live in the runtime; critical decisions keep a human in the loop.'),
- dict(slug='shipping', img='shipping.png', tags='Marine insurance and shipowners · international track', card_tags='Marine insurance and shipowners', draft=False, intl=True,
+ dict(slug='shipping', img='shipping.png', tags='Marine insurance and shipowners · international track', card_tags='Marine insurance', draft=False, intl=True,
       title='>RUB 2 bn saved for shipowners and operators · 2025–2029',
       short='Meteo bulletins and insurance-cover control for insurers; fleet-anomaly detection for fishing shipowners. In-house development and deployment of the service in seven countries.',
       facts=[('Functions', funcs('bsm','ops')),('Markets & languages','Russia · China · MENA · Latin America · Japan — Russian, English, Chinese, Spanish'),('Data','AIS tracks + satellite imagery + anonymized telecom data'),('Metric','≈22% of voyages covered by the service · up to $9.7–16.6M/yr of prevented losses (estimate)')],
@@ -223,12 +223,12 @@ def case_card(c):
   <p class="card-tags">{c.get('card_tags', c['tags'])}</p><h3>{c['title']}</h3><p>{c.get('card_short', c['short'])}</p><span class="more">Read the case →</span></a>'''
 
 INDUSTRIES = [
- ('mining.jpg','Mining and hydrocarbons','Oil, gas and ores. Safety and logistics in harsh environments: offshore, ice, remoteness.','Typical: AI in video analytics and failure prediction; no AI in safety permits and procedures.'),
- ('city.jpg','Urban infrastructure','Inter-agency integration and city data: 60+ agencies, closed environments, public procurement rules.','Typical: unified data and integration first; AI in citizen requests and Earth observation analysis.'),
- ('construction.jpg','Construction and development','The whole project life cycle: surveys, design, construction, operation, sales.','Typical: hybrid in document flow; no AI in cost estimates and reconciliations.'),
- ('arctic.jpg','Maritime logistics and insurance','Fleet and risk: weather support, insurance coverage control, economics of rare but large events.','Typical: AI in ice conditions and application triage; no AI in premiums and warnings.'),
- ('agro.jpg','Agriculture','Geo-ML field monitoring: from aerial imagery to results for the inspector in 2 hours instead of 3 days.','Typical: AI in image detection (mAP@0.5 > 80%); defer where there is no yield history.'),
- ('dental.jpg','MedTech and healthcare','Medical devices and diagnostics: AI features, software-as-medical-device registration, clinical validation.','Typical: AI in visualisation and documentation; autonomous diagnosis only after dataset and validation.'),
+ ('mining.jpg','Mining and hydrocarbons','Oil, gas and ores. Safety and logistics in harsh environments: offshore, ice, remoteness.','AI in video analytics and failure prediction; no AI in safety permits and procedures.'),
+ ('city.jpg','Urban infrastructure','Inter-agency integration, closed environments and public services for people.','Unified data and integration first; AI in citizen requests and Earth observation analysis.'),
+ ('construction.jpg','Construction and development','The whole project life cycle: surveys, design, construction, operation, sales.','Hybrid in document flow; no AI in cost estimates and reconciliations.'),
+ ('arctic.jpg','Maritime logistics and insurance','Fleet and risk: weather support, insurance coverage control, economics of rare but large events.','AI in ice conditions and application triage; no AI in premiums and warnings.'),
+ ('agro.jpg','Agriculture','Geo-ML field monitoring: from aerial imagery to results for the inspector in 2 hours instead of 3 days.','AI in image detection; defer where there is no yield history.'),
+ ('dental.jpg','MedTech and healthcare','Medical devices and diagnostics: AI features, software-as-medical-device registration, clinical validation.','AI in visualisation and documentation; autonomous diagnosis only after dataset and validation.'),
 ]
 
 FORMATS = [
@@ -256,11 +256,11 @@ def faq_html(items):
 PAINS = [
  ('Money spent on AI — no effect visible','We find where it leaks: the metric, the process, or the task choice.'),
  ('“AI is needed everywhere” — but where really?','Every process gets a reasoned verdict — including “no AI needed”.'),
- ('Employees already feed data to outside services','Shadow AI inside the company is a fact, not a hypothesis. We map where it lives and propose rules plus a perimeter that keeps data in-house.'),
+ ('Employees already feed data to outside services','Shadow AI is a fact. We map where it lives and design a perimeter that keeps data in-house.'),
  ('Three vendors — three different answers','An independent assessment: we earn on it, not on implementation.'),
  ('Pilots exist — scale does not','Launch order and budget by waves: what goes first, what waits for scaling.'),
  ('The board needs a number','A business case with formula and assumptions before the first rouble of implementation spend.')]
-pains = '<div class="card-grid">' + ''.join(f'<article class="card reveal"><h3>{h}</h3><p>{p}</p></article>' for h,p in PAINS) + '</div>'
+pains = '<div class="card-grid">' + ''.join(f'<article class="card reveal{" font-std" if i>=3 else ""}"><h3>{h}</h3><p>{p}</p></article>' for i,(h,p) in enumerate(PAINS)) + '</div>'
 
 STEPS3 = '''<ol class="steps steps-3">
  <li class="step reveal"><span class="step-num">01</span><h3 class="step-title">Conversation</h3><p class="step-meta">45 minutes</p><p class="step-text">Your context and questions. You leave with an initial map: what is worth examining, what is definitely not.</p></li>
@@ -272,28 +272,18 @@ IND_SLUGS = [['shelf'],['egip','geodesy'],['developer'],['vizard','shipping','mo
 BY_SLUG = {c['slug']: c for c in CASES}
 def exp_card(ind, slugs):
     i,n,t,v = ind
-    links = ''.join(f'<a class="ind-case" href="{{r}}cases/{s}.html">{BY_SLUG[s]["title"]}</a>' for s in slugs)
-    return f'<article class="card reveal"><h3>{n}</h3><p>{t}</p><p class="card-tags" style="text-transform:none">{v}</p><div class="ind-cases">{links}</div></article>'
+    return f'''<a class="card reveal" href="{{r}}cases/{slugs[0]}.html">{photo(i, n)}
+  <h3>{n}</h3><p>{t}</p><p class="card-tags" style="text-transform:none">{v}</p><span class="more">Read the case →</span></a>'''
 experience = '<div class="card-grid">' + ''.join(exp_card(ind, IND_SLUGS[k]) for k,ind in enumerate(INDUSTRIES)) + '</div>'
 
-index = f'''<section class="hero"><div class="container hero-grid">
+index = f'''<section class="hero"><div class="container">
   <div class="hero-copy">
     <p class="eyebrow reveal">{ROLE} · Diagnostics before deployment</p>
     <h1 class="hero-title reveal">AI does not pay back everywhere.<br><em>We show exactly where — in your context.</em></h1>
     <p class="hero-sub reveal">Every process gets a verdict: AI, hybrid, conventional automation or “not yet”. Diagnostics and a signed assessment with economics and risks first — then work.</p>
     <div class="hero-cta reveal"><a class="btn btn-primary" href="{{r}}contact.html">45-minute call</a><a class="btn btn-ghost" href="{{r}}cases.html">Cases with numbers</a></div>
-    <p class="hero-meta reveal">Led by Sergey Zubkov, founder and chief designer · 20+ years in IT and data · RU / EN</p>
+    <p class="hero-meta reveal">Led by Sergey Zubkov, founder and chief designer · 20+ years in IT and data</p>
   </div>
-  <figure class="verdict-card reveal" aria-label="Assessment excerpt: verdicts by process">
-    <figcaption class="verdict-head"><span>Assessment · excerpt</span><span>7 / 7 checks</span></figcaption>
-    <ul class="verdict-list">
-      <li><span class="v-proc">Pollution detection from drone imagery</span>{chip('AI')}</li>
-      <li><span class="v-proc">Primary documents Excel → ERP</span>{chip('Hybrid')}</li>
-      <li><span class="v-proc">Ice zone warning</span>{chip('No AI')}</li>
-      <li><span class="v-proc">Branch service demand forecast</span>{chip('Defer')}</li>
-    </ul>
-    <p class="verdict-foot">A person signs the decision · expert dissenting views are kept</p>
-  </figure>
 </div></section>
 {sec('pains','Problems','What brings clients to us', pains)}
 {sec('experience','Experience','Industries and proven results', experience, muted=True)}
@@ -302,17 +292,17 @@ index = f'''<section class="hero"><div class="container hero-grid">
   <div><p class="eyebrow reveal">Bureau</p><h2 class="section-title reveal">Every assessment is signed by the person who built it</h2>
   <div class="prose reveal"><p>Sergey Zubkov personally leads diagnostics and architecture and signs every assessment. Legal, financial and industry findings are reviewed by invited experts. The bureau's engineering team implements — or your contractors do, under our design supervision.</p>
   <p>20+ years in IT and data, 8+ years in AI projects, 3 shipped AI products. Hands-on: designs and writes code himself.</p></div></div>
-  {photo('founder.jpg','Sergey Zubkov, bureau founder','photo-34 reveal', gen=False)}
+  {photo('founder.png','Sergey Zubkov, bureau founder','photo-34 cutout reveal', gen=False)}
 </div></section>
 {CTA}'''
 page('index.html', f'{BRAND} — {ROLE.lower()} · Sergey Zubkov', 'Independent AI readiness assessment before deployment: where AI is justified, where a hybrid fits, and where conventional automation is enough. From pilot to production — with economics and risks signed off. Mining, maritime, cities, agriculture, MedTech.', index)
 
 # ================= CASES =================
-cases = hero('Cases','Cases','Where AI was needed — and where we did not use it','Every case follows the same structure: task → verdicts by process → result.') + \
- sec('list','All cases','Verified results', '<div class="card-grid">'+''.join(case_card(c) for c in CASES)+'</div>') + CTA
+cases = '<div class="font-std">' + hero('Cases','Cases','AI only where it is justified','Every case follows the same structure: task → verdicts by process → result.') + \
+ '<section class="section"><div class="container"><div class="card-grid card-grid-cases">'+''.join(case_card(c) for c in CASES)+'</div></div></section>' + CTA + '</div>'
 page('cases.html', f'Cases — {BRAND}', 'Bureau cases: maritime safety, sea area monitoring, closed government environment, development, Moscow geo-information space, agriculture, offshore drilling, MedTech.', cases, 'cases.html')
 for i,c in enumerate(CASES):
-    nxt = CASES[(i+1)%len(CASES)]
+    nxt = [CASES[(i+1)%len(CASES)], CASES[(i+2)%len(CASES)]]
     facts = '<dl class="facts reveal">' + ''.join(f'<div><dt>{a}</dt><dd>{nb(b)}</dd></div>' for a,b in c['facts']) + '</dl>'
     vt = '<div class="matrix-wrap reveal"><table class="matrix"><thead><tr><th>Process</th><th>Verdict</th><th>Rationale</th></tr></thead><tbody>' + ''.join(f'<tr><td>{a}</td><td>{chip(b)}</td><td>{d}</td></tr>' for a,b,d in c['verdict']) + '</tbody></table></div>'
     body = f'''<section class="page-hero"><div class="container"><p class="crumbs"><a href="{{r}}index.html">Home</a> / <a href="{{r}}cases.html">Cases</a></p>
@@ -324,8 +314,9 @@ for i,c in enumerate(CASES):
   {'<p class="draft-note">Draft case write-up: details to be confirmed with the founder, NDA limits to be checked</p>' if c.get('draft', True) else ''}</div></div>
   <div><p class="eyebrow reveal">Verdicts by process</p>{vt}</div>
 </div></section>
-<section class="section section-muted"><div class="container"><p class="eyebrow">Next case</p><div class="card-grid card-grid-2">{case_card(nxt)}</div></div></section>
+<section class="section section-muted"><div class="container"><p class="eyebrow">More cases</p><div class="card-grid card-grid-2">{''.join(case_card(c2) for c2 in nxt)}</div></div></section>
 {CTA}'''
+    body = '<div class="font-std">' + body + '</div>'
     page(f"cases/{c['slug']}.html", f"{c['title']} — {BRAND} case", c['short'], body, 'cases.html')
 
 # ================= SAMPLE =================

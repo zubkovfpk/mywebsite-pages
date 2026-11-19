@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 import math
 
 def radar_svg(labels, current, required, na_label, aria):
@@ -12,7 +12,7 @@ def radar_svg(labels, current, required, na_label, aria):
         pts = ' '.join('%.1f,%.1f' % pt(i, lv) for i in range(n))
         s.append(f'<polygon points="{pts}" fill="none" stroke="#DFD8C9" stroke-width="1"/>')
         x, y = pt(0, lv)
-        s.append(f'<text x="{x + 5:.1f}" y="{y + 4:.1f}" font-size="10" fill="#8B857A" font-family="monospace">{lv}</text>')
+        s.append(f'<text x="{x + 5:.1f}" y="{y + 4:.1f}" font-size="10" fill="#8B857A" font-family="Segoe UI, Arial, sans-serif">{lv}</text>')
     for i in range(n):
         x, y = pt(i, 4)
         s.append(f'<line x1="{cx}" y1="{cy}" x2="{x:.1f}" y2="{y:.1f}" stroke="#DFD8C9" stroke-width="1"/>')
@@ -35,7 +35,7 @@ def radar_svg(labels, current, required, na_label, aria):
         anchor = 'middle' if abs(c) < 0.3 else ('start' if c > 0 else 'end')
         missing = current[i] is None
         fill = '#B3402E' if missing else '#1C1B18'
-        extra = f'<tspan x="{x:.1f}" dy="15" font-size="11" fill="#B3402E" font-family="monospace">{na_label}</tspan>' if missing else ''
+        extra = f'<tspan x="{x:.1f}" dy="15" font-size="11" fill="#B3402E" font-family="Segoe UI, Arial, sans-serif">{na_label}</tspan>' if missing else ''
         s.append(f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" font-size="13" fill="{fill}" font-family="-apple-system,Segoe UI,Arial,sans-serif">{lab}{extra}</text>')
     s.append('</svg>')
     return ''.join(s)

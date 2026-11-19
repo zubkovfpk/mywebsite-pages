@@ -46,6 +46,16 @@
     toTop.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
   }
 
+  var floatCta = document.querySelector('.float-cta');
+  if (floatCta && !/contact\.html$/.test(location.pathname)) {
+    var heroCta = document.querySelector('.hero .hero-cta');
+    var onCta = function () {
+      var show = !heroCta || heroCta.getBoundingClientRect().bottom < 0;
+      floatCta.classList.toggle('show', show);
+    };
+    window.addEventListener('scroll', onCta, { passive: true }); onCta();
+  }
+
   document.querySelectorAll('details.faq-item').forEach(function (d) {
     d.addEventListener('toggle', function () {
       if (!d.open) return;
