@@ -1,7 +1,7 @@
-/* ============================================================
-   Сергей Зубков — Fractional CAIO · Концепция B «Экспертный кабинет»
+﻿/* ============================================================
+   Сергей Зубков – Fractional CAIO · Концепция B «Экспертный кабинет»
    Редакционная типографика, «бумажная» палитра, hairline-линии.
-   Шрифты — системные стеки: без внешних зависимостей (RU-доступность),
+   Шрифты – системные стеки: без внешних зависимостей (RU-доступность),
    финальные шрифты (self-hosted woff2) подключаются на этапе продакшена.
    ============================================================ */
 
@@ -31,7 +31,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
-  /* Без scroll-behavior: smooth — ломает пейнтинг при печати/PDF
+  /* Без scroll-behavior: smooth – ломает пейнтинг при печати/PDF
      и программный скролл инструментов захвата; якоря работают мгновенно. */
   scroll-padding-top: 84px;
 }
@@ -293,7 +293,7 @@ a { color: inherit; }
 }
 
 /* ============================================================
-   Sections — общие
+   Sections – общие
    ============================================================ */
 
 .section { padding: 88px 0; }
@@ -333,7 +333,7 @@ a { color: inherit; }
 }
 
 /* ============================================================
-   01 · Zones — матрица вердиктов
+   01 · Zones – матрица вердиктов
    ============================================================ */
 
 .zones {
@@ -382,7 +382,7 @@ a { color: inherit; }
 }
 
 /* ============================================================
-   02 · Approach — шаги
+   02 · Approach – шаги
    ============================================================ */
 
 .steps {
@@ -1030,7 +1030,7 @@ a.card:hover h3 { color: var(--accent); }
 .criteria td:first-child { white-space: nowrap; }
 .tick-list { list-style: none; margin: 0; padding: 0; }
 .tick-list li { padding: 12px 0 12px 28px; border-bottom: 1px solid var(--line-soft); position: relative; color: var(--ink-soft); }
-.tick-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+.tick-list li::before { content: "–"; position: absolute; left: 0; color: var(--accent); }
 
 .footer-inner { flex-wrap: wrap; gap: 12px 32px; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; }
