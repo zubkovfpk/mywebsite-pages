@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Локап — варианты имени, v3</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  body { padding-bottom: 80px; }
+  .logo-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding: 40px 0 24px; }
+  .logo-cell { border: 1px solid var(--line); border-radius: 12px; padding: 40px 24px; text-align: left; }
+  .logo-cell .wordmark { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; }
+  .logo-name { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .1em; margin-top: 20px; }
+  .sect-label { grid-column: 1 / -1; font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .14em; border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-top: 28px; }
+  .note { color: var(--ink-soft); font-size: 14px; max-width: 760px; }
+
+  .wordmark-name i { color: var(--ink); font-style: normal; }
+
+  /* четыре штриха в ширине текста */
+  .vseg { display: flex; gap: 6px; width: 100%; margin: 3px 0 5px; }
+  .vseg i { flex: 1; height: 2px; }
+  .vseg i:nth-of-type(1) { background: var(--zone-green); }
+  .vseg i:nth-of-type(2) { background: var(--zone-amber); }
+  .vseg i:nth-of-type(3) { background: var(--zone-red); }
+  .vseg i:nth-of-type(4) { background: var(--ink-faint); }
+  /* четыре точки инлайн после имени */
+  .vell i { display: inline-block; width: 4px; height: 4px; border-radius: 50%; margin-left: 4px; vertical-align: baseline; }
+  .vell i:nth-of-type(1) { background: var(--zone-green); }
+  .vell i:nth-of-type(2) { background: var(--zone-amber); }
+  .vell i:nth-of-type(3) { background: var(--zone-red); }
+  .vell i:nth-of-type(4) { background: var(--ink-faint); }
+
+  .demo-head { grid-column: 1 / -1; border: 1px solid var(--line); border-radius: 12px; padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .demo-nav { display: flex; gap: 26px; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<main>
+<div class="container logo-row">
+
+  <p class="sect-label">A. «Бюро Сергея Зубкова» — дескриптор «Промышленный ИИ»</p>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Сергея Зубкова</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Промышленный ИИ</span></span>
+    </a>
+    <p class="logo-name">A1 — четыре штриха</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Сергея Зубкова<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Промышленный ИИ</span></span>
+    </a>
+    <p class="logo-name">A2 — четыре точки («многоточие»)</p>
+  </div>
+
+  <p class="sect-label">B. «Бюро С. Зубкова»</p>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Бюро С.&nbsp;Зубкова</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Промышленный ИИ</span></span>
+    </a>
+    <p class="logo-name">B1 — штрихи</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Бюро С.&nbsp;Зубкова<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Промышленный ИИ</span></span>
+    </a>
+    <p class="logo-name">B2 — точки</p>
+  </div>
+
+  <p class="sect-label">D. «Бюро промышленного ИИ» — основатель в той же строке / подписи</p>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Бюро промышленного ИИ</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Основатель — Сергей Зубков</span></span>
+    </a>
+    <p class="logo-name">D1 — штрихи</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Бюро промышленного ИИ<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Сергей Зубков</span></span>
+    </a>
+    <p class="logo-name">D2 — точки</p>
+  </div>
+
+  <p class="sect-label">E. Имя = вердикт-квартет</p>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Призма</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Бюро промышленного ИИ</span></span>
+    </a>
+    <p class="logo-name">E1 — Призма (штрихи)</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Спектр<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Бюро промышленного ИИ</span></span>
+    </a>
+    <p class="logo-name">E2 — Спектр (точки)</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Квартет</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">ИИ-бюро Сергея Зубкова</span></span>
+    </a>
+    <p class="logo-name">E3 — Квартет (штрихи)</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Вердикт<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Бюро промышленного ИИ</span></span>
+    </a>
+    <p class="logo-name">E4 — Вердикт (точки)</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Гамма</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Бюро промышленного ИИ</span></span>
+    </a>
+    <p class="logo-name">E5 — Гамма (штрихи)</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">PRIZMA<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Industrial AI bureau · S. Zubkov</span></span>
+    </a>
+    <p class="logo-name">E6 — PRIZMA EN (точки)</p>
+  </div>
+
+  <p class="sect-label">EN — фамилия и имя-дескриптор</p>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Sergey Zubkov Bureau</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Industrial AI</span></span>
+    </a>
+    <p class="logo-name">EN-A — штрихи</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">S. Zubkov Bureau<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Industrial AI</span></span>
+    </a>
+    <p class="logo-name">EN-B — точки</p>
+  </div>
+
+  <div class="logo-cell">
+    <a class="wordmark" href="#">
+      <span class="wordmark-text"><span class="wordmark-name">Industrial AI Bureau</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Founded by Sergey Zubkov</span></span>
+    </a>
+    <p class="logo-name">EN-D — штрихи</p>
+  </div>
+
+  <p class="sect-label">В шапке (A1)</p>
+
+  <div class="demo-head">
+    <a class="wordmark" href="#" style="display:inline-flex">
+      <span class="wordmark-text"><span class="wordmark-name">Бюро Сергея Зубкова</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Промышленный ИИ</span></span>
+    </a>
+    <span class="demo-nav"><span>Запросы</span><span>Опыт</span><span>Форматы</span><span>Кейсы</span><span>Бюро</span><span>EN</span></span>
+  </div>
+
+</div>
+
+<div class="container">
+  <p class="note">Два приёма вердикт-цвета, оба в ширине текста: <b>четыре штриха</b> (печать/штамп под именем) и <b>четыре точки</b> инлайн после имени («многоточие» — вердикт продолжается). Весь текст — чёрный/серый.</p>
+</div>
+</main>
+</body>
+</html>
