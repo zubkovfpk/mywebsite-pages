@@ -19,6 +19,7 @@
   --zone-green: #2E7D4F;
   --zone-amber: #A9740F;
   --zone-red: #B3402E;
+  --zone-steel: #5B7183;
 
   --serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
@@ -346,7 +347,7 @@ a { color: inherit; }
 
 .zone-green { border-top-color: var(--zone-green); }
 .zone-amber { border-top-color: var(--zone-amber); }
-.zone-red   { border-top-color: var(--zone-red); }
+.zone-red   { border-top-color: var(--zone-steel); }
 
 .zone-tag {
   font-family: var(--sans);
@@ -358,7 +359,7 @@ a { color: inherit; }
 
 .zone-green .zone-tag { color: var(--zone-green); }
 .zone-amber .zone-tag { color: var(--zone-amber); }
-.zone-red   .zone-tag { color: var(--zone-red); }
+.zone-red   .zone-tag { color: var(--zone-steel); }
 
 .zone-text {
   font-size: 15.5px;
@@ -772,7 +773,7 @@ html, body { overflow-x: clip; }
 .wordmark-mark i { display: block; width: 7px; height: 22px; }
 .wordmark-mark i:nth-of-type(1) { background: var(--zone-green); }
 .wordmark-mark i:nth-of-type(2) { background: var(--zone-amber); }
-.wordmark-mark i:nth-of-type(3) { background: var(--zone-red); }
+.wordmark-mark i:nth-of-type(3) { background: var(--zone-steel); }
 .wordmark-mark i:nth-of-type(4) { background: var(--zone-grey); }
 
 .hero-title { max-width: none; }
@@ -803,7 +804,7 @@ html, body { overflow-x: clip; }
 }
 .chip-green { background: var(--zone-green); }
 .chip-amber { background: var(--zone-amber); }
-.chip-red   { background: var(--zone-red); }
+.chip-red   { background: var(--zone-steel); }
 .chip-grey  { background: var(--zone-grey); }
 
 /* Полоса цифр без фоновых «полей» по краям */
