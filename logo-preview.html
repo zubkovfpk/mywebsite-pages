@@ -1,172 +1,2473 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Локап — варианты имени, v3</title>
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-  body { padding-bottom: 80px; }
-  .logo-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding: 40px 0 24px; }
-  .logo-cell { border: 1px solid var(--line); border-radius: 12px; padding: 40px 24px; text-align: left; }
-  .logo-cell .wordmark { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; }
-  .logo-name { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .1em; margin-top: 20px; }
-  .sect-label { grid-column: 1 / -1; font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .14em; border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-top: 28px; }
-  .note { color: var(--ink-soft); font-size: 14px; max-width: 760px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бренд-лаборатория · Логотип и система носителей — Бюро промышленного ИИ</title>
+  <meta name="description" content="Рабочий стенд выбора логотипа, нейминга и бренд-элементов: 5 концептуальных семейств, 15 векторных вариантов, проверка на носителях и журнал дизайн-развилок.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    @font-face {
+      font-family: 'GOST B';
+      src: url('assets/fonts/gost-type-b.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0020-007E, U+0410-044F, U+0401, U+0451;
+    }
+    @font-face {
+      font-family: 'Pilatus';
+      src: url('assets/fonts/pilatus-web-patched.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
 
-  .wordmark-name i { color: var(--ink); font-style: normal; }
+    :root {
+      --lp-bg: #FAF7F2;
+      --lp-surface: #FFFFFF;
+      --lp-surface-muted: #F1ECE2;
+      --lp-ink: #1C1B18;
+      --lp-ink-soft: #4F4B43;
+      --lp-ink-muted: #615C53;
+      --lp-line: #D8D0C0;
+      --lp-line-strong: #1C1B18;
+      --lp-accent: #0F5A46;
+      --lp-accent-soft: #E5EFEA;
+      --lp-v-green: #266B43;
+      --lp-v-amber: #8F6008;
+      --lp-v-steel: #4A5E6F;
+      --lp-v-grey: #5E5950;
 
-  /* четыре штриха в ширине текста */
-  .vseg { display: flex; gap: 6px; width: 100%; margin: 3px 0 5px; }
-  .vseg i { flex: 1; height: 2px; }
-  .vseg i:nth-of-type(1) { background: var(--zone-green); }
-  .vseg i:nth-of-type(2) { background: var(--zone-amber); }
-  .vseg i:nth-of-type(3) { background: var(--zone-steel); }
-  .vseg i:nth-of-type(4) { background: var(--ink-faint); }
-  /* четыре точки инлайн после имени */
-  .vell i { display: inline-block; width: 4px; height: 4px; border-radius: 50%; margin-left: 4px; vertical-align: baseline; }
-  .vell i:nth-of-type(1) { background: var(--zone-green); }
-  .vell i:nth-of-type(2) { background: var(--zone-amber); }
-  .vell i:nth-of-type(3) { background: var(--zone-steel); }
-  .vell i:nth-of-type(4) { background: var(--ink-faint); }
+      /* Токены самого логотипа на холсте карточки (зависят от выбранной среды) */
+      --stage-bg: #FAF7F2;
+      --stage-card: #FFFFFF;
+      --stage-border: #D8D0C0;
+      --logo-ink: #1C1B18;
+      --logo-sub: #544F46;
+      --logo-faint: #6B655B;
+      --logo-rule: #CFC7B6;
+      --logo-accent: #0F5A46;
+      --logo-accent-tint: rgba(15, 90, 70, 0.10);
+      --v1: #2E7D4F;
+      --v2: #A9740F;
+      --v3: #5B7183;
+      --v4: #6F6A60;
 
-  .demo-head { grid-column: 1 / -1; border: 1px solid var(--line); border-radius: 12px; padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; }
-  .demo-nav { display: flex; gap: 26px; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); }
-</style>
+      --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-tech: 'GOST B', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      --font-logo-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-logo-sub: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    [data-font-mode="gost"] {
+      --font-logo-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-logo-sub: 'GOST B', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    }
+
+    [data-font-mode="pilatus"] {
+      --font-logo-main: 'Pilatus', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      --font-logo-sub: 'GOST B', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    }
+
+    [data-surface="dark"] {
+      --stage-bg: #161513;
+      --stage-card: #1C1B18;
+      --stage-border: #38352F;
+      --logo-ink: #FAF7F2;
+      --logo-sub: #CFC9BC;
+      --logo-faint: #ABA495;
+      --logo-rule: #46423A;
+      --logo-accent: #56C2A0;
+      --logo-accent-tint: rgba(86, 194, 160, 0.14);
+      --v1: #52B77C;
+      --v2: #E0A234;
+      --v3: #8BA5B9;
+      --v4: #9E988C;
+    }
+
+    [data-surface="mono"] {
+      --stage-bg: #FFFFFF;
+      --stage-card: #FFFFFF;
+      --stage-border: #1C1B18;
+      --logo-ink: #111111;
+      --logo-sub: #2B2B2B;
+      --logo-faint: #444444;
+      --logo-rule: #111111;
+      --logo-accent: #111111;
+      --logo-accent-tint: rgba(17, 17, 17, 0.07);
+      --v1: #111111;
+      --v2: #111111;
+      --v3: #111111;
+      --v4: #111111;
+    }
+
+    body {
+      background: var(--lp-bg);
+      color: var(--lp-ink);
+      font-family: var(--font-ui);
+      font-size: 16px;
+      line-height: 1.6;
+      padding-bottom: 96px;
+    }
+
+    .lp-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 8px;
+      background: var(--lp-ink);
+      color: var(--lp-bg);
+      padding: 10px 16px;
+      z-index: 200;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 16px; }
+
+    /* Верхняя полоса навигации обратно на сайт */
+    .lp-topbar {
+      border-bottom: 1px solid var(--lp-line);
+      background: var(--lp-bg);
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--lp-ink-soft);
+    }
+    .lp-topbar-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 24px;
+    }
+    .lp-topbar a {
+      color: var(--lp-ink-soft);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .lp-topbar a:hover {
+      color: var(--lp-accent);
+      border-bottom-color: var(--lp-accent);
+    }
+    .lp-topbar-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .lp-doc-code {
+      font-family: var(--font-tech);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--lp-ink-muted);
+    }
+
+    /* Титульный блок */
+    .lp-hero {
+      padding: 48px 0 36px;
+      border-bottom: 1px solid var(--lp-line);
+    }
+    .lp-kicker {
+      font-family: var(--font-tech);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--lp-accent);
+      margin-bottom: 12px;
+    }
+    .lp-hero h1 {
+      font-size: clamp(1.75rem, 3.2vw, 2.65rem);
+      font-weight: 600;
+      line-height: 1.16;
+      letter-spacing: -0.015em;
+      margin-bottom: 16px;
+      max-width: 28ch;
+    }
+    .lp-lead {
+      font-size: 16px;
+      color: var(--lp-ink-soft);
+      max-width: 74ch;
+      line-height: 1.65;
+    }
+    .lp-clusters-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .lp-cluster-pill {
+      background: var(--lp-surface);
+      border: 1px solid var(--lp-line);
+      padding: 16px 18px;
+    }
+    .lp-cluster-pill-tag {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--lp-accent);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .lp-cluster-pill strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .lp-cluster-pill span {
+      font-size: 13.5px;
+      color: var(--lp-ink-soft);
+      display: block;
+      line-height: 1.45;
+    }
+
+    /* Липкий пульт управления */
+    .lp-Dock {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(250, 247, 242, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--lp-line-strong);
+      padding: 9px 0;
+    }
+    section[id] {
+      scroll-margin-top: 108px;
+    }
+    .lp-dock-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 14px;
+    }
+    .lp-ctrl-groups {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+    }
+    .lp-ctrl-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .lp-ctrl-label {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--lp-ink-muted);
+    }
+    .lp-seg {
+      display: inline-flex;
+      flex-wrap: wrap;
+      border: 1px solid var(--lp-line);
+      background: var(--lp-surface);
+    }
+    .lp-seg button {
+      font-family: var(--font-ui);
+      font-size: 12.5px;
+      line-height: 1.2;
+      min-height: 32px;
+      padding: 5px 10px;
+      border: none;
+      border-right: 1px solid var(--lp-line);
+      background: transparent;
+      color: var(--lp-ink-soft);
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+    .lp-seg button:last-child { border-right: none; }
+    .lp-seg button:hover {
+      background: var(--lp-surface-muted);
+      color: var(--lp-ink);
+    }
+    .lp-seg button[aria-pressed="true"] {
+      background: var(--lp-ink);
+      color: var(--lp-bg);
+      font-weight: 600;
+    }
+    .lp-shortlist-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--lp-accent);
+      background: var(--lp-accent-soft);
+      color: var(--lp-accent);
+      cursor: pointer;
+    }
+    .lp-shortlist-pill:hover {
+      background: var(--lp-accent);
+      color: #FFFFFF;
+    }
+
+    /* Навигация по секциям */
+    .lp-secnav {
+      border-bottom: 1px solid var(--lp-line);
+      background: var(--lp-surface-muted);
+      padding: 8px 0;
+    }
+    .lp-secnav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      list-style: none;
+      font-size: 13px;
+    }
+    .lp-secnav-list a {
+      color: var(--lp-ink-soft);
+      text-decoration: none;
+      padding: 4px 0;
+      display: inline-block;
+    }
+    .lp-secnav-list a:hover {
+      color: var(--lp-accent);
+      text-decoration: underline;
+    }
+
+    /* Секции семейств */
+    .lp-family {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--lp-line);
+    }
+    .lp-family-head {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+    .lp-family-meta {
+      font-family: var(--font-tech);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--lp-accent);
+      margin-bottom: 8px;
+    }
+    .lp-family-head h2 {
+      font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+      font-weight: 600;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+    }
+    .lp-family-rationale {
+      font-size: 14.5px;
+      color: var(--lp-ink-soft);
+      line-height: 1.6;
+      border-left: 2px solid var(--lp-accent);
+      padding-left: 16px;
+    }
+
+    /* Карточки вариантов 3 в ряд */
+    .lp-variants-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .lp-card {
+      background: var(--lp-surface);
+      border: 1px solid var(--lp-line);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .lp-card.is-active-system {
+      border-color: var(--lp-accent);
+      box-shadow: 0 0 0 1px var(--lp-accent), 0 14px 32px -20px rgba(15, 90, 70, 0.38);
+    }
+    .lp-card-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--lp-line);
+      background: var(--lp-surface-muted);
+      font-size: 12px;
+    }
+    .lp-card-code {
+      font-family: var(--font-tech);
+      font-size: 12.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lp-ink);
+      font-weight: 600;
+    }
+    .lp-leader-badge {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--lp-accent);
+      background: var(--lp-accent-soft);
+      padding: 2px 8px;
+      border: 1px solid rgba(15, 90, 70, 0.28);
+    }
+
+    /* Сцена самого логотипа */
+    .lp-stage {
+      background: var(--stage-card);
+      color: var(--logo-ink);
+      min-height: 196px;
+      padding: 28px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border-bottom: 1px solid var(--lp-line);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    /* Едва заметные чертёжные уголки на сцене */
+    .lp-stage::before,
+    .lp-stage::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-color: var(--logo-rule);
+      border-style: solid;
+      pointer-events: none;
+    }
+    .lp-stage::before {
+      top: 10px; left: 10px;
+      border-width: 1px 0 0 1px;
+    }
+    .lp-stage::after {
+      bottom: 10px; right: 10px;
+      border-width: 0 1px 1px 0;
+    }
+
+    /* Мини-полоска масштаба 32px и 16px прямо под сценой */
+    .lp-scale-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 16px;
+      background: var(--stage-bg);
+      color: var(--logo-sub);
+      border-bottom: 1px solid var(--lp-line);
+      font-size: 12px;
+    }
+    .lp-scale-label {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--logo-faint);
+    }
+    .lp-scale-samples {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .lp-scale-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      color: var(--logo-faint);
+    }
+    .lp-scale-item svg { display: block; flex: none; }
+
+    /* Тело карточки */
+    .lp-card-body {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 10px;
+    }
+    .lp-card-body h3 {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--lp-ink);
+    }
+    .lp-card-desc {
+      font-size: 14px;
+      color: var(--lp-ink-soft);
+      line-height: 1.55;
+    }
+    .lp-card-system-note {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--lp-line);
+      font-size: 13px;
+      color: var(--lp-ink-soft);
+      line-height: 1.48;
+    }
+    .lp-card-system-note strong {
+      color: var(--lp-ink);
+      font-weight: 600;
+    }
+    .lp-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 8px;
+    }
+    .lp-btn-try {
+      flex: 1;
+      min-height: 38px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--lp-ink);
+      background: transparent;
+      color: var(--lp-ink);
+      cursor: pointer;
+    }
+    .lp-btn-try:hover {
+      background: var(--lp-ink);
+      color: var(--lp-bg);
+    }
+    .lp-card.is-active-system .lp-btn-try {
+      background: var(--lp-accent);
+      border-color: var(--lp-accent);
+      color: #FFFFFF;
+    }
+    .lp-btn-fav {
+      min-height: 38px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      border: 1px solid var(--lp-line);
+      background: var(--lp-surface-muted);
+      color: var(--lp-ink-soft);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .lp-btn-fav[aria-pressed="true"] {
+      background: #FFF7E0;
+      border-color: var(--lp-v-amber);
+      color: #6B4704;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       Внутренняя вёрстка векторных локапов (Logo Lockups)
+       ============================================================ */
+    .lk-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 100%;
+    }
+    .lk-mark {
+      flex: none;
+      width: 46px;
+      height: 46px;
+    }
+    .lk-mark svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .lk-txt {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      line-height: 1.15;
+    }
+    .lk-name {
+      font-family: var(--font-logo-main);
+      font-weight: 700;
+      font-size: 15.5px;
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: var(--logo-ink);
+      line-height: 1.18;
+    }
+    .lk-name.lk-name-lg {
+      font-size: 20px;
+      letter-spacing: 0.05em;
+    }
+    .lk-sub {
+      font-family: var(--font-logo-sub);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--logo-sub);
+      margin-top: 5px;
+      line-height: 1.25;
+    }
+    /* Специальная лента 02-B под именем */
+    .lk-hbar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      width: 100%;
+      margin: 5px 0 4px;
+      height: 5px;
+    }
+    /* Специальный двухполюсный локап 03-C */
+    .lk-split-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      width: 100%;
+    }
+    .lk-split-left {
+      display: flex;
+      align-items: stretch;
+      gap: 11px;
+      min-width: 0;
+    }
+    .lk-caesura {
+      width: 3px;
+      background: var(--logo-accent);
+      flex: none;
+    }
+    .lk-seal-mini {
+      flex: none;
+      width: 42px;
+      height: 42px;
+    }
+
+    /* Табличные штампы ЕСКД (Семейство 05) */
+    .eskd-a {
+      width: 100%;
+      border: 1.5px solid var(--logo-ink);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      background: transparent;
+    }
+    .eskd-a-main {
+      padding: 8px 11px;
+      font-family: var(--font-logo-main);
+      font-weight: 700;
+      font-size: 15.5px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--logo-ink);
+      line-height: 1.18;
+      border-bottom: 1px solid var(--logo-ink);
+      border-right: 1px solid var(--logo-ink);
+    }
+    .eskd-a-idx {
+      padding: 8px 10px;
+      font-family: var(--font-tech);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: var(--logo-accent);
+      background: var(--logo-accent-tint);
+      border-bottom: 1px solid var(--logo-ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+    .eskd-a-sub {
+      padding: 5px 11px;
+      font-family: var(--font-logo-sub);
+      font-size: 12px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--logo-sub);
+      border-right: 1px solid var(--logo-ink);
+    }
+    .eskd-a-code {
+      padding: 5px 10px;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--logo-faint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    /* 05-B Открытый чертёжный угол */
+    .eskd-b {
+      width: 100%;
+      border-left: 3px solid var(--logo-accent);
+      border-top: 1px solid var(--logo-ink);
+      padding: 8px 4px 4px 13px;
+      position: relative;
+    }
+    .eskd-b-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+    .eskd-b-coord {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--logo-accent);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .eskd-b-rule {
+      height: 1px;
+      background: var(--logo-rule);
+      margin: 5px 0 5px;
+    }
+
+    /* 05-C Заводской паспортный шильдик */
+    .eskd-c {
+      width: 100%;
+      border: 1.5px solid var(--logo-ink);
+      padding: 10px 13px;
+      position: relative;
+    }
+    .eskd-c-pin {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--logo-ink);
+    }
+    .eskd-c-pin.tl { top: 4px; left: 4px; }
+    .eskd-c-pin.tr { top: 4px; right: 4px; }
+    .eskd-c-pin.bl { bottom: 4px; left: 4px; }
+    .eskd-c-pin.br { bottom: 4px; right: 4px; }
+    .eskd-c-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+    .eskd-c-badge {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      background: var(--logo-ink);
+      color: var(--stage-card);
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       Сводная матрица 3 имён × 5 семейств
+       ============================================================ */
+    .lp-matrix-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--lp-line);
+      background: var(--lp-surface-muted);
+    }
+    .lp-sec-header {
+      margin-bottom: 28px;
+    }
+    .lp-sec-header h2 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .lp-sec-header p {
+      color: var(--lp-ink-soft);
+      font-size: 15px;
+      max-width: 72ch;
+    }
+    .lp-matrix-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--lp-line);
+      background: var(--stage-card);
+    }
+    .lp-matrix-table {
+      width: 100%;
+      min-width: 880px;
+      border-collapse: collapse;
+    }
+    .lp-matrix-table th {
+      text-align: left;
+      padding: 14px 18px;
+      background: var(--lp-surface);
+      color: var(--lp-ink);
+      font-family: var(--font-tech);
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1.5px solid var(--lp-ink);
+      border-right: 1px solid var(--lp-line);
+    }
+    .lp-matrix-table th:last-child { border-right: none; }
+    .lp-matrix-table td {
+      padding: 20px 18px;
+      border-bottom: 1px solid var(--lp-line);
+      border-right: 1px solid var(--lp-line);
+      background: var(--stage-card);
+      color: var(--logo-ink);
+      vertical-align: middle;
+    }
+    .lp-matrix-table td:first-child {
+      background: var(--lp-surface);
+      color: var(--lp-ink);
+      width: 190px;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .lp-matrix-table td:first-child span {
+      display: block;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      color: var(--lp-ink-muted);
+      font-weight: 400;
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .lp-matrix-table td:last-child { border-right: none; }
+    .lp-matrix-table tr:last-child td { border-bottom: none; }
+
+    /* ============================================================
+       Стенд бренд-носителей (Live Brand System)
+       ============================================================ */
+    .lp-system-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--lp-line);
+    }
+    .lp-active-banner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 20px;
+      padding: 14px 20px;
+      background: var(--lp-accent-soft);
+      border: 1px solid var(--lp-accent);
+      margin-bottom: 28px;
+    }
+    .lp-active-banner-info {
+      font-size: 14.5px;
+      color: var(--lp-ink);
+    }
+    .lp-active-banner-info strong {
+      color: var(--lp-accent);
+    }
+    .lp-variant-quickpick {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lp-variant-quickpick label {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--lp-ink-soft);
+    }
+    .lp-variant-quickpick select {
+      min-height: 36px;
+      padding: 6px 10px;
+      border: 1px solid var(--lp-ink);
+      background: #FFFFFF;
+      color: var(--lp-ink);
+      font-size: 13.5px;
+    }
+
+    .lp-mockups-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .lp-mockup-box {
+      border: 1px solid var(--lp-line);
+      background: var(--lp-surface);
+      display: flex;
+      flex-direction: column;
+    }
+    .lp-mockup-wide {
+      grid-column: 1 / -1;
+    }
+    .lp-mockup-head {
+      padding: 10px 18px;
+      background: var(--lp-surface-muted);
+      border-bottom: 1px solid var(--lp-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--lp-ink-muted);
+    }
+    .lp-mockup-canvas {
+      padding: 26px 24px;
+      flex: 1;
+    }
+
+    /* Носитель 1: Живая шапка сайта */
+    .mock-site-frame {
+      border: 1px solid var(--lp-line);
+      background: #FAF7F2;
+      color: #1C1B18;
+    }
+    .mock-browser-bar {
+      background: #EAE4D7;
+      padding: 8px 14px;
+      border-bottom: 1px solid #D8D0C0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: #544F46;
+    }
+    .mock-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FAF7F2;
+      padding: 4px 12px;
+      border: 1px solid #D8D0C0;
+      border-bottom: none;
+      font-size: 12px;
+      color: #1C1B18;
+    }
+    .mock-site-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid #DFD8C9;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .mock-site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #4F4B43;
+    }
+    .mock-site-cta {
+      padding: 8px 14px;
+      background: #1C1B18;
+      color: #FAF7F2;
+    }
+    .mock-site-hero-preview {
+      padding: 28px 24px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .mock-site-hero-preview h4 {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.24;
+      margin-bottom: 8px;
+    }
+    .mock-site-hero-preview h4 span {
+      color: #0F5A46;
+    }
+    .mock-site-hero-preview p {
+      font-size: 14px;
+      color: #4F4B43;
+    }
+
+    /* Носитель 2: Стресс-тест мелких размеров */
+    .mock-scales-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+    .mock-scale-box {
+      border: 1px solid var(--lp-line);
+      background: var(--stage-card);
+      color: var(--logo-ink);
+      padding: 16px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-align: center;
+    }
+    .mock-scale-caption {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      color: var(--logo-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Носитель 3: Бланк экспертного заключения и штамп Главного инженера */
+    .mock-report-sheet {
+      background: #FFFFFF;
+      color: #1C1B18;
+      border: 1px solid #CFC7B6;
+      padding: 24px;
+      box-shadow: 0 14px 30px -22px rgba(28, 27, 24, 0.35);
+    }
+    .mock-report-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #1C1B18;
+      margin-bottom: 16px;
+    }
+    .mock-report-reg {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      text-align: right;
+      color: #4F4B43;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+    .mock-report-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .mock-verdict-rows {
+      list-style: none;
+      border-top: 1px solid #EAE4D7;
+      margin-bottom: 18px;
+    }
+    .mock-verdict-rows li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px solid #EAE4D7;
+      font-size: 13.5px;
+    }
+    .mock-vchip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 9px;
+      border: 1px solid currentColor;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .mock-vchip.v-ai { color: #1E5C38; background: #E7F3EC; }
+    .mock-vchip.v-hyb { color: #784F05; background: #FBF3E2; }
+    .mock-vchip.v-no { color: #3D5060; background: #ECF1F4; }
+    .mock-vchip.v-def { color: #524D45; background: #F1EFEA; }
+    [data-surface="mono"] .mock-vchip {
+      color: #111111;
+      background: #FFFFFF;
+      border-color: #111111;
+    }
+    .mock-report-sign {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 12px;
+      background: #FAF7F2;
+      border: 1px solid #DFD8C9;
+      padding: 12px 14px;
+    }
+    .mock-sign-meta {
+      font-size: 12.5px;
+      color: #4F4B43;
+      line-height: 1.45;
+    }
+    .mock-sign-meta strong {
+      display: block;
+      color: #1C1B18;
+      font-size: 13.5px;
+    }
+    .mock-sign-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1.5px solid #0F5A46;
+      padding: 6px 10px;
+      color: #0F5A46;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    /* Носитель 4: Двусторонняя визитка / личный шильдик Главного инженера */
+    .mock-cards-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .mock-bcard {
+      aspect-ratio: 1.72 / 1;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--lp-line);
+      position: relative;
+    }
+    .mock-bcard-light {
+      background: #FAF7F2;
+      color: #1C1B18;
+      border-color: #CFC7B6;
+    }
+    .mock-bcard-dark {
+      background: #1C1B18;
+      color: #FAF7F2;
+      border-color: #1C1B18;
+    }
+    .mock-bcard-person strong {
+      display: block;
+      font-size: 14.5px;
+      letter-spacing: 0.02em;
+    }
+    .mock-bcard-person span {
+      display: block;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      color: #0F5A46;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-top: 2px;
+    }
+    .mock-bcard-contacts {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      color: #544F46;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      border-top: 1px solid #DFD8C9;
+      padding-top: 8px;
+    }
+    .mock-bcard-dark .mock-bcard-contacts {
+      color: #CFC9BC;
+      border-top-color: #38352F;
+    }
+
+    /* Носитель 5: Панорама кейса 21:9 с фирменной графикой допуска */
+    .mock-case-banner {
+      position: relative;
+      aspect-ratio: 21 / 9;
+      min-height: 220px;
+      background: #1C1B18;
+      overflow: hidden;
+      border: 1px solid var(--lp-ink);
+      display: flex;
+      align-items: flex-end;
+    }
+    .mock-case-banner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.58;
+    }
+    .mock-case-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 20px 24px;
+      background: linear-gradient(to top, rgba(22, 21, 19, 0.92) 0%, rgba(22, 21, 19, 0.65) 68%, transparent 100%);
+      color: #FAF7F2;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .mock-case-metric {
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-top: 6px;
+    }
+    .mock-case-tag {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7CE0BE;
+    }
+    .mock-case-stamp {
+      background: rgba(28, 27, 24, 0.88);
+      border: 1px solid #56C2A0;
+      padding: 8px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #FAF7F2;
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       Журнал дизайн-развилок (принятые решения)
+       ============================================================ */
+    .lp-forks-section {
+      padding: 64px 0 40px;
+    }
+    .lp-forks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .lp-fork-card {
+      background: var(--lp-surface);
+      border: 1px solid var(--lp-line);
+      padding: 22px 24px;
+    }
+    .lp-fork-num {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--lp-accent);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .lp-fork-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .lp-fork-row {
+      font-size: 14px;
+      color: var(--lp-ink-soft);
+      margin-bottom: 10px;
+      line-height: 1.58;
+    }
+    .lp-fork-row:last-child { margin-bottom: 0; }
+    .lp-fork-row strong {
+      color: var(--lp-ink);
+    }
+    .lp-fork-choice {
+      background: var(--lp-accent-soft);
+      border-left: 3px solid var(--lp-accent);
+      padding: 10px 12px;
+      color: var(--lp-ink);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    /* Панель шорт-листа внизу */
+    .lp-shortlist-drawer {
+      margin-top: 40px;
+      background: var(--lp-ink);
+      color: var(--lp-bg);
+      padding: 24px 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px 24px;
+    }
+    .lp-shortlist-drawer h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .lp-shortlist-drawer p {
+      font-size: 14px;
+      color: #CFC9BC;
+    }
+    .lp-copy-btn {
+      min-height: 42px;
+      padding: 10px 18px;
+      background: var(--lp-bg);
+      color: var(--lp-ink);
+      border: 1px solid var(--lp-bg);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      cursor: pointer;
+    }
+    .lp-copy-btn:hover {
+      background: #56C2A0;
+      border-color: #56C2A0;
+      color: #161513;
+    }
+
+    @media (max-width: 1040px) {
+      .lp-variants-grid { grid-template-columns: repeat(2, 1fr); }
+      .lp-family-head { grid-template-columns: 1fr; gap: 14px; }
+      .lp-clusters-summary { grid-template-columns: 1fr; }
+      .lp-mockups-grid { grid-template-columns: 1fr; }
+      .lp-forks-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .lp-wrap { padding: 0 16px; }
+      .lp-Dock { position: static; }
+      .lp-variants-grid { grid-template-columns: 1fr; }
+      .mock-site-hero-preview { grid-template-columns: 1fr; }
+      .mock-scales-row { grid-template-columns: repeat(2, 1fr); }
+      .mock-cards-pair { grid-template-columns: 1fr; }
+      .mock-case-banner { aspect-ratio: 16 / 10; }
+      .lp-seg button { min-height: 44px; padding: 8px 11px; }
+      .lp-btn-try, .lp-btn-fav { min-height: 44px; }
+    }
+  </style>
 </head>
-<body>
-<main>
-<div class="container logo-row">
+<body data-font-mode="gost" data-surface="paper">
+  <a class="skip-link" href="#concepts-start">Перейти к вариантам логотипа</a>
 
-  <p class="sect-label">A. «Бюро Сергея Зубкова» — дескриптор «Промышленный ИИ»</p>
-
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Бюро Сергея Зубкова</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Промышленный ИИ</span></span>
-    </a>
-    <p class="logo-name">A1 — четыре штриха</p>
+  <div class="lp-topbar">
+    <div class="lp-wrap lp-topbar-inner">
+      <span class="lp-doc-code">БРЕНД-СТЕНА · РЕВИЗИЯ 2.0 · 5 СЕМЕЙСТВ × 3 ВАРИАНТА</span>
+      <div class="lp-topbar-links">
+        <a href="index.html">Короткая версия сайта (v4) →</a>
+        <a href="v3/index.html">Полная версия сайта (v3) →</a>
+      </div>
+    </div>
   </div>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Бюро Сергея Зубкова<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Промышленный ИИ</span></span>
-    </a>
-    <p class="logo-name">A2 — четыре точки («многоточие»)</p>
+  <header class="lp-hero">
+    <div class="lp-wrap">
+      <p class="lp-kicker">Этап 2 · Графическая разработка и бренд-система</p>
+      <h1>Пять концепций знака и три траектории названия</h1>
+      <p class="lp-lead">
+        Стенд объединяет пять отобранных вами концептуальных семейств (по три графических исполнения в каждом — всего 15 векторных вариантов) и три варианта имени: чистое «Бюро промышленного ИИ», авторское «КБ Зубкова» и инструментальное «Октант». Все знаки построены в единой чертёжной пластике и сразу разложены на будущие элементы бренд-бука.
+      </p>
+
+      <div class="lp-clusters-summary" aria-label="Три стратегических направления">
+        <div class="lp-cluster-pill">
+          <span class="lp-cluster-pill-tag">Направление I · Инструмент допуска</span>
+          <strong>01. Разомкнутый октагон · 04. Шкала нониуса</strong>
+          <span>Точность измерения 0–4, честный разрыв контура при нехватке данных и право сказать «ИИ не нужен».</span>
+        </div>
+        <div class="lp-cluster-pill">
+          <span class="lp-cluster-pill-tag">Направление II · Матрица метода</span>
+          <strong>02. Четыре фактуры вердикта</strong>
+          <span>Переход от цветных полосок к чертёжным сечениям ГОСТ 2.306: статусы безошибочно читаются даже в Ч/Б печати.</span>
+        </div>
+        <div class="lp-cluster-pill">
+          <span class="lp-cluster-pill-tag">Направление III · Документ и подпись</span>
+          <strong>03. Клеймо приёмки · 05. Надпись чертежа</strong>
+          <span>Традиция конструкторского бюро, штамп ЕСКД и личная ответственность Главного инженера под каждым выводом.</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Интерактивный пульт -->
+  <div class="lp-Dock" role="region" aria-label="Пульт переключения имени, языка, среды и шрифта">
+    <div class="lp-wrap lp-dock-grid">
+      <div class="lp-ctrl-groups">
+        <div class="lp-ctrl-group">
+          <span class="lp-ctrl-label">Имя:</span>
+          <div class="lp-seg" role="group" aria-label="Выбор названия">
+            <button type="button" data-ctrl="brand" data-val="bureau" aria-pressed="true">Бюро промышленного ИИ</button>
+            <button type="button" data-ctrl="brand" data-val="kb" aria-pressed="false">КБ Зубкова</button>
+            <button type="button" data-ctrl="brand" data-val="octant" aria-pressed="false">Октант</button>
+          </div>
+        </div>
+
+        <div class="lp-ctrl-group">
+          <span class="lp-ctrl-label">Язык:</span>
+          <div class="lp-seg" role="group" aria-label="Выбор языка">
+            <button type="button" data-ctrl="lang" data-val="ru" aria-pressed="true">RU</button>
+            <button type="button" data-ctrl="lang" data-val="en" aria-pressed="false">EN</button>
+          </div>
+        </div>
+
+        <div class="lp-ctrl-group">
+          <span class="lp-ctrl-label">Среда:</span>
+          <div class="lp-seg" role="group" aria-label="Выбор фона и режима печати">
+            <button type="button" data-ctrl="surface" data-val="paper" aria-pressed="true">Бумага #FAF7F2</button>
+            <button type="button" data-ctrl="surface" data-val="dark" aria-pressed="false">Контур #1C1B18</button>
+            <button type="button" data-ctrl="surface" data-val="mono" aria-pressed="false">Ч/Б печать</button>
+          </div>
+        </div>
+
+        <div class="lp-ctrl-group">
+          <span class="lp-ctrl-label">Шрифт:</span>
+          <div class="lp-seg" role="group" aria-label="Шрифтовой регистр">
+            <button type="button" data-ctrl="font" data-val="gost" aria-pressed="true">Гротеск + ГОСТ</button>
+            <button type="button" data-ctrl="font" data-val="sans" aria-pressed="false">Чистый гротеск (v4)</button>
+            <button type="button" data-ctrl="font" data-val="pilatus" aria-pressed="false">Pilatus + ГОСТ</button>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="lp-shortlist-pill" id="jump-shortlist-btn">
+        Отобрано в шорт-лист: <strong id="shortlist-count">3</strong>
+      </button>
+    </div>
   </div>
 
-  <p class="sect-label">B. «Бюро С. Зубкова»</p>
+  <nav class="lp-secnav" aria-label="Быстрый переход по разделам стенда">
+    <div class="lp-wrap">
+      <ul class="lp-secnav-list">
+        <li><a href="#fam-octagon">01. Октагон (3)</a></li>
+        <li><a href="#fam-verdicts">02. Фактуры вердиктов (3)</a></li>
+        <li><a href="#fam-stamp">03. Клеймо приёмки (3)</a></li>
+        <li><a href="#fam-scale">04. Инструментальная шкала (3)</a></li>
+        <li><a href="#fam-eskd">05. Надпись чертежа (3)</a></li>
+        <li><a href="#matrix-compare">Матрица 3 имён рядом</a></li>
+        <li><a href="#brand-system">Примерка на бренд-носителях</a></li>
+        <li><a href="#design-forks">Развилки и решения (5)</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Бюро С.&nbsp;Зубкова</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Промышленный ИИ</span></span>
-    </a>
-    <p class="logo-name">B1 — штрихи</p>
-  </div>
+  <main id="concepts-start">
+    <!-- Динамически рендеримые 5 семейств по 3 варианта -->
+    <div id="families-root"></div>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Бюро С.&nbsp;Зубкова<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Промышленный ИИ</span></span>
-    </a>
-    <p class="logo-name">B2 — точки</p>
-  </div>
+    <!-- Сводная таблица сравнения 3 имён на 5 базовых знаках -->
+    <section class="lp-matrix-section" id="matrix-compare">
+      <div class="lp-wrap">
+        <div class="lp-sec-header">
+          <p class="lp-kicker">Прямое сопоставление без переключений</p>
+          <h2>Матрица «3 варианта названия × 5 флагманских знаков»</h2>
+          <p>
+            Позволяет одним взглядом оценить оптическую длину строки, плотность знака и баланс с дескриптором сразу для всех трёх имён в выбранном выше языке и цветовой среде.
+          </p>
+        </div>
+        <div class="lp-matrix-scroll">
+          <table class="lp-matrix-table" id="matrix-table" aria-label="Сравнение трёх вариантов названия по пяти концепциям"></table>
+        </div>
+      </div>
+    </section>
 
-  <p class="sect-label">D. «Бюро промышленного ИИ» — основатель в той же строке / подписи</p>
+    <!-- Живая примерка выбранного логотипа в систему носителей бренд-бука -->
+    <section class="lp-system-section" id="brand-system">
+      <div class="lp-wrap">
+        <div class="lp-sec-header">
+          <p class="lp-kicker">Переход логотипа в айдентику</p>
+          <h2>Проверка выбранного варианта на реальных носителях бюро</h2>
+          <p>
+            Логотип B2B-бюро живёт не на сувенирах, а в рабочих документах совета директоров, шапке сайта, фавиконке 16×16 px и верифицирующей подписи под расчётами. Выберите любой из 15 вариантов карточкой выше или списком ниже.
+          </p>
+        </div>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Бюро промышленного ИИ</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Основатель — Сергей Зубков</span></span>
-    </a>
-    <p class="logo-name">D1 — штрихи</p>
-  </div>
+        <div class="lp-active-banner">
+          <div class="lp-active-banner-info">
+            Сейчас на стенде носителей активен вариант: <strong id="active-variant-label">01-A · Периметр с засечками</strong>
+          </div>
+          <div class="lp-variant-quickpick">
+            <label for="variant-select">Быстрая смена знака:</label>
+            <select id="variant-select"></select>
+          </div>
+        </div>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Бюро промышленного ИИ<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Сергей Зубков</span></span>
-    </a>
-    <p class="logo-name">D2 — точки</p>
-  </div>
+        <div class="lp-mockups-grid">
+          <!-- 1. Живая шапка сайта -->
+          <article class="lp-mockup-box lp-mockup-wide">
+            <div class="lp-mockup-head">
+              <span>Носитель 01 · Интеграция в текущую шапку и первый экран сайта</span>
+              <span>Масштаб 1:1 к вёрстке v3/v4</span>
+            </div>
+            <div class="lp-mockup-canvas">
+              <div class="mock-site-frame">
+                <div class="mock-browser-bar">
+                  <span class="mock-tab" id="mock-browser-tab"></span>
+                  <span>https://zubkovfpk.github.io/mywebsite-pages/</span>
+                </div>
+                <div class="mock-site-header">
+                  <div id="mock-header-logo"></div>
+                  <div class="mock-site-nav" id="mock-header-nav"></div>
+                </div>
+                <div class="mock-site-hero-preview" id="mock-hero-copy"></div>
+              </div>
+            </div>
+          </article>
 
-  <p class="sect-label">E. Имя = вердикт-квартет</p>
+          <!-- 2. Стресс-тест уменьшения -->
+          <article class="lp-mockup-box">
+            <div class="lp-mockup-head">
+              <span>Носитель 02 · Оптическая устойчивость знака</span>
+              <span>От 64 px до 16×16 px</span>
+            </div>
+            <div class="lp-mockup-canvas">
+              <div class="mock-scales-row" id="mock-scales-row"></div>
+            </div>
+          </article>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Призма</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Бюро промышленного ИИ</span></span>
-    </a>
-    <p class="logo-name">E1 — Призма (штрихи)</p>
-  </div>
+          <!-- 3. Двусторонняя деловая карточка / шильдик -->
+          <article class="lp-mockup-box">
+            <div class="lp-mockup-head">
+              <span>Носитель 03 · Карточка Главного инженера</span>
+              <span>Хлопок #FAF7F2 + Графит #1C1B18</span>
+            </div>
+            <div class="lp-mockup-canvas">
+              <div class="mock-cards-pair" id="mock-bcards"></div>
+            </div>
+          </article>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Спектр<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Бюро промышленного ИИ</span></span>
-    </a>
-    <p class="logo-name">E2 — Спектр (точки)</p>
-  </div>
+          <!-- 4. Титульный лист заключения и штамп -->
+          <article class="lp-mockup-box">
+            <div class="lp-mockup-head">
+              <span>Носитель 04 · Экспертное заключение и чипы фактур</span>
+              <span>Бланк для Совета директоров</span>
+            </div>
+            <div class="lp-mockup-canvas">
+              <div class="mock-report-sheet" id="mock-report-sheet"></div>
+            </div>
+          </article>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Квартет</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">ИИ-бюро Сергея Зубкова</span></span>
-    </a>
-    <p class="logo-name">E3 — Квартет (штрихи)</p>
-  </div>
+          <!-- 5. Панорама кейса + паспорт метрик -->
+          <article class="lp-mockup-box">
+            <div class="lp-mockup-head">
+              <span>Носитель 05 · Индустриальный кейс и паспорт эффекта</span>
+              <span>Панорама + чертёжная экспликация</span>
+            </div>
+            <div class="lp-mockup-canvas" style="display:flex;flex-direction:column;gap:14px;">
+              <div class="mock-case-banner" id="mock-case-banner"></div>
+              <div id="mock-case-passport" style="border:1px solid var(--lp-line);background:#FAF7F2;padding:14px 16px;"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Вердикт<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Бюро промышленного ИИ</span></span>
-    </a>
-    <p class="logo-name">E4 — Вердикт (точки)</p>
-  </div>
+    <!-- Раздел развилок и принятых дизайн-решений -->
+    <section class="lp-forks-section" id="design-forks">
+      <div class="lp-wrap">
+        <div class="lp-sec-header">
+          <p class="lp-kicker">Прозрачность дизайн-решений</p>
+          <h2>Пять развилок, возникших при разработке, и принятый выбор</h2>
+          <p>
+            По вашему поручению работа не останавливалась на развилках: в каждой точке выбран вариант, отвечающий актуальным мировым практикам deep-tech брендинга и текущей эстетике сайта, а ниже зафиксированы рассмотренные альтернативы.
+          </p>
+        </div>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Гамма</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Бюро промышленного ИИ</span></span>
-    </a>
-    <p class="logo-name">E5 — Гамма (штрихи)</p>
-  </div>
+        <div class="lp-forks-grid">
+          <article class="lp-fork-card">
+            <span class="lp-fork-num">Развилка 01 · Архитектура имени</span>
+            <h3>Как соединять «КБ Зубкова» и «Октант» с категорией «Бюро промышленного ИИ»</h3>
+            <p class="lp-fork-row"><strong>Варианты:</strong> (А) Оставить только краткое имя («Октант» / «КБ Зубкова») без пояснений; (Б) Двухэтажный локап «Имя + технический дескриптор Бюро промышленного ИИ»; (В) Длинное слияние в одну строку через тире.</p>
+            <div class="lp-fork-choice">
+              <strong>Выбрано (Б):</strong> двухэтажная конструкция. Краткое имя даёт юридическую чистоту, крупный кегль и мгновенную запоминаемость, а нижняя строка чертёжным регистром сохраняет прямое попадание в поисковый и директорский запрос. В чистом варианте «Бюро промышленного ИИ» нижнюю графу занимает «Сергей Зубков · Главный инженер».
+            </div>
+          </article>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">PRIZMA<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Industrial AI bureau · S. Zubkov</span></span>
-    </a>
-    <p class="logo-name">E6 — PRIZMA EN (точки)</p>
-  </div>
+          <article class="lp-fork-card">
+            <span class="lp-fork-num">Развилка 02 · Международная версия EN</span>
+            <h3>Перевод «КБ Зубкова» и замена роли Chief Designer в английском локапе</h3>
+            <p class="lp-fork-row"><strong>Варианты имени EN:</strong> (А) <code>KB Zubkova</code> (прямой транслит); (Б) <code>Zubkov Design Bureau</code>; (В) <code>Zubkov Bureau · Industrial AI</code>.<br><strong>Варианты роли EN:</strong> прежний на сайте <code>Chief Designer</code> против <code>Chief Engineer</code>.</p>
+            <div class="lp-fork-choice">
+              <strong>Выбрано (В) + Chief Engineer:</strong> на международном рынке слова Design Bureau и Chief Designer считываются как дизайн-студия интерфейсов, а транслит <code>KB</code> непонятен без пояснения. Формула <code>Zubkov Bureau</code> в паре с <code>Chief Engineer</code> звучит авторитетно для советов директоров в Европе, MENA и Латинской Америке.
+            </div>
+          </article>
 
-  <p class="sect-label">EN — фамилия и имя-дескриптор</p>
+          <article class="lp-fork-card">
+            <span class="lp-fork-num">Развилка 03 · Цветовая дисциплина знака</span>
+            <h3>Четыре цвета вердиктов в каждом знаке или строгая пара «Уголь + Изумруд»</h3>
+            <p class="lp-fork-row"><strong>Варианты:</strong> (А) Красить любой из 15 логотипов в 4 цвета вердиктов; (Б) Держать в знаке строгую пару <code>#1C1B18</code> + один точечный акцент допуска <code>#0F5A46</code>, оставляя 4 цвета только семейству «Фактуры вердиктов» и UI-чипам; (В) Чистый чёрно-белый монохром везде.</p>
+            <div class="lp-fork-choice">
+              <strong>Выбрано (Б):</strong> в мировой практике индустриального брендинга четыре активных цвета внутри мелкого знака дробят силуэт и создают ощущение «детского конструктора». Ограничение знака одним хвойно-изумрудным акцентом поднимает статус марки, а четыре цвета работают там, где несут функцию — в семействе 02 и матрицах отчётов.
+            </div>
+          </article>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Sergey Zubkov Bureau</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Industrial AI</span></span>
-    </a>
-    <p class="logo-name">EN-A — штрихи</p>
-  </div>
+          <article class="lp-fork-card">
+            <span class="lp-fork-num">Развилка 04 · Пластика углов и фаски</span>
+            <h3>Мягкие скругления против чертёжной ортогональности и фаски 45°</h3>
+            <p class="lp-fork-row"><strong>Варианты:</strong> (А) Скруглённые контейнеры <code>8–12 px</code> (как во временной фавиконке <code>rx="8"</code> и старом превью); (Б) Острые прямые углы <code>0 px</code> и инструментальный срез фаски под <code>45°</code>.</p>
+            <div class="lp-fork-choice">
+              <strong>Выбрано (Б):</strong> пухлые скругления — визуальный штамп потребительских SaaS-приложений. Прямой рез и фаска 45° создают тактильное ощущение фрезерованного калибра, перекликаются с геометрией восьмиугольного радара готовности и поддерживают строгие 1 px линии сайта.
+            </div>
+          </article>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">S. Zubkov Bureau<span class="vell"><i></i><i></i><i></i><i></i></span></span><span class="wordmark-role">Industrial AI</span></span>
-    </a>
-    <p class="logo-name">EN-B — точки</p>
-  </div>
+          <article class="lp-fork-card" style="grid-column: 1 / -1;">
+            <span class="lp-fork-num">Развилка 05 · Типографика и независимость от внешних CDN</span>
+            <h3>Подключение зарубежных шрифтовых сервисов против локального стека с ГОСТ 2.304</h3>
+            <p class="lp-fork-row"><strong>Варианты:</strong> (А) Загружать новые шрифты с Google Fonts / Fontshare; (Б) Использовать уже лежащие в вашем репозитории локальные файлы <code>gost-type-b.ttf</code> (ГОСТ 2.304-81 тип Б) и <code>pilatus-web-patched.woff2</code> в сочетании с системным архитектурным гротеском и дать живой переключатель на пульте.</p>
+            <div class="lp-fork-choice">
+              <strong>Выбрано (Б) с режимом «Гротеск + ГОСТ» по умолчанию:</strong> сайт сохраняет 100% автономность и мгновенную загрузку в РФ без риска блокировок CDN. Крупное имя в плотном гротеске даёт современную читаемость, а подлинный чертёжный шрифт ГОСТ Тип Б в индексах <code>7+1</code>, шифрах и дескрипторе добавляет неподдельную интонацию конструкторского бюро (переключатель вверху позволяет сразу сравнить с чистым гротеском v4 и с акцидентным Pilatus).
+            </div>
+          </article>
+        </div>
 
-  <div class="logo-cell">
-    <a class="wordmark" href="#">
-      <span class="wordmark-text"><span class="wordmark-name">Industrial AI Bureau</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Founded by Sergey Zubkov</span></span>
-    </a>
-    <p class="logo-name">EN-D — штрихи</p>
-  </div>
+        <!-- Итоговая плашка шорт-листа для копирования ответа в чат -->
+        <div class="lp-shortlist-drawer" id="shortlist-drawer">
+          <div>
+            <h3>Ваш рабочий шорт-лист для следующего шага</h3>
+            <p id="shortlist-summary-text">Предварительно отмечены фавориты ведущего дизайнера: 01-A, 02-A, 03-A (можно изменить кнопкой «В шорт-лист» на любой карточке).</p>
+          </div>
+          <button type="button" class="lp-copy-btn" id="copy-shortlist-btn">Скопировать выбор для чата</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <p class="sect-label">В шапке (A1)</p>
+  <script>
+    (function () {
+      const BRANDS = {
+        bureau: {
+          ru: {
+            name: 'Бюро промышленного\u00A0ИИ',
+            namePlain: 'Бюро промышленного ИИ',
+            nameCompact: 'Бюро пром.\u00A0ИИ',
+            sub: 'Сергей Зубков / Главный\u00A0инженер',
+            subShort: 'Гл. инж. С.\u00A0Зубков',
+            mono: 'БПИ',
+            code: 'БПИ-08'
+          },
+          en: {
+            name: 'Industrial AI\u00A0Bureau',
+            namePlain: 'Industrial AI Bureau',
+            nameCompact: 'Industrial AI Bureau',
+            sub: 'Sergey Zubkov / Chief\u00A0Engineer',
+            subShort: 'Chief Eng. S.\u00A0Zubkov',
+            mono: 'IAB',
+            code: 'IAB-08'
+          }
+        },
+        kb: {
+          ru: {
+            name: 'КБ\u00A0Зубкова',
+            namePlain: 'КБ Зубкова',
+            nameCompact: 'КБ\u00A0Зубкова',
+            sub: 'Бюро промышленного\u00A0ИИ',
+            subShort: 'Промышленный\u00A0ИИ',
+            mono: 'КБЗ',
+            code: 'КБЗ-08'
+          },
+          en: {
+            name: 'Zubkov\u00A0Bureau',
+            namePlain: 'Zubkov Bureau',
+            nameCompact: 'Zubkov Bureau',
+            sub: 'Industrial AI / Chief\u00A0Engineer',
+            subShort: 'Industrial\u00A0AI',
+            mono: 'ZB',
+            code: 'ZB-08'
+          }
+        },
+        octant: {
+          ru: {
+            name: 'Октант',
+            namePlain: 'Октант',
+            nameCompact: 'Октант',
+            sub: 'Бюро промышленного\u00A0ИИ',
+            subShort: 'Промышленный\u00A0ИИ',
+            mono: 'ОКТ',
+            code: 'ОКТ-08'
+          },
+          en: {
+            name: 'Octant',
+            namePlain: 'Octant',
+            nameCompact: 'Octant',
+            sub: 'Industrial AI\u00A0Bureau',
+            subShort: 'Industrial AI Bureau',
+            mono: 'OCT',
+            code: 'OCT-08'
+          }
+        }
+      };
 
-  <div class="demo-head">
-    <a class="wordmark" href="#" style="display:inline-flex">
-      <span class="wordmark-text"><span class="wordmark-name">Бюро Сергея Зубкова</span><span class="vseg"><i></i><i></i><i></i><i></i></span><span class="wordmark-role">Промышленный ИИ</span></span>
-    </a>
-    <span class="demo-nav"><span>Запросы</span><span>Опыт</span><span>Форматы</span><span>Кейсы</span><span>Бюро</span><span>EN</span></span>
-  </div>
+      const FAMILIES = [
+        {
+          id: 'fam-octagon',
+          num: '01',
+          cluster: 'Направление I · Инструментально-смысловое',
+          title: 'Разомкнутый октагон факторов',
+          rationale: 'Восьмиугольник восьми факторов готовности, где пробел в доказательствах виден честным разрывом грани, а не сглаживается средним баллом. Угол фаски 45° переходит во всю модульную сетку сайта и карточек.',
+          variants: [
+            {
+              id: '01-A',
+              leader: true,
+              title: 'Периметр с засечками',
+              desc: 'Семь замкнутых граней защищённого контура и открытая восьмая грань с перпендикулярными упорами калибра и точкой отсчёта в центре.',
+              system: 'Фаска 45° на карточках, прицельный керн в списках и пунктирно-разомкнутая рамка для блока «Открытые допущения и пробелы в данных».',
+              kind: 'mark'
+            },
+            {
+              id: '01-B',
+              leader: false,
+              title: 'Двойной контур профиля',
+              desc: 'Сопоставление тонкого эталонного контура (требуемый профиль для эксплуатации) и силового внутреннего контура текущей готовности с узлами.',
+              system: 'Напрямую задаёт графический стандарт фирменных радаров готовности, KPI-индикаторов и сравнительных диаграмм «было / требуется».',
+              kind: 'mark'
+            },
+            {
+              id: '01-C',
+              leader: false,
+              title: 'Фрезерованный монолит',
+              desc: 'Сверхплотная восьмигранная шайба с внутренним окном и направленным инструментальным шлицем 45°, зафиксированным изумрудным клином допуска.',
+              system: 'Максимальная ударная читаемость в фавиконке 16×16 px, тиснении на папках совета директоров и угловых маркерах презентаций.',
+              kind: 'mark'
+            }
+          ]
+        },
+        {
+          id: 'fam-verdicts',
+          num: '02',
+          cluster: 'Направление II · Системно-методологическое',
+          title: 'Четыре фактуры вердикта',
+          rationale: 'Развитие вашей текущей цветовой кодировки до стандарта чертёжных сечений ГОСТ 2.306: сплошная заливка (ИИ), штриховка 45° (Гибрид), полый контур (Без ИИ), пунктир (Отложить). Работает даже на чёрно-белом принтере.',
+          variants: [
+            {
+              id: '02-A',
+              leader: true,
+              title: 'Квадрант сечений 2×2',
+              desc: 'Компактная квадратная матрица решений 2×2, где четыре вердикта сведены в единый архитектурный блок с разной графической плотностью.',
+              system: 'Четыре паттерна сечений становятся стандартом всех плашек статусов, тепловых карт процессов и таблиц бизнес-кейсов в отчётах.',
+              kind: 'mark'
+            },
+            {
+              id: '02-B',
+              leader: false,
+              title: 'Спектр четырёх штриховок',
+              desc: 'Прямая инженерная эволюция текущих четырёх полосок сайта: вертикальный блок-знак плюс синхронная фактурная лента под названием.',
+              system: 'Бесшовно заменяет текущий элемент .vseg в шапке, формирует колонтитулы страниц и корешки многостраничных PDF-заключений.',
+              kind: 'mark-bar'
+            },
+            {
+              id: '02-C',
+              leader: false,
+              title: 'Каскад отсева гипотез',
+              desc: 'Ступенчатая воронка на единой вертикальной шине: визуализирует принцип «LLM в 3 подзадачах из 8 — только там, где окупается».',
+              system: 'Графический язык для дорожных карт по волнам внедрения, диаграмм TCO и маркеров приоритетности инициатив.',
+              kind: 'mark'
+            }
+          ]
+        },
+        {
+          id: 'fam-stamp',
+          num: '03',
+          cluster: 'Направление III · Документально-авторское',
+          title: 'Личное клеймо приёмки',
+          rationale: 'Метафора стального ударного пуансона Главного инженера и приёмки ОТК в судостроении и авиации: знак удостоверяет, что расчёты проверены, а под документом стоит личная ответственность.',
+          variants: [
+            {
+              id: '03-A',
+              leader: true,
+              title: 'Пуансон со срезанной фаской',
+              desc: 'Массивная прямоугольная оправка со срезом правого верхнего угла под 45°, адаптивным шифром имени бюро и контрольной точкой допуска.',
+              system: 'Контур с одной срезанной фаской становится фирменной формой карточек вердиктов, кнопок первичного действия и штампа приёмки этапов.',
+              kind: 'mark'
+            },
+            {
+              id: '03-B',
+              leader: false,
+              title: 'Гранёное клеймо регистра',
+              desc: 'Шестигранное испытательное клеймо с двойной обводкой (традиция морского регистра и машиностроительной поверки) с шифром и индексом 7+1.',
+              system: 'Работает как официальная печать верификации рядом с подписью Главного инженера, бейдж NDA и знак проверенных цифр на кейсах.',
+              kind: 'mark'
+            },
+            {
+              id: '03-C',
+              leader: false,
+              title: 'Двухполюсный титул и печать',
+              desc: 'Разделение ролей: в шапке — кристально чистая типографика с вертикальной цезурой допуска, а круглое клеймо СЗ/SZ ставится на выводы.',
+              system: 'Даёт самую спокойную статусную шапку в духе лучших архитектурных бюро и превращает круглое клеймо в печать под каждым вердиктом.',
+              kind: 'split'
+            }
+          ]
+        },
+        {
+          id: 'fam-scale',
+          num: '04',
+          cluster: 'Направление I · Инструментально-смысловое',
+          title: 'Инструментальная шкала нониуса',
+          rationale: 'Принцип механического нониуса штангенциркуля и морского октанта: две встречные шкалы 0–4 дают сквозную зелёную линию допуска только в единственной точке точного совпадения параметров.',
+          variants: [
+            {
+              id: '04-A',
+              leader: false,
+              title: 'Линейный нониус совпадения',
+              desc: 'Пять базовых делений шкалы 0–4 сверху и четыре смещённых деления нониуса снизу; на пороге «3» риски смыкаются в единую ось допуска.',
+              system: 'Превращается в линейки разделителей секций, шкалы зрелости процессов и интерактивный индикатор прогресса диагностики.',
+              kind: 'mark'
+            },
+            {
+              id: '04-B',
+              leader: true,
+              title: 'Угломерный лимб октанта 45°',
+              desc: 'Сектор ровно в 1/8 окружности (45° — точное геометрическое значение слова «Октант») с радиальными рисками и стрелой-алидадой на цели.',
+              system: 'Идеален в паре с именем «Октант» и вашим бэкграундом в навигации и GeoAI: даёт угловые координатные сетки и графику поверх аэроснимков.',
+              kind: 'mark'
+            },
+            {
+              id: '04-C',
+              leader: false,
+              title: 'Вертикальный калибр порога',
+              desc: 'Лаконичная измерительная стойка с градуировкой и массивным П-образным фиксатором, отсекающим допустимую зону внедрения от зоны риска.',
+              system: 'Вертикальные шкалы на полях отчётов, графики пороговой окупаемости (TCO / payback) и боковая навигация длинных документов.',
+              kind: 'mark'
+            }
+          ]
+        },
+        {
+          id: 'fam-eskd',
+          num: '05',
+          cluster: 'Направление III · Документально-авторское',
+          title: 'Основная надпись чертежа (ЕСКД / ISO 7200)',
+          rationale: 'Полный отказ от метафорических иконок: сам логотип построен как прецизионный угловой штамп конструкторской документации с линиями 1 px и выверенными графами.',
+          variants: [
+            {
+              id: '05-A',
+              leader: false,
+              title: 'Трёхграфный штамп ЕСКД',
+              desc: 'Каноническая табличная ячейка: основное поле имени, контрастный индекс платформы 7+1 и нижняя строка ответственности Главного инженера.',
+              system: 'Готовая шапка для договоров, технических заданий авторского надзора, PDF-заключений и обложек расчётных ведомостей.',
+              kind: 'eskd-a'
+            },
+            {
+              id: '05-B',
+              leader: true,
+              title: 'Открытый чертёжный угол',
+              desc: 'Облегчённая швейцарская трактовка без замкнутой рамки: опорная шина 3 px слева, верхняя размерная ось и координатный индекс № 08 · 7+1.',
+              system: 'Легко и воздушно встаёт в существующую шапку сайта, а открытый координатный угол становится единым оформлением всех карточек и врезок.',
+              kind: 'eskd-b'
+            },
+            {
+              id: '05-C',
+              leader: false,
+              title: 'Паспортный шильдик изделия',
+              desc: 'Пропорция стальной заводской таблички на корпусе промышленной установки с четырьмя угловыми точками крепления и серийной плашкой.',
+              system: 'Формирует уникальный шаблон «Паспорта кейса» (отрасль, контур, проверенный эффект) и макеты физических визиток на плотном картоне.',
+              kind: 'eskd-c'
+            }
+          ]
+        }
+      ];
 
-</div>
+      const state = {
+        brand: 'bureau',
+        lang: 'ru',
+        surface: 'paper',
+        font: 'gost',
+        activeVariant: '01-A',
+        shortlist: new Set(['01-A', '02-A', '04-B'])
+      };
 
-<div class="container">
-  <p class="note">Два приёма вердикт-цвета, оба в ширине текста: <b>четыре штриха</b> (печать/штамп под именем) и <b>четыре точки</b> инлайн после имени («многоточие» — вердикт продолжается). Весь текст — чёрный/серый.</p>
-</div>
-</main>
+      /* Генерация чистых векторных SVG-знаков (48x48) для любого масштаба */
+      function renderMarkSVG(variantId, sizePx, uidSuffix, brandOverride) {
+        const b = BRANDS[brandOverride || state.brand][state.lang];
+        const sz = sizePx || 46;
+        const pid = 'pat-' + variantId + '-' + (uidSuffix || Math.random().toString(36).slice(2, 7));
+
+        switch (variantId) {
+          case '01-A':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 01-A Разомкнутый октагон">
+              <path d="M31.8 5 H16.2 L5 16.2 V31.8 L16.2 43 H31.8 L43 31.8 V16.2" stroke="var(--logo-ink)" stroke-width="3.2" stroke-linecap="butt" stroke-linejoin="miter"/>
+              <line x1="29.3" y1="2.5" x2="33.8" y2="7.0" stroke="var(--logo-ink)" stroke-width="2.6"/>
+              <line x1="41.0" y1="14.2" x2="45.5" y2="18.7" stroke="var(--logo-ink)" stroke-width="2.6"/>
+              <line x1="24" y1="24" x2="34.5" y2="13.5" stroke="var(--logo-accent)" stroke-width="2.2"/>
+              <rect x="20.6" y="20.6" width="6.8" height="6.8" fill="var(--logo-accent)"/>
+            </svg>`;
+
+          case '01-B':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 01-B Двойной контур радара">
+              <polygon points="24,4 38.1,9.9 44,24 38.1,38.1 24,44 9.9,38.1 4,24 9.9,9.9" stroke="var(--logo-faint)" stroke-width="1.35" stroke-dasharray="3 2.5"/>
+              <polyline points="24,8.5 34.5,13.5 38,24 35.5,35.5 24,39.5 13.5,34.5 9.5,24" stroke="var(--logo-ink)" stroke-width="3" stroke-linejoin="miter" stroke-linecap="square"/>
+              <circle cx="24" cy="8.5" r="2.5" fill="var(--logo-accent)"/>
+              <circle cx="38" cy="24" r="2.5" fill="var(--logo-accent)"/>
+              <circle cx="24" cy="24" r="2.8" fill="var(--logo-accent)"/>
+            </svg>`;
+
+          case '01-C':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 01-C Фрезерованный монолит">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M16 4 H30.5 L25.5 14 H19.8 L14 19.8 V28.2 L19.8 34 H28.2 L34 28.2 V22.5 L44 17.5 V32 L32 44 H16 L4 32 V16 L16 4 Z" fill="var(--logo-ink)"/>
+              <polygon points="32.5,5.5 42.5,15.5 33.5,20 28,14.5" fill="var(--logo-accent)"/>
+            </svg>`;
+
+          case '02-A':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 02-A Квадрант сечений">
+              <defs>
+                <pattern id="${pid}" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="5" stroke="var(--v2)" stroke-width="2.1"/>
+                </pattern>
+              </defs>
+              <rect x="4" y="4" width="17.5" height="17.5" fill="var(--v1)"/>
+              <rect x="26.5" y="4" width="17.5" height="17.5" fill="url(#${pid})" stroke="var(--v2)" stroke-width="2"/>
+              <rect x="4" y="26.5" width="17.5" height="17.5" stroke="var(--v3)" stroke-width="2.2"/>
+              <line x1="8" y1="35.25" x2="17.5" y2="35.25" stroke="var(--v3)" stroke-width="2.2"/>
+              <rect x="26.5" y="26.5" width="17.5" height="17.5" stroke="var(--v4)" stroke-width="2" stroke-dasharray="4 3"/>
+            </svg>`;
+
+          case '02-B':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 02-B Спектр четырёх штриховок">
+              <defs>
+                <pattern id="${pid}" width="4.5" height="4.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="4.5" stroke="var(--v2)" stroke-width="2"/>
+                </pattern>
+              </defs>
+              <rect x="4" y="6" width="8" height="33" fill="var(--v1)"/>
+              <rect x="15.3" y="6" width="8" height="33" fill="url(#${pid})" stroke="var(--v2)" stroke-width="1.8"/>
+              <rect x="26.6" y="6" width="8" height="33" stroke="var(--v3)" stroke-width="2"/>
+              <rect x="38" y="6" width="6" height="33" stroke="var(--v4)" stroke-width="1.8" stroke-dasharray="4 3"/>
+              <line x1="4" y1="43" x2="44" y2="43" stroke="var(--logo-ink)" stroke-width="2.2"/>
+            </svg>`;
+
+          case '02-C':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 02-C Каскад отсева">
+              <defs>
+                <pattern id="${pid}" width="4.5" height="4.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="4.5" stroke="var(--v2)" stroke-width="2"/>
+                </pattern>
+              </defs>
+              <line x1="5" y1="4" x2="5" y2="44" stroke="var(--logo-ink)" stroke-width="2.8"/>
+              <rect x="9" y="6" width="35" height="6.8" fill="var(--v1)"/>
+              <rect x="9" y="16.8" width="27" height="6.8" fill="url(#${pid})" stroke="var(--v2)" stroke-width="1.8"/>
+              <rect x="9" y="27.6" width="19" height="6.8" stroke="var(--v3)" stroke-width="2"/>
+              <rect x="9" y="38.2" width="11" height="5.2" stroke="var(--v4)" stroke-width="1.8" stroke-dasharray="3.5 2.5"/>
+            </svg>`;
+
+          case '03-A':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 03-A Пуансон со срезанной фаской">
+              <path d="M4 7 H34 L44 17 V41 H4 Z" stroke="var(--logo-ink)" stroke-width="2.6" fill="var(--logo-accent-tint)"/>
+              <line x1="4" y1="30.5" x2="44" y2="30.5" stroke="var(--logo-ink)" stroke-width="1.4"/>
+              <circle cx="36.5" cy="14.5" r="2.4" fill="var(--logo-accent)"/>
+              <text x="7.5" y="24" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 2 ? '12' : '13.5'}" letter-spacing="0.6">${b.mono}</text>
+              <text x="24" y="38.5" text-anchor="middle" fill="var(--logo-accent)" font-family="var(--font-tech)" font-weight="700" font-size="8.5" letter-spacing="1.2">7 + 1</text>
+            </svg>`;
+
+          case '03-B':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 03-B Гранёное клеймо регистра">
+              <polygon points="12,6 36,6 45,24 36,42 12,42 3,24" stroke="var(--logo-ink)" stroke-width="2.6"/>
+              <polygon points="14.2,10 33.8,10 40.8,24 33.8,38 14.2,38 7.2,24" stroke="var(--logo-accent)" stroke-width="1.1"/>
+              <text x="24" y="27.5" text-anchor="middle" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 2 ? '11.5' : '13.5'}" letter-spacing="0.8">${b.mono}</text>
+            </svg>`;
+
+          case '03-C':
+            const initials = state.lang === 'ru' ? 'СЗ' : 'SZ';
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 03-C Круглое верифицирующее клеймо">
+              <circle cx="24" cy="24" r="19.5" stroke="var(--logo-accent)" stroke-width="2.5"/>
+              <circle cx="24" cy="24" r="15.2" stroke="var(--logo-ink)" stroke-width="1.1" stroke-dasharray="6 2.5"/>
+              <text x="24" y="28" text-anchor="middle" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="13.5" letter-spacing="1">${initials}</text>
+            </svg>`;
+
+          case '04-A':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 04-A Линейный нониус совпадения">
+              <line x1="4" y1="24" x2="44" y2="24" stroke="var(--logo-ink)" stroke-width="2"/>
+              <line x1="7" y1="11" x2="7" y2="24" stroke="var(--logo-ink)" stroke-width="2.2"/>
+              <line x1="16" y1="14" x2="16" y2="24" stroke="var(--logo-ink)" stroke-width="2"/>
+              <line x1="25" y1="14" x2="25" y2="24" stroke="var(--logo-ink)" stroke-width="2"/>
+              <line x1="43" y1="11" x2="43" y2="24" stroke="var(--logo-ink)" stroke-width="2.2"/>
+              <line x1="10" y1="24" x2="10" y2="35" stroke="var(--logo-faint)" stroke-width="2"/>
+              <line x1="18" y1="24" x2="18" y2="35" stroke="var(--logo-faint)" stroke-width="2"/>
+              <line x1="26" y1="24" x2="26" y2="35" stroke="var(--logo-faint)" stroke-width="2"/>
+              <!-- Совпавший штрих допуска на отметке 3 -->
+              <line x1="34" y1="5" x2="34" y2="43" stroke="var(--logo-accent)" stroke-width="3.4"/>
+              <polygon points="30.5,5 37.5,5 34,9.5" fill="var(--logo-accent)"/>
+            </svg>`;
+
+          case '04-B':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 04-B Лимб октанта 45 градусов">
+              <path d="M8 40 H43" stroke="var(--logo-ink)" stroke-width="2.8" stroke-linecap="square"/>
+              <path d="M8 40 L33 15" stroke="var(--logo-ink)" stroke-width="2.2"/>
+              <path d="M41 40 A33 33 0 0 0 31.3 16.7" stroke="var(--logo-ink)" stroke-width="2.6"/>
+              <line x1="39.8" y1="31.5" x2="36.2" y2="32.4" stroke="var(--logo-ink)" stroke-width="1.8"/>
+              <line x1="36.6" y1="23.5" x2="33.4" y2="25.3" stroke="var(--logo-ink)" stroke-width="1.8"/>
+              <!-- Стрела-алидада на выверенном азимуте -->
+              <line x1="8" y1="40" x2="41.5" y2="23.5" stroke="var(--logo-accent)" stroke-width="3"/>
+              <circle cx="8" cy="40" r="3.2" fill="var(--logo-ink)"/>
+              <circle cx="38.2" cy="25.1" r="3" fill="var(--logo-accent)"/>
+            </svg>`;
+
+          case '04-C':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 04-C Вертикальный калибр порога">
+              <rect x="11" y="4" width="11" height="40" stroke="var(--logo-ink)" stroke-width="2.5"/>
+              <line x1="11" y1="12" x2="17" y2="12" stroke="var(--logo-ink)" stroke-width="1.8"/>
+              <line x1="11" y1="20" x2="18.5" y2="20" stroke="var(--logo-ink)" stroke-width="1.8"/>
+              <line x1="11" y1="28" x2="17" y2="28" stroke="var(--logo-ink)" stroke-width="1.8"/>
+              <line x1="11" y1="36" x2="18.5" y2="36" stroke="var(--logo-ink)" stroke-width="1.8"/>
+              <!-- Ползунок-фиксатор допуска -->
+              <path d="M22 14 H39 V25 H22 Z" fill="var(--logo-accent)"/>
+              <line x1="7" y1="19.5" x2="42" y2="19.5" stroke="var(--logo-accent)" stroke-width="2.4"/>
+            </svg>`;
+
+          case '05-A':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Мини-штамп 05-A ЕСКД">
+              <rect x="4" y="7" width="40" height="34" stroke="var(--logo-ink)" stroke-width="2.6"/>
+              <line x1="4" y1="27" x2="44" y2="27" stroke="var(--logo-ink)" stroke-width="2"/>
+              <line x1="30" y1="7" x2="30" y2="41" stroke="var(--logo-ink)" stroke-width="2"/>
+              <rect x="31" y="8" width="12" height="18" fill="var(--logo-accent)"/>
+              <rect x="9" y="14" width="16" height="4" fill="var(--logo-ink)"/>
+              <rect x="9" y="32" width="16" height="3" fill="var(--logo-sub)"/>
+            </svg>`;
+
+          case '05-B':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Мини-знак 05-B Открытый чертёжный угол">
+              <line x1="7" y1="6" x2="7" y2="42" stroke="var(--logo-accent)" stroke-width="4.2"/>
+              <line x1="7" y1="8" x2="43" y2="8" stroke="var(--logo-ink)" stroke-width="2.2"/>
+              <line x1="7" y1="28" x2="43" y2="28" stroke="var(--logo-ink)" stroke-width="1.6"/>
+              <text x="13" y="23" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="12" letter-spacing="0.6">${b.mono}</text>
+              <text x="13" y="39" fill="var(--logo-accent)" font-family="var(--font-tech)" font-weight="700" font-size="9.5" letter-spacing="0.8">7+1</text>
+            </svg>`;
+
+          case '05-C':
+            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Мини-знак 05-C Паспортный шильдик">
+              <rect x="4" y="8" width="40" height="32" stroke="var(--logo-ink)" stroke-width="2.5"/>
+              <circle cx="8.5" cy="12.5" r="1.7" fill="var(--logo-ink)"/>
+              <circle cx="39.5" cy="12.5" r="1.7" fill="var(--logo-ink)"/>
+              <circle cx="8.5" cy="35.5" r="1.7" fill="var(--logo-ink)"/>
+              <circle cx="39.5" cy="35.5" r="1.7" fill="var(--logo-ink)"/>
+              <rect x="11" y="17" width="26" height="14" fill="var(--logo-accent)"/>
+              <text x="24" y="27.2" text-anchor="middle" fill="#FAF7F2" font-family="var(--font-tech)" font-weight="700" font-size="10.5" letter-spacing="0.8">${b.mono}</text>
+            </svg>`;
+
+          default:
+            return '';
+        }
+      }
+
+      /* Полноразмерный локап (знак + текстовый блок или табличный штамп) */
+      function renderFullLockup(variantId, brandKey, compactMode) {
+        const bk = brandKey || state.brand;
+        const copy = BRANDS[bk][state.lang];
+        const isShortName = bk !== 'bureau';
+        const nameCls = isShortName && !compactMode ? 'lk-name lk-name-lg' : 'lk-name';
+        const uid = bk + '-' + variantId + '-' + (compactMode ? 'm' : 'f');
+
+        if (variantId === '02-B') {
+          const hid = 'hbar-' + uid;
+          return `<div class="lk-row">
+            <div class="lk-mark" style="${compactMode ? 'width:36px;height:36px' : ''}">${renderMarkSVG(variantId, compactMode ? 36 : 46, uid, bk)}</div>
+            <div class="lk-txt">
+              <span class="${nameCls}" style="${compactMode ? 'font-size:14.5px' : ''}">${copy.name}</span>
+              <svg class="lk-hbar" viewBox="0 0 160 5" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <pattern id="${hid}" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <line x1="0" y1="0" x2="0" y2="4" stroke="var(--v2)" stroke-width="1.8"/>
+                  </pattern>
+                </defs>
+                <rect x="0" y="0" width="37" height="5" fill="var(--v1)"/>
+                <rect x="41" y="0.5" width="37" height="4" fill="url(#${hid})" stroke="var(--v2)" stroke-width="1"/>
+                <rect x="82" y="0.5" width="37" height="4" fill="none" stroke="var(--v3)" stroke-width="1.2"/>
+                <line x1="123" y1="2.5" x2="160" y2="2.5" stroke="var(--v4)" stroke-width="2" stroke-dasharray="4 3"/>
+              </svg>
+              <span class="lk-sub" style="margin-top:1px;${compactMode ? 'font-size:10.5px' : ''}">${copy.sub}</span>
+            </div>
+          </div>`;
+        }
+
+        if (variantId === '03-C') {
+          return `<div class="lk-split-wrap">
+            <div class="lk-split-left">
+              <span class="lk-caesura" aria-hidden="true"></span>
+              <div class="lk-txt">
+                <span class="${nameCls}" style="${compactMode ? 'font-size:14.5px' : ''}">${copy.name}</span>
+                <span class="lk-sub" style="${compactMode ? 'font-size:10.5px' : ''}">${copy.sub}</span>
+              </div>
+            </div>
+            <div class="lk-seal-mini" style="${compactMode ? 'width:34px;height:34px' : ''}">${renderMarkSVG('03-C', compactMode ? 34 : 42, uid, bk)}</div>
+          </div>`;
+        }
+
+        if (variantId === '05-A') {
+          return `<div class="eskd-a">
+            <div class="eskd-a-main" style="${compactMode ? 'font-size:13.5px;padding:6px 9px' : ''}">${copy.name}</div>
+            <div class="eskd-a-idx">7+1</div>
+            <div class="eskd-a-sub" style="${compactMode ? 'font-size:10.5px;padding:4px 9px' : ''}">${copy.sub}</div>
+            <div class="eskd-a-code">${copy.code}</div>
+          </div>`;
+        }
+
+        if (variantId === '05-B') {
+          return `<div class="eskd-b">
+            <div class="eskd-b-top">
+              <span class="${nameCls}" style="${compactMode ? 'font-size:14.5px' : 'font-size:16px'}">${copy.name}</span>
+              <span class="eskd-b-coord">08 / 7+1</span>
+            </div>
+            <div class="eskd-b-rule"></div>
+            <span class="lk-sub" style="margin-top:0;${compactMode ? 'font-size:10.5px' : ''}">${copy.sub}</span>
+          </div>`;
+        }
+
+        if (variantId === '05-C') {
+          return `<div class="eskd-c">
+            <span class="eskd-c-pin tl"></span><span class="eskd-c-pin tr"></span>
+            <span class="eskd-c-pin bl"></span><span class="eskd-c-pin br"></span>
+            <div class="eskd-c-head">
+              <span class="${nameCls}" style="${compactMode ? 'font-size:14.5px' : 'font-size:15.5px'}">${copy.name}</span>
+              <span class="eskd-c-badge">${copy.code}</span>
+            </div>
+            <span class="lk-sub" style="margin-top:2px;${compactMode ? 'font-size:10.5px' : ''}">${copy.sub}</span>
+          </div>`;
+        }
+
+        return `<div class="lk-row">
+          <div class="lk-mark" style="${compactMode ? 'width:36px;height:36px' : ''}">${renderMarkSVG(variantId, compactMode ? 36 : 46, uid, bk)}</div>
+          <div class="lk-txt">
+            <span class="${nameCls}" style="${compactMode ? 'font-size:14.5px' : ''}">${copy.name}</span>
+            <span class="lk-sub" style="${compactMode ? 'font-size:10.5px' : ''}">${copy.sub}</span>
+          </div>
+        </div>`;
+      }
+
+      function getVariantObj(id) {
+        for (const f of FAMILIES) {
+          for (const v of f.variants) {
+            if (v.id === id) return { family: f, variant: v };
+          }
+        }
+        return { family: FAMILIES[0], variant: FAMILIES[0].variants[0] };
+      }
+
+      function renderFamilies() {
+        const root = document.getElementById('families-root');
+        root.innerHTML = FAMILIES.map(fam => {
+          const cardsHtml = fam.variants.map(v => {
+            const isAct = state.activeVariant === v.id;
+            const isFav = state.shortlist.has(v.id);
+            return `<article class="lp-card ${isAct ? 'is-active-system' : ''}" data-vid="${v.id}">
+              <div class="lp-card-topbar">
+                <span class="lp-card-code">Вариант ${v.id}</span>
+                ${v.leader ? '<span class="lp-leader-badge">Фаворит направления</span>' : ''}
+              </div>
+              <div class="lp-stage">
+                ${renderFullLockup(v.id, state.brand, false)}
+              </div>
+              <div class="lp-scale-strip" aria-label="Проверка уменьшения знака">
+                <span class="lp-scale-label">Тест масштаба:</span>
+                <span class="lp-scale-samples">
+                  <span class="lp-scale-item">32px ${renderMarkSVG(v.id, 28, 's32')}</span>
+                  <span class="lp-scale-item">16px ${renderMarkSVG(v.id, 16, 's16')}</span>
+                </span>
+              </div>
+              <div class="lp-card-body">
+                <h3>${v.title}</h3>
+                <p class="lp-card-desc">${v.desc}</p>
+                <p class="lp-card-system-note"><strong>В бренд-бук:</strong> ${v.system}</p>
+                <div class="lp-card-actions">
+                  <button type="button" class="lp-btn-try" data-action="try-system" data-vid="${v.id}">
+                    ${isAct ? 'На стенде носителей ✓' : 'Примерить на носителях'}
+                  </button>
+                  <button type="button" class="lp-btn-fav" data-action="toggle-fav" data-vid="${v.id}" aria-pressed="${isFav}">
+                    ${isFav ? 'В шорт-листе ★' : 'В шорт-лист ☆'}
+                  </button>
+                </div>
+              </div>
+            </article>`;
+          }).join('');
+
+          return `<section class="lp-family" id="${fam.id}">
+            <div class="lp-wrap">
+              <div class="lp-family-head">
+                <div>
+                  <p class="lp-family-meta">Семейство ${fam.num} · ${fam.cluster}</p>
+                  <h2>${fam.title}</h2>
+                </div>
+                <p class="lp-family-rationale">${fam.rationale}</p>
+              </div>
+              <div class="lp-variants-grid">${cardsHtml}</div>
+            </div>
+          </section>`;
+        }).join('');
+      }
+
+      function renderMatrix() {
+        const tbl = document.getElementById('matrix-table');
+        const reps = ['01-A', '02-A', '03-A', '04-B', '05-B'];
+        const colHeaders = state.lang === 'ru'
+          ? ['Концепция', '1. Бюро промышленного ИИ', '2. КБ Зубкова', '3. Октант']
+          : ['Concept', '1. Industrial AI Bureau', '2. Zubkov Bureau', '3. Octant'];
+
+        const headHtml = `<thead><tr>${colHeaders.map(h => `<th scope="col">${h}</th>`).join('')}</tr></thead>`;
+        const rowsHtml = reps.map(vid => {
+          const { family, variant } = getVariantObj(vid);
+          return `<tr>
+            <td>${family.num}. ${variant.title}<span>Вариант ${vid}</span></td>
+            <td>${renderFullLockup(vid, 'bureau', true)}</td>
+            <td>${renderFullLockup(vid, 'kb', true)}</td>
+            <td>${renderFullLockup(vid, 'octant', true)}</td>
+          </tr>`;
+        }).join('');
+
+        tbl.innerHTML = headHtml + `<tbody>${rowsHtml}</tbody>`;
+      }
+
+      function renderBrandSystem() {
+        const { variant } = getVariantObj(state.activeVariant);
+        const copy = BRANDS[state.brand][state.lang];
+        const isRu = state.lang === 'ru';
+
+        document.getElementById('active-variant-label').textContent = `${variant.id} · ${variant.title} (${copy.name})`;
+
+        const sel = document.getElementById('variant-select');
+        if (!sel.options.length) {
+          FAMILIES.forEach(f => {
+            f.variants.forEach(v => {
+              const opt = document.createElement('option');
+              opt.value = v.id;
+              opt.textContent = `${v.id} · ${v.title}`;
+              sel.appendChild(opt);
+            });
+          });
+        }
+        sel.value = state.activeVariant;
+
+        // 1. Вкладка браузера + шапка сайта
+        document.getElementById('mock-browser-tab').innerHTML =
+          `${renderMarkSVG(state.activeVariant, 16, 'tab')} <span>${copy.name}</span>`;
+
+        document.getElementById('mock-header-logo').innerHTML = renderFullLockup(state.activeVariant, state.brand, true);
+
+        document.getElementById('mock-header-nav').innerHTML = isRu
+          ? `<span>Метод</span><span>Council 7+1</span><span>Кейсы</span><span>Отрасли</span><span>Форматы</span><span class="mock-site-cta">Разговор на 45 минут</span>`
+          : `<span>Method</span><span>Council 7+1</span><span>Cases</span><span>Industries</span><span>Formats</span><span class="mock-site-cta">45-minute call</span>`;
+
+        document.getElementById('mock-hero-copy').innerHTML = isRu
+          ? `<div>
+              <h4>ИИ окупается не везде.<br><span>Покажем, где именно — в вашем контексте.</span></h4>
+              <p>По каждому процессу — вердикт с обоснованием, экономикой и границами автономии до первого рубля на внедрение.</p>
+             </div>
+             <div style="border:1px solid #D8D0C0;background:#FFFFFF;padding:14px 16px;font-size:13px;">
+               <div style="font-family:var(--font-tech);font-size:12px;text-transform:uppercase;color:#615C53;border-bottom:1px solid #EAE4D7;padding-bottom:6px;margin-bottom:8px;display:flex;justify-content:space-between;">
+                 <span>Фрагмент матрицы</span><span>Council 7+1</span>
+               </div>
+               <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Детекция разливов БПЛА</span><strong style="color:#1E5C38">ИИ</strong></div>
+               <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Сверка актов с ERP</span><strong style="color:#784F05">Гибрид</strong></div>
+               <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Ледовые предупреждения</span><strong style="color:#3D5060">Без ИИ</strong></div>
+             </div>`
+          : `<div>
+              <h4>AI does not pay back everywhere.<br><span>We show exactly where — in your context.</span></h4>
+              <p>Every industrial process receives a signed engineering assessment with ROI, risk bounds, and clearance status before deployment.</p>
+             </div>
+             <div style="border:1px solid #D8D0C0;background:#FFFFFF;padding:14px 16px;font-size:13px;">
+               <div style="font-family:var(--font-tech);font-size:12px;text-transform:uppercase;color:#615C53;border-bottom:1px solid #EAE4D7;padding-bottom:6px;margin-bottom:8px;display:flex;justify-content:space-between;">
+                 <span>Assessment Excerpt</span><span>Council 7+1</span>
+               </div>
+               <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Drone spill detection</span><strong style="color:#1E5C38">AI</strong></div>
+               <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Invoices Excel → ERP</span><strong style="color:#784F05">Hybrid</strong></div>
+               <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Ice zone warning</span><strong style="color:#3D5060">No AI</strong></div>
+             </div>`;
+
+        // 2. Стресс-тест масштаба
+        const scales = [
+          { px: 64, label: '64×64 · Аватар' },
+          { px: 44, label: '44×44 · Шапка' },
+          { px: 28, label: '28×28 · Узел UI' },
+          { px: 16, label: '16×16 · Favicon' }
+        ];
+        document.getElementById('mock-scales-row').innerHTML = scales.map(s => `
+          <div class="mock-scale-box">
+            <div style="height:68px;display:flex;align-items:center;justify-content:center;">
+              ${renderMarkSVG(state.activeVariant, s.px, 'sc' + s.px)}
+            </div>
+            <span class="mock-scale-caption">${s.label}</span>
+          </div>
+        `).join('');
+
+        // 3. Визитные карточки (хлопок и графит)
+        const founderName = isRu ? 'Сергей Андреевич Зубков' : 'Sergey A. Zubkov';
+        const founderRole = isRu ? 'Основатель · Главный инженер' : 'Founder · Chief Engineer';
+        document.getElementById('mock-bcards').innerHTML = `
+          <div class="mock-bcard mock-bcard-light" style="--logo-ink:#1C1B18;--logo-sub:#544F46;--logo-faint:#6B655B;--logo-accent:#0F5A46;--stage-card:#FAF7F2;">
+            <div>${renderFullLockup(state.activeVariant, state.brand, true)}</div>
+            <div class="mock-bcard-person">
+              <strong>${founderName}</strong>
+              <span>${founderRole}</span>
+            </div>
+            <div class="mock-bcard-contacts">
+              <span>@SergeyAZubkov</span>
+              <span>${copy.code}</span>
+            </div>
+          </div>
+          <div class="mock-bcard mock-bcard-dark" style="--logo-ink:#FAF7F2;--logo-sub:#CFC9BC;--logo-faint:#ABA495;--logo-accent:#56C2A0;--stage-card:#1C1B18;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              ${renderMarkSVG(state.activeVariant, 42, 'bcdark')}
+              <span style="font-family:var(--font-tech);font-size:12px;color:#ABA495;letter-spacing:0.08em;">COUNCIL 7+1</span>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:15px;letter-spacing:0.05em;text-transform:uppercase;">${copy.name}</div>
+              <div style="font-family:var(--font-tech);font-size:12px;color:#56C2A0;text-transform:uppercase;letter-spacing:0.08em;margin-top:3px;">${isRu ? 'Сначала решение — потом внедрение' : 'Diagnostics & clearance before code'}</div>
+            </div>
+          </div>
+        `;
+
+        // 4. Бланк экспертного заключения с фактурными чипами и верифицирующим штампом
+        document.getElementById('mock-report-sheet').innerHTML = `
+          <div class="mock-report-top" style="--logo-ink:#1C1B18;--logo-sub:#544F46;--logo-faint:#6B655B;--logo-accent:#0F5A46;--stage-card:#FFFFFF;">
+            <div>${renderFullLockup(state.activeVariant, state.brand, true)}</div>
+            <div class="mock-report-reg">
+              <div>${isRu ? 'ЗАКЛЮЧЕНИЕ № 26-084/П' : 'ASSESSMENT NO. 26-084/I'}</div>
+              <div>${isRu ? 'КОНТУР: ЗАКРЫТЫЙ ON-PREM' : 'PERIMETER: ON-PREM'}</div>
+            </div>
+          </div>
+          <div class="mock-report-title">${isRu ? 'Матрица допуска процессов буровой платформы (ППБУ)' : 'Drilling Rig Process Readiness & Clearance Matrix'}</div>
+          <ul class="mock-verdict-rows">
+            <li>
+              <span>${isRu ? '1. Прогноз деградации насосных агрегатов' : '1. Mud-pump degradation prediction'}</span>
+              <span class="mock-vchip v-ai">■ ${isRu ? 'ИИ оправдан' : 'AI Justified'}</span>
+            </li>
+            <li>
+              <span>${isRu ? '2. Разбор вахтовых журналов и нарядов' : '2. Shift logbook & work-order triage'}</span>
+              <span class="mock-vchip v-hyb">▨ ${isRu ? 'Гибрид' : 'Hybrid'}</span>
+            </li>
+            <li>
+              <span>${isRu ? '3. Аварийные блокировки и допуски КИПиА' : '3. Safety interlocks & permit rules'}</span>
+              <span class="mock-vchip v-no">□ ${isRu ? 'Без ИИ' : 'No AI'}</span>
+            </li>
+            <li>
+              <span>${isRu ? '4. Автономная оптимизация режима проходки' : '4. Autonomous drilling-rate control'}</span>
+              <span class="mock-vchip v-def">⬚ ${isRu ? 'Отложить' : 'Defer'}</span>
+            </li>
+          </ul>
+          <div class="mock-report-sign">
+            <div class="mock-sign-meta">
+              <strong>${isRu ? 'Утвердил: Главный инженер С. А. Зубков' : 'Signed off: S. A. Zubkov, Chief Engineer'}</strong>
+              <span>${isRu ? 'Проверено экспертами: Отрасль · Финансы · Право' : 'Reviewed by human experts: Industry · Finance · Legal'}</span>
+            </div>
+            <div class="mock-sign-stamp" style="--logo-ink:#0F5A46;--logo-accent:#0F5A46;--logo-faint:#0F5A46;">
+              ${renderMarkSVG(state.activeVariant, 28, 'repst')}
+              <span>${copy.code}<br>ПРИНЯТО</span>
+            </div>
+          </div>
+        `;
+
+        // 5. Панорама кейса + паспорт эффекта
+        document.getElementById('mock-case-banner').innerHTML = `
+          <img src="assets/img/arctic.jpg" alt="${isRu ? 'Арктическая навигация и ледовая обстановка' : 'Arctic navigation and ice routing'}" loading="lazy" decoding="async">
+          <div class="mock-case-overlay">
+            <div>
+              <div class="mock-case-tag">${isRu ? 'Морская логистика / Севморпуть' : 'Maritime Safety / Northern Sea Route'}</div>
+              <div class="mock-case-metric">[ +13% ${isRu ? 'рейсов и +14,5% скорости во льдах' : 'voyages & +14.5% ice transit speed'} ]</div>
+            </div>
+            <div class="mock-case-stamp" style="--logo-ink:#FAF7F2;--logo-accent:#56C2A0;--logo-faint:#CFC9BC;">
+              ${renderMarkSVG(state.activeVariant, 26, 'caseb')}
+              <span>${copy.nameCompact}<br>${isRu ? 'Верифицировано' : 'Verified Case'}</span>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('mock-case-passport').innerHTML = isRu
+          ? `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:12.5px;color:#4F4B43;">
+              <div style="border-left:2px solid #0F5A46;padding-left:10px;">
+                <span style="font-family:var(--font-tech);font-size:12px;text-transform:uppercase;color:#615C53;display:block;">Контур ИИ</span>
+                <strong style="color:#1C1B18;">Ледовая маршрутизация</strong>
+              </div>
+              <div style="border-left:2px solid #4A5E6F;padding-left:10px;">
+                <span style="font-family:var(--font-tech);font-size:12px;text-transform:uppercase;color:#615C53;display:block;">Детерминированный код</span>
+                <strong style="color:#1C1B18;">Пороги сближения со льдом</strong>
+              </div>
+              <div style="border-left:2px solid #1C1B18;padding-left:10px;">
+                <span style="font-family:var(--font-tech);font-size:12px;text-transform:uppercase;color:#615C53;display:block;">Статус приёмки</span>
+                <strong style="color:#0F5A46;">Пром. эксплуатация · ${copy.code}</strong>
+              </div>
+            </div>`
+          : `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:12.5px;color:#4F4B43;">
+              <div style="border-left:2px solid #0F5A46;padding-left:10px;">
+                <span style="font-family:var(--font-tech);font-size:12px;text-transform:uppercase;color:#615C53;display:block;">AI Contour</span>
+                <strong style="color:#1C1B18;">Ice condition routing</strong>
+              </div>
+              <div style="border-left:2px solid #4A5E6F;padding-left:10px;">
+                <span style="font-family:var(--font-tech);font-size:12px;text-transform:uppercase;color:#615C53;display:block;">Deterministic Code</span>
+                <strong style="color:#1C1B18;">Ice proximity warnings</strong>
+              </div>
+              <div style="border-left:2px solid #1C1B18;padding-left:10px;">
+                <span style="font-family:var(--font-tech);font-size:12px;text-transform:uppercase;color:#615C53;display:block;">Clearance</span>
+                <strong style="color:#0F5A46;">Production · ${copy.code}</strong>
+              </div>
+            </div>`;
+      }
+
+      function updateShortlistUI() {
+        const arr = Array.from(state.shortlist).sort();
+        document.getElementById('shortlist-count').textContent = String(arr.length);
+        const brandLabel = BRANDS[state.brand].ru.name;
+        const summaryEl = document.getElementById('shortlist-summary-text');
+        if (arr.length === 0) {
+          summaryEl.textContent = 'Пока не отмечено ни одного варианта — нажмите «В шорт-лист ☆» на понравившихся карточках.';
+        } else {
+          const titles = arr.map(id => {
+            const { variant } = getVariantObj(id);
+            return `${id} (${variant.title})`;
+          });
+          summaryEl.textContent = `Активное имя: «${brandLabel}» · Отобранные варианты (${arr.length}): ${titles.join(', ')}.`;
+        }
+      }
+
+      function renderAll() {
+        document.body.setAttribute('data-surface', state.surface);
+        document.body.setAttribute('data-font-mode', state.font);
+        renderFamilies();
+        renderMatrix();
+        renderBrandSystem();
+        updateShortlistUI();
+      }
+
+      // Обработчики переключателей пульта
+      document.querySelectorAll('[data-ctrl]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const group = btn.getAttribute('data-ctrl');
+          const val = btn.getAttribute('data-val');
+          if (group === 'brand') state.brand = val;
+          if (group === 'lang') state.lang = val;
+          if (group === 'surface') state.surface = val;
+          if (group === 'font') state.font = val;
+
+          document.querySelectorAll(`[data-ctrl="${group}"]`).forEach(b => {
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+          renderAll();
+        });
+      });
+
+      // Делегирование кликов на карточках
+      document.getElementById('families-root').addEventListener('click', e => {
+        const tryBtn = e.target.closest('[data-action="try-system"]');
+        if (tryBtn) {
+          state.activeVariant = tryBtn.getAttribute('data-vid');
+          renderAll();
+          document.getElementById('brand-system').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+        const favBtn = e.target.closest('[data-action="toggle-fav"]');
+        if (favBtn) {
+          const vid = favBtn.getAttribute('data-vid');
+          if (state.shortlist.has(vid)) state.shortlist.delete(vid);
+          else state.shortlist.add(vid);
+          renderFamilies();
+          updateShortlistUI();
+        }
+      });
+
+      document.getElementById('variant-select').addEventListener('change', e => {
+        state.activeVariant = e.target.value;
+        renderAll();
+      });
+
+      document.getElementById('jump-shortlist-btn').addEventListener('click', () => {
+        document.getElementById('shortlist-drawer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      document.getElementById('copy-shortlist-btn').addEventListener('click', async function () {
+        const arr = Array.from(state.shortlist).sort();
+        const text = `Шорт-лист по стенду logo-preview: имя — «${BRANDS[state.brand].ru.name}», язык — ${state.lang.toUpperCase()}, шрифтовой регистр — ${state.font}, варианты знака: ${arr.join(', ') || 'не выбраны'}.`;
+        try {
+          await navigator.clipboard.writeText(text);
+          const prev = this.textContent;
+          this.textContent = 'Скопировано в буфер ✓';
+          setTimeout(() => { this.textContent = prev; }, 2200);
+        } catch (_) {
+          this.textContent = text;
+        }
+      });
+
+      renderAll();
+    })();
+  </script>
 </body>
 </html>
-
