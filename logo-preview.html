@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Бренд-лаборатория · Логотип и система носителей — Бюро промышленного ИИ</title>
   <meta name="description" content="Рабочий стенд выбора логотипа, нейминга и бренд-элементов: 5 концептуальных семейств, 15 векторных вариантов, проверка на носителях и журнал дизайн-развилок.">
+  <link id="dynamic-favicon" rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none'%3E%3Crect width='48' height='48' fill='%23FAF7F2'/%3E%3Cpath d='M31.8 5 H16.2 L5 16.2 V31.8 L16.2 43 H31.8 L43 31.8 V16.2' stroke='%231C1B18' stroke-width='3.6'/%3E%3Crect x='20' y='20' width='8' height='8' fill='%230F5A46'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     @font-face {
@@ -2218,9 +2219,25 @@
         }
         sel.value = state.activeVariant;
 
-        // 1. Вкладка браузера + шапка сайта
+        // 1. Вкладка браузера + реальная фавиконка вкладки + шапка сайта
         document.getElementById('mock-browser-tab').innerHTML =
           `${renderMarkSVG(state.activeVariant, 16, 'tab')} <span>${copy.name}</span>`;
+
+        const favEl = document.getElementById('dynamic-favicon');
+        if (favEl) {
+          const rawSvg = renderMarkSVG(state.activeVariant, 48, 'fav')
+            .replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ')
+            .replace(/var\(--logo-ink\)/g, '#1C1B18')
+            .replace(/var\(--logo-sub\)/g, '#544F46')
+            .replace(/var\(--logo-faint\)/g, '#6B655B')
+            .replace(/var\(--logo-accent\)/g, '#0F5A46')
+            .replace(/var\(--logo-accent-tint\)/g, 'rgba(15,90,70,0.12)')
+            .replace(/var\(--v1\)/g, '#2E7D4F')
+            .replace(/var\(--v2\)/g, '#A9740F')
+            .replace(/var\(--v3\)/g, '#5B7183')
+            .replace(/var\(--v4\)/g, '#6F6A60');
+          favEl.setAttribute('href', 'data:image/svg+xml;utf8,' + encodeURIComponent(rawSvg));
+        }
 
         document.getElementById('mock-header-logo').innerHTML = renderFullLockup(state.activeVariant, state.brand, true);
 
