@@ -20,9 +20,9 @@
   --zone-red: #B3402E;
   --zone-steel: #5B7183;
 
-  --serif: Georgia, 'Charter', 'Bitstream Charter', 'Times New Roman', serif;
+  --serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  --mono: 'Cascadia Code', 'JetBrains Mono', Consolas, 'SF Mono', Menlo, monospace;
+  --mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
   --container: 1140px;
   --container-narrow: 760px;
