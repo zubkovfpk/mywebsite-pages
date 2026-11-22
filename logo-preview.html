@@ -618,7 +618,7 @@
       margin: 5px 0 4px;
       height: 5px;
     }
-    /* Специальный двухполюсный локап 03-C */
+    /* (служебный блок) */
     .lk-split-wrap {
       display: flex;
       align-items: center;
@@ -766,7 +766,7 @@
     }
 
     /* ============================================================
-       Сводная матрица 3 имён × 5 семейств
+       Сводная матрица 3 вариантов имени × 3 семейства
        ============================================================ */
     .lp-matrix-section {
       padding: 64px 0;
@@ -1343,7 +1343,7 @@
 
   <div class="lp-topbar">
     <div class="lp-wrap lp-topbar-inner">
-      <span class="lp-doc-code">БРЕНД-СТЕНА · РЕВИЗИЯ 2.0 · 5 СЕМЕЙСТВ × 3 ВАРИАНТА</span>
+      <span class="lp-doc-code">БРЕНД-СТЕНА · РЕВИЗИЯ 3.0 · 3 СЕМЕЙСТВА × 3 ВАРИАНТА</span>
       <div class="lp-topbar-links">
         <a href="index.html">Короткая версия сайта (v4) →</a>
         <a href="v3/index.html">Полная версия сайта (v3) →</a>
@@ -1354,15 +1354,15 @@
   <header class="lp-hero">
     <div class="lp-wrap">
       <p class="lp-kicker">Этап 2 · Графическая разработка и бренд-система</p>
-      <h1>Пять концепций знака и три траектории названия</h1>
+      <h1>Три концепции знака и новое имя КОР</h1>
       <p class="lp-lead">
-        Стенд объединяет пять отобранных вами концептуальных семейств (по три графических исполнения в каждом — всего 15 векторных вариантов) и три варианта имени: чистое «Бюро промышленного ИИ», авторское «КБ Зубкова» и инструментальное «Октант». Все знаки построены в единой чертёжной пластике и сразу разложены на будущие элементы бренд-бука.
+        После второго отсева на стенде три концептуальных семейства (по три графических исполнения — всего 9 векторных вариантов) и два имени в трёх локапах: чистое «Бюро промышленного ИИ», «КОР» в паре с дескриптором «Бюро промышленного ИИ» и «КОР» отдельно. Все знаки построены в единой чертёжной пластике и сразу разложены на будущие элементы бренд-бука.
       </p>
 
       <div class="lp-clusters-summary" aria-label="Три стратегических направления">
         <div class="lp-cluster-pill">
           <span class="lp-cluster-pill-tag">Направление I · Инструмент допуска</span>
-          <strong>01. Разомкнутый октагон · 04. Шкала нониуса</strong>
+          <strong>01. Разомкнутый октагон</strong>
           <span>Точность измерения 0–4, честный разрыв контура при нехватке данных и право сказать «ИИ не нужен».</span>
         </div>
         <div class="lp-cluster-pill">
@@ -1372,8 +1372,8 @@
         </div>
         <div class="lp-cluster-pill">
           <span class="lp-cluster-pill-tag">Направление III · Документ и подпись</span>
-          <strong>03. Клеймо приёмки · 05. Надпись чертежа</strong>
-          <span>Традиция конструкторского бюро, штамп ЕСКД и личная ответственность основателя под каждым выводом.</span>
+          <strong>05. Надпись чертежа</strong>
+          <span>Традиция конструкторского бюро, основная надпись ЕСКД и личная ответственность основателя под каждым выводом.</span>
         </div>
       </div>
     </div>
@@ -1387,8 +1387,8 @@
           <span class="lp-ctrl-label">Имя:</span>
           <div class="lp-seg" role="group" aria-label="Выбор названия">
             <button type="button" data-ctrl="brand" data-val="bureau" aria-pressed="true">Бюро промышленного ИИ</button>
-            <button type="button" data-ctrl="brand" data-val="kb" aria-pressed="false">КБ Зубкова</button>
-            <button type="button" data-ctrl="brand" data-val="octant" aria-pressed="false">Октант</button>
+            <button type="button" data-ctrl="brand" data-val="kor" aria-pressed="false">КОР + Бюро пром. ИИ</button>
+            <button type="button" data-ctrl="brand" data-val="korSolo" aria-pressed="false">КОР отдельно</button>
           </div>
         </div>
 
@@ -1430,18 +1430,16 @@
       <ul class="lp-secnav-list">
         <li><a href="#fam-octagon">01. Октагон (3)</a></li>
         <li><a href="#fam-verdicts">02. Фактуры вердиктов (3)</a></li>
-        <li><a href="#fam-stamp">03. Клеймо приёмки (3)</a></li>
-        <li><a href="#fam-scale">04. Инструментальная шкала (3)</a></li>
         <li><a href="#fam-eskd">05. Надпись чертежа (3)</a></li>
-        <li><a href="#matrix-compare">Матрица 3 имён рядом</a></li>
+        <li><a href="#matrix-compare">Матрица 3 вариантов имени</a></li>
         <li><a href="#brand-system">Примерка на бренд-носителях</a></li>
-        <li><a href="#design-forks">Развилки и решения (5)</a></li>
+        <li><a href="#design-forks">Развилки и решения (6)</a></li>
       </ul>
     </div>
   </nav>
 
   <main id="concepts-start">
-    <!-- Динамически рендеримые 5 семейств по 3 варианта -->
+    <!-- Динамически рендеримые 3 семейства по 3 варианта -->
     <div id="families-root"></div>
 
     <!-- Сводная таблица сравнения 3 имён на 5 базовых знаках -->
@@ -1449,13 +1447,13 @@
       <div class="lp-wrap">
         <div class="lp-sec-header">
           <p class="lp-kicker">Прямое сопоставление без переключений</p>
-          <h2>Матрица «3 варианта названия × 5 флагманских знаков»</h2>
+          <h2>Матрица «3 варианта имени × 3 флагманских знака»</h2>
           <p>
             Позволяет одним взглядом оценить оптическую длину строки, плотность знака и баланс с дескриптором сразу для всех трёх имён в выбранном выше языке и цветовой среде.
           </p>
         </div>
         <div class="lp-matrix-scroll">
-          <table class="lp-matrix-table" id="matrix-table" aria-label="Сравнение трёх вариантов названия по пяти концепциям"></table>
+          <table class="lp-matrix-table" id="matrix-table" aria-label="Сравнение трёх вариантов имени по трём концепциям"></table>
         </div>
       </div>
     </section>
@@ -1467,7 +1465,7 @@
           <p class="lp-kicker">Переход логотипа в айдентику</p>
           <h2>Проверка выбранного варианта на реальных носителях бюро</h2>
           <p>
-            Логотип B2B-бюро живёт не на сувенирах, а в рабочих документах совета директоров, шапке сайта, фавиконке 16×16 px и верифицирующей подписи под расчётами. Выберите любой из 15 вариантов карточкой выше или списком ниже.
+            Логотип B2B-бюро живёт не на сувенирах, а в рабочих документах совета директоров, шапке сайта, фавиконке 16×16 px и верифицирующей подписи под расчётами. Выберите любой из 9 вариантов карточкой выше или списком ниже.
           </p>
         </div>
 
@@ -1556,7 +1554,7 @@
       <div class="lp-wrap">
         <div class="lp-sec-header">
           <p class="lp-kicker">Прозрачность дизайн-решений</p>
-          <h2>Пять развилок, возникших при разработке, и принятый выбор</h2>
+          <h2>Шесть развилок, возникших при разработке, и принятый выбор</h2>
           <p>
             По вашему поручению работа не останавливалась на развилках: в каждой точке выбран вариант, отвечающий актуальным мировым практикам deep-tech брендинга и текущей эстетике сайта, а ниже зафиксированы рассмотренные альтернативы.
           </p>
@@ -1564,27 +1562,28 @@
 
         <div class="lp-forks-grid">
           <article class="lp-fork-card">
-            <span class="lp-fork-num">Развилка 01 · Архитектура имени</span>
-            <h3>Как соединять «КБ Зубкова» и «Октант» с категорией «Бюро промышленного ИИ»</h3>
-            <p class="lp-fork-row"><strong>Варианты:</strong> (А) Оставить только краткое имя («Октант» / «КБ Зубкова») без пояснений; (Б) Двухэтажный локап «Имя + технический дескриптор Бюро промышленного ИИ»; (В) Длинное слияние в одну строку через тире.</p>
+            <span class="lp-fork-num">Развилка 01 · Архитектура имени КОР</span>
+            <h3>КОР вместе с «Бюро промышленного ИИ» или отдельно</h3>
+            <p class="lp-fork-row"><strong>Варианты:</strong> (А) «КОР» отдельно, без пояснений; (Б) двухэтажный локап «КОР» + дескриптор «Бюро промышленного ИИ»; (В) одна строка «КОР — Бюро промышленного ИИ».</p>
             <div class="lp-fork-choice">
-              <strong>Выбрано (Б):</strong> двухэтажная конструкция. Краткое имя даёт юридическую чистоту, крупный кегль и мгновенную запоминаемость, а нижняя строка чертёжным регистром сохраняет прямое попадание в поисковый и директорский запрос. В чистом варианте «Бюро промышленного ИИ» нижнюю графу занимает «Основатель / Сергей Зубков».
+              <strong>Рекомендовано (Б), (А) оставлен на стенде:</strong> короткое имя в одиночку ничего не говорит о категории, а дескриптор сразу отвечает на запрос директора и поиска. Одиночное «КОР» хорошо работает там, где категория уже понятна из контекста: фавиконка, аватар, штамп, повторная коммуникация с клиентом. Пока имя не проверено по реестрам, дескриптор ещё и снижает риск смешения с одноимёнными компаниями.
             </div>
           </article>
 
           <article class="lp-fork-card">
             <span class="lp-fork-num">Развилка 02 · Международная версия EN</span>
-            <h3>Перевод «КБ Зубкова» и роль в английском локапе</h3>
-            <p class="lp-fork-row"><strong>Варианты имени EN:</strong> (А) <code>KB Zubkova</code> (прямой транслит); (Б) <code>Zubkov Design Bureau</code>; (В) <code>Zubkov Bureau · Industrial AI</code>.<br><strong>Варианты роли EN:</strong> прежний на сайте <code>Founder, Chief Designer</code>; <code>Chief Engineer</code>; <code>Founder</code>.</p>
+            <h3>Написание КОР латиницей и роль в английском локапе</h3>
+            <p class="lp-fork-row"><strong>Варианты имени EN:</strong> (А) <code>KOR</code> (прямая транслитерация); (Б) <code>CORE</code> (английское слово); (В) <code>CŒUR</code> (французское «сердце»).<br><strong>Варианты роли EN:</strong> прежний на сайте <code>Founder, Chief Designer</code>; <code>Chief Engineer</code>; <code>Founder</code>.</p>
             <div class="lp-fork-choice">
-              <strong>Выбрано (В) + Founder:</strong> на международном рынке слова Design Bureau и Chief Designer считываются как дизайн-студия интерфейсов, а транслит <code>KB</code> непонятен без пояснения. Роль в локапе — <code>Founder</code> / «Основатель»: должность главного инженера в будущем займёт другой человек, поэтому в знак и носители она не зашивается.
+              <strong>Выбрано (А) + Founder:</strong> <code>KOR</code> одинаково пишется и звучит на обоих языках и читается как «core», но не является словарным словом, поэтому его можно защитить. <code>CORE</code> — нарицательное слово, которое трудно зарегистрировать и найти в поиске; <code>CŒUR</code> сложно набрать и произнести. Роль в локапе — <code>Founder</code> / «Основатель»: должность главного инженера в будущем займёт другой человек.
             </div>
           </article>
 
-          <article class="lp-fork-card">
+          
+<article class="lp-fork-card">
             <span class="lp-fork-num">Развилка 03 · Цветовая дисциплина знака</span>
             <h3>Четыре цвета вердиктов в каждом знаке или строгая пара «Уголь + Изумруд»</h3>
-            <p class="lp-fork-row"><strong>Варианты:</strong> (А) Красить любой из 15 логотипов в 4 цвета вердиктов; (Б) Держать в знаке строгую пару <code>#1C1B18</code> + один точечный акцент допуска <code>#0F5A46</code>, оставляя 4 цвета только семейству «Фактуры вердиктов» и UI-чипам; (В) Чистый чёрно-белый монохром везде.</p>
+            <p class="lp-fork-row"><strong>Варианты:</strong> (А) Красить любой из 9 логотипов в 4 цвета вердиктов; (Б) Держать в знаке строгую пару <code>#1C1B18</code> + один точечный акцент допуска <code>#0F5A46</code>, оставляя 4 цвета только семейству «Фактуры вердиктов» и UI-чипам; (В) Чистый чёрно-белый монохром везде.</p>
             <div class="lp-fork-choice">
               <strong>Выбрано (Б):</strong> в мировой практике индустриального брендинга четыре активных цвета внутри мелкого знака дробят силуэт и создают ощущение «детского конструктора». Ограничение знака одним хвойно-изумрудным акцентом поднимает статус марки, а четыре цвета работают там, где несут функцию — в семействе 02 и матрицах отчётов.
             </div>
@@ -1607,13 +1606,28 @@
               <strong>Выбрано (Б) с режимом «Гротеск + ГОСТ» по умолчанию:</strong> сайт сохраняет 100% автономность и мгновенную загрузку в РФ без риска блокировок CDN. Крупное имя в плотном гротеске даёт современную читаемость, а подлинный чертёжный шрифт ГОСТ Тип Б в индексах <code>7+1</code>, шифрах и дескрипторе добавляет неподдельную интонацию конструкторского бюро (переключатель вверху позволяет сразу сравнить с чистым гротеском v4 и с акцидентным Pilatus).
             </div>
           </article>
+
+          <article class="lp-fork-card" style="grid-column: 1 / -1;">
+            <span class="lp-fork-num">Развилка 06 · Расшифровка КОР (в работе)</span>
+            <h3>Нужна ли КОР расшифровка и какая</h3>
+            <p class="lp-fork-row"><strong>Варианты:</strong><br>
+              (А) <code>Контекст · Операции · Результат</code> / <code>Knowledge · Operations · Return</code> — буквы К-О-Р / K-O-R сходятся в обоих языках; контекст процесса, операционный контур и измеримая отдача — это и есть предмет диагностики; «Контекст» — прежнее рабочее имя сайта.<br>
+              (Б) <code>Комплексная оценка реализуемости</code> / <code>Key Operations Readiness</code> — прямо называет главную услугу: оценку готовности процессов к ИИ.<br>
+              (В) <code>Карта · Оценка · Решение</code> — три шага метода: карта процессов → оценка консилиумом 7+1 → вердикт; в EN буквы не сходятся.<br>
+              (Г) <code>Корень · Опора · Равновесие</code> — личная ценностная триада из образа мышц кора; услуги не описывает, годится для манифеста.<br>
+              (Д) Без расшифровки: КОР — слово (ядро, сердцевина вихря, адронный кор ливня), а категорию объясняет дескриптор.</p>
+            <div class="lp-fork-choice">
+              <strong>Предварительно (Д) + (А) как вторичная формула:</strong> на знаке и в локапе стоит слово, а не аббревиатура. На вопрос «что значит КОР?» отвечает формула (А): её можно разложить на три блока услуг и три раздела отчёта. Окончательный выбор — за вами.
+            </div>
+          </article>
+
         </div>
 
         <!-- Итоговая плашка шорт-листа для копирования ответа в чат -->
         <div class="lp-shortlist-drawer" id="shortlist-drawer">
           <div>
             <h3>Ваш рабочий шорт-лист для следующего шага</h3>
-            <p id="shortlist-summary-text">Предварительно отмечены фавориты ведущего дизайнера: 01-A, 02-A, 03-A (можно изменить кнопкой «В шорт-лист» на любой карточке).</p>
+            <p id="shortlist-summary-text">Предварительно отмечены фавориты ведущего дизайнера: 01-A, 02-A, 05-B (можно изменить кнопкой «В шорт-лист» на любой карточке).</p>
           </div>
           <button type="button" class="lp-copy-btn" id="copy-shortlist-btn">Скопировать выбор для чата</button>
         </div>
@@ -1625,6 +1639,7 @@
     (function () {
       const BRANDS = {
         bureau: {
+          label: 'Бюро промышленного ИИ',
           ru: {
             name: 'Бюро промышленного\u00A0ИИ',
             namePlain: 'Бюро промышленного ИИ',
@@ -1644,44 +1659,46 @@
             code: 'IAIB'
           }
         },
-        kb: {
+        kor: {
+          label: 'КОР + Бюро промышленного ИИ',
           ru: {
-            name: 'КБ\u00A0Зубкова',
-            namePlain: 'КБ Зубкова',
-            nameCompact: 'КБ\u00A0Зубкова',
+            name: 'КОР',
+            namePlain: 'КОР',
+            nameCompact: 'КОР',
             sub: 'Бюро промышленного\u00A0ИИ',
             subShort: 'Промышленный\u00A0ИИ',
-            mono: 'КБЗ',
-            code: 'КБЗ'
+            mono: 'КОР',
+            code: 'КОР'
           },
           en: {
-            name: 'Zubkov\u00A0Bureau',
-            namePlain: 'Zubkov Bureau',
-            nameCompact: 'Zubkov Bureau',
-            sub: 'Industrial AI\u00A0Bureau',
-            subShort: 'Industrial\u00A0AI',
-            mono: 'ZB',
-            code: 'ZB'
-          }
-        },
-        octant: {
-          ru: {
-            name: 'Октант',
-            namePlain: 'Октант',
-            nameCompact: 'Октант',
-            sub: 'Бюро промышленного\u00A0ИИ',
-            subShort: 'Промышленный\u00A0ИИ',
-            mono: 'ОКТ',
-            code: 'ОКТ'
-          },
-          en: {
-            name: 'Octant',
-            namePlain: 'Octant',
-            nameCompact: 'Octant',
+            name: 'KOR',
+            namePlain: 'KOR',
+            nameCompact: 'KOR',
             sub: 'Industrial AI\u00A0Bureau',
             subShort: 'Industrial AI Bureau',
-            mono: 'OCT',
-            code: 'OCT'
+            mono: 'KOR',
+            code: 'KOR'
+          }
+        },
+        korSolo: {
+          label: 'КОР отдельно',
+          ru: {
+            name: 'КОР',
+            namePlain: 'КОР',
+            nameCompact: 'КОР',
+            sub: 'Основатель / Сергей\u00A0Зубков',
+            subShort: 'Основатель С.\u00A0Зубков',
+            mono: 'КОР',
+            code: 'КОР'
+          },
+          en: {
+            name: 'KOR',
+            namePlain: 'KOR',
+            nameCompact: 'KOR',
+            sub: 'Founder / Sergey\u00A0Zubkov',
+            subShort: 'Founder S.\u00A0Zubkov',
+            mono: 'KOR',
+            code: 'KOR'
           }
         }
       };
@@ -1754,72 +1771,6 @@
           ]
         },
         {
-          id: 'fam-stamp',
-          num: '03',
-          cluster: 'Направление III · Документально-авторское',
-          title: 'Личное клеймо приёмки',
-          rationale: 'Метафора стального ударного пуансона и приёмки ОТК в судостроении и авиации: знак удостоверяет, что расчёты проверены, а под документом стоит личная ответственность.',
-          variants: [
-            {
-              id: '03-A',
-              leader: true,
-              title: 'Пуансон со срезанной фаской',
-              desc: 'Массивная прямоугольная оправка со срезом правого верхнего угла под 45°, адаптивным шифром имени бюро и контрольной точкой допуска.',
-              system: 'Контур с одной срезанной фаской становится фирменной формой карточек вердиктов, кнопок первичного действия и штампа приёмки этапов.',
-              kind: 'mark'
-            },
-            {
-              id: '03-B',
-              leader: false,
-              title: 'Гранёное клеймо регистра',
-              desc: 'Шестигранное испытательное клеймо с двойной обводкой (традиция морского регистра и машиностроительной поверки) с шифром и индексом 7+1.',
-              system: 'Работает как официальная печать верификации рядом с подписью основателя, бейдж NDA и знак проверенных цифр на кейсах.',
-              kind: 'mark'
-            },
-            {
-              id: '03-C',
-              leader: false,
-              title: 'Двухполюсный титул и печать',
-              desc: 'Разделение ролей: в шапке — кристально чистая типографика с вертикальной цезурой допуска, а круглое клеймо СЗ/SZ ставится на выводы.',
-              system: 'Даёт самую спокойную статусную шапку в духе лучших архитектурных бюро и превращает круглое клеймо в печать под каждым вердиктом.',
-              kind: 'split'
-            }
-          ]
-        },
-        {
-          id: 'fam-scale',
-          num: '04',
-          cluster: 'Направление I · Инструментально-смысловое',
-          title: 'Инструментальная шкала нониуса',
-          rationale: 'Принцип механического нониуса штангенциркуля и морского октанта: две встречные шкалы 0–4 дают сквозную зелёную линию допуска только в единственной точке точного совпадения параметров.',
-          variants: [
-            {
-              id: '04-A',
-              leader: false,
-              title: 'Линейный нониус совпадения',
-              desc: 'Пять базовых делений шкалы 0–4 сверху и четыре смещённых деления нониуса снизу; на пороге «3» риски смыкаются в единую ось допуска.',
-              system: 'Превращается в линейки разделителей секций, шкалы зрелости процессов и интерактивный индикатор прогресса диагностики.',
-              kind: 'mark'
-            },
-            {
-              id: '04-B',
-              leader: true,
-              title: 'Угломерный лимб октанта 45°',
-              desc: 'Сектор ровно в 1/8 окружности (45° — точное геометрическое значение слова «Октант») с радиальными рисками и стрелой-алидадой на цели.',
-              system: 'Идеален в паре с именем «Октант» и вашим бэкграундом в навигации и GeoAI: даёт угловые координатные сетки и графику поверх аэроснимков.',
-              kind: 'mark'
-            },
-            {
-              id: '04-C',
-              leader: false,
-              title: 'Вертикальный калибр порога',
-              desc: 'Лаконичная измерительная стойка с градуировкой и массивным П-образным фиксатором, отсекающим допустимую зону внедрения от зоны риска.',
-              system: 'Вертикальные шкалы на полях отчётов, графики пороговой окупаемости (TCO / payback) и боковая навигация длинных документов.',
-              kind: 'mark'
-            }
-          ]
-        },
-        {
           id: 'fam-eskd',
           num: '05',
           cluster: 'Направление III · Документально-авторское',
@@ -1860,7 +1811,7 @@
         surface: 'paper',
         font: 'gost',
         activeVariant: '01-A',
-        shortlist: new Set(['01-A', '02-A', '04-B'])
+        shortlist: new Set(['01-A', '02-A', '05-B'])
       };
 
       /* Генерация чистых векторных SVG-знаков (48x48) для любого масштаба */
@@ -1936,70 +1887,6 @@
               <rect x="9" y="38.2" width="11" height="5.2" stroke="var(--v4)" stroke-width="1.8" stroke-dasharray="3.5 2.5"/>
             </svg>`;
 
-          case '03-A':
-            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 03-A Пуансон со срезанной фаской">
-              <path d="M4 7 H34 L44 17 V41 H4 Z" stroke="var(--logo-ink)" stroke-width="2.6" fill="var(--logo-accent-tint)"/>
-              <line x1="4" y1="30.5" x2="44" y2="30.5" stroke="var(--logo-ink)" stroke-width="1.4"/>
-              <circle cx="36.5" cy="14.5" r="2.4" fill="var(--logo-accent)"/>
-              <text x="7.5" y="24" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 3 ? '9.6' : b.mono.length > 2 ? '12' : '13.5'}" letter-spacing="${b.mono.length > 3 ? '0.3' : '0.6'}">${b.mono}</text>
-              <text x="24" y="38.5" text-anchor="middle" fill="var(--logo-accent)" font-family="var(--font-tech)" font-weight="700" font-size="8.5" letter-spacing="1.2">7 + 1</text>
-            </svg>`;
-
-          case '03-B':
-            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 03-B Гранёное клеймо регистра">
-              <polygon points="12,6 36,6 45,24 36,42 12,42 3,24" stroke="var(--logo-ink)" stroke-width="2.6"/>
-              <polygon points="14.2,10 33.8,10 40.8,24 33.8,38 14.2,38 7.2,24" stroke="var(--logo-accent)" stroke-width="1.1"/>
-              <text x="24" y="27.5" text-anchor="middle" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 3 ? '9.2' : b.mono.length > 2 ? '11.5' : '13.5'}" letter-spacing="${b.mono.length > 3 ? '0.3' : '0.8'}">${b.mono}</text>
-            </svg>`;
-
-          case '03-C':
-            const initials = state.lang === 'ru' ? 'СЗ' : 'SZ';
-            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 03-C Круглое верифицирующее клеймо">
-              <circle cx="24" cy="24" r="19.5" stroke="var(--logo-accent)" stroke-width="2.5"/>
-              <circle cx="24" cy="24" r="15.2" stroke="var(--logo-ink)" stroke-width="1.1" stroke-dasharray="6 2.5"/>
-              <text x="24" y="28" text-anchor="middle" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="13.5" letter-spacing="1">${initials}</text>
-            </svg>`;
-
-          case '04-A':
-            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 04-A Линейный нониус совпадения">
-              <line x1="4" y1="24" x2="44" y2="24" stroke="var(--logo-ink)" stroke-width="2"/>
-              <line x1="7" y1="11" x2="7" y2="24" stroke="var(--logo-ink)" stroke-width="2.2"/>
-              <line x1="16" y1="14" x2="16" y2="24" stroke="var(--logo-ink)" stroke-width="2"/>
-              <line x1="25" y1="14" x2="25" y2="24" stroke="var(--logo-ink)" stroke-width="2"/>
-              <line x1="43" y1="11" x2="43" y2="24" stroke="var(--logo-ink)" stroke-width="2.2"/>
-              <line x1="10" y1="24" x2="10" y2="35" stroke="var(--logo-faint)" stroke-width="2"/>
-              <line x1="18" y1="24" x2="18" y2="35" stroke="var(--logo-faint)" stroke-width="2"/>
-              <line x1="26" y1="24" x2="26" y2="35" stroke="var(--logo-faint)" stroke-width="2"/>
-              <!-- Совпавший штрих допуска на отметке 3 -->
-              <line x1="34" y1="5" x2="34" y2="43" stroke="var(--logo-accent)" stroke-width="3.4"/>
-              <polygon points="30.5,5 37.5,5 34,9.5" fill="var(--logo-accent)"/>
-            </svg>`;
-
-          case '04-B':
-            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 04-B Лимб октанта 45 градусов">
-              <path d="M8 40 H43" stroke="var(--logo-ink)" stroke-width="2.8" stroke-linecap="square"/>
-              <path d="M8 40 L33 15" stroke="var(--logo-ink)" stroke-width="2.2"/>
-              <path d="M41 40 A33 33 0 0 0 31.3 16.7" stroke="var(--logo-ink)" stroke-width="2.6"/>
-              <line x1="39.8" y1="31.5" x2="36.2" y2="32.4" stroke="var(--logo-ink)" stroke-width="1.8"/>
-              <line x1="36.6" y1="23.5" x2="33.4" y2="25.3" stroke="var(--logo-ink)" stroke-width="1.8"/>
-              <!-- Стрела-алидада на выверенном азимуте -->
-              <line x1="8" y1="40" x2="41.5" y2="23.5" stroke="var(--logo-accent)" stroke-width="3"/>
-              <circle cx="8" cy="40" r="3.2" fill="var(--logo-ink)"/>
-              <circle cx="38.2" cy="25.1" r="3" fill="var(--logo-accent)"/>
-            </svg>`;
-
-          case '04-C':
-            return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 04-C Вертикальный калибр порога">
-              <rect x="11" y="4" width="11" height="40" stroke="var(--logo-ink)" stroke-width="2.5"/>
-              <line x1="11" y1="12" x2="17" y2="12" stroke="var(--logo-ink)" stroke-width="1.8"/>
-              <line x1="11" y1="20" x2="18.5" y2="20" stroke="var(--logo-ink)" stroke-width="1.8"/>
-              <line x1="11" y1="28" x2="17" y2="28" stroke="var(--logo-ink)" stroke-width="1.8"/>
-              <line x1="11" y1="36" x2="18.5" y2="36" stroke="var(--logo-ink)" stroke-width="1.8"/>
-              <!-- Ползунок-фиксатор допуска -->
-              <path d="M22 14 H39 V25 H22 Z" fill="var(--logo-accent)"/>
-              <line x1="7" y1="19.5" x2="42" y2="19.5" stroke="var(--logo-accent)" stroke-width="2.4"/>
-            </svg>`;
-
           case '05-A':
             return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Мини-штамп 05-A ЕСКД">
               <rect x="4" y="7" width="40" height="34" stroke="var(--logo-ink)" stroke-width="2.6"/>
@@ -2062,19 +1949,6 @@
               </svg>
               <span class="lk-sub" style="margin-top:1px;${compactMode ? 'font-size:10.5px' : ''}">${copy.sub}</span>
             </div>
-          </div>`;
-        }
-
-        if (variantId === '03-C') {
-          return `<div class="lk-split-wrap">
-            <div class="lk-split-left">
-              <span class="lk-caesura" aria-hidden="true"></span>
-              <div class="lk-txt">
-                <span class="${nameCls}" style="${compactMode ? 'font-size:14.5px' : ''}">${copy.name}</span>
-                <span class="lk-sub" style="${compactMode ? 'font-size:10.5px' : ''}">${copy.sub}</span>
-              </div>
-            </div>
-            <div class="lk-seal-mini" style="${compactMode ? 'width:34px;height:34px' : ''}">${renderMarkSVG('03-C', compactMode ? 34 : 42, uid, bk)}</div>
           </div>`;
         }
 
@@ -2182,10 +2056,10 @@
 
       function renderMatrix() {
         const tbl = document.getElementById('matrix-table');
-        const reps = ['01-A', '02-A', '03-A', '04-B', '05-B'];
+        const reps = ['01-A', '02-A', '05-B'];
         const colHeaders = state.lang === 'ru'
-          ? ['Концепция', '1. Бюро промышленного ИИ', '2. КБ Зубкова', '3. Октант']
-          : ['Concept', '1. Industrial AI Bureau', '2. Zubkov Bureau', '3. Octant'];
+          ? ['Концепция', '1. Бюро промышленного ИИ', '2. КОР + Бюро промышленного ИИ', '3. КОР отдельно']
+          : ['Concept', '1. Industrial AI Bureau', '2. KOR + Industrial AI Bureau', '3. KOR standalone'];
 
         const headHtml = `<thead><tr>${colHeaders.map(h => `<th scope="col">${h}</th>`).join('')}</tr></thead>`;
         const rowsHtml = reps.map(vid => {
@@ -2193,8 +2067,8 @@
           return `<tr>
             <td>${family.num}. ${variant.title}<span>Вариант ${vid}</span></td>
             <td>${renderFullLockup(vid, 'bureau', true)}</td>
-            <td>${renderFullLockup(vid, 'kb', true)}</td>
-            <td>${renderFullLockup(vid, 'octant', true)}</td>
+            <td>${renderFullLockup(vid, 'kor', true)}</td>
+            <td>${renderFullLockup(vid, 'korSolo', true)}</td>
           </tr>`;
         }).join('');
 
@@ -2293,7 +2167,7 @@
         const founderName = isRu ? 'Сергей Андреевич Зубков' : 'Sergey A. Zubkov';
         const founderRole = isRu ? 'Основатель бюро' : 'Founder';
         document.getElementById('mock-bcards').innerHTML = `
-          <div class="mock-bcard mock-bcard-light${state.brand === 'bureau' ? ' mock-bcard-nosub' : ''}" style="--logo-ink:#1C1B18;--logo-sub:#544F46;--logo-faint:#6B655B;--logo-accent:#0F5A46;--stage-card:#FAF7F2;">
+          <div class="mock-bcard mock-bcard-light${state.brand !== 'kor' ? ' mock-bcard-nosub' : ''}" style="--logo-ink:#1C1B18;--logo-sub:#544F46;--logo-faint:#6B655B;--logo-accent:#0F5A46;--stage-card:#FAF7F2;">
             <div>${renderFullLockup(state.activeVariant, state.brand, true)}</div>
             <div class="mock-bcard-person">
               <strong>${founderName}</strong>
@@ -2405,7 +2279,7 @@
       function updateShortlistUI() {
         const arr = Array.from(state.shortlist).sort();
         document.getElementById('shortlist-count').textContent = String(arr.length);
-        const brandLabel = BRANDS[state.brand].ru.name;
+        const brandLabel = BRANDS[state.brand].label;
         const summaryEl = document.getElementById('shortlist-summary-text');
         if (arr.length === 0) {
           summaryEl.textContent = 'Пока не отмечено ни одного варианта — нажмите «В шорт-лист ☆» на понравившихся карточках.';
@@ -2474,7 +2348,7 @@
 
       document.getElementById('copy-shortlist-btn').addEventListener('click', async function () {
         const arr = Array.from(state.shortlist).sort();
-        const text = `Шорт-лист по стенду logo-preview: имя — «${BRANDS[state.brand].ru.name}», язык — ${state.lang.toUpperCase()}, шрифтовой регистр — ${state.font}, варианты знака: ${arr.join(', ') || 'не выбраны'}.`;
+        const text = `Шорт-лист по стенду logo-preview: имя — «${BRANDS[state.brand].label}», язык — ${state.lang.toUpperCase()}, шрифтовой регистр — ${state.font}, варианты знака: ${arr.join(', ') || 'не выбраны'}.`;
         try {
           await navigator.clipboard.writeText(text);
           const prev = this.textContent;
