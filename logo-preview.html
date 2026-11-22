@@ -766,7 +766,7 @@
     }
 
     /* ============================================================
-       Сводная матрица 3 вариантов имени × 3 семейства
+       Сводная матрица 2 вариантов имени × 3 семейства
        ============================================================ */
     .lp-matrix-section {
       padding: 64px 0;
@@ -1356,7 +1356,7 @@
       <p class="lp-kicker">Этап 2 · Графическая разработка и бренд-система</p>
       <h1>Три концепции знака и новое имя КОР</h1>
       <p class="lp-lead">
-        После второго отсева на стенде три концептуальных семейства (по три графических исполнения — всего 9 векторных вариантов) и два имени в трёх локапах: чистое «Бюро промышленного ИИ», «КОР» в паре с дескриптором «Бюро промышленного ИИ» и «КОР» отдельно. Все знаки построены в единой чертёжной пластике и сразу разложены на будущие элементы бренд-бука.
+        После второго отсева на стенде три концептуальных семейства (по три графических исполнения — всего 9 векторных вариантов) и два имени: чистое «Бюро промышленного ИИ» и «КОР» в паре с дескриптором «Бюро промышленного ИИ». Все знаки построены в единой чертёжной пластике и сразу разложены на будущие элементы бренд-бука.
       </p>
 
       <div class="lp-clusters-summary" aria-label="Три стратегических направления">
@@ -1388,7 +1388,6 @@
           <div class="lp-seg" role="group" aria-label="Выбор названия">
             <button type="button" data-ctrl="brand" data-val="bureau" aria-pressed="true">Бюро промышленного ИИ</button>
             <button type="button" data-ctrl="brand" data-val="kor" aria-pressed="false">КОР + Бюро пром. ИИ</button>
-            <button type="button" data-ctrl="brand" data-val="korSolo" aria-pressed="false">КОР отдельно</button>
           </div>
         </div>
 
@@ -1431,7 +1430,7 @@
         <li><a href="#fam-octagon">01. Октагон (3)</a></li>
         <li><a href="#fam-verdicts">02. Фактуры вердиктов (3)</a></li>
         <li><a href="#fam-eskd">05. Надпись чертежа (3)</a></li>
-        <li><a href="#matrix-compare">Матрица 3 вариантов имени</a></li>
+        <li><a href="#matrix-compare">Матрица 2 вариантов имени</a></li>
         <li><a href="#brand-system">Примерка на бренд-носителях</a></li>
         <li><a href="#design-forks">Развилки и решения (6)</a></li>
       </ul>
@@ -1447,13 +1446,13 @@
       <div class="lp-wrap">
         <div class="lp-sec-header">
           <p class="lp-kicker">Прямое сопоставление без переключений</p>
-          <h2>Матрица «3 варианта имени × 3 флагманских знака»</h2>
+          <h2>Матрица «2 варианта имени × 3 флагманских знака»</h2>
           <p>
             Позволяет одним взглядом оценить оптическую длину строки, плотность знака и баланс с дескриптором сразу для всех трёх имён в выбранном выше языке и цветовой среде.
           </p>
         </div>
         <div class="lp-matrix-scroll">
-          <table class="lp-matrix-table" id="matrix-table" aria-label="Сравнение трёх вариантов имени по трём концепциям"></table>
+          <table class="lp-matrix-table" id="matrix-table" aria-label="Сравнение двух вариантов имени по трём концепциям"></table>
         </div>
       </div>
     </section>
@@ -1566,7 +1565,7 @@
             <h3>КОР вместе с «Бюро промышленного ИИ» или отдельно</h3>
             <p class="lp-fork-row"><strong>Варианты:</strong> (А) «КОР» отдельно, без пояснений; (Б) двухэтажный локап «КОР» + дескриптор «Бюро промышленного ИИ»; (В) одна строка «КОР — Бюро промышленного ИИ».</p>
             <div class="lp-fork-choice">
-              <strong>Рекомендовано (Б), (А) оставлен на стенде:</strong> короткое имя в одиночку ничего не говорит о категории, а дескриптор сразу отвечает на запрос директора и поиска. Одиночное «КОР» хорошо работает там, где категория уже понятна из контекста: фавиконка, аватар, штамп, повторная коммуникация с клиентом. Пока имя не проверено по реестрам, дескриптор ещё и снижает риск смешения с одноимёнными компаниями.
+              <strong>Выбрано (Б), решение основателя:</strong> «КОР» всегда идёт вместе с дескриптором «Бюро промышленного ИИ». Короткое имя в одиночку ничего не говорит о категории, а дескриптор сразу отвечает на запрос директора и поиска и снижает риск смешения с одноимёнными компаниями. Вариант (А) снят со стенда.
             </div>
           </article>
 
@@ -1663,8 +1662,8 @@
           label: 'КОР + Бюро промышленного ИИ',
           ru: {
             name: 'КОР',
-            namePlain: 'КОР',
-            nameCompact: 'КОР',
+            namePlain: 'КОР — Бюро промышленного ИИ',
+            nameCompact: 'КОР · Бюро пром.\u00A0ИИ',
             sub: 'Бюро промышленного\u00A0ИИ',
             subShort: 'Промышленный\u00A0ИИ',
             mono: 'КОР',
@@ -1672,31 +1671,10 @@
           },
           en: {
             name: 'KOR',
-            namePlain: 'KOR',
-            nameCompact: 'KOR',
+            namePlain: 'KOR — Industrial AI Bureau',
+            nameCompact: 'KOR · Industrial AI\u00A0Bureau',
             sub: 'Industrial AI\u00A0Bureau',
             subShort: 'Industrial AI Bureau',
-            mono: 'KOR',
-            code: 'KOR'
-          }
-        },
-        korSolo: {
-          label: 'КОР отдельно',
-          ru: {
-            name: 'КОР',
-            namePlain: 'КОР',
-            nameCompact: 'КОР',
-            sub: 'Основатель / Сергей\u00A0Зубков',
-            subShort: 'Основатель С.\u00A0Зубков',
-            mono: 'КОР',
-            code: 'КОР'
-          },
-          en: {
-            name: 'KOR',
-            namePlain: 'KOR',
-            nameCompact: 'KOR',
-            sub: 'Founder / Sergey\u00A0Zubkov',
-            subShort: 'Founder S.\u00A0Zubkov',
             mono: 'KOR',
             code: 'KOR'
           }
@@ -2058,8 +2036,8 @@
         const tbl = document.getElementById('matrix-table');
         const reps = ['01-A', '02-A', '05-B'];
         const colHeaders = state.lang === 'ru'
-          ? ['Концепция', '1. Бюро промышленного ИИ', '2. КОР + Бюро промышленного ИИ', '3. КОР отдельно']
-          : ['Concept', '1. Industrial AI Bureau', '2. KOR + Industrial AI Bureau', '3. KOR standalone'];
+          ? ['Концепция', '1. Бюро промышленного ИИ', '2. КОР + Бюро промышленного ИИ']
+          : ['Concept', '1. Industrial AI Bureau', '2. KOR + Industrial AI Bureau'];
 
         const headHtml = `<thead><tr>${colHeaders.map(h => `<th scope="col">${h}</th>`).join('')}</tr></thead>`;
         const rowsHtml = reps.map(vid => {
@@ -2068,7 +2046,6 @@
             <td>${family.num}. ${variant.title}<span>Вариант ${vid}</span></td>
             <td>${renderFullLockup(vid, 'bureau', true)}</td>
             <td>${renderFullLockup(vid, 'kor', true)}</td>
-            <td>${renderFullLockup(vid, 'korSolo', true)}</td>
           </tr>`;
         }).join('');
 
@@ -2097,7 +2074,7 @@
 
         // 1. Вкладка браузера + реальная фавиконка вкладки + шапка сайта
         document.getElementById('mock-browser-tab').innerHTML =
-          `${renderMarkSVG(state.activeVariant, 16, 'tab')} <span>${copy.name}</span>`;
+          `${renderMarkSVG(state.activeVariant, 16, 'tab')} <span>${copy.namePlain}</span>`;
 
         const favEl = document.getElementById('dynamic-favicon');
         if (favEl) {
@@ -2167,7 +2144,7 @@
         const founderName = isRu ? 'Сергей Андреевич Зубков' : 'Sergey A. Zubkov';
         const founderRole = isRu ? 'Основатель бюро' : 'Founder';
         document.getElementById('mock-bcards').innerHTML = `
-          <div class="mock-bcard mock-bcard-light${state.brand !== 'kor' ? ' mock-bcard-nosub' : ''}" style="--logo-ink:#1C1B18;--logo-sub:#544F46;--logo-faint:#6B655B;--logo-accent:#0F5A46;--stage-card:#FAF7F2;">
+          <div class="mock-bcard mock-bcard-light${state.brand === 'bureau' ? ' mock-bcard-nosub' : ''}" style="--logo-ink:#1C1B18;--logo-sub:#544F46;--logo-faint:#6B655B;--logo-accent:#0F5A46;--stage-card:#FAF7F2;">
             <div>${renderFullLockup(state.activeVariant, state.brand, true)}</div>
             <div class="mock-bcard-person">
               <strong>${founderName}</strong>
@@ -2185,6 +2162,7 @@
             </div>
             <div>
               <div style="font-weight:700;font-size:15px;letter-spacing:0.05em;text-transform:uppercase;">${copy.name}</div>
+              ${state.brand === 'kor' ? `<div style="font-family:var(--font-tech);font-size:11px;color:#CFC9BC;text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;">${copy.sub}</div>` : ''}
               <div style="font-family:var(--font-tech);font-size:12px;color:#56C2A0;text-transform:uppercase;letter-spacing:0.08em;margin-top:3px;">${isRu ? 'Сначала решение — потом внедрение' : 'Diagnostics & clearance before code'}</div>
             </div>
           </div>
