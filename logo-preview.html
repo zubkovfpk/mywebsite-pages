@@ -677,6 +677,8 @@
       justify-content: center;
       white-space: nowrap;
     }
+    .mock-bcard-nosub .lk-sub,
+    .mock-bcard-nosub .eskd-a-sub { display: none; }
     .eskd-a-sub {
       padding: 5px 11px;
       font-family: var(--font-logo-sub);
@@ -1638,8 +1640,8 @@
             nameCompact: 'Industrial AI Bureau',
             sub: 'Founder / Sergey\u00A0Zubkov',
             subShort: 'Founder S.\u00A0Zubkov',
-            mono: 'IAB',
-            code: 'IAB-08'
+            mono: 'IAIB',
+            code: 'IAIB-08'
           }
         },
         kb: {
@@ -1939,7 +1941,7 @@
               <path d="M4 7 H34 L44 17 V41 H4 Z" stroke="var(--logo-ink)" stroke-width="2.6" fill="var(--logo-accent-tint)"/>
               <line x1="4" y1="30.5" x2="44" y2="30.5" stroke="var(--logo-ink)" stroke-width="1.4"/>
               <circle cx="36.5" cy="14.5" r="2.4" fill="var(--logo-accent)"/>
-              <text x="7.5" y="24" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 2 ? '12' : '13.5'}" letter-spacing="0.6">${b.mono}</text>
+              <text x="7.5" y="24" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 3 ? '9.6' : b.mono.length > 2 ? '12' : '13.5'}" letter-spacing="${b.mono.length > 3 ? '0.3' : '0.6'}">${b.mono}</text>
               <text x="24" y="38.5" text-anchor="middle" fill="var(--logo-accent)" font-family="var(--font-tech)" font-weight="700" font-size="8.5" letter-spacing="1.2">7 + 1</text>
             </svg>`;
 
@@ -1947,7 +1949,7 @@
             return `<svg width="${sz}" height="${sz}" viewBox="0 0 48 48" fill="none" role="img" aria-label="Знак 03-B Гранёное клеймо регистра">
               <polygon points="12,6 36,6 45,24 36,42 12,42 3,24" stroke="var(--logo-ink)" stroke-width="2.6"/>
               <polygon points="14.2,10 33.8,10 40.8,24 33.8,38 14.2,38 7.2,24" stroke="var(--logo-accent)" stroke-width="1.1"/>
-              <text x="24" y="27.5" text-anchor="middle" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 2 ? '11.5' : '13.5'}" letter-spacing="0.8">${b.mono}</text>
+              <text x="24" y="27.5" text-anchor="middle" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 3 ? '9.2' : b.mono.length > 2 ? '11.5' : '13.5'}" letter-spacing="${b.mono.length > 3 ? '0.3' : '0.8'}">${b.mono}</text>
             </svg>`;
 
           case '03-C':
@@ -2013,7 +2015,7 @@
               <line x1="7" y1="6" x2="7" y2="42" stroke="var(--logo-accent)" stroke-width="4.2"/>
               <line x1="7" y1="8" x2="43" y2="8" stroke="var(--logo-ink)" stroke-width="2.2"/>
               <line x1="7" y1="28" x2="43" y2="28" stroke="var(--logo-ink)" stroke-width="1.6"/>
-              <text x="13" y="23" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="12" letter-spacing="0.6">${b.mono}</text>
+              <text x="13" y="23" fill="var(--logo-ink)" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 3 ? '9.6' : '12'}" letter-spacing="${b.mono.length > 3 ? '0.3' : '0.6'}">${b.mono}</text>
               <text x="13" y="39" fill="var(--logo-accent)" font-family="var(--font-tech)" font-weight="700" font-size="9.5" letter-spacing="0.8">7+1</text>
             </svg>`;
 
@@ -2025,7 +2027,7 @@
               <circle cx="8.5" cy="35.5" r="1.7" fill="var(--logo-ink)"/>
               <circle cx="39.5" cy="35.5" r="1.7" fill="var(--logo-ink)"/>
               <rect x="11" y="17" width="26" height="14" fill="var(--logo-accent)"/>
-              <text x="24" y="27.2" text-anchor="middle" fill="#FAF7F2" font-family="var(--font-tech)" font-weight="700" font-size="10.5" letter-spacing="0.8">${b.mono}</text>
+              <text x="24" y="27.2" text-anchor="middle" fill="#FAF7F2" font-family="var(--font-tech)" font-weight="700" font-size="${b.mono.length > 3 ? '8.4' : '10.5'}" letter-spacing="${b.mono.length > 3 ? '0.3' : '0.8'}">${b.mono}</text>
             </svg>`;
 
           default:
@@ -2291,7 +2293,7 @@
         const founderName = isRu ? 'Сергей Андреевич Зубков' : 'Sergey A. Zubkov';
         const founderRole = isRu ? 'Основатель бюро' : 'Founder';
         document.getElementById('mock-bcards').innerHTML = `
-          <div class="mock-bcard mock-bcard-light" style="--logo-ink:#1C1B18;--logo-sub:#544F46;--logo-faint:#6B655B;--logo-accent:#0F5A46;--stage-card:#FAF7F2;">
+          <div class="mock-bcard mock-bcard-light${state.brand === 'bureau' ? ' mock-bcard-nosub' : ''}" style="--logo-ink:#1C1B18;--logo-sub:#544F46;--logo-faint:#6B655B;--logo-accent:#0F5A46;--stage-card:#FAF7F2;">
             <div>${renderFullLockup(state.activeVariant, state.brand, true)}</div>
             <div class="mock-bcard-person">
               <strong>${founderName}</strong>
@@ -2349,7 +2351,7 @@
             </div>
             <div class="mock-sign-stamp" style="--logo-ink:#0F5A46;--logo-accent:#0F5A46;--logo-faint:#0F5A46;">
               ${renderMarkSVG(state.activeVariant, 28, 'repst')}
-              <span>${copy.code}<br>ПРИНЯТО</span>
+              <span>${copy.code}<br>${isRu ? 'ПРИНЯТО' : 'ACCEPTED'}</span>
             </div>
           </div>
         `;
