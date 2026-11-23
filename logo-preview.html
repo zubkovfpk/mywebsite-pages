@@ -1484,6 +1484,63 @@
     .lp-ns-table td { font-size: 14.5px; padding: 13px 18px; }
     .lp-ns-table td:first-child { width: 34%; }
     .lp-ns-block { margin-top: 28px; }
+
+    /* ============================================================
+       Ревизия 5.1: компоновки С2 / Р1 / С3, элементы локапа, предложения по сайту
+       ============================================================ */
+    .lk-c2 { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1; color: var(--logo-ink); max-width: 100%; }
+    .lk-c2-top { display: flex; align-items: center; gap: 0.26em; width: max-content; }
+    .lk-c2-name { font-family: var(--font-logo-main); font-weight: 700; line-height: 1; display: flex; align-items: center; color: var(--logo-ink); letter-spacing: 0.02em; }
+    .lk-c2-name .kor-wm { display: block; }
+    .lk-c2 .lk-c2-mark { width: 1.045em; height: 1.045em; margin: -0.12em 0; }
+    .lk-c2 .lk-sub { white-space: nowrap; margin-top: 8px; font-size: 11px; }
+    .lk-r1 { display: inline-flex; align-items: center; gap: 16px; max-width: 100%; }
+    .lk-r1 .lk-sub { white-space: nowrap; }
+    .lk-r1-rule { width: 1px; align-self: stretch; background: var(--logo-sub); opacity: 0.45; }
+    .lk-c3 { display: inline-flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .lk-c3 .lk-sub { margin-top: 0; white-space: nowrap; }
+    .lk-c3 .lk-name .kor-wm, .lk-r1 .lk-name .kor-wm { display: block; }
+    .lp-forms-grid.is-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .lp-form-stage.is-center { justify-content: center; }
+
+    .lp-el-legend { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 0 0 18px; font-size: 13.5px; color: var(--lp-ink-soft); }
+    .lp-el-legend span { display: inline-flex; align-items: center; gap: 8px; }
+    .lp-el-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .lp-el-group-title { grid-column: 1 / -1; font-family: var(--font-tech); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--lp-ink-soft); margin-top: 10px; }
+    .lp-el-card { background: var(--lp-surface); border: 1px solid var(--lp-line); display: flex; flex-direction: column; min-width: 0; }
+    .lp-el-card.is-no .lp-el-stage { opacity: 0.55; }
+    .lp-el-stage { background: var(--stage-card); color: var(--logo-ink); min-height: 120px; padding: 18px 14px; display: flex; align-items: center; justify-content: center; gap: 14px; border-bottom: 1px solid var(--lp-line); overflow: hidden; position: relative; }
+    .lp-el-stage .lp-el-x { position: absolute; inset: 0; pointer-events: none; }
+    .lp-el-desc-only { font-family: var(--font-logo-sub); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--logo-sub); white-space: nowrap; }
+    .lp-el-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .lp-el-body h3 { font-size: 15px; font-weight: 600; line-height: 1.3; }
+    .lp-el-body p { font-size: 13px; line-height: 1.5; color: var(--lp-ink-soft); }
+    .lp-el-body p strong { color: var(--lp-ink); font-weight: 600; }
+    .lp-status { align-self: flex-start; font-family: var(--font-tech); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px 2px; border: 1px solid var(--lp-accent); line-height: 1.3; }
+    .lp-status.is-ok { background: var(--lp-accent); color: #FFFFFF; }
+    .lp-status.is-cond { color: var(--lp-accent); background: transparent; }
+    .lp-status.is-no { color: var(--lp-ink); border-color: var(--lp-ink); background: transparent; text-decoration: line-through; text-decoration-thickness: 1px; }
+    .lp-todo { margin-top: 22px; border: 1px dashed var(--lp-line); padding: 16px 18px; background: var(--lp-surface); }
+    .lp-todo h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .lp-todo ul { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.6; color: var(--lp-ink-soft); }
+
+    .lp-site-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .lp-site-card { background: var(--lp-surface); border: 1px solid var(--lp-line); display: flex; flex-direction: column; min-width: 0; }
+    .lp-site-illu { background: #FAF7F2; border-bottom: 1px solid var(--lp-line); height: 150px; position: relative; overflow: hidden; color: #1C1B18; }
+    .lp-site-illu svg { width: 100%; height: 100%; display: block; }
+    .lp-site-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+    .lp-site-num { font-family: var(--font-tech); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--lp-accent); }
+    .lp-site-body h3 { font-size: 16px; font-weight: 600; line-height: 1.3; }
+    .lp-site-body p { font-size: 13.5px; line-height: 1.5; color: var(--lp-ink-soft); }
+    .lp-site-body p strong { color: var(--lp-ink); font-weight: 600; }
+    @media (max-width: 1040px) {
+      .lp-el-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lp-site-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lp-forms-grid.is-three { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .lp-el-grid, .lp-site-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 1040px) {
       .lp-forms-grid { grid-template-columns: repeat(2, 1fr); }
       .lp-clusters-summary { grid-template-columns: 1fr; }
@@ -1535,7 +1592,7 @@
 
   <div class="lp-topbar">
     <div class="lp-wrap lp-topbar-inner">
-      <span class="lp-doc-code">БРЕНД-СТЕНА · РЕВИЗИЯ 5.0 · ШОРТ-ЛИСТ · 3 ЗНАКА · 1 ИМЯ</span>
+      <span class="lp-doc-code">БРЕНД-СТЕНА · РЕВИЗИЯ 5.1 · ЛОКАП С2 · 3 ЗНАКА · 1 ИМЯ</span>
       <div class="lp-topbar-links">
         <a href="index.html">Короткая версия сайта (v4) →</a>
         <a href="v3/index.html">Полная версия сайта (v3) →</a>
@@ -1548,7 +1605,7 @@
       <p class="lp-kicker">Этап 2 · Шорт-лист для финальной проработки</p>
       <h1>Три знака для имени КОР</h1>
       <p class="lp-lead">
-        На стенде остался шорт-лист основателя: три знака и одно имя «КОР + Бюро промышленного ИИ» в двух формах — «КОР / Бюро промышленного ИИ» и «бюро КОР». Знаки опираются на то, что в бюро не изменится: четыре вердикта и само имя. Всё, что было связано с числом факторов и агентов — октагон, индекс 7+1, каскад «3 из 8», — снято: метод может измениться, а вердикты остаются. Надпись чертежа уходит из логотипа в оформление сайта.
+        На стенде остался шорт-лист основателя: три знака и одно имя «КОР + Бюро промышленного ИИ» в трёх компоновках локапа: основной С2 — КОР и знак над дескриптором, запасной Р1 для длинной горизонтали и вспомогательной С3 для квадратных носителей. Знаки опираются на то, что в бюро не изменится: четыре вердикта и само имя. Всё, что было связано с числом факторов и агентов — октагон, индекс 7+1, каскад «3 из 8», — снято: метод может измениться, а вердикты остаются. Надпись чертежа уходит из логотипа в оформление сайта — шесть приёмов собраны в отдельном разделе.
       </p>
 
       <div class="lp-clusters-summary is-three" aria-label="Три знака шорт-листа">
@@ -1576,10 +1633,11 @@
     <div class="lp-wrap lp-dock-grid">
       <div class="lp-ctrl-groups">
         <div class="lp-ctrl-group" id="ctrl-combo">
-          <span class="lp-ctrl-label">Форма:</span>
-          <div class="lp-seg" role="group" aria-label="Форма сочетания КОР и бюро">
-            <button type="button" data-ctrl="combo" data-val="lead" aria-pressed="true">КОР / Бюро</button>
-            <button type="button" data-ctrl="combo" data-val="short" aria-pressed="false">бюро КОР</button>
+          <span class="lp-ctrl-label">Локап:</span>
+          <div class="lp-seg" role="group" aria-label="Компоновка локапа">
+            <button type="button" data-ctrl="combo" data-val="c2" aria-pressed="true" title="Основная: КОР и знак над дескриптором">С2</button>
+            <button type="button" data-ctrl="combo" data-val="r1" aria-pressed="false" title="Запасная: знак справа, для длинной горизонтали">Р1</button>
+            <button type="button" data-ctrl="combo" data-val="c3" aria-pressed="false" title="Вспомогательная: столбик по центру">С3</button>
           </div>
         </div>
 
@@ -1628,11 +1686,13 @@
     <div class="lp-wrap">
       <ul class="lp-secnav-list">
         <li><a href="#fam-shortlist">Шорт-лист знаков (3)</a></li>
-        <li><a href="#matrix-compare">Матрица 2 формы × 3 знака</a></li>
-        <li><a href="#name-system">Система имени КОР</a></li>
+        <li><a href="#matrix-compare">Матрица 3 локапа × 3 знака</a></li>
+        <li><a href="#name-system">Локапы КОР</a></li>
+        <li><a href="#lockup-elements">Элементы и сочетания</a></li>
+        <li><a href="#site-proposals">Оформление сайта (6)</a></li>
         <li><a href="#brand-system">Примерка на бренд-носителях</a></li>
-        <li><a href="#design-forks">Развилки и решения (9)</a></li>
-        <li><a href="#archive">Архив (26)</a></li>
+        <li><a href="#design-forks">Развилки и решения (10)</a></li>
+        <li><a href="#archive">Архив (29)</a></li>
       </ul>
     </div>
   </nav>
@@ -1646,13 +1706,13 @@
       <div class="lp-wrap">
         <div class="lp-sec-header">
           <p class="lp-kicker">Прямое сопоставление без переключений</p>
-          <h2>Матрица «2 формы имени × 3 знака»</h2>
+          <h2>Матрица «3 локапа × 3 знака»</h2>
           <p>
-            Одним взглядом видно, как каждый знак держит обе формы имени: длину строки, плотность знака и баланс с дескриптором — в языке и среде, выбранных на пульте.
+            Каждый знак шорт-листа в трёх принятых компоновках: основной С2, запасной Р1 и вспомогательной С3 — в языке и среде, выбранных на пульте.
           </p>
         </div>
         <div class="lp-matrix-scroll">
-          <table class="lp-matrix-table" id="matrix-table" aria-label="Сравнение двух форм имени на трёх знаках"></table>
+          <table class="lp-matrix-table" id="matrix-table" aria-label="Сравнение трёх компоновок локапа на трёх знаках"></table>
         </div>
       </div>
     </section>
@@ -1661,14 +1721,14 @@
     <section class="lp-matrix-section" id="name-system">
       <div class="lp-wrap">
         <div class="lp-sec-header">
-          <p class="lp-kicker">Система имени · КОР + бюро</p>
-          <h2>Одно имя — две формы</h2>
+          <p class="lp-kicker">Система имени · КОР + бюро · решение 24.11.2026</p>
+          <h2>Одно имя — три компоновки</h2>
           <p>
-            «Бюро промышленного ИИ» объясняет, чем занимается бюро, но название из одних слов о роде деятельности трудно защитить. «КОР» — часть, которую можно защитить и запомнить. Поэтому они работают в паре — в двух формах, которые не конкурируют: каждая закреплена за своими носителями. Знак в примерах — тот, что сейчас выбран на стенде.
+            «КОР» — защищаемая и запоминаемая часть, «Бюро промышленного ИИ» — дескриптор, который объясняет род деятельности. В логотипе они никогда не стоят в одну строку: «бюро» уходит в подпись и не спорит с именем. Знак стоит справа от имени — как основная надпись ЕСКД в правом нижнем углу листа и общий знак шероховатости в правом верхнем: сначала содержание, затем отметка, которая относится ко всему документу. Знак в примерах — тот, что выбран на стенде.
           </p>
         </div>
 
-        <div class="lp-forms-grid" id="forms-root"></div>
+        <div class="lp-forms-grid is-three" id="forms-root"></div>
 
         <div class="lp-matrix-scroll lp-ns-block">
           <table class="lp-matrix-table lp-ns-table" aria-label="Какая форма имени на каком носителе">
@@ -1676,9 +1736,11 @@
               <tr><th scope="col">Где применяется</th><th scope="col">Русская форма</th><th scope="col">Английская форма</th></tr>
             </thead>
             <tbody>
-              <tr><td>Логотип в шапке, обложки, визитка</td><td>КОР + строка «Бюро промышленного ИИ»</td><td>KOR + line “Industrial AI Bureau”</td></tr>
-              <tr><td>Устав, договоры, подвал сайта, подпись заключения</td><td>КОР — Бюро промышленного ИИ</td><td>KOR — Industrial AI Bureau</td></tr>
-              <tr><td>Устная речь, почта, домен</td><td>бюро КОР</td><td>KOR Bureau</td></tr>
+              <tr><td>Шапка сайта, визитка, бланк, обложки, заключения</td><td>Локап С2 — основной</td><td>Lockup C2 — primary</td></tr>
+              <tr><td>Длинная горизонталь: подвал, баннер, вывеска, подпись письма</td><td>Локап Р1 — запасной</td><td>Lockup R1 — reserve</td></tr>
+              <tr><td>Аватар, мерч, стикер, титул презентации, вышивка</td><td>Локап С3 — вспомогательный</td><td>Lockup C3 — auxiliary</td></tr>
+              <tr><td>Устав, договоры, реквизиты, подпись заключения — набором</td><td>КОР — Бюро промышленного ИИ</td><td>KOR — Industrial AI Bureau</td></tr>
+              <tr><td>Устная речь, почта, домен — только словами, не в логотипе</td><td>бюро КОР</td><td>KOR Bureau</td></tr>
               <tr><td>Страница метода, структура заключения</td><td>Контекст. Оценка. Решение.</td><td>Know. Own. Run.</td></tr>
               <tr><td>Номера и штампы</td><td>КОР-26-084 · КОР ПРИНЯТО</td><td>KOR BUREAU · ACCEPTED</td></tr>
             </tbody>
@@ -1702,6 +1764,168 @@
             <p class="lp-fork-row"><strong>Цвет:</strong> все буквы угольные, без цветных штрихов. Изумрудный акцент остаётся только в знаке — так у марки один цветовой центр, а надпись не спорит со знаком.</p>
             <p class="lp-fork-row"><strong>Где применён:</strong> во всех семействах при имени КОР. Переключатель «Буквы» на пульте возвращает набор шрифтом для сравнения.</p>
             <p class="lp-fork-row"><strong>Кириллица и латиница:</strong> в России — «КОР», за рубежом — KOR. Латинское KOR с русским дескриптором не смешиваем.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Элементы локапа и их допустимые сочетания (заготовка к бренд-буку) -->
+    <section class="lp-matrix-section" id="lockup-elements">
+      <div class="lp-wrap">
+        <div class="lp-sec-header">
+          <p class="lp-kicker">Заготовка к бренд-буку · не финальные правила</p>
+          <h2>Три элемента: по одному и попарно</h2>
+          <p>
+            Локап собирается из трёх элементов: знак, словесный знак «КОР» / KOR и дескриптор «Бюро промышленного ИИ». Ниже — все сочетания по одному и по два, со статусом допуска в той же логике, что вердикты в заключении: допущено, допущено с условием, не допущено. Полное сочетание трёх элементов — это компоновки С2, Р1 и С3 выше. Знак и язык меняются с пульта.
+          </p>
+        </div>
+        <div class="lp-el-legend" aria-label="Статусы допуска">
+          <span><span class="lp-status is-ok">Допущено</span> можно без оговорок</span>
+          <span><span class="lp-status is-cond">С условием</span> только при выполнении условия</span>
+          <span><span class="lp-status is-no">Не допущено</span> не используется как идентификатор</span>
+        </div>
+        <div class="lp-el-grid" id="elements-root"></div>
+        <div class="lp-todo">
+          <h3>Что закрепляем на этапе бренд-бука</h3>
+          <ul>
+            <li>Сетка построения С2, Р1 и С3 в долях высоты буквы «К»; охранное поле для каждой компоновки.</li>
+            <li>Минимальные размеры каждого разрешённого сочетания в пикселях и миллиметрах; порог, ниже которого дескриптор снимается.</li>
+            <li>Версии для тёмного фона и Ч/Б, правила тиснения, гравировки и вышивки.</li>
+            <li>Запреты: растягивать, менять порядок «имя → знак», перекрашивать буквы, ставить «бюро» в одну строку с КОР, обводить и класть на пёстрый фон.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Предложения по оформлению сайта из языка инженерного документа -->
+    <section class="lp-matrix-section" id="site-proposals">
+      <div class="lp-wrap">
+        <div class="lp-sec-header">
+          <p class="lp-kicker">Развилка 09 → вёрстка · предложения к согласованию</p>
+          <h2>Шесть приёмов инженерного документа для сайта</h2>
+          <p>
+            Чертёжная рамка не вошла в логотип, но её язык переходит в оформление сайта и документов бюро. Приёмы работают как система: на одном экране — не больше двух, чтобы страница оставалась сайтом, а не стилизацией под чертёж. Нумерация условная, порядок внедрения согласуем отдельно.
+          </p>
+        </div>
+        <div class="lp-site-grid">
+          <article class="lp-site-card">
+            <div class="lp-site-illu"><svg viewBox="0 0 320 150" aria-hidden="true">
+              <rect x="40" y="18" width="240" height="114" fill="#FFFFFF" stroke="#D8D0C0"/>
+              <path d="M40 46 V18 H68" fill="none" stroke="#0F5A46" stroke-width="3"/>
+              <path d="M280 104 V132 H252" fill="none" stroke="#0F5A46" stroke-width="3"/>
+              <rect x="62" y="40" width="120" height="9" fill="#1C1B18"/>
+              <rect x="62" y="58" width="180" height="4" fill="#C9C1B1"/><rect x="62" y="68" width="160" height="4" fill="#C9C1B1"/><rect x="62" y="78" width="170" height="4" fill="#C9C1B1"/>
+              <rect x="62" y="96" width="64" height="16" fill="none" stroke="#1C1B18" stroke-width="1.5"/>
+            </svg></div>
+            <div class="lp-site-body">
+              <span class="lp-site-num">Приём 1 · из 05-B</span>
+              <h3>Угловые метки</h3>
+              <p>Подсвечены только левый верхний и правый нижний углы страницы или ключевого блока — рамка чертежа без самой рамки. Диагональ задаёт порядок чтения: от начала листа к основной надписи.</p>
+              <p><strong>Где:</strong> первый экран, карточки кейсов, обложки заключений. <strong>Правило:</strong> одна пара меток на экран, изумрудный акцент только у меток.</p>
+            </div>
+          </article>
+          <article class="lp-site-card">
+            <div class="lp-site-illu"><svg viewBox="0 0 320 150" aria-hidden="true">
+              <rect x="20" y="12" width="280" height="126" fill="#FFFFFF" stroke="#D8D0C0"/>
+              <rect x="34" y="26" width="140" height="6" fill="#C9C1B1"/><rect x="34" y="38" width="110" height="6" fill="#C9C1B1"/>
+              <g stroke="#1C1B18" stroke-width="1.2" fill="none">
+                <rect x="116" y="82" width="184" height="56"/>
+                <line x1="116" y1="100" x2="300" y2="100"/><line x1="116" y1="118" x2="300" y2="118"/>
+                <line x1="175" y1="82" x2="175" y2="138"/><line x1="252" y1="100" x2="252" y2="138"/>
+              </g>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="8" fill="#1C1B18">
+                <text x="121" y="94.5" font-weight="700">КОР</text><text x="180" y="94.5">Бюро промышленного ИИ</text>
+                <text x="121" y="112.5">Документ</text><text x="180" y="112.5">Метод</text><text x="257" y="112.5">Изм. 5</text>
+                <text x="121" y="130.5">Основатель</text><text x="180" y="130.5">С. Зубков</text><text x="257" y="130.5">Лист 2</text>
+              </g>
+            </svg></div>
+            <div class="lp-site-body">
+              <span class="lp-site-num">Приём 2 · ГОСТ 2.104</span>
+              <h3>Основная надпись в подвале</h3>
+              <p>Подвал сайта собран как штамп ЕСКД: графы «Организация», «Документ», «Основатель», «Изм.», «Дата», «Лист». В правой графе — локап Р1. Подвал становится местом ответственности, а не списком ссылок.</p>
+              <p><strong>Где:</strong> подвал всех страниц, последняя страница заключения. <strong>Правило:</strong> графы содержат реальные данные, не декоративный текст.</p>
+            </div>
+          </article>
+          <article class="lp-site-card">
+            <div class="lp-site-illu"><svg viewBox="0 0 320 150" aria-hidden="true">
+              <rect x="20" y="20" width="280" height="110" fill="#FFFFFF" stroke="#D8D0C0"/>
+              <g font-family="ui-monospace, Menlo, monospace" fill="#1C1B18">
+                <text x="36" y="44" font-size="11" letter-spacing="1.5">КОР.САЙТ.02 · МЕТОД</text>
+                <text x="36" y="86" font-size="20" font-weight="700" letter-spacing="1">КОР-26-084</text>
+                <text x="36" y="108" font-size="10" fill="#615C53" letter-spacing="1">ЗАКЛЮЧЕНИЕ · ИЗМ. 2</text>
+              </g>
+              <rect x="36" y="52" width="120" height="1.5" fill="#0F5A46"/>
+            </svg></div>
+            <div class="lp-site-body">
+              <span class="lp-site-num">Приём 3 · обозначение документа</span>
+              <h3>Шифр документа</h3>
+              <p>У каждой страницы и каждого заключения есть обозначение: «КОР.САЙТ.02 · МЕТОД», «КОР-26-084». Шифр стоит над заголовком и в основной надписи и связывает сайт, заключения и договоры в один реестр.</p>
+              <p><strong>Где:</strong> над H1 страниц, в заголовках заключений, в теме писем. <strong>Правило:</strong> единая схема шифра фиксируется в бренд-буке.</p>
+            </div>
+          </article>
+          <article class="lp-site-card">
+            <div class="lp-site-illu"><svg viewBox="0 0 320 150" aria-hidden="true">
+              <rect x="20" y="16" width="280" height="118" fill="#FFFFFF" stroke="#D8D0C0"/>
+              <g stroke="#1C1B18" stroke-width="1" fill="none">
+                <rect x="36" y="30" width="248" height="90"/>
+                <line x1="36" y1="50" x2="284" y2="50"/><line x1="36" y1="73" x2="284" y2="73"/><line x1="36" y1="96" x2="284" y2="96"/>
+                <line x1="76" y1="30" x2="76" y2="120"/><line x1="200" y1="30" x2="200" y2="120"/>
+              </g>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="#1C1B18">
+                <text x="44" y="44">Изм.</text><text x="84" y="44">Что изменено</text><text x="208" y="44">Дата</text>
+                <text x="44" y="66">5.1</text><text x="84" y="66">Локап С2</text><text x="208" y="66">24.11.2026</text>
+                <text x="44" y="89">5.0</text><text x="84" y="89">Шорт-лист знаков</text><text x="208" y="89">23.11.2026</text>
+                <text x="44" y="112" fill="#615C53">4.2</text><text x="84" y="112" fill="#615C53">Ножка снята</text><text x="208" y="112" fill="#615C53">22.11.2026</text>
+              </g>
+            </svg></div>
+            <div class="lp-site-body">
+              <span class="lp-site-num">Приём 4 · лист регистрации изменений</span>
+              <h3>Таблица изменений</h3>
+              <p>У метода, тарифов и публичных заключений — история ревизий: номер изменения, что изменено, дата. Показывает, что метод живой и проверяемый, а не рекламный текст.</p>
+              <p><strong>Где:</strong> страница метода, политика данных, шаблон заключения. <strong>Правило:</strong> показываются последние три изменения, полная история — по ссылке.</p>
+            </div>
+          </article>
+          <article class="lp-site-card">
+            <div class="lp-site-illu"><svg viewBox="0 0 320 150" aria-hidden="true">
+              <rect x="20" y="16" width="280" height="118" fill="#FFFFFF" stroke="#D8D0C0"/>
+              <rect x="60" y="84" width="200" height="30" fill="#EDE7DB" stroke="#1C1B18" stroke-width="1.2"/>
+              <g stroke="#1C1B18" stroke-width="1" fill="none">
+                <line x1="60" y1="80" x2="60" y2="44"/><line x1="260" y1="80" x2="260" y2="44"/>
+                <line x1="60" y1="52" x2="260" y2="52"/>
+                <path d="M60 52 l9 -3.5 v7 z M260 52 l-9 -3.5 v7 z" fill="#1C1B18"/>
+              </g>
+              <rect x="120" y="38" width="80" height="16" fill="#FFFFFF"/>
+              <text x="160" y="50" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="12" font-weight="700" fill="#0F5A46">6 недель</text>
+              <text x="160" y="103" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#1C1B18">ДИАГНОСТИКА ДО ВНЕДРЕНИЯ</text>
+            </svg></div>
+            <div class="lp-site-body">
+              <span class="lp-site-num">Приём 5 · размеры и выноски</span>
+              <h3>Размерные линии</h3>
+              <p>Ключевые цифры — сроки, объём, эффект — подаются как размер на чертеже: выносные линии, стрелки и значение над размерной линией. Цифра привязана к объекту, а не висит отдельным «счётчиком».</p>
+              <p><strong>Где:</strong> этапы работ, тарифы, схемы процесса, кейсы. <strong>Правило:</strong> только для измеримых величин, не для лозунгов.</p>
+            </div>
+          </article>
+          <article class="lp-site-card">
+            <div class="lp-site-illu"><svg viewBox="0 0 320 150" aria-hidden="true">
+              <rect x="20" y="16" width="280" height="118" fill="#FFFFFF" stroke="#D8D0C0"/>
+              <g stroke="#1C1B18" stroke-width="1.2" fill="none"><rect x="176" y="30" width="108" height="34"/><line x1="230" y1="30" x2="230" y2="64"/></g>
+              <g font-family="ui-monospace, Menlo, monospace" fill="#1C1B18">
+                <text x="182" y="42" font-size="8" fill="#615C53">ЛИСТ</text><text x="236" y="42" font-size="8" fill="#615C53">ЛИСТОВ</text>
+                <text x="182" y="58" font-size="14" font-weight="700">2</text><text x="236" y="58" font-size="14" font-weight="700">6</text>
+              </g>
+              <g>
+                <rect x="36" y="96" width="38" height="8" fill="#1C1B18"/><rect x="78" y="96" width="38" height="8" fill="#0F5A46"/>
+                <rect x="120" y="96" width="38" height="8" fill="none" stroke="#1C1B18"/><rect x="162" y="96" width="38" height="8" fill="none" stroke="#1C1B18"/>
+                <rect x="204" y="96" width="38" height="8" fill="none" stroke="#1C1B18"/><rect x="246" y="96" width="38" height="8" fill="none" stroke="#1C1B18"/>
+              </g>
+              <text x="36" y="120" font-family="ui-monospace, Menlo, monospace" font-size="8" fill="#615C53">Лист 2 из 6 · Метод · Оценка</text>
+            </svg></div>
+            <div class="lp-site-body">
+              <span class="lp-site-num">Приём 6 · графа «Лист / Листов»</span>
+              <h3>«Лист N из M»</h3>
+              <p>Разделы сайта и заключения пронумерованы как листы комплекта: «Лист 2 из 6». Даёт навигацию и ощущение законченного документа; на длинных страницах — индикатор прогресса из сегментов.</p>
+              <p><strong>Где:</strong> шапка при прокрутке, разделы главной, PDF-заключения. <strong>Правило:</strong> номер листа совпадает в вёрстке, оглавлении и основной надписи.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -1815,7 +2039,7 @@
             <h3>Как сочетать «КОР» и «Бюро промышленного ИИ»</h3>
             <p class="lp-fork-row"><strong>Варианты:</strong> (А) имя + дескриптор: «КОР / Бюро промышленного ИИ»; (Б) жанр + имя: «Бюро промышленного ИИ „КОР“»; (В) короткая связка: «бюро КОР»; (Г) бюро — имя, КОР — имя метода; (Д) «КОР» отдельно, без дескриптора.</p>
             <div class="lp-fork-choice">
-              <strong>Оставлены (А) и (В) по решению основателя:</strong> логотипная форма «КОР / Бюро промышленного ИИ» — для шапки, обложек и визитки; короткая «бюро КОР» — для речи, почты и домена, см. раздел «Система имени». В договорах и подписи заключения та же логотипная пара пишется через тире. (Б), (Г) и (Д) сняты, как и чистое «Бюро промышленного ИИ» без собственного имени. Следствие: проверка товарного знака КОР в 35 и 42 классах становится обязательной.
+              <strong>Оставлено (А) по решению основателя:</strong> имя «КОР» + дескриптор «Бюро промышленного ИИ» в трёх компоновках локапа (см. развилку 10). Короткая «бюро КОР» сохранена только для речи, почты и домена — в логотипе в одну строку не используется. В договорах и подписи заключения та же логотипная пара пишется через тире. (Б), (Г) и (Д) сняты, как и чистое «Бюро промышленного ИИ» без собственного имени. Следствие: проверка товарного знака КОР в 35 и 42 классах становится обязательной.
             </div>
           </article>
 
@@ -1895,7 +2119,17 @@
             <h3>Чертёжная рамка — в логотип или в оформление</h3>
             <p class="lp-fork-row"><strong>Варианты:</strong> (А) логотип в виде штампа ЕСКД, открытого угла или шильдика — семейство 05; (Б) логотип — простой знак, а язык инженерного документа уходит в вёрстку сайта и документов.</p>
             <div class="lp-fork-choice">
-              <strong>Выбрано (Б) по решению основателя:</strong> рамка и графы делают логотип сложным для мерча и нанесения на сувениры. Из семейства 05 в оформление сайта переходят угловые метки, основная надпись в подвале и шифр документа. Семейство 05 со стенда снято.
+              <strong>Выбрано (Б) по решению основателя:</strong> рамка и графы делают логотип сложным для мерча и нанесения на сувениры. Из семейства 05 и языка ЕСКД в оформление сайта переходят шесть приёмов — см. раздел «Оформление сайта». Семейство 05 со стенда снято.
+            </div>
+          </article>
+
+          <article class="lp-fork-card" style="grid-column: 1 / -1;">
+            <span class="lp-fork-num">Развилка 10 · Компоновка локапа · 24.11.2026</span>
+            <h3>Где стоит знак и где стоит «бюро»</h3>
+            <p class="lp-fork-row"><strong>Варианты:</strong> (А) знак слева от блока «КОР + дескриптор» — прежняя схема 5.0; (Б) «бюро КОР» в одну строку — пять подвариантов А–Д выравнивания; (В) Р1 — знак справа от блока имени, за тонкой линией; (Г) С1 — знак и КОР над дескриптором; (Д) С2 — КОР и знак над дескриптором, знак справа; (Е) С3 — столбик по центру.</p>
+            <p class="lp-fork-row"><strong>Аналогии:</strong> основная надпись ЕСКД — в правом нижнем углу листа (ГОСТ 2.104); общий знак шероховатости — в правом верхнем углу чертежа и относится ко всему документу (ГОСТ 2.309-73). Печать и подпись в акте тоже ставят справа, после текста.</p>
+            <div class="lp-fork-choice">
+              <strong>Выбрано (Д) основным, (В) запасным, (Е) вспомогательным по решению основателя.</strong> (Б) снято: «бюро» в одной строке с КОР перетягивает внимание и даёт ассоциацию с корреспондентским бюро. (А) и (Г) сняты: порядок «имя → знак» один для всей системы. Разрешённые сочетания отдельных элементов — в разделе «Элементы и сочетания»; окончательно закрепляются в бренд-буке.
             </div>
           </article>
 
@@ -1915,10 +2149,10 @@
     <section class="lp-matrix-section" id="archive">
       <div class="lp-wrap">
         <div class="lp-sec-header">
-          <p class="lp-kicker">Архив предложений · 20–23.11.2026</p>
+          <p class="lp-kicker">Архив предложений · 20–24.11.2026</p>
           <h2>Все знаки, которые предлагались, и почему они сняты</h2>
           <p>
-            Семнадцать нарисованных знаков со стенда, словесный знак с изумрудной ножкой в двух языковых версиях и семь концепций, описанных только текстом. Знаки показаны так, как были нарисованы, с именем того времени. Архив только для справки: пульт меняет язык и среду, но в шорт-лист знаки отсюда не попадают.
+            Семнадцать нарисованных знаков со стенда, словесный знак с изумрудной ножкой в двух языковых версиях, семь концепций, описанных только текстом, и три снятые компоновки имени и знака. Знаки показаны так, как были нарисованы, с именем того времени. Архив только для справки: пульт меняет язык и среду, но в шорт-лист знаки отсюда не попадают.
           </p>
         </div>
         <div id="archive-root"></div>
@@ -2031,7 +2265,7 @@
 
       const state = {
         brand: 'kor',
-        combo: 'lead',
+        combo: 'c2',
         wordmark: 'leg',
         lang: 'ru',
         surface: 'paper',
@@ -2291,15 +2525,20 @@
 
       /* Формы сочетания имени КОР с дескриптором «Бюро промышленного ИИ» */
       const KOR_FORMS = {
-        lead: {
-          tag: { ru: 'Логотипная', en: 'Logo form' },
-          formula: { ru: 'КОР / Бюро промышленного ИИ', en: 'KOR / Industrial AI Bureau' },
-          where: { ru: 'Шапка сайта, обложки, визитка. Короткое имя крупно, категория — строкой ниже.', en: 'Site header, covers, business card. Short name large, category on the line below.' }
+        c2: {
+          tag: { ru: 'Основной локап · С2', en: 'Primary · C2' },
+          formula: { ru: 'КОР и знак над дескриптором', en: 'KOR and mark over descriptor' },
+          where: { ru: 'Шапка сайта, визитка, бланк, обложки, заключения. Знак справа от имени, как основная надпись ЕСКД; дескриптор выровнен по ширине верхней строки — блок замкнут, как графа штампа.', en: '' }
         },
-        short: {
-          tag: { ru: 'Короткая', en: 'Short form' },
-          formula: { ru: 'бюро КОР', en: 'KOR Bureau' },
-          where: { ru: 'Устная речь, почта, домен, аватар. Уводит от формы «КОР ИИ».', en: 'Speech, e-mail, domain, avatar. Keeps the name away from “KOR AI”.' }
+        r1: {
+          tag: { ru: 'Запасной локап · Р1', en: 'Reserve · R1' },
+          formula: { ru: 'Знак справа от блока имени', en: 'Mark right of the name block' },
+          where: { ru: 'Длинная горизонталь: подвал, баннер, растяжка, вывеска, подпись письма. Знак отделён тонкой линией, как графа штампа.', en: '' }
+        },
+        c3: {
+          tag: { ru: 'Вспомогательный · С3', en: 'Auxiliary · C3' },
+          formula: { ru: 'Столбик по центру', en: 'Centred stack' },
+          where: { ru: 'Квадратные и круглые носители: аватар, мерч, стикер, титул презентации, вышивка. Не заменяет С2 в шапке.', en: '' }
         }
       };
 
@@ -2356,22 +2595,16 @@
         c.badge = bk === 'kor' ? (isRu ? 'БПИ' : 'IAIB') : bk === 'korSolo' ? (isRu ? 'Л.\u00A01' : 'SH.\u00A01') : c.code;
 
         if (bk === 'kor') {
-          if (c.form === 'lead') {
-            c.cardSub = desc;
-          } else if (c.form === 'short') {
-            c.nameHtml = isRu ? `<span class="lk-pre">Бюро</span>${wm}` : `${wm}<span class="lk-post">Bureau</span>`;
-            c.sub = isRu ? 'Промышленный\u00A0ИИ' : 'Industrial\u00A0AI';
-            c.cardSub = c.sub;
-            c.namePlain = isRu ? 'Бюро КОР' : 'KOR Bureau';
-            c.nameCompact = isRu ? 'Бюро\u00A0КОР' : 'KOR\u00A0Bureau';
-          }
+          c.cardSub = desc;
+          c.wm = wm;
+          c.desc = isRu ? 'Бюро промышленного ИИ' : 'Industrial AI Bureau';
         }
         return c;
       }
 
       function brandLabelFull() {
         const base = BRANDS[state.brand].label;
-        return state.brand === 'kor' ? `${base}, форма: ${KOR_FORMS[state.combo].formula.ru}` : base;
+        return state.brand === 'kor' ? `${base}, локап: ${KOR_FORMS[state.combo].tag.ru}` : base;
       }
 
       /* Полноразмерный локап (знак + текстовый блок или табличный штамп) */
@@ -2439,6 +2672,8 @@
           </div>`;
         }
 
+        if (copy.form && KOR_FORMS[copy.form]) return renderKorLockup(variantId, copy, compactMode, uid, bk);
+
         return `<div class="lk-row">
           <div class="lk-mark" style="${compactMode ? 'width:36px;height:36px' : ''}">${renderMarkSVG(variantId, compactMode ? 36 : 46, uid, bk)}</div>
           <div class="lk-txt">
@@ -2446,6 +2681,68 @@
             <span class="lk-sub" style="${compactMode ? 'font-size:10.5px' : ''}">${copy.sub}</span>
           </div>
         </div>`;
+      }
+
+      /* Три компоновки локапа КОР: С2 (основная), Р1 (запасная), С3 (вспомогательная) */
+      function renderKorLockup(variantId, copy, compactMode, uid, bk) {
+        const mark = renderMarkSVG(variantId, 48, uid, bk);
+        if (copy.form === 'r1') {
+          return `<div class="lk-r1">
+            <div class="lk-txt">
+              <span class="lk-name" style="font-size:${compactMode ? 23 : 34}px;line-height:1.05">${copy.wm}</span>
+              <span class="lk-sub" style="${compactMode ? 'font-size:10px' : ''}">${copy.desc}</span>
+            </div>
+            <span class="lk-r1-rule" aria-hidden="true"></span>
+            <span class="lk-mark" style="width:${compactMode ? 34 : 46}px;height:${compactMode ? 34 : 46}px">${mark}</span>
+          </div>`;
+        }
+        if (copy.form === 'c3') {
+          return `<div class="lk-c3">
+            <span class="lk-mark" style="width:${compactMode ? 36 : 52}px;height:${compactMode ? 36 : 52}px">${mark}</span>
+            <span class="lk-name" style="font-size:${compactMode ? 25 : 38}px;line-height:1">${copy.wm}</span>
+            <span class="lk-sub" style="${compactMode ? 'font-size:9.5px' : ''}">${copy.desc}</span>
+          </div>`;
+        }
+        return renderC2(mark, copy.wm, copy.desc, compactMode);
+      }
+
+      function renderC2(mark, wm, desc, compactMode) {
+        return `<div class="lk-c2" style="font-size:${compactMode ? 40 : 56}px">
+          <div class="lk-c2-top"><span class="lk-c2-name">${wm}</span><span class="lk-mark lk-c2-mark">${mark}</span></div>
+          <span class="lk-sub lk-fit" style="${compactMode ? 'font-size:9.5px;margin-top:6px' : ''}">${desc}</span>
+        </div>`;
+      }
+
+      /* Подгонка С2: дескриптор занимает ровно ширину строки «КОР + знак» до видимого края знака */
+      function fitLockups(root) {
+        (root || document).querySelectorAll('.lk-c2').forEach(lk => {
+          const top = lk.querySelector('.lk-c2-top');
+          const sub = lk.querySelector('.lk-fit');
+          const svg = lk.querySelector('.lk-c2-mark svg');
+          if (!top || !sub || !svg) return;
+          const visW = () => {
+            const tr = top.getBoundingClientRect();
+            const sr = svg.getBoundingClientRect();
+            if (!tr.width || !sr.width) return 0;
+            let bb; try { bb = svg.getBBox(); } catch (e) { bb = { x: 0, width: 48 }; }
+            return sr.left + (bb.x + bb.width) * sr.width / 48 - tr.left;
+          };
+          sub.style.letterSpacing = '0.1em';
+          sub.style.marginRight = '0';
+          const f = parseFloat(getComputedStyle(sub).fontSize);
+          const dw = sub.getBoundingClientRect().width - 0.1 * f;
+          let w = visW();
+          if (!w || !dw) return;
+          for (let i = 0; i < 3; i++) {
+            const fs = parseFloat(lk.style.fontSize) || 56;
+            lk.style.fontSize = (fs * dw / w).toFixed(2) + 'px';
+            w = visW();
+          }
+          const n = sub.textContent.length;
+          const ls = 0.1 * f + (w - dw) / Math.max(1, n - 1);
+          sub.style.letterSpacing = ls.toFixed(3) + 'px';
+          sub.style.marginRight = (-ls).toFixed(3) + 'px';
+        });
       }
 
       function getVariantObj(id) {
@@ -2526,6 +2823,16 @@
           items: [
             { id: 'СЗ-RU', title: 'КОР — ножка у «К»', desc: 'Русская версия: изумрудная нижняя диагональ буквы «К».', wordmark: 'ru' },
             { id: 'СЗ-EN', title: 'KOR — ножка у R', desc: 'Английская версия: изумрудная ножка R — штрих, которым R отличается от «Р».', wordmark: 'en' }
+          ]
+        },
+        {
+          title: 'Компоновки имени и знака',
+          status: 'Сняты 24.11.2026 · обсуждение в чате',
+          reason: 'Решение основателя: «бюро» не стоит в одной строке с КОР, порядок «имя → знак» один для всей системы. Основным принят С2, запасным Р1, вспомогательным С3.',
+          items: [
+            { id: 'L-1', title: 'Знак слева от блока имени', desc: 'Схема ревизии 5.0: знак, справа КОР и дескриптор строкой ниже. Обе EN-формы и RU выравнивались по-разному.', text: true },
+            { id: 'L-2', title: '«бюро КОР» в одну строку', desc: 'Пять подвариантов выравнивания А–Д. «Бюро» перетягивает внимание и даёт ассоциацию с корреспондентским бюро.', text: true },
+            { id: 'L-3', title: 'С1 · знак и КОР над дескриптором', desc: 'Знак слева от КОР, дескриптор по ширине строки. Сильный знак, но нет логики штампа справа.', text: true }
           ]
         },
         {
@@ -2634,16 +2941,17 @@
         const reps = FAMILIES[0].variants.map(v => v.id);
         const isRu = state.lang === 'ru';
         const colHeaders = isRu
-          ? ['Знак', '1. КОР / Бюро промышленного ИИ', '2. бюро КОР']
-          : ['Mark', '1. KOR / Industrial AI Bureau', '2. KOR Bureau'];
+          ? ['Знак', 'С2 · основной', 'Р1 · запасной', 'С3 · вспомогательный']
+          : ['Mark', 'C2 · primary', 'R1 · reserve', 'C3 · auxiliary'];
 
         const headHtml = `<thead><tr>${colHeaders.map(h => `<th scope="col">${h}</th>`).join('')}</tr></thead>`;
         const rowsHtml = reps.map(vid => {
           const { variant } = getVariantObj(vid);
           return `<tr>
             <td>${variant.title}<span>Вариант ${vid}</span></td>
-            <td>${renderFullLockup(vid, 'kor', true, 'lead')}</td>
-            <td>${renderFullLockup(vid, 'kor', true, 'short')}</td>
+            <td>${renderFullLockup(vid, 'kor', true, 'c2')}</td>
+            <td>${renderFullLockup(vid, 'kor', true, 'r1')}</td>
+            <td style="text-align:center">${renderFullLockup(vid, 'kor', true, 'c3')}</td>
           </tr>`;
         }).join('');
 
@@ -2874,12 +3182,50 @@
           const f = KOR_FORMS[key];
           const isCur = state.brand === 'kor' && state.combo === key;
           return `<article class="lp-form-card ${isCur ? 'is-current' : ''}">
-            <div class="lp-form-stage">${renderFullLockup(state.activeVariant, 'kor', true, key)}</div>
+            <div class="lp-form-stage ${key === 'c3' ? 'is-center' : ''}">${renderFullLockup(state.activeVariant, 'kor', false, key)}</div>
             <div class="lp-form-body">
               <span class="lp-form-tag">${f.tag.ru}</span>
-              <h3>${isRu ? f.formula.ru : f.formula.en}</h3>
+              <h3>${f.formula.ru}</h3>
               <p>${f.where.ru}</p>
               <button type="button" class="lp-btn-try" data-action="set-form" data-form="${key}">${isCur ? 'Показана на стенде ✓' : 'Показать на стенде'}</button>
+            </div>
+          </article>`;
+        }).join('');
+      }
+
+      /* Элементы локапа по одному и попарно, со статусом допуска */
+      function renderElements() {
+        const root = document.getElementById('elements-root');
+        if (!root) return;
+        const isRu = state.lang === 'ru';
+        const vid = state.activeVariant;
+        const wm = state.wordmark === 'leg' ? korWordmark(state.lang) : (isRu ? 'КОР' : 'KOR');
+        const desc = isRu ? 'Бюро промышленного ИИ' : 'Industrial AI Bureau';
+        const mark = (sz, sfx) => `<span class="lk-mark" style="width:${sz}px;height:${sz}px">${renderMarkSVG(vid, 48, 'el-' + sfx, 'kor')}</span>`;
+        const name = (fs) => `<span class="lk-name" style="font-size:${fs}px;line-height:1">${wm}</span>`;
+        const cross = `<svg class="lp-el-x" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="6" y1="94" x2="94" y2="6" stroke="var(--logo-ink)" stroke-width="0.6" vector-effect="non-scaling-stroke"/></svg>`;
+        const ST = { ok: ['is-ok', 'Допущено'], cond: ['is-cond', 'С условием'], no: ['is-no', 'Не допущено'] };
+        const items = [
+          { group: 'По одному' },
+          { st: 'ok', title: 'Знак отдельно', stage: `${mark(64, 'a')}${mark(16, 'b')}`, where: 'Фавикон, аватар, иконка приложения, тиснение на обложке, маркер списков.', rule: 'Там, где имя уже есть рядом: вкладка, профиль, корешок.' },
+          { st: 'ok', title: 'КОР отдельно', stage: name(44), where: 'Мерч, бейдж, колонтитул, собственные материалы бюро.', rule: 'В первом внешнем упоминании — вместе с дескриптором.' },
+          { st: 'no', title: 'Дескриптор отдельно', stage: `<span class="lp-el-desc-only">${desc}</span>`, where: 'Только как слова в предложении: «бюро промышленного ИИ КОР».', rule: 'Родовое описание не охраняется и не отличает бюро от других — как логотип не используется.' },
+          { group: 'По два' },
+          { st: 'ok', title: 'КОР + знак', stage: renderC2(renderMarkSVG(vid, 48, 'el-c', 'kor'), wm, '', false).replace('<span class="lk-sub lk-fit"', '<span hidden class="lk-sub"'), where: 'Компактная шапка при прокрутке, мерч, внутренние слайды, обложки соцсетей.', rule: 'Верхняя строка С2 без дескриптора: знак справа, высота знака — по высоте букв.' },
+          { st: 'cond', title: 'КОР + дескриптор', stage: `<div class="lk-txt" style="align-items:flex-start">${name(30)}<span class="lk-sub">${desc}</span></div>`, where: 'Договоры, реквизиты, подпись заключения, подвал, где знак уже стоит на странице.', rule: 'Только если знак присутствует на том же листе или экране.' },
+          { st: 'no', title: 'Знак + дескриптор', stage: `${mark(40, 'd')}<span class="lp-el-desc-only">${desc}</span>`, where: '—', rule: 'Без КОР дескриптор начинает читаться как название — имя выпадает.' },
+          { st: 'no', title: 'Знак слева от КОР', stage: `${mark(40, 'e')}${name(32)}`, where: '—', rule: 'В системе один порядок: имя → знак (С2, Р1) или знак над именем (С3).' }
+        ];
+        root.innerHTML = items.map(it => {
+          if (it.group) return `<div class="lp-el-group-title">${it.group}</div>`;
+          const [cls, label] = ST[it.st];
+          return `<article class="lp-el-card ${it.st === 'no' ? 'is-no' : ''}">
+            <div class="lp-el-stage">${it.stage}${it.st === 'no' ? cross : ''}</div>
+            <div class="lp-el-body">
+              <span class="lp-status ${cls}">${label}</span>
+              <h3>${it.title}</h3>
+              ${it.where !== '—' ? `<p><strong>Где:</strong> ${it.where}</p>` : ''}
+              <p><strong>${it.st === 'no' ? 'Почему' : 'Условие'}:</strong> ${it.rule}</p>
             </div>
           </article>`;
         }).join('');
@@ -2909,9 +3255,11 @@
         renderMatrix();
         renderForms();
         renderBrandSystem();
+        renderElements();
         renderArchive();
         updateShortlistUI();
         measureDock();
+        fitLockups();
       }
 
       // Обработчики переключателей пульта
@@ -2982,8 +3330,9 @@
         }
       });
 
-      window.addEventListener('resize', measureDock);
+      window.addEventListener('resize', () => { measureDock(); fitLockups(); });
       renderAll();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => fitLockups());
     })();
   </script>
 </body>
