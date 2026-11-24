@@ -107,27 +107,38 @@ a { color: inherit; }
   line-height: 1.2;
 }
 
-.wordmark-name {
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: .01em;
+/* Lockup C2: КОР + знак 06-B над дескриптором, подогнанным по ширине верхней строки */
+.lk-c2 { display: flex; flex-direction: column; }
+.lk-c2-top { display: flex; align-items: center; gap: 10px; }
+.kor-wm { display: block; height: 25px; width: auto; color: var(--ink); }
+.lk-mark { display: block; line-height: 0; }
+.lk-mark svg { display: block; width: 29px; height: 29px; }
+.lk-desc {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  white-space: nowrap;
+  color: var(--ink-faint);
 }
 
-.vseg { display: flex; gap: 6px; width: 100%; margin: 3px 0 5px; }
-.vseg i { flex: 1; height: 2px; }
-.vseg i:nth-of-type(1) { background: var(--zone-green); }
-.vseg i:nth-of-type(2) { background: var(--zone-amber); }
-.vseg i:nth-of-type(3) { background: var(--zone-steel); }
-.vseg i:nth-of-type(4) { background: var(--ink-faint); }
-
-.wordmark-role {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  color: var(--ink-faint);
-  margin-top: 2px;
+/* Приём 1 · угловые метки: левый верхний и правый нижний угол первого экрана */
+.hero .container, .page-hero .container { position: relative; }
+.hero .container::before, .hero .container::after,
+.page-hero .container::before, .page-hero .container::after {
+  content: '';
+  position: absolute;
+  width: 26px; height: 26px;
+  border: 0 solid var(--accent);
+  pointer-events: none;
+}
+.hero .container::before, .page-hero .container::before {
+  top: 0; left: 0; border-top-width: 3px; border-left-width: 3px;
+}
+.hero .container::after, .page-hero .container::after {
+  bottom: 0; right: 0; border-bottom-width: 3px; border-right-width: 3px;
 }
 
 .site-nav {

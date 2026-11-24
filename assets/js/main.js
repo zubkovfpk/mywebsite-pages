@@ -65,6 +65,21 @@
 
   var year = document.getElementById('year');
   if (year) { year.textContent = String(new Date().getFullYear()); }
+
+  // Lockup C2: fit descriptor to the width of the top row (КОР + mark)
+  document.querySelectorAll('.lk-c2').forEach(function (lk) {
+    var top = lk.querySelector('.lk-c2-top');
+    var sub = lk.querySelector('.lk-desc');
+    if (!top || !sub) return;
+    var w = top.getBoundingClientRect().width;
+    var f = parseFloat(getComputedStyle(sub).fontSize);
+    var dw = sub.getBoundingClientRect().width - 0.1 * f;
+    if (!w || !dw) return;
+    var n = sub.textContent.length;
+    var ls = 0.1 * f + (w - dw) / Math.max(1, n - 1);
+    sub.style.letterSpacing = ls.toFixed(3) + 'px';
+    sub.style.marginRight = (-ls).toFixed(3) + 'px';
+  });
 })();
 
 document.querySelectorAll('a[hreflang]').forEach(function (a) {
