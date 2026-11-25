@@ -63,7 +63,7 @@ body { line-height: 1.55; }
 .case-banner { position: relative; isolation: isolate; background: #161513; color: var(--paper); min-height: 360px; display: flex; align-items: end; margin-top: 24px; aspect-ratio: 21 / 9; width: 100%; min-width: 0; }
 .case-banner > .photo { position: absolute; inset: 0; margin: 0; height: 100%; width: 100%; aspect-ratio: auto; z-index: -2; }
 .case-banner img { width: 100%; height: 100%; object-fit: cover; }
-.case-banner-copy { padding: 24px; width: 100%; min-width: 0; background: linear-gradient(to top, rgba(22,21,19,.92), rgba(22,21,19,.65) 66%, rgba(22,21,19,.65) 100%); }
+.case-banner-copy { padding: 24px; width: 100%; min-width: 0; background: linear-gradient(to top, rgba(22,21,19,.92), rgba(22,21,19,.65) 66%, transparent 100%); }
 .case-tag { color: #56C2A0; font: 12px var(--gost); text-transform: uppercase; letter-spacing: .1em; }
 .case-title { font: 600 clamp(19px, 2.2vw, 27px)/1.2 var(--sans); max-width: 28ch; text-wrap: balance; margin-top: 16px; }
 .case-caption { margin-top: 12px; font: 14px var(--sans); color: var(--paper); }
@@ -97,3 +97,44 @@ body { line-height: 1.55; }
   .stamp-cell:first-child { grid-column: 1 / -1; }
 }
 @media print { .chip i { print-color-adjust: exact; } .sheet-progress { display: none; } .float-cta, .to-top { display: none; } }
+
+/* Brand book KOR.BB.01 rev 1.5 – case marks and case body */
+.case-marks { display: flex; flex-wrap: wrap; margin: 0; border: 1px solid var(--line); border-top: 0; background: var(--paper); }
+.case-marks dt, .case-marks dd { margin: 0; padding: 10px 16px; border-right: 1px solid var(--line); font-family: var(--gost); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; line-height: 1.5; }
+.case-marks dt { color: var(--ink-faint); }
+.case-marks dd { color: var(--ink); }
+.case-marks dd b { font-weight: 400; color: var(--ink-faint); margin-right: 8px; }
+.case-marks dd:last-child { border-right: 0; }
+.card-mark { display: block; margin-top: 6px; font-family: var(--gost); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.card-mark b { font-weight: 400; color: var(--ink-faint); margin-right: 8px; }
+.case-body { display: grid; gap: 32px; }
+.case-points { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); background: var(--paper); }
+.case-point { padding: 24px; border-left: 1px solid var(--line); min-width: 0; }
+.case-point:first-child { border-left: 0; }
+.case-point p { margin: 0 0 1em; color: var(--ink-soft); max-width: 68ch; }
+.case-point > :last-child { margin-bottom: 0; }
+.case-pt { display: flex; gap: 12px; margin: 0 0 16px; font-family: var(--gost); font-weight: 400; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); line-height: 1.4; }
+.case-pt i { font-style: normal; color: var(--accent); }
+.case-verdicts { min-width: 0; }
+.case-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 16px; }
+.case-matrix { width: 100%; min-width: 0; table-layout: fixed; border: 1px solid var(--line); background: var(--paper); }
+.case-matrix col.c-proc { width: 30%; } .case-matrix col.c-dec { width: 16%; } .case-matrix col.c-why { width: 54%; }
+.case-matrix td, .case-matrix th { overflow-wrap: anywhere; hyphens: auto; }
+@media (max-width: 768px) {
+  .case-points { grid-template-columns: 1fr; }
+  .case-point { border-left: 0; border-top: 1px solid var(--line); padding: 16px; }
+  .case-point:first-child { border-top: 0; }
+  .case-matrix, .case-matrix tbody, .case-matrix tr, .case-matrix td { display: block; width: 100%; }
+  .case-matrix thead, .case-matrix colgroup { display: none; }
+  .case-matrix tr { border-top: 1px solid var(--line); padding: 12px 16px; }
+  .case-matrix tr:first-child { border-top: 0; }
+  .case-matrix td { border: 0 !important; padding: 2px 0 !important; }
+  .case-matrix td:first-child { margin-bottom: 4px; }
+  .case-matrix td[data-label]::before { content: attr(data-label) ": "; font-family: var(--gost); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); margin-right: 4px; }
+}
+@media (max-width: 560px) {
+  .case-marks { flex-direction: column; }
+  .case-marks dt, .case-marks dd { border-right: 0; border-top: 1px solid var(--line); }
+  .case-marks dt { border-top: 0; }
+  .case-marks dd b { display: block; margin: 0; }
+}
