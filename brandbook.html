@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Бренд-бук КОР – Бюро промышленного ИИ · КОР.ББ.01, изм. 1.4</title>
+  <title>Бренд-бук КОР – Бюро промышленного ИИ · КОР.ББ.01, изм. 1.5</title>
   <meta name="description" content="Бренд-бук КОР – Бюро промышленного ИИ: имя, знак 06-B, локапы, цвет, типографика, решение и допуск, фотография, графический язык, носители и тон.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="brand/kor-favicon.svg" type="image/svg+xml">
@@ -180,6 +180,23 @@
     .case-b.hd-demo .case-o { padding: 16px 16px 18px; }
     .bad-hd::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - .5px), var(--risk) calc(50% - .5px), var(--risk) calc(50% + .5px), transparent calc(50% + .5px)); opacity: .8; pointer-events: none; }
     .ccard h5 { min-height: 2lh; text-wrap: balance; }
+    .cmk { display: flex; flex-wrap: wrap; border: 1px solid var(--line); border-top: 0; background: var(--paper); }
+    .cmk dt, .cmk dd { margin: 0; padding: 9px 14px; border-right: 1px solid var(--line); font-family: var(--gost); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; line-height: 1.5; }
+    .cmk dt { color: var(--ink-muted); }
+    .cmk dd { color: var(--ink); }
+    .cmk dd b { font-weight: 400; color: var(--ink-muted); margin-right: 8px; }
+    .cmk dd:last-child { border-right: 0; }
+    .kbt td:nth-child(3) { min-width: 0; }
+    @media (max-width: 768px) { .kbt, .kbt tbody, .kbt tr, .kbt td { display: block; width: 100%; } .kbt thead, .kbt colgroup { display: none; } .kbt tr { border-top: 1px solid var(--line); padding: 10px 12px; } .kbt tr:first-child { border-top: 0; } .kbt td { border: 0 !important; padding: 2px 0 !important; } .kbt td:nth-child(2)::before { content: "Решение: "; font-family: var(--gost); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); } }
+    @media (max-width: 560px) { .kbm, .kbm tbody, .kbm tr, .kbm td { display: block; width: 100%; } .kbm thead { display: none; } .kbm tr { border-top: 1px solid var(--line); padding: 10px 12px; } .kbm tr:first-child { border-top: 0; } .kbm td { border: 0 !important; padding: 2px 0 !important; } }
+    .kb2 { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); background: var(--paper); }
+    .kb2 > div { padding: 16px 18px; border-left: 1px solid var(--line); min-width: 0; }
+    .kb2 > div:first-child { border-left: 0; }
+    .kb2 p { margin: 0; font-size: 14px; }
+    .pt { display: flex; gap: 10px; font-family: var(--gost); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 8px; }
+    .pt i { font-style: normal; color: var(--accent); }
+    @media (max-width: 768px) { .kb2 { grid-template-columns: 1fr; } .kb2 > div { border-left: 0; border-top: 1px solid var(--line); } .kb2 > div:first-child { border-top: 0; } }
+    @media (max-width: 560px) { .cmk { flex-direction: column; } .cmk dt, .cmk dd { border-right: 0; border-top: 1px solid var(--line); } .cmk dt { border-top: 0; } .cmk dd b { display: block; margin: 0; } }
     .passport { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; background: var(--paper); border: 1px solid var(--line); border-top: 0; padding: 14px 16px; font-size: 14px; }
     .passport div { border-left: 2px solid; padding-left: 10px; font-weight: 600; }
     .passport b { display: block; font-family: var(--gost); font-weight: 400; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
@@ -341,7 +358,7 @@
   <a class="skip" href="#content">Перейти к содержанию</a>
   <div class="topbar">
     <div class="topbar-in">
-      <span class="tech">КОР.ББ.01 · Бренд-бук · Изм. 1.4 · 25.11.2026</span>
+      <span class="tech">КОР.ББ.01 · Бренд-бук · Изм. 1.5 · 25.11.2026</span>
       <div class="topbar-links">
         <a href="#files">Скачать файлы логотипа</a>
         <a href="logo-preview.html">Бренд-лаборатория →</a>
@@ -382,7 +399,7 @@
         <h1>Бренд-бук КОР – Бюро промышленного ИИ</h1>
         <p class="cover-lead">Правила имени, знака, цвета, шрифта и носителей бюро. Документ – источник истины для сайта, заключений, презентаций, визиток и мерча. Всё, что здесь не описано, решается по аналогии с инженерным документом: сначала содержание, затем отметка, которая относится ко всему листу.</p>
         <div class="stamp" aria-label="Основная надпись">
-          <div><b>Организация</b>КОР</div><div><b>Документ</b>Бренд-бук · КОР.ББ.01</div><div><b>Изм.</b>1.4</div>
+          <div><b>Организация</b>КОР</div><div><b>Документ</b>Бренд-бук · КОР.ББ.01</div><div><b>Изм.</b>1.5</div>
           <div><b>Основатель</b>С. А. Зубков</div><div><b>Дата</b>25.11.2026</div><div><b>Листов</b>18</div>
         </div>
       </header>
@@ -907,6 +924,48 @@
           <figure class="fig"><div class="mk" style="padding:20px"><div class="ccard"><div class="ph"><img src="assets/img/arctic.jpg" alt="Пример фото кейса" loading="lazy" decoding="async"></div><div class="cb"><span class="case-t" style="color:var(--accent)">Морская безопасность · Арктика и ДВ</span><h5>+13&nbsp;% рейсов по&nbsp;СМП и&nbsp;+14,5&nbsp;% скорости во&nbsp;льдах</h5><p>Платформа безопасности плавания: ледовая обстановка, маршруты, границы автономии.</p><span class="more">Разбор кейса →</span></div></div></div><figcaption><b>Карточка в сетке кейсов.</b> Фото сверху, тег, цифра-заголовок и описание под фото – текст не накладывается, сетка остаётся ровной.</figcaption></figure>
           <figure class="fig"><div class="mk" style="padding:20px"><div style="width:100%"><div class="case-b" style="min-height:160px"><img src="assets/img/arctic.jpg" alt="" loading="lazy" decoding="async"><div class="case-o" style="padding:14px 16px"><div><span class="case-t">Морская безопасность / СМП</span><p class="case-m" style="font-size:17px">[ +13 % рейсов и +14,5 % во льдах ]</p></div><span class="stamp-k is-dark" style="font-size:10.5px;padding:6px 9px"><svg class="stamp-m" viewBox="0.00 0.00 33.60 37.60" role="img" aria-label="Знак КОР 06-B «Скобки и керн»"><title>Знак КОР 06-B «Скобки и керн»</title><g fill="none" stroke="#FAF7F2" stroke-width="3.600" stroke-linejoin="miter" stroke-linecap="butt"><path d="M10.30 1.80 H1.80 V35.80 H10.30"/><path d="M23.30 1.80 H31.80 V35.80 H23.30"/></g><rect x="11.80" y="13.80" width="10.00" height="10.00" fill="#56C2A0"/></svg><span>Верифицировано</span></span></div></div><div class="passport" style="font-size:12px;padding:10px 12px"><div style="border-left-color:#0F5A46"><b>Контур ИИ</b>Ледовая маршрутизация</div><div style="border-left-color:#5B7183"><b>Детерм. код</b>Пороги сближения</div><div style="border-left-color:#1C1B18"><b>Допуск и приёмка</b>КОР принято</div></div></div></div><figcaption><b>Страница кейса и избранный кейс на главной.</b> Баннер с наложением и паспорт эффекта по правилам листа 13.</figcaption></figure>
         </div>
+        <h3>Отметки кейса</h3>
+        <p>Дополнительные сведения о кейсе – трек, признание, конфиденциальность – выводятся одной строкой «Отметки» сразу под паспортом эффекта, как дополнительные графы основной надписи по ЕСКД. Ни на фото, ни над баннером их нет: тег на фото – только «Отрасль / объект».</p>
+        <figure class="fig" style="margin-top:12px"><div class="mk" style="padding:20px;display:block">
+          <div class="passport" style="font-size:12px;padding:10px 12px;border-top:1px solid var(--line)"><div style="border-left-color:#0F5A46"><b>Контур ИИ</b>Ледовая маршрутизация</div><div style="border-left-color:#5B7183"><b>Детерм. код</b>Пороги сближения</div><div style="border-left-color:#1C1B18"><b>Допуск и приёмка</b>КОР принято</div></div>
+          <dl class="cmk"><dt>Отметки</dt><dd><b>Трек</b>Международный</dd><dd><b>Признание</b>Лучшая работа III Международного GIS-Forum</dd></dl>
+        </div><figcaption><b>Строка «Отметки» под паспортом эффекта.</b> ГОСТ тип Б, прописные, прямые рамки, без цвета и без скругления.</figcaption></figure>
+        <div class="tbl" style="margin-top:14px">
+          <table class="spec kbm">
+            <thead><tr><th>Отметка</th><th>Значения</th><th>Когда ставится</th></tr></thead>
+            <tbody>
+              <tr><td>Трек</td><td style="font-weight:400">Россия · Международный · Экспорт</td><td style="font-weight:400">Кейс выполнен вне России или для выхода на внешний рынок</td></tr>
+              <tr><td>Признание</td><td style="font-weight:400">Награда, конкурс, публикация – полным названием</td><td style="font-weight:400">Есть подтверждённый документ или публикация</td></tr>
+              <tr><td>Конфиденциальность</td><td style="font-weight:400">Детали под NDA</td><td style="font-weight:400">Имя заказчика или часть данных не раскрываются</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted" style="margin-top:8px">Словарь закрытый: новая отметка появляется только через изменение бренд-бука. Нет отметок – строка не выводится. Порядок в строке: Трек → Признание → Конфиденциальность. В карточке сетки кейсов – одна отметка по приоритету Признание → Конфиденциальность → Трек, строкой ГОСТ над заголовком карточки рядом с тегом.</p>
+
+        <h3>Задача, результат, вердикты</h3>
+        <p>Содержательная часть страницы кейса собирается как пункты технического документа: нумерованные пункты, равные графы, таблица на всю ширину. Зазоры задаются сеткой, а не объёмом текста.</p>
+        <figure class="fig" style="margin-top:12px"><div class="mk" style="padding:20px;display:block">
+          <div class="kb2"><div><p class="pt"><i>1</i>Задача</p><p>Контроль рисков и страхового покрытия флота для страховщиков.</p></div><div><p class="pt"><i>2</i>Результат</p><p>Коммерческий модуль в эксплуатации; выявлен скрытый перегруз вылова в проливе Лаперуза.</p></div></div>
+          <p class="pt" style="margin-top:18px"><i>3</i>Вердикты по процессам</p>
+          <div class="legend-row" style="margin:0 0 8px;gap:8px 20px"><span class="vc"><i class="g gl1"></i>ИИ</span><span class="vc"><i class="g gl2"></i>Гибрид</span><span class="vc"><i class="g gl3"></i>Без ИИ</span></div>
+          <div class="tbl"><table class="spec mx kbt" style="table-layout:fixed"><colgroup><col style="width:30%"><col style="width:16%"><col style="width:54%"></colgroup><thead><tr><th>Процесс</th><th>Решение</th><th>Обоснование</th></tr></thead><tbody>
+            <tr><td>Метео- и ситуационные бюллетени</td><td><span class="vc"><i class="g gl1"></i>ИИ</span></td><td style="font-weight:400">Сборка данных из многих источников, персонализация под судно и рейс</td></tr>
+            <tr><td>Контроль страхового покрытия</td><td><span class="vc"><i class="g gl3"></i>Без ИИ</span></td><td style="font-weight:400">Детерминированные правила и пороги – ошибка недопустима</td></tr>
+          </tbody></table></div>
+        </div><figcaption><b>Блок заключения на странице кейса.</b> Пункты 1 и 2 – две равные графы, пункт 3 – таблица на всю ширину контейнера.</figcaption></figure>
+        <div class="tbl" style="margin-top:14px">
+          <table class="spec">
+            <thead><tr><th>Правило</th><th>Значение</th></tr></thead>
+            <tbody>
+              <tr><td>Пункты</td><td style="font-weight:400">«1 Задача», «2 Результат», «3 Вердикты по процессам»: номер – акцент <code>#0F5A46</code>, заголовок – ГОСТ тип Б, прописные</td></tr>
+              <tr><td>Задача и результат</td><td style="font-weight:400">Две равные графы в общей рамке, выравнивание по верху; высота графы – по большему тексту, текст не растягивается и не прижимается к низу. Ниже 768&nbsp;px – друг под другом</td></tr>
+              <tr><td>Таблица вердиктов</td><td style="font-weight:400">На всю ширину контейнера, под пунктами 1 и 2; колонки фиксированные: процесс 30&nbsp;%, решение 16&nbsp;%, обоснование 54&nbsp;%. Легенда решений – один раз над таблицей, в строках – компактная запись</td></tr>
+              <tr><td>Допуск</td><td style="font-weight:400">Колонка «Допуск и границы» добавляется, когда статусы опубликованы (формат – как в строке матрицы заключения); до этого – одна фраза в паспорте эффекта</td></tr>
+              <tr><td>Узкий экран</td><td style="font-weight:400">Горизонтальная прокрутка таблицы запрещена. Ниже 768&nbsp;px строка становится карточкой процесса: название, «Решение: …», обоснование</td></tr>
+              <tr><td>Ритм</td><td style="font-weight:400">Зазоры кратны 8&nbsp;px: внутри графы 16–24&nbsp;px, между графами и таблицей 32&nbsp;px</td></tr>
+            </tbody>
+          </table>
+        </div>
         <h3>Аватар, фавикон, мерч</h3>
         <div class="mk" style="justify-content:space-between;flex-wrap:wrap;gap:24px">
           <div class="sq">
@@ -1030,6 +1089,7 @@
           <table class="spec">
             <thead><tr><th>Изм.</th><th>Что изменено</th><th>Дата</th></tr></thead>
             <tbody>
+              <tr><td>1.5</td><td style="font-weight:400">Лист «Носители», кейсы на сайте: строка «Отметки» под паспортом эффекта (трек, признание, NDA; закрытый словарь); блок «1 Задача · 2 Результат · 3 Вердикты по процессам» – равные графы, таблица на всю ширину без горизонтальной прокрутки, карточки процессов на узком экране</td><td style="font-weight:400">25.11.2026</td></tr>
               <tr><td>1.4</td><td style="font-weight:400">Лист 9, правила набора диапазонов: «–» с пробелами при числах с пробелом и словесных диапазонах; дефис для примерной оценки словами; в документах по ЕСКД – «от … до …» в тексте, «–» в таблицах и для порядковых номеров</td><td style="font-weight:400">25.11.2026</td></tr>
               <tr><td>1.3</td><td style="font-weight:400">Тире – «–» с пробелами, как при наборе в MS Word, во всех версиях RU и EN, включая имя «КОР – Бюро промышленного ИИ» и файлы логотипа; лист 13: тег отрасли только на фото, над баннером не повторяется</td><td style="font-weight:400">25.11.2026</td></tr>
               <tr><td>1.2</td><td style="font-weight:400">Две плотности статусов: плашка и компактная запись с точными значениями допуска; заголовок кейса в одну-две строки; новый лист 12 «Поля и ограничители вёрстки»</td><td style="font-weight:400">24.11.2026</td></tr>
@@ -1042,7 +1102,7 @@
 
         <footer class="doc-foot">
           <div class="stamp" aria-label="Основная надпись">
-            <div><b>Организация</b>КОР – Бюро промышленного ИИ</div><div><b>Документ</b>Бренд-бук · КОР.ББ.01</div><div><b>Изм.</b>1.4</div>
+            <div><b>Организация</b>КОР – Бюро промышленного ИИ</div><div><b>Документ</b>Бренд-бук · КОР.ББ.01</div><div><b>Изм.</b>1.5</div>
             <div><b>Основатель</b>С. А. Зубков</div><div><b>Дата</b>25.11.2026</div><div><b>Лист</b>18 из 18</div>
           </div>
         </footer>
