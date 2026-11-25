@@ -63,6 +63,32 @@
     });
   });
 
+  var sheetSections = Array.from(document.querySelectorAll('main section[id]')).filter(function (s) { return s.querySelector('.sheet-no'); });
+  if (sheetSections.length) {
+    var progress = document.createElement('nav');
+    progress.className = 'sheet-progress';
+    progress.setAttribute('aria-label', document.documentElement.lang === 'ru' ? 'Листы главной' : 'Homepage sheets');
+    sheetSections.forEach(function (section, i) {
+      var link = document.createElement('a');
+      link.href = '#' + section.id;
+      link.setAttribute('aria-label', (i + 1) + ' · ' + section.querySelector('h2').textContent);
+      link.textContent = String(i + 1);
+      progress.appendChild(link);
+    });
+    document.body.appendChild(progress);
+    function updateSheet() {
+      var active = 0;
+      sheetSections.forEach(function (section, i) { if (section.getBoundingClientRect().top < window.innerHeight * .5) active = i; });
+      progress.querySelectorAll('a').forEach(function (link, i) {
+        if (i === active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
+      });
+      var sheetCell = document.querySelector('.stamp-cell:last-child .stamp-v');
+      if (sheetCell) sheetCell.textContent = (active + 1) + ' / ' + sheetSections.length;
+    }
+    window.addEventListener('scroll', updateSheet, { passive: true });
+    updateSheet();
+  }
+
   var year = document.getElementById('year');
   if (year) { year.textContent = String(new Date().getFullYear()); }
 
