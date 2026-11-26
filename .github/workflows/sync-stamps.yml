@@ -1,0 +1,29 @@
+name: Sync title blocks with the brand book
+
+on:
+  push:
+    branches: [gh-pages]
+    paths: ['**.html']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-stamps
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update title blocks from brandbook.html
+        run: python3 .github/scripts/sync_stamps.py
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet; then echo "Title blocks already match the brand book"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "pages: title blocks synced with the brand book (auto)"
+          git push
