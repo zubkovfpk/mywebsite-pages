@@ -112,8 +112,8 @@
     updateSheet();
   }
 
-  // Brand book KOR.BB.01 rev 1.8: up to 1250 px the floating buttons give way to one action bar at the bottom,
-  // shown only while scrolling up and hidden near the contact band and the footer
+  // Brand book KOR.BB.01 rev 1.9: up to 1250 px the floating buttons give way to one action bar at the bottom –
+  // always on once the hero button is off screen, hidden near the contact band and the footer; «↑» after 600 px
   (function () {
     var src = document.querySelector('.float-cta') || document.querySelector('.site-nav .nav-cta');
     if (!src || /contact\.html$/.test(location.pathname)) return;
@@ -135,22 +135,25 @@
     bar.appendChild(cta); bar.appendChild(up);
     document.body.appendChild(bar);
     var stops = Array.from(document.querySelectorAll('.cta-band, .site-footer'));
-    var lastY = window.scrollY, nearStop = false;
+    var nearStop = false;
     if ('IntersectionObserver' in window && stops.length) {
       var seen = new Set();
       var obs = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) { if (en.isIntersecting) seen.add(en.target); else seen.delete(en.target); });
         nearStop = seen.size > 0;
-        if (nearStop) bar.classList.remove('show');
+        syncBar();
       });
       stops.forEach(function (s) { obs.observe(s); });
     }
-    window.addEventListener('scroll', function () {
-      var y = window.scrollY, d = y - lastY;
-      if (Math.abs(d) < 6) return;
-      bar.classList.toggle('show', d < 0 && y > 400 && !nearStop);
-      lastY = y;
-    }, { passive: true });
+    var heroCta = document.querySelector('.hero .hero-cta, .page-hero .btn, .hero .btn');
+    function syncBar() {
+      var y = window.scrollY;
+      var pastHero = heroCta ? heroCta.getBoundingClientRect().bottom < 0 : y > 300;
+      bar.classList.toggle('show', pastHero && !nearStop);
+      bar.classList.toggle('with-top', y > 600);
+    }
+    window.addEventListener('scroll', syncBar, { passive: true });
+    syncBar();
   })();
 
   var year = document.getElementById('year');
