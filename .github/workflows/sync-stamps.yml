@@ -1,4 +1,4 @@
-name: Sync title blocks with the brand book
+name: Sync title blocks (brand book sheet 11, technique 2)
 
 on:
   push:
@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Update title blocks from brandbook.html
+        with:
+          fetch-depth: 0
+      - name: Update title blocks (revision from the page table, first issue 1.0)
         run: python3 .github/scripts/sync_stamps.py
       - name: Commit if anything changed
         run: |
