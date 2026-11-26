@@ -65,7 +65,27 @@
       link.textContent = String(i + 1);
       progress.appendChild(link);
     });
-    document.body.appendChild(progress);
+    var headerInner = document.querySelector('.header-inner');
+    var navToggle = document.getElementById('nav-toggle');
+    var strip = document.createElement('div');
+    strip.className = 'container sheet-strip';
+    function toRow() { headerInner.insertBefore(progress, navToggle && navToggle.parentNode === headerInner ? navToggle : null); }
+    function rowHeight() { var d = progress.style.display; progress.style.display = 'none'; var h = headerInner.getBoundingClientRect().height; progress.style.display = d; return h; }
+    if (headerInner) { toRow(); headerInner.parentNode.appendChild(strip); }
+    else document.body.appendChild(progress);
+    // Brand book KOR.BB.01 rev 1.7, technique 6: sheets in the header row; a strip under it only if the row has no room
+    function placeSheets() {
+      if (!headerInner) return;
+      toRow();
+      document.documentElement.classList.remove('sp-below-on');
+      if (getComputedStyle(progress).position === 'fixed') return;
+      if (headerInner.scrollWidth > headerInner.clientWidth + 1 || headerInner.getBoundingClientRect().height > rowHeight() + 1) {
+        strip.appendChild(progress);
+        document.documentElement.classList.add('sp-below-on');
+      }
+    }
+    window.addEventListener('resize', placeSheets);
+    placeSheets();
     function updateSheet() {
       var active = 0;
       sheetSections.forEach(function (section, i) { if (section.getBoundingClientRect().top < window.innerHeight * .5) active = i; });

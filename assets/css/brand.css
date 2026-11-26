@@ -76,7 +76,6 @@ body { line-height: 1.55; }
 .sheet-progress a { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); text-decoration: none; font: 12px var(--gost); }
 .sheet-progress a[aria-current] { border: 2px solid var(--accent); }
 .sheet-progress a[aria-current]::before { content: ''; width: 5px; height: 5px; background: var(--accent); }
-@media (max-width: 1250px) { .sheet-progress { position: static; flex-direction: row; flex-wrap: wrap; justify-content: center; padding: 16px; } }
 @media (min-width: 481px) and (max-width: 1023px) { .container { padding-inline: 24px; } .section { padding-block: 72px; } }
 @media (max-width: 560px) { .case-passport { grid-template-columns: 1fr; } .case-passport > div { border-left: 0; border-top: 1px solid var(--line); } .case-passport > div:first-child { border-top: 0; } .case-banner { aspect-ratio: 16 / 10; min-height: 260px; } .case-banner-copy { padding: 40px 16px 16px; background: linear-gradient(to top, rgba(22,21,19,.92) 0%, rgba(22,21,19,.65) 80%, transparent 100%); } }
 @media (max-width: 480px) {
@@ -145,3 +144,23 @@ body { line-height: 1.55; }
 /* Brand book – GOST type B only for one-line uppercase labels; right angles for floating buttons */
 .card-verdict { margin: 12px 0 0; font: 15px/1.5 var(--sans); letter-spacing: 0; text-transform: none; color: var(--ink); }
 .to-top, .float-cta { border-radius: 0; }
+
+/* Brand book KOR.BB.01 rev 1.7 – technique 6 «Sheet N of M»: right column on wide screens, header row below 1251 px */
+.sheet-progress a { position: relative; }
+.sheet-progress a[aria-current] { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+@media (min-width: 1251px) { .sheet-strip { display: none; } }
+@media (max-width: 1250px) {
+  .sheet-progress { position: static; flex: none; flex-direction: row; flex-wrap: nowrap; gap: 6px; padding: 0; margin-left: auto; justify-content: flex-end; align-items: center; }
+  .sheet-progress a { width: 32px; height: 32px; font-size: 11px; }
+  .sheet-progress a[aria-current]::before { width: 4px; height: 4px; }
+  .site-header .header-inner { position: relative; }
+  .sheet-strip:empty { display: none; }
+  .sheet-strip { display: flex; justify-content: flex-end; padding-block: 0 8px; }
+  .sheet-strip .sheet-progress { margin: 0; }
+  html.sp-below-on { scroll-padding-top: 156px; }
+}
+@media (max-width: 599px) {
+  html.sp-below-on { scroll-padding-top: 116px; }
+  .sheet-progress a { width: 28px; height: 28px; }
+  .sheet-progress a::after { content: ''; position: absolute; inset: -8px -3px; }
+}
