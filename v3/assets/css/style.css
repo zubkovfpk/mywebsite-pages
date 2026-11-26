@@ -1423,3 +1423,7 @@ body { line-height: 1.55; }
 
 /* Brand book rev 1.6 – case lead spans the container, right edge on the passport frame */
 .page-hero .case-passport ~ .hero-sub { max-width: none; }
+
+/* Brand book – GOST type B only for one-line uppercase labels; right angles for floating buttons */
+.card-verdict { margin: 12px 0 0; font: 15px/1.5 var(--sans); letter-spacing: 0; text-transform: none; color: var(--ink); }
+.to-top, .float-cta { border-radius: 0; }
