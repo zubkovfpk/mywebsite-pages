@@ -79,7 +79,10 @@
       toRow();
       document.documentElement.classList.remove('sp-below-on');
       if (getComputedStyle(progress).position === 'fixed') return;
-      if (headerInner.scrollWidth > headerInner.clientWidth + 1 || headerInner.getBoundingClientRect().height > rowHeight() + 1) {
+      var box = headerInner.getBoundingClientRect(), cs = getComputedStyle(headerInner);
+      var contentRight = box.right - parseFloat(cs.paddingRight);
+      var lastRight = Math.max.apply(null, Array.from(headerInner.children).map(function (c) { return c.offsetParent ? c.getBoundingClientRect().right : 0; }));
+      if (lastRight > contentRight + 0.5 || headerInner.scrollWidth > headerInner.clientWidth + 1 || box.height > rowHeight() + 1) {
         strip.appendChild(progress);
         document.documentElement.classList.add('sp-below-on');
       }
