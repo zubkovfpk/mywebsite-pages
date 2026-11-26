@@ -1447,3 +1447,41 @@ body { line-height: 1.55; }
   .header-inner > .sheet-progress { margin-right: -12px; }
   .sheet-progress a::after { content: ''; position: absolute; inset: -8px -3px; }
 }
+
+/* Brand book KOR.BB.01 rev 1.8 – title block grid lines; action bar instead of floating buttons up to 1250 px */
+.stamp { overflow: hidden; }
+.stamp .stamp-cell { border-left: 1px solid var(--ink); border-top: 1px solid var(--ink); margin: -1px 0 0 -1px; }
+.stamp .stamp-cell:nth-child(5) { grid-column: span 2; }
+.stamp .stamp-cell:last-child { grid-column: span 3; }
+@media (min-width: 721px) and (max-width: 1100px) { .stamp { grid-template-columns: 1fr 1fr 1fr; } .stamp .stamp-cell:first-child { grid-column: span 2; } .stamp .stamp-cell:nth-child(5) { grid-column: auto; } .stamp .stamp-cell:last-child { grid-column: 1 / -1; } }
+@media (max-width: 720px) { .stamp .stamp-cell:nth-child(5) { grid-column: auto; } .stamp .stamp-cell:last-child { grid-column: 1 / -1; } }
+.action-bar { display: none; }
+@media (max-width: 1250px) {
+  .float-cta, .to-top { display: none !important; }
+  .action-bar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--paper); border-top: 1px solid var(--ink); padding-bottom: env(safe-area-inset-bottom); transform: translateY(100%); visibility: hidden; transition: transform .2s ease, visibility .2s; }
+  .action-bar.show { transform: none; visibility: visible; }
+  .action-bar a { display: flex; align-items: center; justify-content: center; min-height: 48px; text-decoration: none; border-radius: 0; }
+  .action-bar-cta { flex: 1; background: var(--accent); color: var(--paper); font-size: 15px; }
+  .action-bar-cta:hover { background: var(--accent-ink); }
+  .action-bar-top { width: 48px; flex: none; color: var(--ink); font-size: 20px; border-left: 1px solid var(--ink); }
+  .nav-open .action-bar { visibility: hidden; transform: translateY(100%); }
+}
+@media (prefers-reduced-motion: reduce) { .action-bar { transition: none; } }
+@media print { .action-bar { display: none !important; } }
+/* rev 1.8 – GOST tags break only between whole tags */
+.card-tags .tg { display: inline-block; }
+
+/* rev 1.8 – homepage cards on phones: description on the photo, as in the case banner (sheet 13) */
+@media (max-width: 600px) {
+  .home-cards .card, .home-cards .card-rand > .card:first-child { display: grid; grid-template-columns: 1fr; grid-template-rows: 96px auto auto auto auto auto; grid-template-areas: "sp" "tg" "h" "d" "v" "m"; padding: 0; isolation: isolate; }
+  .home-cards .card-rand > .card:not(:first-child) { display: none; }
+  .home-cards .card > .photo { grid-area: sp-start / 1 / d-end / 2; aspect-ratio: auto; margin: 0; height: auto; min-height: 0; contain: size; z-index: -2; }
+  .home-cards .card::before { content: ''; grid-area: sp-start / 1 / d-end / 2; z-index: -1; background: linear-gradient(to top, rgba(22,21,19,.92) 0%, rgba(22,21,19,.65) calc(100% - 96px), rgba(22,21,19,0) 100%); }
+  .home-cards .card > .card-tags { grid-area: tg; padding: 0 16px; margin: 0 0 8px; min-height: 0; color: var(--paper); }
+  .home-cards .card > .card-tags .card-mark, .home-cards .card > .card-tags .card-mark b { color: var(--paper); }
+  .home-cards .card > h3 { grid-area: h; padding: 0 16px; margin: 0 0 8px; min-height: 0; color: var(--paper); }
+  .home-cards .card > p:not(.card-tags):not(.card-verdict) { grid-area: d; padding: 0 16px 16px; margin: 0; min-height: 0; color: var(--paper); }
+  .home-cards .card > .card-verdict { grid-area: v; padding: 12px 16px 0; margin: 0; }
+  .home-cards .card > .more { grid-area: m; padding: 12px 16px 16px; }
+  .home-cards .card .photo.gen::after { top: 8px; right: 8px; }
+}
