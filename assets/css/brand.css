@@ -40,11 +40,16 @@ body { line-height: 1.55; }
 .doc-code, .sheet-no, .stamp-l, .stamp-v, .eyebrow, .format-step, .card-tags, .facts dt, .crumbs, .hero-meta, .nav-lang { font-family: var(--gost); text-transform: uppercase; }
 .doc-code, .sheet-no, .stamp-v { font-size: 12px; }
 .footer-note, .step-meta, .rev-table td { font-family: var(--sans); }
-.stamp { margin-top: 48px; grid-template-columns: 2fr 1.5fr 1.2fr .8fr .7fr; }
+.site-footer { padding-block: 12px; }
+@media screen and (max-width: 1250px) {
+  body:has(.action-bar.show) .site-footer { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
+}
+.site-footer .stamp { margin-block: 0 12px; }
+.stamp { grid-template-columns: 2fr 1.5fr 1.2fr .8fr .7fr; }
 .stamp-cell { padding: 6px 10px; }
 .stamp-cell:first-child { grid-column: span 2; }
 .stamp-v { white-space: normal; overflow: visible; text-overflow: clip; }
-.footer-brand { width: 240px; height: auto; margin-block: 48px 24px; }
+.site-footer .footer-brand { display: block; width: 240px; height: auto; margin: 0 0 8px; }
 .rev-table { width: 100%; table-layout: auto; }
 .rev-table th { text-align: left; padding: 8px 16px; }
 .rev-table td { padding: 8px 16px; }
@@ -106,7 +111,7 @@ body { line-height: 1.55; }
   .card { padding: 16px; } .card-grid { gap: 16px; }
   .hero-sub { margin-top: 12px; } .hero-cta { margin-top: 20px; }
   .matrix td, .matrix th { padding: 10px 12px; }
-  .stamp { margin-top: 32px; grid-template-columns: 1fr 1fr; }
+  .stamp { grid-template-columns: 1fr 1fr; }
   .stamp-cell:first-child { grid-column: 1 / -1; }
 }
 @media print { .chip i { print-color-adjust: exact; } .sheet-progress { display: none; } .float-cta, .to-top { display: none; } }
@@ -228,6 +233,50 @@ body { line-height: 1.55; }
 @media print { .action-bar { display: none !important; } }
 /* rev 1.8 – GOST tags break only between whole tags */
 .card-tags .tg { display: inline-block; }
+
+/* Screen rhythm: let content set the height. Keep sheet framing, media
+   proportions, control hit areas and the separate print layouts intact. */
+@media screen {
+  main {
+    --flow-label: 8px;
+    --flow-item: clamp(12px, 1.25vw, 16px);
+    --flow-group: clamp(16px, 1.8vw, 24px);
+  }
+  .hero, .page-hero { padding-block: var(--flow-item) 8px; }
+  .hero .container, .page-hero .container { padding-block: var(--flow-item); }
+  .hero .eyebrow, .page-hero .eyebrow, .section .eyebrow { margin-bottom: var(--flow-label); }
+  .hero-title, .section-title { margin-bottom: var(--flow-item); }
+  .hero .hero-sub, .page-hero .hero-sub { margin-block: var(--flow-item) 0; }
+  .hero .hero-cta { margin-block: var(--flow-group) var(--flow-item); }
+  .crumbs { margin-bottom: var(--flow-label); }
+  .section, .home-economics { padding-block: var(--flow-group); }
+  .section-lead { margin-bottom: var(--flow-group); }
+  .cta-band { padding-block: var(--flow-group); }
+  .cta-band .hero-cta { margin-top: var(--flow-item); }
+
+  .card-grid { row-gap: var(--flow-item); }
+  .card-grid .card { padding-block: var(--flow-item); }
+  .card-grid .card h3, .card-grid .card > p, .card-grid .card .card-tags { min-height: 0; }
+  .card .photo { margin-bottom: var(--flow-item); }
+  .card .photo + .card-tags { margin-top: 0; }
+  .formats { row-gap: var(--flow-group); }
+  .format { padding-top: var(--flow-item); }
+  .format-price:not(.dimension) { padding-top: 0; }
+  .split { row-gap: var(--flow-group); }
+  .prose > :last-child { margin-bottom: 0; }
+  .contact-links { margin-block: 0 var(--flow-item); }
+  .contact-link { padding-block: 12px; min-height: 44px; }
+
+  .case-banner { margin-top: var(--flow-item); }
+  .case-body { gap: var(--flow-group); }
+  .case-point { padding-block: var(--flow-item); }
+  .case-pt, .case-legend { margin-bottom: var(--flow-item); }
+  .report { padding-block: var(--flow-group); }
+  .report-head { padding-bottom: var(--flow-item); }
+  .r-sec { padding-top: var(--flow-group); }
+  .gate { padding-block: var(--flow-group); }
+  html:not(.report-unlocked) .report-locked { max-height: clamp(180px, 22vw, 270px); }
+}
 
 /* rev 1.8 – homepage cards on phones: description on the photo, as in the case banner (sheet 13) */
 @media (max-width: 600px) {

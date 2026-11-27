@@ -1489,3 +1489,66 @@ body { line-height: 1.55; }
   .home-cards a.card:hover > h3, .home-cards a.card:active > h3 { color: var(--paper); }
   .home-cards a.card:hover .more { text-decoration: underline; }
 }
+
+/* Compact editorial rhythm for the whole RU/EN site. Screen only: the
+   document's printed spacing, page structure and interactive targets stay intact. */
+@media screen {
+  :root {
+    --section-edge: clamp(14px, 1.8vw, 20px);
+    --group-gap: clamp(12px, 1.4vw, 16px);
+  }
+
+  .section, .cta-band { padding-block: var(--section-edge); }
+  .hero, .page-hero { padding-block: var(--group-gap); }
+  .hero .container, .page-hero .container { padding-block: var(--group-gap); }
+  .hero-grid, .split, .steps, .formats, .card-grid, .case-body { row-gap: var(--group-gap); }
+  .crumbs, .doc-code, .eyebrow { margin-bottom: 6px; }
+  .hero-title, .section-title { margin-bottom: 10px; }
+  .hero-sub { margin-block: 0 var(--group-gap); }
+  .hero-cta { margin-block: var(--group-gap) 10px; }
+  .cta-band p, .section-lead { margin-bottom: var(--group-gap); }
+  .page-hero .container > :last-child, .cta-band .container > :last-child,
+  .prose > :last-child { margin-bottom: 0; }
+  .section-note { margin-top: var(--group-gap); padding-top: 8px; }
+  /* Both Method pages have a legacy inline 48px top margin on this heading. */
+  #sample .section-note + h3.section-title { margin-top: var(--group-gap) !important; }
+
+  .number-item, .zone, .council-lead, .council-experts li, .council-sign {
+    padding-block: var(--group-gap);
+  }
+  .zone-tag, .zone-text, .council-num { margin-bottom: 8px; }
+  .zone-example { padding-top: 8px; }
+  .card { padding-block: var(--group-gap); }
+  .card .photo { margin-bottom: 8px; }
+  .card-tags { margin-block: 0 6px; }
+  .card h3 { min-height: 0; margin-bottom: 6px; }
+  .card .more { padding-top: 8px; }
+  .step, .format { padding-top: 10px; }
+  .step-num, .step-meta, .format-step { margin-bottom: 6px; }
+  .photo-wide, .case-banner, .rev-table, .precedence { margin-top: var(--group-gap); }
+  .no-go { margin-top: 0; padding-block: var(--group-gap); }
+  .facts { margin-block: var(--group-gap); }
+  .facts div, .case-passport > div { padding-block: 10px; }
+  .case-point { padding-block: var(--group-gap); }
+  .case-pt, .case-legend { margin-bottom: 8px; }
+
+  .matrix th, .matrix td, .decision-list li, .tick-list li { padding-block: 8px; }
+  .faq-item summary { min-height: 44px; padding-block: 8px; align-items: center; }
+  .faq-body { padding-bottom: 12px; }
+  .form { gap: 12px; }
+  .form label { row-gap: 4px; }
+  .contact-links { margin-block: 4px var(--group-gap); }
+  .contact-link { min-height: 44px; padding-block: 8px; }
+  .report { padding-block: var(--section-edge); }
+  .report-head { padding-bottom: var(--group-gap); }
+  .r-sec { padding-top: var(--group-gap); }
+  .r-sec h3, .report-head h2, .report-kicker { margin-bottom: 8px; }
+  .gate { padding-block: var(--group-gap); }
+
+  .site-footer { padding-block: 12px; }
+  .site-footer .stamp { margin-block: 0 12px; }
+  .site-footer .footer-brand { display: block; margin: 0 0 8px; }
+}
+@media screen and (max-width: 1250px) {
+  body:has(.action-bar.show) .site-footer { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
+}
