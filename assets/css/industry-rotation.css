@@ -1,0 +1,6 @@
+/* The original HTML is the complete, visible catalogue, even without scripts. */
+#experience .reveal { opacity: 1; transform: none; }
+#experience [hidden] { display: none; }
+#experience .industry-toggle { margin-top: 24px; cursor: pointer; }
+#experience #other-industries { margin-top: 24px; }
+#experience .industry-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
