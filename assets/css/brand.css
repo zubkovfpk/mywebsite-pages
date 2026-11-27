@@ -148,8 +148,8 @@ body { line-height: 1.55; }
 .home-economics ul { list-style: none; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
 .home-economics li + li { border-inline-start: 1px solid var(--line); padding-inline-start: 24px; }
 .home-economics a { display: block; position: relative; height: 100%; text-decoration: none; }
-.home-economics strong { display: block; color: var(--accent); font: 600 clamp(21px,2vw,28px)/1.16 var(--sans); }
-.home-economics strong::after { content: ' →' / ''; font-size: .65em; }
+.home-economics strong { display: block; color: var(--accent); font: 650 clamp(38px,4vw,56px)/1.05 var(--sans); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+.home-economics strong small, .home-economics strong i { font: 500 .46em/1 var(--sans); }
 .home-economics a:hover strong, .home-economics a:focus-visible strong { text-decoration: underline; text-underline-offset: .12em; }
 .home-economics span { display: block; margin-top: 6px; color: var(--ink-soft); font: 15px/1.45 var(--sans); }
 @media (max-width: 720px) {
