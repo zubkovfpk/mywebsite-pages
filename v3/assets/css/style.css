@@ -1334,25 +1334,25 @@ body { line-height: 1.55; }
 /* Sheets 09/11: prose and rates stay separate from measured duration/effort. */
 .formats .format { container-type: inline-size; min-width: 0; }
 .formats .format-step { font-size: 13px; letter-spacing: .1em; }
-.formats .format-name { font: 600 21px/1.2 var(--sans); margin: 0 0 12px; }
+.formats .format-name { font: 600 20px/1.2 var(--sans); margin: 0 0 8px; }
 .formats .format-price, .formats .format-text {
   padding: 0; margin: 0; font: 400 16px/1.55 var(--sans);
   color: var(--ink-soft); letter-spacing: normal; text-transform: none;
 }
 .formats .format-price::before { content: none; }
-.formats .format-text { margin-top: 12px; }
+.formats .format-text { margin-top: 8px; }
 .formats .format-amount {
   display: block; white-space: nowrap; color: var(--ink);
-  font: 400 clamp(21px, 9cqi, 28px)/1.2 var(--gost);
-  font-variant-numeric: tabular-nums;
+  font: 400 21px/1.16 var(--gost);
+  letter-spacing: -.16em; word-spacing: -.1em;
 }
-.formats .format-amount small { font: 600 16px/1.2 var(--sans); }
-@container (max-width: 205px) {
-  .formats .format-amount { font-size:20px; }
-  .formats .format-amount small { font-size:14px; }
-}
-.formats .format-terms { display: block; margin-top: 2px; }
+.formats .format-amount small { font: inherit; letter-spacing: inherit; }
+.formats .format-terms { display: block; margin-top: 2px; font: 400 16px/1.35 var(--sans); }
 .formats .format-status { white-space: normal; }
+@media (min-width:1101px) {
+  .formats.formats-5 { column-gap:24px; }
+  .formats .format-amount { font-size:20px; }
+}
 .format-note { margin: 20px 0 0; font: 400 14px/1.5 var(--sans); color: var(--ink-soft); }
 /* Each group of adjacent cards shares content-sized tracks. Stacked cards keep normal flow. */
 @media (min-width: 721px) {
@@ -1360,30 +1360,21 @@ body { line-height: 1.55; }
     .formats.formats-5 { row-gap: 0; }
     .formats-5 > .format {
       container-type: normal; /* Inline-size containment would disable the row subgrid. */
-      display: grid; grid-row: span 6; grid-template-rows: subgrid;
+      display: grid; grid-row: span 5; grid-template-rows: subgrid;
       grid-template-columns: minmax(0, 1fr); align-items: start; padding-bottom: 24px;
     }
     .formats-5 .format-step { grid-row: 1; }
     .formats-5 .format-name { grid-row: 2; }
-    .formats-5 .format-price {
-      display: grid; grid-row: 3 / span 2; grid-template-rows: subgrid;
-      grid-template-columns: minmax(0, 1fr); align-self: stretch; align-items: start;
-    }
-    .formats-5 .format-amount { grid-row: 1; font-size: var(--fee-size, 27px); }
-    .formats-5 .format-amount small { font-size: var(--fee-unit, 16px); }
-    .formats-5 .format-terms { grid-row: 2; }
-    .formats-5 .format-measure { grid-row: 5; }
-    .formats-5 .format-text { grid-row: 6; }
+    .formats-5 .format-price { grid-row: 3; }
+    .formats-5 .format-measure { grid-row: 4; }
+    .formats-5 .format-text { grid-row: 5; }
     .formats-5 + .format-note { margin-top: 0; }
   }
-}
-@media (min-width: 1101px) {
-  .formats-5 { --fee-size: 20px; --fee-unit: 14px; }
 }
 .formats .format-measure {
   --rule: #1C1B18;
   position: relative; width: fit-content; max-width: 100%; min-width: min(11rem, 100%);
-  margin: 14px 0 0; padding: 0 12px 9px; box-sizing: border-box;
+  margin: 8px 0 0; padding: 0 12px 9px; box-sizing: border-box;
   color: #0F5A46; text-align: center; white-space: nowrap;
   font: 400 clamp(12px, 4.1cqi, 14px)/1.3 var(--gost); text-transform: uppercase;
   background:
