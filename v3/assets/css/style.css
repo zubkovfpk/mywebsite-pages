@@ -1352,6 +1352,34 @@ body { line-height: 1.55; }
   .formats .format-amount small { font-size:14px; }
 }
 .formats .format-terms { display: block; margin-top: 2px; }
+.formats .format-status { white-space: normal; }
+.format-note { margin: 20px 0 0; font: 400 14px/1.5 var(--sans); color: var(--ink-soft); }
+/* Each group of adjacent cards shares content-sized tracks. Stacked cards keep normal flow. */
+@media (min-width: 721px) {
+  @supports (grid-template-rows: subgrid) {
+    .formats.formats-5 { row-gap: 0; }
+    .formats-5 > .format {
+      container-type: normal; /* Inline-size containment would disable the row subgrid. */
+      display: grid; grid-row: span 6; grid-template-rows: subgrid;
+      grid-template-columns: minmax(0, 1fr); align-items: start; padding-bottom: 24px;
+    }
+    .formats-5 .format-step { grid-row: 1; }
+    .formats-5 .format-name { grid-row: 2; }
+    .formats-5 .format-price {
+      display: grid; grid-row: 3 / span 2; grid-template-rows: subgrid;
+      grid-template-columns: minmax(0, 1fr); align-self: stretch; align-items: start;
+    }
+    .formats-5 .format-amount { grid-row: 1; font-size: var(--fee-size, 27px); }
+    .formats-5 .format-amount small { font-size: var(--fee-unit, 16px); }
+    .formats-5 .format-terms { grid-row: 2; }
+    .formats-5 .format-measure { grid-row: 5; }
+    .formats-5 .format-text { grid-row: 6; }
+    .formats-5 + .format-note { margin-top: 0; }
+  }
+}
+@media (min-width: 1101px) {
+  .formats-5 { --fee-size: 20px; --fee-unit: 14px; }
+}
 .formats .format-measure {
   --rule: #1C1B18;
   position: relative; width: fit-content; max-width: 100%; min-width: min(11rem, 100%);
