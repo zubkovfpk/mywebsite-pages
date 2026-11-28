@@ -1610,3 +1610,16 @@ body { line-height: 1.55; }
 @media screen and (max-width: 1250px) {
   body:has(.action-bar.show) .site-footer { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
 }
+/* Footer: brand and copyright on the left, menu bottom-aligned with the copyright line. */
+.site-footer .container { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 40px; }
+.site-footer .stamp, .site-footer .footer-note { grid-column: 1 / -1; }
+.site-footer .footer-inner { display: contents; }
+.site-footer .footer-brand { grid-column: 1; grid-row: 2; }
+.site-footer .footer-inner > p:first-child { grid-column: 1; grid-row: 3; margin: 0; align-self: end; min-height: 44px; display: flex; align-items: center; }
+.site-footer .footer-brand { margin-bottom: 0; }
+.site-footer .footer-nav { grid-column: 2; grid-row: 2 / 4; align-self: end; justify-content: flex-end; }
+.site-footer .footer-note { margin-top: 12px; }
+@media (max-width: 720px) {
+  .site-footer .container { grid-template-columns: minmax(0, 1fr); }
+  .site-footer .footer-nav { grid-column: 1; grid-row: auto; justify-content: flex-start; margin-top: 8px; }
+}
