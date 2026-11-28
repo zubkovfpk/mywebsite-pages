@@ -243,7 +243,7 @@ a { color: inherit; }
   gap: 26px;
 }
 
-.site-nav a {
+.site-nav a, .footer-nav a {
   font-family: var(--mono);
   font-size: 12px;
   text-transform: uppercase;
@@ -1147,7 +1147,7 @@ html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
 .tick-list li::before { content: "–"; position: absolute; left: 0; color: var(--accent); }
 
 .footer-inner { flex-wrap: wrap; gap: 12px 32px; }
-.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .footer-nav a { color: var(--ink-soft); }
 
 @media (max-width: 960px) {
@@ -1604,7 +1604,7 @@ body { line-height: 1.55; }
   .gate { padding-block: var(--group-gap); }
 
   .site-footer { padding-block: 12px; }
-  .site-footer .stamp { margin-block: 0 12px; }
+  .site-footer .stamp { margin-block: 0 clamp(18px, 2vw, 28px); }
   .site-footer .footer-brand { display: block; margin: 0 0 8px; }
 }
 @media screen and (max-width: 1250px) {

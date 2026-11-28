@@ -242,7 +242,7 @@ a { color: inherit; }
   gap: 26px;
 }
 
-.site-nav a {
+.site-nav a, .footer-nav a {
   font-family: var(--sans);
   font-size: 12px;
   text-transform: uppercase;
@@ -1138,7 +1138,7 @@ html[lang="en"] .photo.gen::after { content: "AI-processed image"; }
 .tick-list li::before { content: "–"; position: absolute; left: 0; color: var(--accent); }
 
 .footer-inner { flex-wrap: wrap; gap: 12px 32px; }
-.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .footer-nav a { color: var(--ink-soft); }
 
 @media (max-width: 960px) {
@@ -1280,4 +1280,4 @@ a.ind-case:hover { text-decoration: underline; }
 .verdict-head, .status, .council-num, .proof-line span, .bureau-role,
 .nda-tag, .award-chip, .award-tag, .award-cap, .draft-note,
 .report-kicker, .r-num, .r-note, .level-sub, .factor-lead,
-.radar-legend, .footer-note, .hero-meta, .site-nav .nav-lang { font-family: var(--gost); }
+.radar-legend, .footer-note, .hero-meta, .site-nav .nav-lang, .footer-nav a[hreflang] { font-family: var(--gost); }
